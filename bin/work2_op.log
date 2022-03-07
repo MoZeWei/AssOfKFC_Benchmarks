@@ -1,0 +1,1837 @@
+Begin to loop
+Matched target func: _Z6FUNCb1PfS_S_S_S_iii
+Matched candidate func: FUNC
+The input operand of   call void @_Z21__device_stub__squareiPfS_i(i32 1, float* %46, float* %47, i32 %48) are:
+i32 1
+float* %1
+float* %0
+  %48 = load i32, i32* %14, align 4
+_Z21__device_stub__squareiPfS_i has 4 input arguments and 1 output arguments
+The input operand of   call void @_Z21__device_stub__squareiPfS_i(i32 1, float* %67, float* %68, i32 %69) are:
+i32 1
+float* %3
+float* %2
+  %69 = load i32, i32* %14, align 4
+_Z21__device_stub__squareiPfS_i has 4 input arguments and 1 output arguments
+The input operand of   call void @_Z21__device_stub__reduceiPfS_S_i(i32 1, float* %88, float* %89, float* %90, i32 %91) are:
+i32 1
+float* %4
+float* %1
+float* %3
+  %91 = load i32, i32* %14, align 4
+_Z21__device_stub__reduceiPfS_S_i has 5 input arguments and 1 output arguments
+
+
+This is Seq_Graph for Function _Z6FUNCb1PfS_S_S_S_iii
+CHICHI
+  %29 = load i32, i32* %15, align 4
+CHICHI
+  %50 = load i32, i32* %15, align 4
+First!
+CHICHI
+  %71 = load i32, i32* %15, align 4
+First!
+<<<<<<<<<<<<<<<<<<<<
+  call void @_Z21__device_stub__squareiPfS_i(i32 1, float* %46, float* %47, i32 %48)
+Input Value:
+float* %0
+  %48 = load i32, i32* %14, align 4
+Output Value:
+float* %1
+BasicBlock:
+%.split %45 
+  call void @_Z21__device_stub__squareiPfS_i(i32 1, float* %67, float* %68, i32 %69)
+Input Value:
+float* %2
+  %69 = load i32, i32* %14, align 4
+Output Value:
+float* %3
+BasicBlock:
+%49 %66 
+  call void @_Z21__device_stub__reduceiPfS_S_i(i32 1, float* %88, float* %89, float* %90, i32 %91)
+Input Value:
+float* %1
+float* %3
+  %91 = load i32, i32* %14, align 4
+Output Value:
+float* %4
+BasicBlock:
+%70 %87 
+<<<<<<<<<<<<<<<<<<<<
+Dumping pred_map
+Target node:   call void @_Z21__device_stub__reduceiPfS_S_i(i32 1, float* %88, float* %89, float* %90, i32 %91)
+Depends on   call void @_Z21__device_stub__squareiPfS_i(i32 1, float* %46, float* %47, i32 %48)
+Depends on   call void @_Z21__device_stub__squareiPfS_i(i32 1, float* %67, float* %68, i32 %69)
+
+Target node:   call void @_Z21__device_stub__squareiPfS_i(i32 1, float* %67, float* %68, i32 %69)
+Depends on Entry_Node
+
+Target node:   call void @_Z21__device_stub__squareiPfS_i(i32 1, float* %46, float* %47, i32 %48)
+Depends on Entry_Node
+
+Target node: Entry Node
+
+Target node: End Node
+Depends on   call void @_Z21__device_stub__reduceiPfS_S_i(i32 1, float* %88, float* %89, float* %90, i32 %91)
+
+********************
+Level 0 :
+Entry Node
+********************
+********************
+Level 1 :
+  call void @_Z21__device_stub__squareiPfS_i(i32 1, float* %67, float* %68, i32 %69)
+  call void @_Z21__device_stub__squareiPfS_i(i32 1, float* %46, float* %47, i32 %48)
+********************
+********************
+Level 2 :
+  call void @_Z21__device_stub__reduceiPfS_S_i(i32 1, float* %88, float* %89, float* %90, i32 %91)
+********************
+********************
+Level 3 :
+End_Node
+New add pred in position 0 of stream 0 is   call void @_Z21__device_stub__squareiPfS_i(i32 1, float* %71, float* %72, i32 %73)
+Added pred in position 0 of stream 1 is   call void @_Z21__device_stub__squareiPfS_i(i32 1, float* %48, float* %49, i32 %50)
+cur:   call void @_Z21__device_stub__reduceiPfS_S_i(i32 1, float* %94, float* %95, float* %96, i32 %97)
+New add pred in position 0 of stream 0 is   call void @_Z21__device_stub__squareiPfS_i(i32 1, float* %71, float* %72, i32 %73)
+Added pred in position 0 of stream 0 is   call void @_Z21__device_stub__squareiPfS_i(i32 1, float* %71, float* %72, i32 %73)
+cur:   call void @_Z21__device_stub__reduceiPfS_S_i(i32 1, float* %94, float* %95, float* %96, i32 %97)
+Add Event:
+Prev:   call void @_Z21__device_stub__squareiPfS_i(i32 1, float* %71, float* %72, i32 %73)
+Tail:   call void @_Z21__device_stub__reduceiPfS_S_i(i32 1, float* %94, float* %95, float* %96, i32 %97)
+**********************
+StreamGraph:
+The 9th Stream:
+The 8th Stream:
+The 7th Stream:
+The 6th Stream:
+The 1th Stream:
+  call void @_Z21__device_stub__squareiPfS_i(i32 1, float* %48, float* %49, i32 %50)
+  call void @_Z21__device_stub__reduceiPfS_S_i(i32 1, float* %94, float* %95, float* %96, i32 %97)
+The 0th Stream:
+  call void @_Z21__device_stub__squareiPfS_i(i32 1, float* %71, float* %72, i32 %73)
+The 2th Stream:
+The 3th Stream:
+The 4th Stream:
+The 5th Stream:
+**********************
+**********************
+EventEdge:
+1th Event:
+Prev:   call void @_Z21__device_stub__squareiPfS_i(i32 1, float* %71, float* %72, i32 %73)
+Succ:   call void @_Z21__device_stub__reduceiPfS_S_i(i32 1, float* %94, float* %95, float* %96, i32 %97)
+**********************
+Begin to insert Event
+Begin to sync
+Matched target func: _Z6FUNCb5PdS_S_S_S_S_S_S_S_S_S_S_S_S_S_S_S_S_S_S_iiiiiii
+Matched candidate func: FUNC
+The input operand of   call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %112, double* %113, i32 %114, double %116, double %118, double %120, double %122) are:
+i32 1
+double* %1
+double* %0
+  %114 = load i32, i32* %50, align 4
+  %116 = sitofp i32 %115 to double
+  %118 = sitofp i32 %117 to double
+  %120 = sitofp i32 %119 to double
+  %122 = sitofp i32 %121 to double
+_Z17__device_stub__bsiPdS_idddd has 8 input arguments and 1 output arguments
+The input operand of   call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %141, double* %142, i32 %143, double %145, double %147, double %149, double %151) are:
+i32 1
+double* %3
+double* %2
+  %143 = load i32, i32* %50, align 4
+  %145 = sitofp i32 %144 to double
+  %147 = sitofp i32 %146 to double
+  %149 = sitofp i32 %148 to double
+  %151 = sitofp i32 %150 to double
+_Z17__device_stub__bsiPdS_idddd has 8 input arguments and 1 output arguments
+The input operand of   call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %170, double* %171, i32 %172, double %174, double %176, double %178, double %180) are:
+i32 1
+double* %5
+double* %4
+  %172 = load i32, i32* %50, align 4
+  %174 = sitofp i32 %173 to double
+  %176 = sitofp i32 %175 to double
+  %178 = sitofp i32 %177 to double
+  %180 = sitofp i32 %179 to double
+_Z17__device_stub__bsiPdS_idddd has 8 input arguments and 1 output arguments
+The input operand of   call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %199, double* %200, i32 %201, double %203, double %205, double %207, double %209) are:
+i32 1
+double* %7
+double* %6
+  %201 = load i32, i32* %50, align 4
+  %203 = sitofp i32 %202 to double
+  %205 = sitofp i32 %204 to double
+  %207 = sitofp i32 %206 to double
+  %209 = sitofp i32 %208 to double
+_Z17__device_stub__bsiPdS_idddd has 8 input arguments and 1 output arguments
+The input operand of   call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %228, double* %229, i32 %230, double %232, double %234, double %236, double %238) are:
+i32 1
+double* %9
+double* %8
+  %230 = load i32, i32* %50, align 4
+  %232 = sitofp i32 %231 to double
+  %234 = sitofp i32 %233 to double
+  %236 = sitofp i32 %235 to double
+  %238 = sitofp i32 %237 to double
+_Z17__device_stub__bsiPdS_idddd has 8 input arguments and 1 output arguments
+The input operand of   call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %257, double* %258, i32 %259, double %261, double %263, double %265, double %267) are:
+i32 1
+double* %11
+double* %10
+  %259 = load i32, i32* %50, align 4
+  %261 = sitofp i32 %260 to double
+  %263 = sitofp i32 %262 to double
+  %265 = sitofp i32 %264 to double
+  %267 = sitofp i32 %266 to double
+_Z17__device_stub__bsiPdS_idddd has 8 input arguments and 1 output arguments
+The input operand of   call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %286, double* %287, i32 %288, double %290, double %292, double %294, double %296) are:
+i32 1
+double* %13
+double* %12
+  %288 = load i32, i32* %50, align 4
+  %290 = sitofp i32 %289 to double
+  %292 = sitofp i32 %291 to double
+  %294 = sitofp i32 %293 to double
+  %296 = sitofp i32 %295 to double
+_Z17__device_stub__bsiPdS_idddd has 8 input arguments and 1 output arguments
+The input operand of   call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %315, double* %316, i32 %317, double %319, double %321, double %323, double %325) are:
+i32 1
+double* %15
+double* %14
+  %317 = load i32, i32* %50, align 4
+  %319 = sitofp i32 %318 to double
+  %321 = sitofp i32 %320 to double
+  %323 = sitofp i32 %322 to double
+  %325 = sitofp i32 %324 to double
+_Z17__device_stub__bsiPdS_idddd has 8 input arguments and 1 output arguments
+The input operand of   call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %344, double* %345, i32 %346, double %348, double %350, double %352, double %354) are:
+i32 1
+double* %17
+double* %16
+  %346 = load i32, i32* %50, align 4
+  %348 = sitofp i32 %347 to double
+  %350 = sitofp i32 %349 to double
+  %352 = sitofp i32 %351 to double
+  %354 = sitofp i32 %353 to double
+_Z17__device_stub__bsiPdS_idddd has 8 input arguments and 1 output arguments
+The input operand of   call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %373, double* %374, i32 %375, double %377, double %379, double %381, double %383) are:
+i32 1
+double* %19
+double* %18
+  %375 = load i32, i32* %50, align 4
+  %377 = sitofp i32 %376 to double
+  %379 = sitofp i32 %378 to double
+  %381 = sitofp i32 %380 to double
+  %383 = sitofp i32 %382 to double
+_Z17__device_stub__bsiPdS_idddd has 8 input arguments and 1 output arguments
+
+
+This is Seq_Graph for Function _Z6FUNCb5PdS_S_S_S_S_S_S_S_S_S_S_S_S_S_S_S_S_S_S_iiiiiii
+CHICHI
+  %95 = load i32, i32* %48, align 4
+CHICHI
+  %124 = load i32, i32* %48, align 4
+First!
+CHICHI
+  %153 = load i32, i32* %48, align 4
+First!
+CHICHI
+  %182 = load i32, i32* %48, align 4
+First!
+CHICHI
+  %211 = load i32, i32* %48, align 4
+First!
+CHICHI
+  %240 = load i32, i32* %48, align 4
+First!
+CHICHI
+  %269 = load i32, i32* %48, align 4
+First!
+CHICHI
+  %298 = load i32, i32* %48, align 4
+First!
+CHICHI
+  %327 = load i32, i32* %48, align 4
+First!
+CHICHI
+  %356 = load i32, i32* %48, align 4
+First!
+<<<<<<<<<<<<<<<<<<<<
+  call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %112, double* %113, i32 %114, double %116, double %118, double %120, double %122)
+Input Value:
+double* %0
+  %114 = load i32, i32* %50, align 4
+  %116 = sitofp i32 %115 to double
+  %118 = sitofp i32 %117 to double
+  %120 = sitofp i32 %119 to double
+  %122 = sitofp i32 %121 to double
+Output Value:
+double* %1
+BasicBlock:
+%.split %111 
+  call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %141, double* %142, i32 %143, double %145, double %147, double %149, double %151)
+Input Value:
+double* %2
+  %143 = load i32, i32* %50, align 4
+  %145 = sitofp i32 %144 to double
+  %147 = sitofp i32 %146 to double
+  %149 = sitofp i32 %148 to double
+  %151 = sitofp i32 %150 to double
+Output Value:
+double* %3
+BasicBlock:
+%123 %140 
+  call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %170, double* %171, i32 %172, double %174, double %176, double %178, double %180)
+Input Value:
+double* %4
+  %172 = load i32, i32* %50, align 4
+  %174 = sitofp i32 %173 to double
+  %176 = sitofp i32 %175 to double
+  %178 = sitofp i32 %177 to double
+  %180 = sitofp i32 %179 to double
+Output Value:
+double* %5
+BasicBlock:
+%152 %169 
+  call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %199, double* %200, i32 %201, double %203, double %205, double %207, double %209)
+Input Value:
+double* %6
+  %201 = load i32, i32* %50, align 4
+  %203 = sitofp i32 %202 to double
+  %205 = sitofp i32 %204 to double
+  %207 = sitofp i32 %206 to double
+  %209 = sitofp i32 %208 to double
+Output Value:
+double* %7
+BasicBlock:
+%181 %198 
+  call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %228, double* %229, i32 %230, double %232, double %234, double %236, double %238)
+Input Value:
+double* %8
+  %230 = load i32, i32* %50, align 4
+  %232 = sitofp i32 %231 to double
+  %234 = sitofp i32 %233 to double
+  %236 = sitofp i32 %235 to double
+  %238 = sitofp i32 %237 to double
+Output Value:
+double* %9
+BasicBlock:
+%210 %227 
+  call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %257, double* %258, i32 %259, double %261, double %263, double %265, double %267)
+Input Value:
+double* %10
+  %259 = load i32, i32* %50, align 4
+  %261 = sitofp i32 %260 to double
+  %263 = sitofp i32 %262 to double
+  %265 = sitofp i32 %264 to double
+  %267 = sitofp i32 %266 to double
+Output Value:
+double* %11
+BasicBlock:
+%239 %256 
+  call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %286, double* %287, i32 %288, double %290, double %292, double %294, double %296)
+Input Value:
+double* %12
+  %288 = load i32, i32* %50, align 4
+  %290 = sitofp i32 %289 to double
+  %292 = sitofp i32 %291 to double
+  %294 = sitofp i32 %293 to double
+  %296 = sitofp i32 %295 to double
+Output Value:
+double* %13
+BasicBlock:
+%268 %285 
+  call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %315, double* %316, i32 %317, double %319, double %321, double %323, double %325)
+Input Value:
+double* %14
+  %317 = load i32, i32* %50, align 4
+  %319 = sitofp i32 %318 to double
+  %321 = sitofp i32 %320 to double
+  %323 = sitofp i32 %322 to double
+  %325 = sitofp i32 %324 to double
+Output Value:
+double* %15
+BasicBlock:
+%297 %314 
+  call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %344, double* %345, i32 %346, double %348, double %350, double %352, double %354)
+Input Value:
+double* %16
+  %346 = load i32, i32* %50, align 4
+  %348 = sitofp i32 %347 to double
+  %350 = sitofp i32 %349 to double
+  %352 = sitofp i32 %351 to double
+  %354 = sitofp i32 %353 to double
+Output Value:
+double* %17
+BasicBlock:
+%326 %343 
+  call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %373, double* %374, i32 %375, double %377, double %379, double %381, double %383)
+Input Value:
+double* %18
+  %375 = load i32, i32* %50, align 4
+  %377 = sitofp i32 %376 to double
+  %379 = sitofp i32 %378 to double
+  %381 = sitofp i32 %380 to double
+  %383 = sitofp i32 %382 to double
+Output Value:
+double* %19
+BasicBlock:
+%355 %372 
+<<<<<<<<<<<<<<<<<<<<
+Dumping pred_map
+Target node:   call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %373, double* %374, i32 %375, double %377, double %379, double %381, double %383)
+Depends on Entry_Node
+
+Target node:   call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %344, double* %345, i32 %346, double %348, double %350, double %352, double %354)
+Depends on Entry_Node
+
+Target node:   call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %286, double* %287, i32 %288, double %290, double %292, double %294, double %296)
+Depends on Entry_Node
+
+Target node:   call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %228, double* %229, i32 %230, double %232, double %234, double %236, double %238)
+Depends on Entry_Node
+
+Target node: End Node
+Depends on   call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %112, double* %113, i32 %114, double %116, double %118, double %120, double %122)
+Depends on   call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %141, double* %142, i32 %143, double %145, double %147, double %149, double %151)
+Depends on   call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %170, double* %171, i32 %172, double %174, double %176, double %178, double %180)
+Depends on   call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %199, double* %200, i32 %201, double %203, double %205, double %207, double %209)
+Depends on   call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %228, double* %229, i32 %230, double %232, double %234, double %236, double %238)
+Depends on   call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %257, double* %258, i32 %259, double %261, double %263, double %265, double %267)
+Depends on   call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %286, double* %287, i32 %288, double %290, double %292, double %294, double %296)
+Depends on   call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %315, double* %316, i32 %317, double %319, double %321, double %323, double %325)
+Depends on   call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %344, double* %345, i32 %346, double %348, double %350, double %352, double %354)
+Depends on   call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %373, double* %374, i32 %375, double %377, double %379, double %381, double %383)
+
+Target node:   call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %170, double* %171, i32 %172, double %174, double %176, double %178, double %180)
+Depends on Entry_Node
+
+Target node: Entry Node
+
+Target node:   call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %315, double* %316, i32 %317, double %319, double %321, double %323, double %325)
+Depends on Entry_Node
+
+Target node:   call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %257, double* %258, i32 %259, double %261, double %263, double %265, double %267)
+Depends on Entry_Node
+
+Target node:   call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %141, double* %142, i32 %143, double %145, double %147, double %149, double %151)
+Depends on Entry_Node
+
+Target node:   call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %112, double* %113, i32 %114, double %116, double %118, double %120, double %122)
+Depends on Entry_Node
+
+Target node:   call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %199, double* %200, i32 %201, double %203, double %205, double %207, double %209)
+Depends on Entry_Node
+
+********************
+********************
+Level 0 :
+Entry Node
+********************
+********************
+Level 1 :
+  call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %373, double* %374, i32 %375, double %377, double %379, double %381, double %383)
+  call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %344, double* %345, i32 %346, double %348, double %350, double %352, double %354)
+  call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %286, double* %287, i32 %288, double %290, double %292, double %294, double %296)
+  call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %228, double* %229, i32 %230, double %232, double %234, double %236, double %238)
+  call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %170, double* %171, i32 %172, double %174, double %176, double %178, double %180)
+  call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %315, double* %316, i32 %317, double %319, double %321, double %323, double %325)
+  call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %257, double* %258, i32 %259, double %261, double %263, double %265, double %267)
+  call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %141, double* %142, i32 %143, double %145, double %147, double %149, double %151)
+  call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %112, double* %113, i32 %114, double %116, double %118, double %120, double %122)
+  call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %199, double* %200, i32 %201, double %203, double %205, double %207, double %209)
+********************
+********************
+Level 2 :
+End_Node
+**********************
+StreamGraph:
+The 9th Stream:
+  call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %207, double* %208, i32 %209, double %211, double %213, double %215, double %217)
+The 8th Stream:
+  call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %114, double* %115, i32 %116, double %118, double %120, double %122, double %124)
+The 7th Stream:
+  call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %145, double* %146, i32 %147, double %149, double %151, double %153, double %155)
+The 6th Stream:
+  call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %269, double* %270, i32 %271, double %273, double %275, double %277, double %279)
+The 1th Stream:
+  call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %362, double* %363, i32 %364, double %366, double %368, double %370, double %372)
+The 0th Stream:
+  call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %393, double* %394, i32 %395, double %397, double %399, double %401, double %403)
+The 2th Stream:
+  call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %300, double* %301, i32 %302, double %304, double %306, double %308, double %310)
+The 3th Stream:
+  call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %238, double* %239, i32 %240, double %242, double %244, double %246, double %248)
+The 4th Stream:
+  call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %176, double* %177, i32 %178, double %180, double %182, double %184, double %186)
+The 5th Stream:
+  call void @_Z17__device_stub__bsiPdS_idddd(i32 1, double* %331, double* %332, i32 %333, double %335, double %337, double %339, double %341)
+**********************
+**********************
+EventEdge:
+**********************
+Begin to insert Event
+Begin to sync
+Matched target func: _Z6FUNCb6PfPiiiS_S_iS_S_S_S_S_S0_ii
+Matched candidate func: FUNC
+The input operand of   call void @_Z19__device_stub__rr_1iPfPiii(i32 1, float* %88, i32* %89, i32 %90, i32 %91) are:
+i32 1
+float* %0
+i32* %1
+  %90 = load i32, i32* %18, align 4
+  %91 = load i32, i32* %19, align 4
+_Z19__device_stub__rr_1iPfPiii has 5 input arguments and 1 output arguments
+The input operand of   call void @_Z19__device_stub__nb_1iPfPiS_iii(i32 1, float* %110, i32* %111, float* %112, i32 %113, i32 %114, i32 %115) are:
+i32 1
+float* %4
+i32* %1
+float* %5
+  %113 = load i32, i32* %18, align 4
+  %114 = load i32, i32* %19, align 4
+  %115 = load i32, i32* %22, align 4
+_Z19__device_stub__nb_1iPfPiS_iii has 7 input arguments and 1 output arguments
+The input operand of   call void @_Z19__device_stub__rr_2iPfS_S_iii(i32 1, float* %134, float* %135, float* %136, i32 %137, i32 %138, i32 %139) are:
+i32 1
+float* %7
+float* %0
+float* %8
+  %137 = load i32, i32* %18, align 4
+  %138 = load i32, i32* %19, align 4
+  %139 = load i32, i32* %22, align 4
+_Z19__device_stub__rr_2iPfS_S_iii has 7 input arguments and 1 output arguments
+The input operand of   call void @_Z19__device_stub__nb_2iPfS_ii(i32 1, float* %158, float* %159, i32 %160, i32 %161) are:
+i32 1
+float* %9
+float* %4
+  %160 = load i32, i32* %18, align 4
+  %161 = load i32, i32* %22, align 4
+_Z19__device_stub__nb_2iPfS_ii has 5 input arguments and 1 output arguments
+The input operand of   call void @_Z19__device_stub__nb_3iPfS_S_ii(i32 1, float* %180, float* %181, float* %182, i32 %183, i32 %184) are:
+i32 1
+float* %10
+float* %4
+float* %9
+  %183 = load i32, i32* %18, align 4
+  %184 = load i32, i32* %22, align 4
+_Z19__device_stub__nb_3iPfS_S_ii has 6 input arguments and 1 output arguments
+The input operand of   call void @_Z19__device_stub__rr_3iPfS_ii(i32 1, float* %203, float* %204, i32 %205, i32 %206) are:
+i32 1
+float* %7
+float* %11
+  %205 = load i32, i32* %18, align 4
+  %206 = load i32, i32* %22, align 4
+_Z19__device_stub__rr_3iPfS_ii has 5 input arguments and 1 output arguments
+The input operand of   call void @_Z19__device_stub__nb_4iPfS_ii(i32 1, float* %225, float* %226, i32 %227, i32 %228) are:
+i32 1
+float* %4
+float* %10
+  %227 = load i32, i32* %18, align 4
+  %228 = load i32, i32* %22, align 4
+_Z19__device_stub__nb_4iPfS_ii has 5 input arguments and 1 output arguments
+The input operand of   call void @_Z22__device_stub__softmaxiPfii(i32 1, float* %247, i32 %248, i32 %249) are:
+i32 1
+float* %4
+  %248 = load i32, i32* %18, align 4
+  %249 = load i32, i32* %22, align 4
+_Z22__device_stub__softmaxiPfii has 4 input arguments and 1 output arguments
+The input operand of   call void @_Z22__device_stub__softmaxiPfii(i32 1, float* %268, i32 %269, i32 %270) are:
+i32 1
+float* %7
+  %269 = load i32, i32* %18, align 4
+  %270 = load i32, i32* %22, align 4
+_Z22__device_stub__softmaxiPfii has 4 input arguments and 1 output arguments
+The input operand of   call void @_Z21__device_stub__argmaxiPiPfS0_ii(i32 1, i32* %289, float* %290, float* %291, i32 %292, i32 %293) are:
+i32 1
+i32* %12
+float* %4
+float* %7
+  %292 = load i32, i32* %18, align 4
+  %293 = load i32, i32* %22, align 4
+_Z21__device_stub__argmaxiPiPfS0_ii has 6 input arguments and 1 output arguments
+
+
+This is Seq_Graph for Function _Z6FUNCb6PfPiiiS_S_iS_S_S_S_S_S0_ii
+CHICHI
+  %71 = load i32, i32* %29, align 4
+CHICHI
+  %93 = load i32, i32* %29, align 4
+First!
+CHICHI
+  %117 = load i32, i32* %29, align 4
+First!
+CHICHI
+  %141 = load i32, i32* %29, align 4
+First!
+CHICHI
+  %163 = load i32, i32* %29, align 4
+First!
+CHICHI
+  %186 = load i32, i32* %29, align 4
+First!
+CHICHI
+  %208 = load i32, i32* %29, align 4
+First!
+CHICHI
+  %230 = load i32, i32* %29, align 4
+First!
+CHICHI
+  %251 = load i32, i32* %29, align 4
+First!
+CHICHI
+  %272 = load i32, i32* %29, align 4
+First!
+<<<<<<<<<<<<<<<<<<<<
+  call void @_Z19__device_stub__rr_1iPfPiii(i32 1, float* %88, i32* %89, i32 %90, i32 %91)
+Input Value:
+i32* %1
+  %90 = load i32, i32* %18, align 4
+  %91 = load i32, i32* %19, align 4
+Output Value:
+float* %0
+BasicBlock:
+%.split %87 
+  call void @_Z19__device_stub__nb_1iPfPiS_iii(i32 1, float* %110, i32* %111, float* %112, i32 %113, i32 %114, i32 %115)
+Input Value:
+i32* %1
+float* %5
+  %113 = load i32, i32* %18, align 4
+  %114 = load i32, i32* %19, align 4
+  %115 = load i32, i32* %22, align 4
+Output Value:
+float* %4
+BasicBlock:
+%92 %109 
+  call void @_Z19__device_stub__rr_2iPfS_S_iii(i32 1, float* %134, float* %135, float* %136, i32 %137, i32 %138, i32 %139)
+Input Value:
+float* %0
+float* %8
+  %137 = load i32, i32* %18, align 4
+  %138 = load i32, i32* %19, align 4
+  %139 = load i32, i32* %22, align 4
+Output Value:
+float* %7
+BasicBlock:
+%116 %133 
+  call void @_Z19__device_stub__nb_2iPfS_ii(i32 1, float* %158, float* %159, i32 %160, i32 %161)
+Input Value:
+float* %4
+  %160 = load i32, i32* %18, align 4
+  %161 = load i32, i32* %22, align 4
+Output Value:
+float* %9
+BasicBlock:
+%140 %157 
+  call void @_Z19__device_stub__nb_3iPfS_S_ii(i32 1, float* %180, float* %181, float* %182, i32 %183, i32 %184)
+Input Value:
+float* %4
+float* %9
+  %183 = load i32, i32* %18, align 4
+  %184 = load i32, i32* %22, align 4
+Output Value:
+float* %10
+BasicBlock:
+%162 %179 
+  call void @_Z19__device_stub__rr_3iPfS_ii(i32 1, float* %203, float* %204, i32 %205, i32 %206)
+Input Value:
+float* %11
+  %205 = load i32, i32* %18, align 4
+  %206 = load i32, i32* %22, align 4
+Output Value:
+float* %7
+BasicBlock:
+%185 %202 
+  call void @_Z19__device_stub__nb_4iPfS_ii(i32 1, float* %225, float* %226, i32 %227, i32 %228)
+Input Value:
+float* %10
+  %227 = load i32, i32* %18, align 4
+  %228 = load i32, i32* %22, align 4
+Output Value:
+float* %4
+BasicBlock:
+%207 %224 
+  call void @_Z22__device_stub__softmaxiPfii(i32 1, float* %247, i32 %248, i32 %249)
+Input Value:
+  %248 = load i32, i32* %18, align 4
+  %249 = load i32, i32* %22, align 4
+Output Value:
+float* %4
+BasicBlock:
+%229 %246 
+  call void @_Z22__device_stub__softmaxiPfii(i32 1, float* %268, i32 %269, i32 %270)
+Input Value:
+  %269 = load i32, i32* %18, align 4
+  %270 = load i32, i32* %22, align 4
+Output Value:
+float* %7
+BasicBlock:
+%250 %267 
+  call void @_Z21__device_stub__argmaxiPiPfS0_ii(i32 1, i32* %289, float* %290, float* %291, i32 %292, i32 %293)
+Input Value:
+float* %4
+float* %7
+  %292 = load i32, i32* %18, align 4
+  %293 = load i32, i32* %22, align 4
+Output Value:
+i32* %12
+BasicBlock:
+%271 %288 
+<<<<<<<<<<<<<<<<<<<<
+Dumping pred_map
+Target node:   call void @_Z21__device_stub__argmaxiPiPfS0_ii(i32 1, i32* %289, float* %290, float* %291, i32 %292, i32 %293)
+Depends on   call void @_Z22__device_stub__softmaxiPfii(i32 1, float* %247, i32 %248, i32 %249)
+Depends on   call void @_Z22__device_stub__softmaxiPfii(i32 1, float* %268, i32 %269, i32 %270)
+
+Target node:   call void @_Z22__device_stub__softmaxiPfii(i32 1, float* %268, i32 %269, i32 %270)
+Depends on   call void @_Z19__device_stub__rr_3iPfS_ii(i32 1, float* %203, float* %204, i32 %205, i32 %206)
+
+Target node:   call void @_Z19__device_stub__rr_3iPfS_ii(i32 1, float* %203, float* %204, i32 %205, i32 %206)
+Depends on   call void @_Z19__device_stub__rr_2iPfS_S_iii(i32 1, float* %134, float* %135, float* %136, i32 %137, i32 %138, i32 %139)
+
+Target node:   call void @_Z19__device_stub__nb_3iPfS_S_ii(i32 1, float* %180, float* %181, float* %182, i32 %183, i32 %184)
+Depends on   call void @_Z19__device_stub__nb_1iPfPiS_iii(i32 1, float* %110, i32* %111, float* %112, i32 %113, i32 %114, i32 %115)
+Depends on   call void @_Z19__device_stub__nb_2iPfS_ii(i32 1, float* %158, float* %159, i32 %160, i32 %161)
+
+Target node: End Node
+Depends on   call void @_Z21__device_stub__argmaxiPiPfS0_ii(i32 1, i32* %289, float* %290, float* %291, i32 %292, i32 %293)
+
+Target node: Entry Node
+
+Target node:   call void @_Z19__device_stub__rr_2iPfS_S_iii(i32 1, float* %134, float* %135, float* %136, i32 %137, i32 %138, i32 %139)
+Depends on   call void @_Z19__device_stub__rr_1iPfPiii(i32 1, float* %88, i32* %89, i32 %90, i32 %91)
+
+Target node:   call void @_Z22__device_stub__softmaxiPfii(i32 1, float* %247, i32 %248, i32 %249)
+Depends on   call void @_Z19__device_stub__nb_4iPfS_ii(i32 1, float* %225, float* %226, i32 %227, i32 %228)
+Depends on   call void @_Z19__device_stub__nb_3iPfS_S_ii(i32 1, float* %180, float* %181, float* %182, i32 %183, i32 %184)
+Depends on   call void @_Z19__device_stub__nb_2iPfS_ii(i32 1, float* %158, float* %159, i32 %160, i32 %161)
+
+Target node:   call void @_Z19__device_stub__nb_4iPfS_ii(i32 1, float* %225, float* %226, i32 %227, i32 %228)
+Depends on   call void @_Z19__device_stub__nb_1iPfPiS_iii(i32 1, float* %110, i32* %111, float* %112, i32 %113, i32 %114, i32 %115)
+Depends on   call void @_Z19__device_stub__nb_3iPfS_S_ii(i32 1, float* %180, float* %181, float* %182, i32 %183, i32 %184)
+Depends on   call void @_Z19__device_stub__nb_2iPfS_ii(i32 1, float* %158, float* %159, i32 %160, i32 %161)
+
+Target node:   call void @_Z19__device_stub__nb_1iPfPiS_iii(i32 1, float* %110, i32* %111, float* %112, i32 %113, i32 %114, i32 %115)
+Depends on Entry_Node
+
+Target node:   call void @_Z19__device_stub__rr_1iPfPiii(i32 1, float* %88, i32* %89, i32 %90, i32 %91)
+Depends on Entry_Node
+
+Target node:   call void @_Z19__device_stub__nb_2iPfS_ii(i32 1, float* %158, float* %159, i32 %160, i32 %161)
+Depends on   call void @_Z19__device_stub__nb_1iPfPiS_iii(i32 1, float* %110, i32* %111, float* %112, i32 %113, i32 %114, i32 %115)
+
+********************
+********************
+Level 0 :
+Entry Node
+********************
+********************
+Level 1 :
+  call void @_Z19__device_stub__nb_1iPfPiS_iii(i32 1, float* %110, i32* %111, float* %112, i32 %113, i32 %114, i32 %115)
+  call void @_Z19__device_stub__rr_1iPfPiii(i32 1, float* %88, i32* %89, i32 %90, i32 %91)
+********************
+********************
+Level 2 :
+  call void @_Z19__device_stub__nb_2iPfS_ii(i32 1, float* %158, float* %159, i32 %160, i32 %161)
+  call void @_Z19__device_stub__rr_2iPfS_S_iii(i32 1, float* %134, float* %135, float* %136, i32 %137, i32 %138, i32 %139)
+********************
+********************
+Level 3 :
+  call void @_Z19__device_stub__nb_3iPfS_S_ii(i32 1, float* %180, float* %181, float* %182, i32 %183, i32 %184)
+  call void @_Z19__device_stub__rr_3iPfS_ii(i32 1, float* %203, float* %204, i32 %205, i32 %206)
+********************
+********************
+Level 4 :
+  call void @_Z19__device_stub__nb_4iPfS_ii(i32 1, float* %225, float* %226, i32 %227, i32 %228)
+  call void @_Z22__device_stub__softmaxiPfii(i32 1, float* %268, i32 %269, i32 %270)
+********************
+********************
+Level 5 :
+  call void @_Z22__device_stub__softmaxiPfii(i32 1, float* %247, i32 %248, i32 %249)
+********************
+********************
+Level 6 :
+  call void @_Z21__device_stub__argmaxiPiPfS0_ii(i32 1, i32* %289, float* %290, float* %291, i32 %292, i32 %293)
+********************
+********************
+Level 7 :
+End_Node
+New add pred in position 3 of stream 1 is   call void @_Z22__device_stub__softmaxiPfii(i32 1, float* %286, i32 %287, i32 %288)
+Added pred in position 4 of stream 0 is   call void @_Z22__device_stub__softmaxiPfii(i32 1, float* %263, i32 %264, i32 %265)
+cur:   call void @_Z21__device_stub__argmaxiPiPfS0_ii(i32 1, i32* %309, float* %310, float* %311, i32 %312, i32 %313)
+New add pred in position 3 of stream 1 is   call void @_Z22__device_stub__softmaxiPfii(i32 1, float* %286, i32 %287, i32 %288)
+Added pred in position 3 of stream 1 is   call void @_Z22__device_stub__softmaxiPfii(i32 1, float* %286, i32 %287, i32 %288)
+cur:   call void @_Z21__device_stub__argmaxiPiPfS0_ii(i32 1, i32* %309, float* %310, float* %311, i32 %312, i32 %313)
+Add Event:
+Prev:   call void @_Z22__device_stub__softmaxiPfii(i32 1, float* %286, i32 %287, i32 %288)
+Tail:   call void @_Z21__device_stub__argmaxiPiPfS0_ii(i32 1, i32* %309, float* %310, float* %311, i32 %312, i32 %313)
+**********************
+StreamGraph:
+The 9th Stream:
+The 8th Stream:
+The 7th Stream:
+The 6th Stream:
+The 1th Stream:
+  call void @_Z19__device_stub__rr_1iPfPiii(i32 1, float* %90, i32* %91, i32 %92, i32 %93)
+  call void @_Z19__device_stub__rr_2iPfS_S_iii(i32 1, float* %140, float* %141, float* %142, i32 %143, i32 %144, i32 %145)
+  call void @_Z19__device_stub__rr_3iPfS_ii(i32 1, float* %215, float* %216, i32 %217, i32 %218)
+  call void @_Z22__device_stub__softmaxiPfii(i32 1, float* %286, i32 %287, i32 %288)
+The 0th Stream:
+  call void @_Z19__device_stub__nb_1iPfPiS_iii(i32 1, float* %114, i32* %115, float* %116, i32 %117, i32 %118, i32 %119)
+  call void @_Z19__device_stub__nb_2iPfS_ii(i32 1, float* %166, float* %167, i32 %168, i32 %169)
+  call void @_Z19__device_stub__nb_3iPfS_S_ii(i32 1, float* %190, float* %191, float* %192, i32 %193, i32 %194)
+  call void @_Z19__device_stub__nb_4iPfS_ii(i32 1, float* %239, float* %240, i32 %241, i32 %242)
+  call void @_Z22__device_stub__softmaxiPfii(i32 1, float* %263, i32 %264, i32 %265)
+  call void @_Z21__device_stub__argmaxiPiPfS0_ii(i32 1, i32* %309, float* %310, float* %311, i32 %312, i32 %313)
+The 2th Stream:
+The 3th Stream:
+The 4th Stream:
+The 5th Stream:
+**********************
+**********************
+EventEdge:
+1th Event:
+Prev:   call void @_Z22__device_stub__softmaxiPfii(i32 1, float* %286, i32 %287, i32 %288)
+Succ:   call void @_Z21__device_stub__argmaxiPiPfS0_ii(i32 1, i32* %309, float* %310, float* %311, i32 %312, i32 %313)
+**********************
+Begin to insert Event
+Begin to sync
+Matched target func: _Z6FUNCb7PiPfS_S_S_S0_iS_S0_S_S_S_S0_S0_S0_iiim
+Matched candidate func: FUNC
+The input operand of   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %85, float* %86, i32* %87, i32* %88, i32* %89, float* %90, i32 %91) are:
+i32 2
+i32* %0
+float* %1
+i32* %2
+i32* %3
+i32* %4
+float* %5
+  %91 = load i32, i32* %26, align 4
+_Z20__device_stub__spmv3iPiPfS_S_S_S0_i has 8 input arguments and 2 output arguments
+The input operand of   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %111, float* %112, i32* %113, i32* %114, i32* %115, float* %116, i32 %117) are:
+i32 2
+i32* %7
+float* %8
+i32* %9
+i32* %10
+i32* %11
+float* %12
+  %117 = load i32, i32* %26, align 4
+_Z20__device_stub__spmv3iPiPfS_S_S_S0_i has 8 input arguments and 2 output arguments
+The input operand of   call void @_Z18__device_stub__sumiPfS_i(i32 1, float* %136, float* %137, i32 %138) are:
+i32 1
+float* %13
+float* %1
+  %138 = load i32, i32* %26, align 4
+_Z18__device_stub__sumiPfS_i has 4 input arguments and 1 output arguments
+The input operand of   call void @_Z18__device_stub__sumiPfS_i(i32 1, float* %157, float* %158, i32 %159) are:
+i32 1
+float* %14
+float* %8
+  %159 = load i32, i32* %26, align 4
+_Z18__device_stub__sumiPfS_i has 4 input arguments and 1 output arguments
+The input operand of   call void @_Z21__device_stub__divideiPfS_S_i(i32 1, float* %178, float* %179, float* %180, i32 %181) are:
+i32 1
+float* %12
+float* %1
+float* %13
+  %181 = load i32, i32* %26, align 4
+_Z21__device_stub__divideiPfS_S_i has 5 input arguments and 1 output arguments
+The input operand of   call void @_Z21__device_stub__divideiPfS_S_i(i32 1, float* %200, float* %201, float* %202, i32 %203) are:
+i32 1
+float* %5
+float* %8
+float* %14
+  %203 = load i32, i32* %26, align 4
+_Z21__device_stub__divideiPfS_S_i has 5 input arguments and 1 output arguments
+The input operand of   call void @_Z27__device_stub__reset_kerneliPfS_PiS0_(i32 4, float* %220, float* %221, i32* %222, i32* %223) are:
+i32 4
+float* %13
+float* %14
+i32* %0
+i32* %7
+_Z27__device_stub__reset_kerneliPfS_PiS0_ has 5 input arguments and 4 output arguments
+
+
+This is Seq_Graph for Function _Z6FUNCb7PiPfS_S_S_S0_iS_S0_S_S_S_S0_S0_S0_iiim
+CHICHI
+  %67 = load i32, i32* %35, align 4
+CHICHI
+  %93 = load i32, i32* %35, align 4
+First!
+CHICHI
+  %119 = load i32, i32* %36, align 4
+First!
+CHICHI
+  %140 = load i32, i32* %36, align 4
+First!
+CHICHI
+  %161 = load i32, i32* %36, align 4
+First!
+CHICHI
+  %183 = load i32, i32* %36, align 4
+First!
+CHICHI
+First!
+<<<<<<<<<<<<<<<<<<<<
+  call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %85, float* %86, i32* %87, i32* %88, i32* %89, float* %90, i32 %91)
+Input Value:
+i32* %2
+i32* %3
+i32* %4
+float* %5
+  %91 = load i32, i32* %26, align 4
+Output Value:
+i32* %0
+float* %1
+BasicBlock:
+%.split %84 
+  call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %111, float* %112, i32* %113, i32* %114, i32* %115, float* %116, i32 %117)
+Input Value:
+i32* %9
+i32* %10
+i32* %11
+float* %12
+  %117 = load i32, i32* %26, align 4
+Output Value:
+i32* %7
+float* %8
+BasicBlock:
+%92 %110 
+  call void @_Z18__device_stub__sumiPfS_i(i32 1, float* %136, float* %137, i32 %138)
+Input Value:
+float* %1
+  %138 = load i32, i32* %26, align 4
+Output Value:
+float* %13
+BasicBlock:
+%118 %135 
+  call void @_Z18__device_stub__sumiPfS_i(i32 1, float* %157, float* %158, i32 %159)
+Input Value:
+float* %8
+  %159 = load i32, i32* %26, align 4
+Output Value:
+float* %14
+BasicBlock:
+%139 %156 
+  call void @_Z21__device_stub__divideiPfS_S_i(i32 1, float* %178, float* %179, float* %180, i32 %181)
+Input Value:
+float* %1
+float* %13
+  %181 = load i32, i32* %26, align 4
+Output Value:
+float* %12
+BasicBlock:
+%160 %177 
+  call void @_Z21__device_stub__divideiPfS_S_i(i32 1, float* %200, float* %201, float* %202, i32 %203)
+Input Value:
+float* %8
+float* %14
+  %203 = load i32, i32* %26, align 4
+Output Value:
+float* %5
+BasicBlock:
+%182 %199 
+  call void @_Z27__device_stub__reset_kerneliPfS_PiS0_(i32 4, float* %220, float* %221, i32* %222, i32* %223)
+Input Value:
+Output Value:
+float* %13
+float* %14
+i32* %0
+i32* %7
+BasicBlock:
+%204 %219 
+<<<<<<<<<<<<<<<<<<<<
+Dumping pred_map
+Target node:   call void @_Z27__device_stub__reset_kerneliPfS_PiS0_(i32 4, float* %220, float* %221, i32* %222, i32* %223)
+Depends on   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %111, float* %112, i32* %113, i32* %114, i32* %115, float* %116, i32 %117)
+Depends on   call void @_Z21__device_stub__divideiPfS_S_i(i32 1, float* %178, float* %179, float* %180, i32 %181)
+Depends on   call void @_Z18__device_stub__sumiPfS_i(i32 1, float* %136, float* %137, i32 %138)
+Depends on   call void @_Z21__device_stub__divideiPfS_S_i(i32 1, float* %200, float* %201, float* %202, i32 %203)
+Depends on   call void @_Z18__device_stub__sumiPfS_i(i32 1, float* %157, float* %158, i32 %159)
+Depends on   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %85, float* %86, i32* %87, i32* %88, i32* %89, float* %90, i32 %91)
+
+Target node:   call void @_Z21__device_stub__divideiPfS_S_i(i32 1, float* %200, float* %201, float* %202, i32 %203)
+Depends on   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %111, float* %112, i32* %113, i32* %114, i32* %115, float* %116, i32 %117)
+Depends on   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %85, float* %86, i32* %87, i32* %88, i32* %89, float* %90, i32 %91)
+Depends on   call void @_Z18__device_stub__sumiPfS_i(i32 1, float* %157, float* %158, i32 %159)
+
+Target node:   call void @_Z21__device_stub__divideiPfS_S_i(i32 1, float* %178, float* %179, float* %180, i32 %181)
+Depends on   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %111, float* %112, i32* %113, i32* %114, i32* %115, float* %116, i32 %117)
+Depends on   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %85, float* %86, i32* %87, i32* %88, i32* %89, float* %90, i32 %91)
+Depends on   call void @_Z18__device_stub__sumiPfS_i(i32 1, float* %136, float* %137, i32 %138)
+
+Target node: End Node
+Depends on   call void @_Z27__device_stub__reset_kerneliPfS_PiS0_(i32 4, float* %220, float* %221, i32* %222, i32* %223)
+
+Target node:   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %111, float* %112, i32* %113, i32* %114, i32* %115, float* %116, i32 %117)
+Depends on Entry_Node
+
+Target node: Entry Node
+
+Target node:   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %85, float* %86, i32* %87, i32* %88, i32* %89, float* %90, i32 %91)
+Depends on Entry_Node
+
+Target node:   call void @_Z18__device_stub__sumiPfS_i(i32 1, float* %157, float* %158, i32 %159)
+Depends on   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %111, float* %112, i32* %113, i32* %114, i32* %115, float* %116, i32 %117)
+
+Target node:   call void @_Z18__device_stub__sumiPfS_i(i32 1, float* %136, float* %137, i32 %138)
+Depends on   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %85, float* %86, i32* %87, i32* %88, i32* %89, float* %90, i32 %91)
+
+********************
+********************
+Level 0 :
+Entry Node
+********************
+********************
+Level 1 :
+  call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %111, float* %112, i32* %113, i32* %114, i32* %115, float* %116, i32 %117)
+  call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %85, float* %86, i32* %87, i32* %88, i32* %89, float* %90, i32 %91)
+********************
+********************
+Level 2 :
+  call void @_Z18__device_stub__sumiPfS_i(i32 1, float* %157, float* %158, i32 %159)
+  call void @_Z18__device_stub__sumiPfS_i(i32 1, float* %136, float* %137, i32 %138)
+********************
+********************
+Level 3 :
+  call void @_Z21__device_stub__divideiPfS_S_i(i32 1, float* %200, float* %201, float* %202, i32 %203)
+  call void @_Z21__device_stub__divideiPfS_S_i(i32 1, float* %178, float* %179, float* %180, i32 %181)
+********************
+********************
+Level 4 :
+  call void @_Z27__device_stub__reset_kerneliPfS_PiS0_(i32 4, float* %220, float* %221, i32* %222, i32* %223)
+********************
+********************
+Level 5 :
+End_Node
+New add pred in position 0 of stream 1 is   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %87, float* %88, i32* %89, i32* %90, i32* %91, float* %92, i32 %93)
+Added pred in position 0 of stream 0 is   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %115, float* %116, i32* %117, i32* %118, i32* %119, float* %120, i32 %121)
+cur:   call void @_Z21__device_stub__divideiPfS_S_i(i32 1, float* %210, float* %211, float* %212, i32 %213)
+New add pred in position 0 of stream 1 is   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %87, float* %88, i32* %89, i32* %90, i32* %91, float* %92, i32 %93)
+Added pred in position 0 of stream 1 is   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %87, float* %88, i32* %89, i32* %90, i32* %91, float* %92, i32 %93)
+cur:   call void @_Z21__device_stub__divideiPfS_S_i(i32 1, float* %210, float* %211, float* %212, i32 %213)
+New add pred in position 0 of stream 1 is   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %87, float* %88, i32* %89, i32* %90, i32* %91, float* %92, i32 %93)
+Added pred in position 1 of stream 0 is   call void @_Z18__device_stub__sumiPfS_i(i32 1, float* %165, float* %166, i32 %167)
+cur:   call void @_Z21__device_stub__divideiPfS_S_i(i32 1, float* %210, float* %211, float* %212, i32 %213)
+Add Event:
+Prev:   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %87, float* %88, i32* %89, i32* %90, i32* %91, float* %92, i32 %93)
+Tail:   call void @_Z21__device_stub__divideiPfS_S_i(i32 1, float* %210, float* %211, float* %212, i32 %213)
+New add pred in position 0 of stream 0 is   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %115, float* %116, i32* %117, i32* %118, i32* %119, float* %120, i32 %121)
+Added pred in position 0 of stream 0 is   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %115, float* %116, i32* %117, i32* %118, i32* %119, float* %120, i32 %121)
+cur:   call void @_Z21__device_stub__divideiPfS_S_i(i32 1, float* %188, float* %189, float* %190, i32 %191)
+New add pred in position 0 of stream 0 is   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %115, float* %116, i32* %117, i32* %118, i32* %119, float* %120, i32 %121)
+Added pred in position 0 of stream 1 is   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %87, float* %88, i32* %89, i32* %90, i32* %91, float* %92, i32 %93)
+cur:   call void @_Z21__device_stub__divideiPfS_S_i(i32 1, float* %188, float* %189, float* %190, i32 %191)
+New add pred in position 0 of stream 0 is   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %115, float* %116, i32* %117, i32* %118, i32* %119, float* %120, i32 %121)
+Added pred in position 1 of stream 1 is   call void @_Z18__device_stub__sumiPfS_i(i32 1, float* %142, float* %143, i32 %144)
+cur:   call void @_Z21__device_stub__divideiPfS_S_i(i32 1, float* %188, float* %189, float* %190, i32 %191)
+Add Event:
+Prev:   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %115, float* %116, i32* %117, i32* %118, i32* %119, float* %120, i32 %121)
+Tail:   call void @_Z21__device_stub__divideiPfS_S_i(i32 1, float* %188, float* %189, float* %190, i32 %191)
+New add pred in position 0 of stream 0 is   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %115, float* %116, i32* %117, i32* %118, i32* %119, float* %120, i32 %121)
+Added pred in position 0 of stream 0 is   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %115, float* %116, i32* %117, i32* %118, i32* %119, float* %120, i32 %121)
+cur:   call void @_Z27__device_stub__reset_kerneliPfS_PiS0_(i32 4, float* %234, float* %235, i32* %236, i32* %237)
+New add pred in position 0 of stream 0 is   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %115, float* %116, i32* %117, i32* %118, i32* %119, float* %120, i32 %121)
+Added pred in position 2 of stream 1 is   call void @_Z21__device_stub__divideiPfS_S_i(i32 1, float* %188, float* %189, float* %190, i32 %191)
+cur:   call void @_Z27__device_stub__reset_kerneliPfS_PiS0_(i32 4, float* %234, float* %235, i32* %236, i32* %237)
+New add pred in position 0 of stream 0 is   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %115, float* %116, i32* %117, i32* %118, i32* %119, float* %120, i32 %121)
+Added pred in position 1 of stream 1 is   call void @_Z18__device_stub__sumiPfS_i(i32 1, float* %142, float* %143, i32 %144)
+cur:   call void @_Z27__device_stub__reset_kerneliPfS_PiS0_(i32 4, float* %234, float* %235, i32* %236, i32* %237)
+New add pred in position 0 of stream 0 is   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %115, float* %116, i32* %117, i32* %118, i32* %119, float* %120, i32 %121)
+Added pred in position 2 of stream 0 is   call void @_Z21__device_stub__divideiPfS_S_i(i32 1, float* %212, float* %213, float* %214, i32 %215)
+cur:   call void @_Z27__device_stub__reset_kerneliPfS_PiS0_(i32 4, float* %234, float* %235, i32* %236, i32* %237)
+New add pred in position 0 of stream 0 is   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %115, float* %116, i32* %117, i32* %118, i32* %119, float* %120, i32 %121)
+Added pred in position 1 of stream 0 is   call void @_Z18__device_stub__sumiPfS_i(i32 1, float* %165, float* %166, i32 %167)
+cur:   call void @_Z27__device_stub__reset_kerneliPfS_PiS0_(i32 4, float* %234, float* %235, i32* %236, i32* %237)
+New add pred in position 0 of stream 0 is   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %115, float* %116, i32* %117, i32* %118, i32* %119, float* %120, i32 %121)
+Added pred in position 0 of stream 1 is   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %87, float* %88, i32* %89, i32* %90, i32* %91, float* %92, i32 %93)
+cur:   call void @_Z27__device_stub__reset_kerneliPfS_PiS0_(i32 4, float* %234, float* %235, i32* %236, i32* %237)
+New add pred in position 2 of stream 0 is   call void @_Z21__device_stub__divideiPfS_S_i(i32 1, float* %212, float* %213, float* %214, i32 %215)
+Added pred in position 0 of stream 0 is   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %115, float* %116, i32* %117, i32* %118, i32* %119, float* %120, i32 %121)
+cur:   call void @_Z27__device_stub__reset_kerneliPfS_PiS0_(i32 4, float* %234, float* %235, i32* %236, i32* %237)
+New add pred in position 2 of stream 0 is   call void @_Z21__device_stub__divideiPfS_S_i(i32 1, float* %212, float* %213, float* %214, i32 %215)
+Added pred in position 2 of stream 1 is   call void @_Z21__device_stub__divideiPfS_S_i(i32 1, float* %188, float* %189, float* %190, i32 %191)
+cur:   call void @_Z27__device_stub__reset_kerneliPfS_PiS0_(i32 4, float* %234, float* %235, i32* %236, i32* %237)
+New add pred in position 2 of stream 0 is   call void @_Z21__device_stub__divideiPfS_S_i(i32 1, float* %212, float* %213, float* %214, i32 %215)
+Added pred in position 1 of stream 1 is   call void @_Z18__device_stub__sumiPfS_i(i32 1, float* %142, float* %143, i32 %144)
+cur:   call void @_Z27__device_stub__reset_kerneliPfS_PiS0_(i32 4, float* %234, float* %235, i32* %236, i32* %237)
+New add pred in position 2 of stream 0 is   call void @_Z21__device_stub__divideiPfS_S_i(i32 1, float* %212, float* %213, float* %214, i32 %215)
+Added pred in position 2 of stream 0 is   call void @_Z21__device_stub__divideiPfS_S_i(i32 1, float* %212, float* %213, float* %214, i32 %215)
+cur:   call void @_Z27__device_stub__reset_kerneliPfS_PiS0_(i32 4, float* %234, float* %235, i32* %236, i32* %237)
+New add pred in position 2 of stream 0 is   call void @_Z21__device_stub__divideiPfS_S_i(i32 1, float* %212, float* %213, float* %214, i32 %215)
+Added pred in position 1 of stream 0 is   call void @_Z18__device_stub__sumiPfS_i(i32 1, float* %165, float* %166, i32 %167)
+cur:   call void @_Z27__device_stub__reset_kerneliPfS_PiS0_(i32 4, float* %234, float* %235, i32* %236, i32* %237)
+New add pred in position 2 of stream 0 is   call void @_Z21__device_stub__divideiPfS_S_i(i32 1, float* %212, float* %213, float* %214, i32 %215)
+Added pred in position 0 of stream 1 is   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %87, float* %88, i32* %89, i32* %90, i32* %91, float* %92, i32 %93)
+cur:   call void @_Z27__device_stub__reset_kerneliPfS_PiS0_(i32 4, float* %234, float* %235, i32* %236, i32* %237)
+Add Event:
+Prev:   call void @_Z21__device_stub__divideiPfS_S_i(i32 1, float* %212, float* %213, float* %214, i32 %215)
+Tail:   call void @_Z27__device_stub__reset_kerneliPfS_PiS0_(i32 4, float* %234, float* %235, i32* %236, i32* %237)
+New add pred in position 1 of stream 0 is   call void @_Z18__device_stub__sumiPfS_i(i32 1, float* %165, float* %166, i32 %167)
+Added pred in position 0 of stream 0 is   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %115, float* %116, i32* %117, i32* %118, i32* %119, float* %120, i32 %121)
+cur:   call void @_Z27__device_stub__reset_kerneliPfS_PiS0_(i32 4, float* %234, float* %235, i32* %236, i32* %237)
+New add pred in position 1 of stream 0 is   call void @_Z18__device_stub__sumiPfS_i(i32 1, float* %165, float* %166, i32 %167)
+Added pred in position 2 of stream 1 is   call void @_Z21__device_stub__divideiPfS_S_i(i32 1, float* %188, float* %189, float* %190, i32 %191)
+cur:   call void @_Z27__device_stub__reset_kerneliPfS_PiS0_(i32 4, float* %234, float* %235, i32* %236, i32* %237)
+New add pred in position 1 of stream 0 is   call void @_Z18__device_stub__sumiPfS_i(i32 1, float* %165, float* %166, i32 %167)
+Added pred in position 1 of stream 1 is   call void @_Z18__device_stub__sumiPfS_i(i32 1, float* %142, float* %143, i32 %144)
+cur:   call void @_Z27__device_stub__reset_kerneliPfS_PiS0_(i32 4, float* %234, float* %235, i32* %236, i32* %237)
+New add pred in position 1 of stream 0 is   call void @_Z18__device_stub__sumiPfS_i(i32 1, float* %165, float* %166, i32 %167)
+Added pred in position 2 of stream 0 is   call void @_Z21__device_stub__divideiPfS_S_i(i32 1, float* %212, float* %213, float* %214, i32 %215)
+cur:   call void @_Z27__device_stub__reset_kerneliPfS_PiS0_(i32 4, float* %234, float* %235, i32* %236, i32* %237)
+New add pred in position 1 of stream 0 is   call void @_Z18__device_stub__sumiPfS_i(i32 1, float* %165, float* %166, i32 %167)
+Added pred in position 1 of stream 0 is   call void @_Z18__device_stub__sumiPfS_i(i32 1, float* %165, float* %166, i32 %167)
+cur:   call void @_Z27__device_stub__reset_kerneliPfS_PiS0_(i32 4, float* %234, float* %235, i32* %236, i32* %237)
+New add pred in position 1 of stream 0 is   call void @_Z18__device_stub__sumiPfS_i(i32 1, float* %165, float* %166, i32 %167)
+Added pred in position 0 of stream 1 is   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %87, float* %88, i32* %89, i32* %90, i32* %91, float* %92, i32 %93)
+cur:   call void @_Z27__device_stub__reset_kerneliPfS_PiS0_(i32 4, float* %234, float* %235, i32* %236, i32* %237)
+**********************
+StreamGraph:
+The 9th Stream:
+The 8th Stream:
+The 7th Stream:
+The 6th Stream:
+The 1th Stream:
+  call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %87, float* %88, i32* %89, i32* %90, i32* %91, float* %92, i32 %93)
+  call void @_Z18__device_stub__sumiPfS_i(i32 1, float* %142, float* %143, i32 %144)
+  call void @_Z21__device_stub__divideiPfS_S_i(i32 1, float* %188, float* %189, float* %190, i32 %191)
+  call void @_Z27__device_stub__reset_kerneliPfS_PiS0_(i32 4, float* %234, float* %235, i32* %236, i32* %237)
+The 0th Stream:
+  call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %115, float* %116, i32* %117, i32* %118, i32* %119, float* %120, i32 %121)
+  call void @_Z18__device_stub__sumiPfS_i(i32 1, float* %165, float* %166, i32 %167)
+  call void @_Z21__device_stub__divideiPfS_S_i(i32 1, float* %212, float* %213, float* %214, i32 %215)
+The 2th Stream:
+The 3th Stream:
+The 4th Stream:
+The 5th Stream:
+**********************
+**********************
+EventEdge:
+1th Event:
+Prev:   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %87, float* %88, i32* %89, i32* %90, i32* %91, float* %92, i32 %93)
+Succ:   call void @_Z21__device_stub__divideiPfS_S_i(i32 1, float* %212, float* %213, float* %214, i32 %215)
+2th Event:
+Prev:   call void @_Z20__device_stub__spmv3iPiPfS_S_S_S0_i(i32 2, i32* %115, float* %116, i32* %117, i32* %118, i32* %119, float* %120, i32 %121)
+Succ:   call void @_Z21__device_stub__divideiPfS_S_i(i32 1, float* %188, float* %189, float* %190, i32 %191)
+3th Event:
+Prev:   call void @_Z21__device_stub__divideiPfS_S_i(i32 1, float* %212, float* %213, float* %214, i32 %215)
+Succ:   call void @_Z27__device_stub__reset_kerneliPfS_PiS0_(i32 4, float* %234, float* %235, i32* %236, i32* %237)
+**********************
+Begin to insert Event
+Begin to sync
+Matched target func: _Z6FUNCb8PfS_iS_iS_S_iS_S_iS_S_S_S_S_S_S_iiii
+Matched candidate func: FUNC
+The input operand of   call void @_Z28__device_stub__gaussian_bluriPfS_iiS_i(i32 1, float* %127, float* %128, i32 %129, i32 %130, float* %131, i32 %132) are:
+i32 1
+float* %0
+float* %1
+  %129 = load i32, i32* %25, align 4
+  %130 = load i32, i32* %25, align 4
+float* %3
+  %132 = load i32, i32* %27, align 4
+_Z28__device_stub__gaussian_bluriPfS_iiS_i has 7 input arguments and 1 output arguments
+The input operand of   call void @_Z28__device_stub__gaussian_bluriPfS_iiS_i(i32 1, float* %162, float* %163, i32 %164, i32 %165, float* %166, i32 %167) are:
+i32 1
+float* %5
+float* %1
+  %164 = load i32, i32* %25, align 4
+  %165 = load i32, i32* %25, align 4
+float* %6
+  %167 = load i32, i32* %30, align 4
+_Z28__device_stub__gaussian_bluriPfS_iiS_i has 7 input arguments and 1 output arguments
+The input operand of   call void @_Z28__device_stub__gaussian_bluriPfS_iiS_i(i32 1, float* %197, float* %198, i32 %199, i32 %200, float* %201, i32 %202) are:
+i32 1
+float* %8
+float* %1
+  %199 = load i32, i32* %25, align 4
+  %200 = load i32, i32* %25, align 4
+float* %9
+  %202 = load i32, i32* %33, align 4
+_Z28__device_stub__gaussian_bluriPfS_iiS_i has 7 input arguments and 1 output arguments
+The input operand of   call void @_Z20__device_stub__sobeliPfS_ii(i32 1, float* %227, float* %228, i32 %229, i32 %230) are:
+i32 1
+float* %11
+float* %0
+  %229 = load i32, i32* %25, align 4
+  %230 = load i32, i32* %25, align 4
+_Z20__device_stub__sobeliPfS_ii has 5 input arguments and 1 output arguments
+The input operand of   call void @_Z20__device_stub__sobeliPfS_ii(i32 1, float* %255, float* %256, i32 %257, i32 %258) are:
+i32 1
+float* %12
+float* %5
+  %257 = load i32, i32* %25, align 4
+  %258 = load i32, i32* %25, align 4
+_Z20__device_stub__sobeliPfS_ii has 5 input arguments and 1 output arguments
+The input operand of   call void @_Z29__device_stub__maximum_kerneliPfS_i(i32 1, float* %277, float* %278, i32 %281) are:
+i32 1
+float* %13
+float* %12
+  %281 = mul nsw i32 %279, %280
+_Z29__device_stub__maximum_kerneliPfS_i has 4 input arguments and 1 output arguments
+The input operand of   call void @_Z29__device_stub__minimum_kerneliPfS_i(i32 1, float* %300, float* %301, i32 %304) are:
+i32 1
+float* %14
+float* %12
+  %304 = mul nsw i32 %302, %303
+_Z29__device_stub__minimum_kerneliPfS_i has 4 input arguments and 1 output arguments
+The input operand of   call void @_Z21__device_stub__extendiPfS_S_i(i32 1, float* %323, float* %324, float* %325, i32 %328) are:
+i32 1
+float* %12
+float* %14
+float* %13
+  %328 = mul nsw i32 %326, %327
+_Z21__device_stub__extendiPfS_S_i has 5 input arguments and 1 output arguments
+The input operand of   call void @_Z24__device_stub__unsharpeniPfS_S_fi(i32 1, float* %347, float* %348, float* %349, float 5.000000e-01, i32 %352) are:
+i32 1
+float* %15
+float* %1
+float* %8
+float 5.000000e-01
+  %352 = mul nsw i32 %350, %351
+_Z24__device_stub__unsharpeniPfS_S_fi has 6 input arguments and 1 output arguments
+The input operand of   call void @_Z22__device_stub__combineiPfS_S_S_i(i32 1, float* %371, float* %372, float* %373, float* %374, i32 %377) are:
+i32 1
+float* %16
+float* %15
+float* %5
+float* %12
+  %377 = mul nsw i32 %375, %376
+_Z22__device_stub__combineiPfS_S_S_i has 6 input arguments and 1 output arguments
+The input operand of   call void @_Z22__device_stub__combineiPfS_S_S_i(i32 1, float* %396, float* %397, float* %398, float* %399, i32 %402) are:
+i32 1
+float* %17
+float* %16
+float* %0
+float* %11
+  %402 = mul nsw i32 %400, %401
+_Z22__device_stub__combineiPfS_S_S_i has 6 input arguments and 1 output arguments
+
+
+This is Seq_Graph for Function _Z6FUNCb8PfS_iS_iS_S_iS_S_iS_S_S_S_S_S_S_iiii
+CHICHI
+  %99 = load i32, i32* %44, align 4
+CHICHI
+  %134 = load i32, i32* %44, align 4
+First!
+CHICHI
+  %169 = load i32, i32* %44, align 4
+First!
+CHICHI
+  %204 = load i32, i32* %44, align 4
+First!
+CHICHI
+  %232 = load i32, i32* %44, align 4
+First!
+CHICHI
+  %260 = load i32, i32* %42, align 4
+First!
+CHICHI
+  %283 = load i32, i32* %42, align 4
+First!
+CHICHI
+  %306 = load i32, i32* %42, align 4
+First!
+CHICHI
+  %330 = load i32, i32* %42, align 4
+First!
+CHICHI
+  %354 = load i32, i32* %42, align 4
+First!
+CHICHI
+  %379 = load i32, i32* %42, align 4
+First!
+<<<<<<<<<<<<<<<<<<<<
+  call void @_Z28__device_stub__gaussian_bluriPfS_iiS_i(i32 1, float* %127, float* %128, i32 %129, i32 %130, float* %131, i32 %132)
+Input Value:
+float* %1
+  %129 = load i32, i32* %25, align 4
+  %130 = load i32, i32* %25, align 4
+float* %3
+  %132 = load i32, i32* %27, align 4
+Output Value:
+float* %0
+BasicBlock:
+%.split %126 
+  call void @_Z28__device_stub__gaussian_bluriPfS_iiS_i(i32 1, float* %162, float* %163, i32 %164, i32 %165, float* %166, i32 %167)
+Input Value:
+float* %1
+  %164 = load i32, i32* %25, align 4
+  %165 = load i32, i32* %25, align 4
+float* %6
+  %167 = load i32, i32* %30, align 4
+Output Value:
+float* %5
+BasicBlock:
+%133 %161 
+  call void @_Z28__device_stub__gaussian_bluriPfS_iiS_i(i32 1, float* %197, float* %198, i32 %199, i32 %200, float* %201, i32 %202)
+Input Value:
+float* %1
+  %199 = load i32, i32* %25, align 4
+  %200 = load i32, i32* %25, align 4
+float* %9
+  %202 = load i32, i32* %33, align 4
+Output Value:
+float* %8
+BasicBlock:
+%168 %196 
+  call void @_Z20__device_stub__sobeliPfS_ii(i32 1, float* %227, float* %228, i32 %229, i32 %230)
+Input Value:
+float* %0
+  %229 = load i32, i32* %25, align 4
+  %230 = load i32, i32* %25, align 4
+Output Value:
+float* %11
+BasicBlock:
+%203 %226 
+  call void @_Z20__device_stub__sobeliPfS_ii(i32 1, float* %255, float* %256, i32 %257, i32 %258)
+Input Value:
+float* %5
+  %257 = load i32, i32* %25, align 4
+  %258 = load i32, i32* %25, align 4
+Output Value:
+float* %12
+BasicBlock:
+%231 %254 
+  call void @_Z29__device_stub__maximum_kerneliPfS_i(i32 1, float* %277, float* %278, i32 %281)
+Input Value:
+float* %12
+  %281 = mul nsw i32 %279, %280
+Output Value:
+float* %13
+BasicBlock:
+%259 %276 
+  call void @_Z29__device_stub__minimum_kerneliPfS_i(i32 1, float* %300, float* %301, i32 %304)
+Input Value:
+float* %12
+  %304 = mul nsw i32 %302, %303
+Output Value:
+float* %14
+BasicBlock:
+%282 %299 
+  call void @_Z21__device_stub__extendiPfS_S_i(i32 1, float* %323, float* %324, float* %325, i32 %328)
+Input Value:
+float* %14
+float* %13
+  %328 = mul nsw i32 %326, %327
+Output Value:
+float* %12
+BasicBlock:
+%305 %322 
+  call void @_Z24__device_stub__unsharpeniPfS_S_fi(i32 1, float* %347, float* %348, float* %349, float 5.000000e-01, i32 %352)
+Input Value:
+float* %1
+float* %8
+float 5.000000e-01
+  %352 = mul nsw i32 %350, %351
+Output Value:
+float* %15
+BasicBlock:
+%329 %346 
+  call void @_Z22__device_stub__combineiPfS_S_S_i(i32 1, float* %371, float* %372, float* %373, float* %374, i32 %377)
+Input Value:
+float* %15
+float* %5
+float* %12
+  %377 = mul nsw i32 %375, %376
+Output Value:
+float* %16
+BasicBlock:
+%353 %370 
+  call void @_Z22__device_stub__combineiPfS_S_S_i(i32 1, float* %396, float* %397, float* %398, float* %399, i32 %402)
+Input Value:
+float* %16
+float* %0
+float* %11
+  %402 = mul nsw i32 %400, %401
+Output Value:
+float* %17
+BasicBlock:
+%378 %395 
+<<<<<<<<<<<<<<<<<<<<
+Dumping pred_map
+Target node:   call void @_Z22__device_stub__combineiPfS_S_S_i(i32 1, float* %396, float* %397, float* %398, float* %399, i32 %402)
+Depends on   call void @_Z20__device_stub__sobeliPfS_ii(i32 1, float* %227, float* %228, i32 %229, i32 %230)
+Depends on   call void @_Z22__device_stub__combineiPfS_S_S_i(i32 1, float* %371, float* %372, float* %373, float* %374, i32 %377)
+Depends on   call void @_Z28__device_stub__gaussian_bluriPfS_iiS_i(i32 1, float* %127, float* %128, i32 %129, i32 %130, float* %131, i32 %132)
+
+Target node:   call void @_Z22__device_stub__combineiPfS_S_S_i(i32 1, float* %371, float* %372, float* %373, float* %374, i32 %377)
+Depends on   call void @_Z21__device_stub__extendiPfS_S_i(i32 1, float* %323, float* %324, float* %325, i32 %328)
+Depends on   call void @_Z24__device_stub__unsharpeniPfS_S_fi(i32 1, float* %347, float* %348, float* %349, float 5.000000e-01, i32 %352)
+Depends on   call void @_Z28__device_stub__gaussian_bluriPfS_iiS_i(i32 1, float* %162, float* %163, i32 %164, i32 %165, float* %166, i32 %167)
+
+Target node:   call void @_Z29__device_stub__maximum_kerneliPfS_i(i32 1, float* %277, float* %278, i32 %281)
+Depends on   call void @_Z20__device_stub__sobeliPfS_ii(i32 1, float* %255, float* %256, i32 %257, i32 %258)
+
+Target node:   call void @_Z20__device_stub__sobeliPfS_ii(i32 1, float* %255, float* %256, i32 %257, i32 %258)
+Depends on   call void @_Z28__device_stub__gaussian_bluriPfS_iiS_i(i32 1, float* %162, float* %163, i32 %164, i32 %165, float* %166, i32 %167)
+
+Target node:   call void @_Z28__device_stub__gaussian_bluriPfS_iiS_i(i32 1, float* %197, float* %198, i32 %199, i32 %200, float* %201, i32 %202)
+Depends on Entry_Node
+
+Target node:   call void @_Z20__device_stub__sobeliPfS_ii(i32 1, float* %227, float* %228, i32 %229, i32 %230)
+Depends on   call void @_Z28__device_stub__gaussian_bluriPfS_iiS_i(i32 1, float* %127, float* %128, i32 %129, i32 %130, float* %131, i32 %132)
+
+Target node:   call void @_Z29__device_stub__minimum_kerneliPfS_i(i32 1, float* %300, float* %301, i32 %304)
+Depends on   call void @_Z20__device_stub__sobeliPfS_ii(i32 1, float* %255, float* %256, i32 %257, i32 %258)
+
+Target node: Entry Node
+
+Target node:   call void @_Z24__device_stub__unsharpeniPfS_S_fi(i32 1, float* %347, float* %348, float* %349, float 5.000000e-01, i32 %352)
+Depends on   call void @_Z28__device_stub__gaussian_bluriPfS_iiS_i(i32 1, float* %197, float* %198, i32 %199, i32 %200, float* %201, i32 %202)
+
+Target node:   call void @_Z21__device_stub__extendiPfS_S_i(i32 1, float* %323, float* %324, float* %325, i32 %328)
+Depends on   call void @_Z29__device_stub__minimum_kerneliPfS_i(i32 1, float* %300, float* %301, i32 %304)
+Depends on   call void @_Z29__device_stub__maximum_kerneliPfS_i(i32 1, float* %277, float* %278, i32 %281)
+
+Target node: End Node
+Depends on   call void @_Z22__device_stub__combineiPfS_S_S_i(i32 1, float* %396, float* %397, float* %398, float* %399, i32 %402)
+
+Target node:   call void @_Z28__device_stub__gaussian_bluriPfS_iiS_i(i32 1, float* %127, float* %128, i32 %129, i32 %130, float* %131, i32 %132)
+Depends on Entry_Node
+
+Target node:   call void @_Z28__device_stub__gaussian_bluriPfS_iiS_i(i32 1, float* %162, float* %163, i32 %164, i32 %165, float* %166, i32 %167)
+Depends on Entry_Node
+
+********************
+********************
+Level 0 :
+Entry Node
+********************
+********************
+Level 1 :
+  call void @_Z28__device_stub__gaussian_bluriPfS_iiS_i(i32 1, float* %197, float* %198, i32 %199, i32 %200, float* %201, i32 %202)
+  call void @_Z28__device_stub__gaussian_bluriPfS_iiS_i(i32 1, float* %127, float* %128, i32 %129, i32 %130, float* %131, i32 %132)
+  call void @_Z28__device_stub__gaussian_bluriPfS_iiS_i(i32 1, float* %162, float* %163, i32 %164, i32 %165, float* %166, i32 %167)
+********************
+********************
+Level 2 :
+  call void @_Z24__device_stub__unsharpeniPfS_S_fi(i32 1, float* %347, float* %348, float* %349, float 5.000000e-01, i32 %352)
+  call void @_Z20__device_stub__sobeliPfS_ii(i32 1, float* %227, float* %228, i32 %229, i32 %230)
+  call void @_Z20__device_stub__sobeliPfS_ii(i32 1, float* %255, float* %256, i32 %257, i32 %258)
+********************
+********************
+Level 3 :
+  call void @_Z29__device_stub__maximum_kerneliPfS_i(i32 1, float* %277, float* %278, i32 %281)
+  call void @_Z29__device_stub__minimum_kerneliPfS_i(i32 1, float* %300, float* %301, i32 %304)
+********************
+********************
+Level 4 :
+  call void @_Z21__device_stub__extendiPfS_S_i(i32 1, float* %323, float* %324, float* %325, i32 %328)
+********************
+********************
+Level 5 :
+  call void @_Z22__device_stub__combineiPfS_S_S_i(i32 1, float* %371, float* %372, float* %373, float* %374, i32 %377)
+********************
+********************
+Level 6 :
+  call void @_Z22__device_stub__combineiPfS_S_S_i(i32 1, float* %396, float* %397, float* %398, float* %399, i32 %402)
+********************
+********************
+Level 7 :
+End_Node
+New add pred in position 1 of stream 2 is   call void @_Z20__device_stub__sobeliPfS_ii(i32 1, float* %265, float* %266, i32 %267, i32 %268)
+Added pred in position 1 of stream 2 is   call void @_Z20__device_stub__sobeliPfS_ii(i32 1, float* %265, float* %266, i32 %267, i32 %268)
+cur:   call void @_Z29__device_stub__minimum_kerneliPfS_i(i32 1, float* %314, float* %315, i32 %318)
+Add Event:
+Prev:   call void @_Z20__device_stub__sobeliPfS_ii(i32 1, float* %265, float* %266, i32 %267, i32 %268)
+Tail:   call void @_Z29__device_stub__minimum_kerneliPfS_i(i32 1, float* %314, float* %315, i32 %318)
+New add pred in position 2 of stream 2 is   call void @_Z29__device_stub__maximum_kerneliPfS_i(i32 1, float* %289, float* %290, i32 %293)
+Added pred in position 0 of stream 3 is   call void @_Z29__device_stub__minimum_kerneliPfS_i(i32 1, float* %314, float* %315, i32 %318)
+cur:   call void @_Z21__device_stub__extendiPfS_S_i(i32 1, float* %339, float* %340, float* %341, i32 %344)
+New add pred in position 2 of stream 2 is   call void @_Z29__device_stub__maximum_kerneliPfS_i(i32 1, float* %289, float* %290, i32 %293)
+Added pred in position 2 of stream 2 is   call void @_Z29__device_stub__maximum_kerneliPfS_i(i32 1, float* %289, float* %290, i32 %293)
+cur:   call void @_Z21__device_stub__extendiPfS_S_i(i32 1, float* %339, float* %340, float* %341, i32 %344)
+Add Event:
+Prev:   call void @_Z29__device_stub__maximum_kerneliPfS_i(i32 1, float* %289, float* %290, i32 %293)
+Tail:   call void @_Z21__device_stub__extendiPfS_S_i(i32 1, float* %339, float* %340, float* %341, i32 %344)
+New add pred in position 1 of stream 0 is   call void @_Z24__device_stub__unsharpeniPfS_S_fi(i32 1, float* %365, float* %366, float* %367, float 5.000000e-01, i32 %370)
+Added pred in position 1 of stream 3 is   call void @_Z21__device_stub__extendiPfS_S_i(i32 1, float* %339, float* %340, float* %341, i32 %344)
+cur:   call void @_Z22__device_stub__combineiPfS_S_S_i(i32 1, float* %391, float* %392, float* %393, float* %394, i32 %397)
+New add pred in position 1 of stream 0 is   call void @_Z24__device_stub__unsharpeniPfS_S_fi(i32 1, float* %365, float* %366, float* %367, float 5.000000e-01, i32 %370)
+Added pred in position 1 of stream 0 is   call void @_Z24__device_stub__unsharpeniPfS_S_fi(i32 1, float* %365, float* %366, float* %367, float 5.000000e-01, i32 %370)
+cur:   call void @_Z22__device_stub__combineiPfS_S_S_i(i32 1, float* %391, float* %392, float* %393, float* %394, i32 %397)
+New add pred in position 1 of stream 0 is   call void @_Z24__device_stub__unsharpeniPfS_S_fi(i32 1, float* %365, float* %366, float* %367, float 5.000000e-01, i32 %370)
+Added pred in position 0 of stream 2 is   call void @_Z28__device_stub__gaussian_bluriPfS_iiS_i(i32 1, float* %166, float* %167, i32 %168, i32 %169, float* %170, i32 %171)
+cur:   call void @_Z22__device_stub__combineiPfS_S_S_i(i32 1, float* %391, float* %392, float* %393, float* %394, i32 %397)
+Add Event:
+Prev:   call void @_Z24__device_stub__unsharpeniPfS_S_fi(i32 1, float* %365, float* %366, float* %367, float 5.000000e-01, i32 %370)
+Tail:   call void @_Z22__device_stub__combineiPfS_S_S_i(i32 1, float* %391, float* %392, float* %393, float* %394, i32 %397)
+New add pred in position 0 of stream 2 is   call void @_Z28__device_stub__gaussian_bluriPfS_iiS_i(i32 1, float* %166, float* %167, i32 %168, i32 %169, float* %170, i32 %171)
+Added pred in position 1 of stream 3 is   call void @_Z21__device_stub__extendiPfS_S_i(i32 1, float* %339, float* %340, float* %341, i32 %344)
+cur:   call void @_Z22__device_stub__combineiPfS_S_S_i(i32 1, float* %391, float* %392, float* %393, float* %394, i32 %397)
+New add pred in position 0 of stream 2 is   call void @_Z28__device_stub__gaussian_bluriPfS_iiS_i(i32 1, float* %166, float* %167, i32 %168, i32 %169, float* %170, i32 %171)
+Added pred in position 1 of stream 0 is   call void @_Z24__device_stub__unsharpeniPfS_S_fi(i32 1, float* %365, float* %366, float* %367, float 5.000000e-01, i32 %370)
+cur:   call void @_Z22__device_stub__combineiPfS_S_S_i(i32 1, float* %391, float* %392, float* %393, float* %394, i32 %397)
+New add pred in position 0 of stream 2 is   call void @_Z28__device_stub__gaussian_bluriPfS_iiS_i(i32 1, float* %166, float* %167, i32 %168, i32 %169, float* %170, i32 %171)
+Added pred in position 0 of stream 2 is   call void @_Z28__device_stub__gaussian_bluriPfS_iiS_i(i32 1, float* %166, float* %167, i32 %168, i32 %169, float* %170, i32 %171)
+cur:   call void @_Z22__device_stub__combineiPfS_S_S_i(i32 1, float* %391, float* %392, float* %393, float* %394, i32 %397)
+Add Event:
+Prev:   call void @_Z28__device_stub__gaussian_bluriPfS_iiS_i(i32 1, float* %166, float* %167, i32 %168, i32 %169, float* %170, i32 %171)
+Tail:   call void @_Z22__device_stub__combineiPfS_S_S_i(i32 1, float* %391, float* %392, float* %393, float* %394, i32 %397)
+New add pred in position 2 of stream 3 is   call void @_Z22__device_stub__combineiPfS_S_S_i(i32 1, float* %391, float* %392, float* %393, float* %394, i32 %397)
+Added pred in position 1 of stream 1 is   call void @_Z20__device_stub__sobeliPfS_ii(i32 1, float* %235, float* %236, i32 %237, i32 %238)
+cur:   call void @_Z22__device_stub__combineiPfS_S_S_i(i32 1, float* %418, float* %419, float* %420, float* %421, i32 %424)
+New add pred in position 2 of stream 3 is   call void @_Z22__device_stub__combineiPfS_S_S_i(i32 1, float* %391, float* %392, float* %393, float* %394, i32 %397)
+Added pred in position 2 of stream 3 is   call void @_Z22__device_stub__combineiPfS_S_S_i(i32 1, float* %391, float* %392, float* %393, float* %394, i32 %397)
+cur:   call void @_Z22__device_stub__combineiPfS_S_S_i(i32 1, float* %418, float* %419, float* %420, float* %421, i32 %424)
+New add pred in position 2 of stream 3 is   call void @_Z22__device_stub__combineiPfS_S_S_i(i32 1, float* %391, float* %392, float* %393, float* %394, i32 %397)
+Added pred in position 0 of stream 1 is   call void @_Z28__device_stub__gaussian_bluriPfS_iiS_i(i32 1, float* %129, float* %130, i32 %131, i32 %132, float* %133, i32 %134)
+cur:   call void @_Z22__device_stub__combineiPfS_S_S_i(i32 1, float* %418, float* %419, float* %420, float* %421, i32 %424)
+Add Event:
+Prev:   call void @_Z22__device_stub__combineiPfS_S_S_i(i32 1, float* %391, float* %392, float* %393, float* %394, i32 %397)
+Tail:   call void @_Z22__device_stub__combineiPfS_S_S_i(i32 1, float* %418, float* %419, float* %420, float* %421, i32 %424)
+**********************
+StreamGraph:
+The 9th Stream:
+The 8th Stream:
+The 7th Stream:
+The 6th Stream:
+The 1th Stream:
+  call void @_Z28__device_stub__gaussian_bluriPfS_iiS_i(i32 1, float* %129, float* %130, i32 %131, i32 %132, float* %133, i32 %134)
+  call void @_Z20__device_stub__sobeliPfS_ii(i32 1, float* %235, float* %236, i32 %237, i32 %238)
+  call void @_Z22__device_stub__combineiPfS_S_S_i(i32 1, float* %418, float* %419, float* %420, float* %421, i32 %424)
+The 0th Stream:
+  call void @_Z28__device_stub__gaussian_bluriPfS_iiS_i(i32 1, float* %203, float* %204, i32 %205, i32 %206, float* %207, i32 %208)
+  call void @_Z24__device_stub__unsharpeniPfS_S_fi(i32 1, float* %365, float* %366, float* %367, float 5.000000e-01, i32 %370)
+The 2th Stream:
+  call void @_Z28__device_stub__gaussian_bluriPfS_iiS_i(i32 1, float* %166, float* %167, i32 %168, i32 %169, float* %170, i32 %171)
+  call void @_Z20__device_stub__sobeliPfS_ii(i32 1, float* %265, float* %266, i32 %267, i32 %268)
+  call void @_Z29__device_stub__maximum_kerneliPfS_i(i32 1, float* %289, float* %290, i32 %293)
+The 3th Stream:
+  call void @_Z29__device_stub__minimum_kerneliPfS_i(i32 1, float* %314, float* %315, i32 %318)
+  call void @_Z21__device_stub__extendiPfS_S_i(i32 1, float* %339, float* %340, float* %341, i32 %344)
+  call void @_Z22__device_stub__combineiPfS_S_S_i(i32 1, float* %391, float* %392, float* %393, float* %394, i32 %397)
+The 4th Stream:
+The 5th Stream:
+**********************
+**********************
+EventEdge:
+1th Event:
+Prev:   call void @_Z20__device_stub__sobeliPfS_ii(i32 1, float* %265, float* %266, i32 %267, i32 %268)
+Succ:   call void @_Z29__device_stub__minimum_kerneliPfS_i(i32 1, float* %314, float* %315, i32 %318)
+2th Event:
+Prev:   call void @_Z29__device_stub__maximum_kerneliPfS_i(i32 1, float* %289, float* %290, i32 %293)
+Succ:   call void @_Z21__device_stub__extendiPfS_S_i(i32 1, float* %339, float* %340, float* %341, i32 %344)
+3th Event:
+Prev:   call void @_Z24__device_stub__unsharpeniPfS_S_fi(i32 1, float* %365, float* %366, float* %367, float 5.000000e-01, i32 %370)
+Succ:   call void @_Z22__device_stub__combineiPfS_S_S_i(i32 1, float* %391, float* %392, float* %393, float* %394, i32 %397)
+4th Event:
+Prev:   call void @_Z28__device_stub__gaussian_bluriPfS_iiS_i(i32 1, float* %166, float* %167, i32 %168, i32 %169, float* %170, i32 %171)
+Succ:   call void @_Z22__device_stub__combineiPfS_S_S_i(i32 1, float* %391, float* %392, float* %393, float* %394, i32 %397)
+5th Event:
+Prev:   call void @_Z22__device_stub__combineiPfS_S_S_i(i32 1, float* %391, float* %392, float* %393, float* %394, i32 %397)
+Succ:   call void @_Z22__device_stub__combineiPfS_S_S_i(i32 1, float* %418, float* %419, float* %420, float* %421, i32 %424)
+**********************
+Begin to insert Event
+Begin to sync
+Matched target func: _Z7FUNCb10PfS_S_iiiiiS_S_S_S_iS_S_S_iS_S_S_iS_S_iiii
+Matched candidate func: FUNC
+The input operand of   call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %131, float* %132, float* %133, i32 %134, i32 %135, i32 %136, i32 %137, i32 %138, i32 %139) are:
+i32 1
+float* %0
+float* %1
+float* %2
+  %134 = load i32, i32* %31, align 4
+  %135 = load i32, i32* %31, align 4
+  %136 = load i32, i32* %32, align 4
+  %137 = load i32, i32* %33, align 4
+  %138 = load i32, i32* %34, align 4
+  %139 = load i32, i32* %35, align 4
+_Z21__device_stub__conv2diPfS_S_iiiiii has 10 input arguments and 1 output arguments
+The input operand of   call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %173, float* %174, float* %175, i32 %176, i32 %177, i32 %178, i32 %179, i32 %180, i32 %181) are:
+i32 1
+float* %8
+float* %9
+float* %10
+  %176 = load i32, i32* %31, align 4
+  %177 = load i32, i32* %31, align 4
+  %178 = load i32, i32* %32, align 4
+  %179 = load i32, i32* %33, align 4
+  %180 = load i32, i32* %34, align 4
+  %181 = load i32, i32* %35, align 4
+_Z21__device_stub__conv2diPfS_S_iiiiii has 10 input arguments and 1 output arguments
+The input operand of   call void @_Z27__device_stub__mean_poolingiPfS_iiiii(i32 1, float* %211, float* %212, i32 %215, i32 %218, i32 %219, i32 %220, i32 %221) are:
+i32 1
+float* %11
+float* %0
+  %215 = sdiv i32 %213, %214
+  %218 = sdiv i32 %216, %217
+  %219 = load i32, i32* %34, align 4
+  %220 = load i32, i32* %40, align 4
+  %221 = load i32, i32* %40, align 4
+_Z27__device_stub__mean_poolingiPfS_iiiii has 8 input arguments and 1 output arguments
+The input operand of   call void @_Z27__device_stub__mean_poolingiPfS_iiiii(i32 1, float* %251, float* %252, i32 %255, i32 %258, i32 %259, i32 %260, i32 %261) are:
+i32 1
+float* %13
+float* %8
+  %255 = sdiv i32 %253, %254
+  %258 = sdiv i32 %256, %257
+  %259 = load i32, i32* %34, align 4
+  %260 = load i32, i32* %40, align 4
+  %261 = load i32, i32* %40, align 4
+_Z27__device_stub__mean_poolingiPfS_iiiii has 8 input arguments and 1 output arguments
+The input operand of   call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %295, float* %296, float* %297, i32 %302, i32 %307, i32 %308, i32 %309, i32 %310, i32 %311) are:
+i32 1
+float* %14
+float* %11
+float* %15
+  %302 = sdiv i32 %300, %301
+  %307 = sdiv i32 %305, %306
+  %308 = load i32, i32* %34, align 4
+  %309 = load i32, i32* %33, align 4
+  %310 = load i32, i32* %44, align 4
+  %311 = load i32, i32* %35, align 4
+_Z21__device_stub__conv2diPfS_S_iiiiii has 10 input arguments and 1 output arguments
+The input operand of   call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %345, float* %346, float* %347, i32 %352, i32 %357, i32 %358, i32 %359, i32 %360, i32 %361) are:
+i32 1
+float* %17
+float* %13
+float* %18
+  %352 = sdiv i32 %350, %351
+  %357 = sdiv i32 %355, %356
+  %358 = load i32, i32* %34, align 4
+  %359 = load i32, i32* %33, align 4
+  %360 = load i32, i32* %44, align 4
+  %361 = load i32, i32* %35, align 4
+_Z21__device_stub__conv2diPfS_S_iiiiii has 10 input arguments and 1 output arguments
+The input operand of   call void @_Z21__device_stub__concatiPfS_S_i(i32 1, float* %380, float* %381, float* %382, i32 %383) are:
+i32 1
+float* %19
+float* %14
+float* %17
+  %383 = load i32, i32* %48, align 4
+_Z21__device_stub__concatiPfS_S_i has 5 input arguments and 1 output arguments
+The input operand of   call void @_Z26__device_stub__dot_productiPfS_S_i(i32 1, float* %402, float* %403, float* %404, i32 %405) are:
+i32 1
+float* %21
+float* %19
+float* %22
+  %405 = load i32, i32* %48, align 4
+_Z26__device_stub__dot_productiPfS_S_i has 5 input arguments and 1 output arguments
+
+
+This is Seq_Graph for Function _Z7FUNCb10PfS_S_iiiiiS_S_S_S_iS_S_S_iS_S_S_iS_S_iiii
+CHICHI
+  %99 = load i32, i32* %54, align 4
+CHICHI
+  %141 = load i32, i32* %54, align 4
+First!
+CHICHI
+  %183 = load i32, i32* %54, align 4
+First!
+CHICHI
+  %223 = load i32, i32* %54, align 4
+First!
+CHICHI
+  %263 = load i32, i32* %54, align 4
+First!
+CHICHI
+  %313 = load i32, i32* %54, align 4
+First!
+CHICHI
+  %363 = load i32, i32* %52, align 4
+First!
+CHICHI
+  %385 = load i32, i32* %52, align 4
+First!
+<<<<<<<<<<<<<<<<<<<<
+  call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %131, float* %132, float* %133, i32 %134, i32 %135, i32 %136, i32 %137, i32 %138, i32 %139)
+Input Value:
+float* %1
+float* %2
+  %134 = load i32, i32* %31, align 4
+  %135 = load i32, i32* %31, align 4
+  %136 = load i32, i32* %32, align 4
+  %137 = load i32, i32* %33, align 4
+  %138 = load i32, i32* %34, align 4
+  %139 = load i32, i32* %35, align 4
+Output Value:
+float* %0
+BasicBlock:
+%.split %130 
+  call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %173, float* %174, float* %175, i32 %176, i32 %177, i32 %178, i32 %179, i32 %180, i32 %181)
+Input Value:
+float* %9
+float* %10
+  %176 = load i32, i32* %31, align 4
+  %177 = load i32, i32* %31, align 4
+  %178 = load i32, i32* %32, align 4
+  %179 = load i32, i32* %33, align 4
+  %180 = load i32, i32* %34, align 4
+  %181 = load i32, i32* %35, align 4
+Output Value:
+float* %8
+BasicBlock:
+%140 %172 
+  call void @_Z27__device_stub__mean_poolingiPfS_iiiii(i32 1, float* %211, float* %212, i32 %215, i32 %218, i32 %219, i32 %220, i32 %221)
+Input Value:
+float* %0
+  %215 = sdiv i32 %213, %214
+  %218 = sdiv i32 %216, %217
+  %219 = load i32, i32* %34, align 4
+  %220 = load i32, i32* %40, align 4
+  %221 = load i32, i32* %40, align 4
+Output Value:
+float* %11
+BasicBlock:
+%182 %210 
+  call void @_Z27__device_stub__mean_poolingiPfS_iiiii(i32 1, float* %251, float* %252, i32 %255, i32 %258, i32 %259, i32 %260, i32 %261)
+Input Value:
+float* %8
+  %255 = sdiv i32 %253, %254
+  %258 = sdiv i32 %256, %257
+  %259 = load i32, i32* %34, align 4
+  %260 = load i32, i32* %40, align 4
+  %261 = load i32, i32* %40, align 4
+Output Value:
+float* %13
+BasicBlock:
+%222 %250 
+  call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %295, float* %296, float* %297, i32 %302, i32 %307, i32 %308, i32 %309, i32 %310, i32 %311)
+Input Value:
+float* %11
+float* %15
+  %302 = sdiv i32 %300, %301
+  %307 = sdiv i32 %305, %306
+  %308 = load i32, i32* %34, align 4
+  %309 = load i32, i32* %33, align 4
+  %310 = load i32, i32* %44, align 4
+  %311 = load i32, i32* %35, align 4
+Output Value:
+float* %14
+BasicBlock:
+%262 %294 
+  call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %345, float* %346, float* %347, i32 %352, i32 %357, i32 %358, i32 %359, i32 %360, i32 %361)
+Input Value:
+float* %13
+float* %18
+  %352 = sdiv i32 %350, %351
+  %357 = sdiv i32 %355, %356
+  %358 = load i32, i32* %34, align 4
+  %359 = load i32, i32* %33, align 4
+  %360 = load i32, i32* %44, align 4
+  %361 = load i32, i32* %35, align 4
+Output Value:
+float* %17
+BasicBlock:
+%312 %344 
+  call void @_Z21__device_stub__concatiPfS_S_i(i32 1, float* %380, float* %381, float* %382, i32 %383)
+Input Value:
+float* %14
+float* %17
+  %383 = load i32, i32* %48, align 4
+Output Value:
+float* %19
+BasicBlock:
+%362 %379 
+  call void @_Z26__device_stub__dot_productiPfS_S_i(i32 1, float* %402, float* %403, float* %404, i32 %405)
+Input Value:
+float* %19
+float* %22
+  %405 = load i32, i32* %48, align 4
+Output Value:
+float* %21
+BasicBlock:
+%384 %401 
+<<<<<<<<<<<<<<<<<<<<
+Dumping pred_map
+Target node:   call void @_Z21__device_stub__concatiPfS_S_i(i32 1, float* %380, float* %381, float* %382, i32 %383)
+Depends on   call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %295, float* %296, float* %297, i32 %302, i32 %307, i32 %308, i32 %309, i32 %310, i32 %311)
+Depends on   call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %345, float* %346, float* %347, i32 %352, i32 %357, i32 %358, i32 %359, i32 %360, i32 %361)
+
+Target node:   call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %345, float* %346, float* %347, i32 %352, i32 %357, i32 %358, i32 %359, i32 %360, i32 %361)
+Depends on   call void @_Z27__device_stub__mean_poolingiPfS_iiiii(i32 1, float* %251, float* %252, i32 %255, i32 %258, i32 %259, i32 %260, i32 %261)
+
+Target node:   call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %295, float* %296, float* %297, i32 %302, i32 %307, i32 %308, i32 %309, i32 %310, i32 %311)
+Depends on   call void @_Z27__device_stub__mean_poolingiPfS_iiiii(i32 1, float* %211, float* %212, i32 %215, i32 %218, i32 %219, i32 %220, i32 %221)
+
+Target node: End Node
+Depends on   call void @_Z26__device_stub__dot_productiPfS_S_i(i32 1, float* %402, float* %403, float* %404, i32 %405)
+
+Target node:   call void @_Z26__device_stub__dot_productiPfS_S_i(i32 1, float* %402, float* %403, float* %404, i32 %405)
+Depends on   call void @_Z21__device_stub__concatiPfS_S_i(i32 1, float* %380, float* %381, float* %382, i32 %383)
+
+Target node: Entry Node
+
+Target node:   call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %131, float* %132, float* %133, i32 %134, i32 %135, i32 %136, i32 %137, i32 %138, i32 %139)
+Depends on Entry_Node
+
+Target node:   call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %173, float* %174, float* %175, i32 %176, i32 %177, i32 %178, i32 %179, i32 %180, i32 %181)
+Depends on Entry_Node
+
+Target node:   call void @_Z27__device_stub__mean_poolingiPfS_iiiii(i32 1, float* %211, float* %212, i32 %215, i32 %218, i32 %219, i32 %220, i32 %221)
+Depends on   call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %131, float* %132, float* %133, i32 %134, i32 %135, i32 %136, i32 %137, i32 %138, i32 %139)
+
+Target node:   call void @_Z27__device_stub__mean_poolingiPfS_iiiii(i32 1, float* %251, float* %252, i32 %255, i32 %258, i32 %259, i32 %260, i32 %261)
+Depends on   call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %173, float* %174, float* %175, i32 %176, i32 %177, i32 %178, i32 %179, i32 %180, i32 %181)
+
+********************
+********************
+Level 0 :
+Entry Node
+********************
+********************
+Level 1 :
+  call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %131, float* %132, float* %133, i32 %134, i32 %135, i32 %136, i32 %137, i32 %138, i32 %139)
+  call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %173, float* %174, float* %175, i32 %176, i32 %177, i32 %178, i32 %179, i32 %180, i32 %181)
+********************
+********************
+Level 2 :
+  call void @_Z27__device_stub__mean_poolingiPfS_iiiii(i32 1, float* %211, float* %212, i32 %215, i32 %218, i32 %219, i32 %220, i32 %221)
+  call void @_Z27__device_stub__mean_poolingiPfS_iiiii(i32 1, float* %251, float* %252, i32 %255, i32 %258, i32 %259, i32 %260, i32 %261)
+********************
+********************
+Level 3 :
+  call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %295, float* %296, float* %297, i32 %302, i32 %307, i32 %308, i32 %309, i32 %310, i32 %311)
+  call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %345, float* %346, float* %347, i32 %352, i32 %357, i32 %358, i32 %359, i32 %360, i32 %361)
+********************
+********************
+Level 4 :
+  call void @_Z21__device_stub__concatiPfS_S_i(i32 1, float* %380, float* %381, float* %382, i32 %383)
+********************
+********************
+Level 5 :
+  call void @_Z26__device_stub__dot_productiPfS_S_i(i32 1, float* %402, float* %403, float* %404, i32 %405)
+********************
+********************
+Level 6 :
+End_Node
+New add pred in position 2 of stream 1 is   call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %357, float* %358, float* %359, i32 %364, i32 %369, i32 %370, i32 %371, i32 %372, i32 %373)
+Added pred in position 2 of stream 0 is   call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %305, float* %306, float* %307, i32 %312, i32 %317, i32 %318, i32 %319, i32 %320, i32 %321)
+cur:   call void @_Z21__device_stub__concatiPfS_S_i(i32 1, float* %394, float* %395, float* %396, i32 %397)
+New add pred in position 2 of stream 1 is   call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %357, float* %358, float* %359, i32 %364, i32 %369, i32 %370, i32 %371, i32 %372, i32 %373)
+Added pred in position 2 of stream 1 is   call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %357, float* %358, float* %359, i32 %364, i32 %369, i32 %370, i32 %371, i32 %372, i32 %373)
+cur:   call void @_Z21__device_stub__concatiPfS_S_i(i32 1, float* %394, float* %395, float* %396, i32 %397)
+Add Event:
+Prev:   call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %357, float* %358, float* %359, i32 %364, i32 %369, i32 %370, i32 %371, i32 %372, i32 %373)
+Tail:   call void @_Z21__device_stub__concatiPfS_S_i(i32 1, float* %394, float* %395, float* %396, i32 %397)
+**********************
+StreamGraph:
+The 9th Stream:
+The 8th Stream:
+The 7th Stream:
+The 6th Stream:
+The 1th Stream:
+  call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %177, float* %178, float* %179, i32 %180, i32 %181, i32 %182, i32 %183, i32 %184, i32 %185)
+  call void @_Z27__device_stub__mean_poolingiPfS_iiiii(i32 1, float* %259, float* %260, i32 %263, i32 %266, i32 %267, i32 %268, i32 %269)
+  call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %357, float* %358, float* %359, i32 %364, i32 %369, i32 %370, i32 %371, i32 %372, i32 %373)
+The 0th Stream:
+  call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %133, float* %134, float* %135, i32 %136, i32 %137, i32 %138, i32 %139, i32 %140, i32 %141)
+  call void @_Z27__device_stub__mean_poolingiPfS_iiiii(i32 1, float* %217, float* %218, i32 %221, i32 %224, i32 %225, i32 %226, i32 %227)
+  call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %305, float* %306, float* %307, i32 %312, i32 %317, i32 %318, i32 %319, i32 %320, i32 %321)
+  call void @_Z21__device_stub__concatiPfS_S_i(i32 1, float* %394, float* %395, float* %396, i32 %397)
+  call void @_Z26__device_stub__dot_productiPfS_S_i(i32 1, float* %418, float* %419, float* %420, i32 %421)
+The 2th Stream:
+The 3th Stream:
+The 4th Stream:
+The 5th Stream:
+**********************
+**********************
+EventEdge:
+1th Event:
+Prev:   call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %357, float* %358, float* %359, i32 %364, i32 %369, i32 %370, i32 %371, i32 %372, i32 %373)
+Succ:   call void @_Z21__device_stub__concatiPfS_S_i(i32 1, float* %394, float* %395, float* %396, i32 %397)
+**********************
+Begin to insert Event
+Begin to sync
+********************
