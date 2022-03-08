@@ -40,19 +40,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { i8* }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator.0" = type { i8 }
-%"class.std::set" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"* }
-%"struct.std::pair" = type <{ %"struct.std::_Rb_tree_const_iterator", i8, [7 x i8] }>
-%"struct.std::_Rb_tree_const_iterator" = type { %"struct.std::_Rb_tree_node_base"* }
-%"class.std::vector.13" = type { %"struct.std::_Vector_base.14" }
-%"struct.std::_Vector_base.14" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { i32*, i32*, i32* }
-%"class.std::allocator.15" = type { i8 }
 %"class.std::basic_fstream" = type { %"class.std::basic_iostream.base", %"class.std::basic_filebuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { i32 (...)**, i64 }
@@ -62,57 +49,22 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { %struct.__pthread_internal_list*, %struct.__pthread_internal_list* }
 %"class.std::__basic_file" = type <{ %struct._IO_FILE*, i8, [7 x i8] }>
-%struct.__mbstate_t = type { i32, %union.anon.29 }
-%union.anon.29 = type { i32 }
+%struct.__mbstate_t = type { i32, %union.anon.3 }
+%union.anon.3 = type { i32 }
 %"class.std::codecvt" = type { %"class.std::__codecvt_abstract_base.base", %struct.__locale_struct* }
 %"class.std::__codecvt_abstract_base.base" = type { %"class.std::locale::facet.base" }
+%"class.std::basic_istream" = type { i32 (...)**, i64, %"class.std::basic_ios" }
 %struct.CUevent_st = type opaque
-%"class.__gnu_cxx::__normal_iterator.30" = type { %struct.CUgraphNode_st** }
+%"class.__gnu_cxx::__normal_iterator" = type { %struct.CUgraphNode_st** }
 %"class.std::allocator" = type { i8 }
-%"struct.std::pair.6" = type <{ %"struct.std::_Rb_tree_iterator", i8, [7 x i8] }>
-%"struct.std::_Rb_tree_iterator" = type { %"struct.std::_Rb_tree_node_base"* }
-%"struct.std::_Rb_tree_node" = type <{ %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf", [4 x i8] }>
-%"struct.__gnu_cxx::__aligned_membuf" = type { [4 x i8] }
-%"class.std::allocator.3" = type { i8 }
-%"class.__gnu_cxx::new_allocator.4" = type { i8 }
-%"struct.std::pair.10" = type { %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"* }
-%"struct.std::_Identity" = type { i8 }
-%"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Alloc_node" = type { %"class.std::_Rb_tree"* }
-%"class.std::__pair_base" = type { i8 }
-%"class.std::__pair_base.7" = type { i8 }
-%"class.std::__pair_base.11" = type { i8 }
 %struct.__va_list_tag = type { i32, i32, i8*, i8* }
 %"struct.std::__false_type" = type { i8 }
 %"struct.std::forward_iterator_tag" = type { i8 }
 %"struct.std::random_access_iterator_tag" = type { i8 }
 %"class.__gnu_cxx::new_allocator" = type { i8 }
-%"class.__gnu_cxx::new_allocator.16" = type { i8 }
-%"class.std::vector.18" = type { %"struct.std::_Vector_base.19" }
-%"struct.std::_Vector_base.19" = type { %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl" = type { %"class.std::tuple"*, %"class.std::tuple"*, %"class.std::tuple"* }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Tuple_impl.23", %"struct.std::_Head_base.28" }
-%"struct.std::_Tuple_impl.23" = type { %"struct.std::_Tuple_impl.24", %"struct.std::_Head_base.27" }
-%"struct.std::_Tuple_impl.24" = type { %"struct.std::_Tuple_impl.25", %"struct.std::_Head_base.26" }
-%"struct.std::_Tuple_impl.25" = type { %"struct.std::_Head_base" }
-%"struct.std::_Head_base" = type { i32 }
-%"struct.std::_Head_base.26" = type { i32 }
-%"struct.std::_Head_base.27" = type { i32 }
-%"struct.std::_Head_base.28" = type { i32 }
-%"class.__gnu_cxx::__normal_iterator" = type { %"class.std::tuple"* }
-%"struct.__gnu_cxx::__ops::_Iter_comp_iter" = type { i1 (%"class.std::tuple"*, %"class.std::tuple"*)* }
-%"class.std::allocator.20" = type { i8 }
-%"class.__gnu_cxx::new_allocator.21" = type { i8 }
-%"class.std::move_iterator" = type { %"class.std::tuple"* }
-%"struct.__gnu_cxx::__ops::_Iter_comp_val" = type { i1 (%"class.std::tuple"*, %"class.std::tuple"*)* }
-%"struct.__gnu_cxx::__ops::_Val_comp_iter" = type { i1 (%"class.std::tuple"*, %"class.std::tuple"*)* }
-%"class.std::move_iterator.31" = type { %struct.CUgraphNode_st** }
+%"class.std::move_iterator" = type { %struct.CUgraphNode_st** }
 
-$_ZN10Benchmark710random_cooEPiS0_S0_ii = comdat any
-
-$_Z7coo2csrIiiEvPT_S1_PT0_S1_S1_S3_S0_S0_S0_ = comdat any
-
-$_Z13write_to_fileIiEvPT_mNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS7_ = comdat any
+$_Z9read_fileIiEvPT_mNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS7_ = comdat any
 
 $_ZSt4ceilf = comdat any
 
@@ -139,162 +91,6 @@ $_ZNSt6vectorIP14CUgraphNode_stSaIS1_EED2Ev = comdat any
 $_ZN9BenchmarkD2Ev = comdat any
 
 $__clang_call_terminate = comdat any
-
-$_ZNSt3setIiSt4lessIiESaIiEEC2Ev = comdat any
-
-$_ZNKSt3setIiSt4lessIiESaIiEE4sizeEv = comdat any
-
-$_ZNSt3setIiSt4lessIiESaIiEE6insertEOi = comdat any
-
-$_ZNKSt3setIiSt4lessIiESaIiEE5beginEv = comdat any
-
-$_ZNKSt23_Rb_tree_const_iteratorIiEneERKS0_ = comdat any
-
-$_ZNKSt3setIiSt4lessIiESaIiEE3endEv = comdat any
-
-$_ZNKSt23_Rb_tree_const_iteratorIiEdeEv = comdat any
-
-$_ZNSt23_Rb_tree_const_iteratorIiEppEi = comdat any
-
-$_ZNSt3setIiSt4lessIiESaIiEED2Ev = comdat any
-
-$_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEEC2Ev = comdat any
-
-$_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE13_Rb_tree_implIS3_Lb1EEC2Ev = comdat any
-
-$_ZNSaISt13_Rb_tree_nodeIiEEC2Ev = comdat any
-
-$_ZNSt20_Rb_tree_key_compareISt4lessIiEEC2Ev = comdat any
-
-$_ZNSt15_Rb_tree_headerC2Ev = comdat any
-
-$_ZN9__gnu_cxx13new_allocatorISt13_Rb_tree_nodeIiEEC2Ev = comdat any
-
-$_ZNSt15_Rb_tree_header8_M_resetEv = comdat any
-
-$_ZNKSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE4sizeEv = comdat any
-
-$_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE16_M_insert_uniqueIiEESt4pairISt17_Rb_tree_iteratorIiEbEOT_ = comdat any
-
-$_ZSt4moveIRiEONSt16remove_referenceIT_E4typeEOS2_ = comdat any
-
-$_ZNSt4pairISt23_Rb_tree_const_iteratorIiEbEC2IRSt17_Rb_tree_iteratorIiERbLb1EEEOT_OT0_ = comdat any
-
-$_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE24_M_get_insert_unique_posERKi = comdat any
-
-$_ZNKSt9_IdentityIiEclERi = comdat any
-
-$_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE11_Alloc_nodeC2ERS5_ = comdat any
-
-$_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiEPSt18_Rb_tree_node_baseSB_OT_RT0_ = comdat any
-
-$_ZSt7forwardIiEOT_RNSt16remove_referenceIS0_E4typeE = comdat any
-
-$_ZNSt4pairISt17_Rb_tree_iteratorIiEbEC2IS1_bLb1EEEOT_OT0_ = comdat any
-
-$_ZNSt17_Rb_tree_iteratorIiEC2EPSt18_Rb_tree_node_base = comdat any
-
-$_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_beginEv = comdat any
-
-$_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE6_M_endEv = comdat any
-
-$_ZNKSt4lessIiEclERKiS2_ = comdat any
-
-$_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE6_S_keyEPKSt13_Rb_tree_nodeIiE = comdat any
-
-$_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE7_S_leftEPSt18_Rb_tree_node_base = comdat any
-
-$_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_S_rightEPSt18_Rb_tree_node_base = comdat any
-
-$_ZNKSt17_Rb_tree_iteratorIiEeqERKS0_ = comdat any
-
-$_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE5beginEv = comdat any
-
-$_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRPSt13_Rb_tree_nodeIiERS1_Lb1EEEOT_OT0_ = comdat any
-
-$_ZNSt17_Rb_tree_iteratorIiEmmEv = comdat any
-
-$_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE6_S_keyEPKSt18_Rb_tree_node_base = comdat any
-
-$_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRS1_Lb1EEEOT_RKS1_ = comdat any
-
-$_ZNKSt9_IdentityIiEclERKi = comdat any
-
-$_ZNKSt13_Rb_tree_nodeIiE9_M_valptrEv = comdat any
-
-$_ZNK9__gnu_cxx16__aligned_membufIiE6_M_ptrEv = comdat any
-
-$_ZNK9__gnu_cxx16__aligned_membufIiE7_M_addrEv = comdat any
-
-$_ZSt7forwardIRPSt13_Rb_tree_nodeIiEEOT_RNSt16remove_referenceIS4_E4typeE = comdat any
-
-$_ZSt7forwardIRPSt18_Rb_tree_node_baseEOT_RNSt16remove_referenceIS3_E4typeE = comdat any
-
-$_ZNKSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE11_Alloc_nodeclIiEEPSt13_Rb_tree_nodeIiEOT_ = comdat any
-
-$_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_create_nodeIJiEEEPSt13_Rb_tree_nodeIiEDpOT_ = comdat any
-
-$_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE11_M_get_nodeEv = comdat any
-
-$_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE17_M_construct_nodeIJiEEEvPSt13_Rb_tree_nodeIiEDpOT_ = comdat any
-
-$_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeIiEEE8allocateERS2_m = comdat any
-
-$_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE21_M_get_Node_allocatorEv = comdat any
-
-$_ZN9__gnu_cxx13new_allocatorISt13_Rb_tree_nodeIiEE8allocateEmPKv = comdat any
-
-$_ZNK9__gnu_cxx13new_allocatorISt13_Rb_tree_nodeIiEE8max_sizeEv = comdat any
-
-$_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeIiEEE9constructIiJiEEEvRS2_PT_DpOT0_ = comdat any
-
-$_ZNSt13_Rb_tree_nodeIiE9_M_valptrEv = comdat any
-
-$_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE11_M_put_nodeEPSt13_Rb_tree_nodeIiE = comdat any
-
-$_ZN9__gnu_cxx13new_allocatorISt13_Rb_tree_nodeIiEE9constructIiJiEEEvPT_DpOT0_ = comdat any
-
-$_ZN9__gnu_cxx16__aligned_membufIiE6_M_ptrEv = comdat any
-
-$_ZN9__gnu_cxx16__aligned_membufIiE7_M_addrEv = comdat any
-
-$_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeIiEEE10deallocateERS2_PS1_m = comdat any
-
-$_ZN9__gnu_cxx13new_allocatorISt13_Rb_tree_nodeIiEE10deallocateEPS2_m = comdat any
-
-$_ZSt7forwardISt17_Rb_tree_iteratorIiEEOT_RNSt16remove_referenceIS2_E4typeE = comdat any
-
-$_ZSt7forwardIbEOT_RNSt16remove_referenceIS0_E4typeE = comdat any
-
-$_ZSt7forwardIRSt17_Rb_tree_iteratorIiEEOT_RNSt16remove_referenceIS3_E4typeE = comdat any
-
-$_ZNSt23_Rb_tree_const_iteratorIiEC2ERKSt17_Rb_tree_iteratorIiE = comdat any
-
-$_ZSt7forwardIRbEOT_RNSt16remove_referenceIS1_E4typeE = comdat any
-
-$_ZNKSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE5beginEv = comdat any
-
-$_ZNSt23_Rb_tree_const_iteratorIiEC2EPKSt18_Rb_tree_node_base = comdat any
-
-$_ZNKSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE3endEv = comdat any
-
-$_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEED2Ev = comdat any
-
-$_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_eraseEPSt13_Rb_tree_nodeIiE = comdat any
-
-$_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE13_Rb_tree_implIS3_Lb1EED2Ev = comdat any
-
-$_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE12_M_drop_nodeEPSt13_Rb_tree_nodeIiE = comdat any
-
-$_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE15_M_destroy_nodeEPSt13_Rb_tree_nodeIiE = comdat any
-
-$_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeIiEEE7destroyIiEEvRS2_PT_ = comdat any
-
-$_ZN9__gnu_cxx13new_allocatorISt13_Rb_tree_nodeIiEE7destroyIiEEvPT_ = comdat any
-
-$_ZNSaISt13_Rb_tree_nodeIiEED2Ev = comdat any
-
-$_ZN9__gnu_cxx13new_allocatorISt13_Rb_tree_nodeIiEED2Ev = comdat any
 
 $_Z21getCudaDrvErrorStringi = comdat any
 
@@ -340,406 +136,6 @@ $_ZNSaIP14CUgraphNode_stED2Ev = comdat any
 
 $_ZN9__gnu_cxx13new_allocatorIP14CUgraphNode_stED2Ev = comdat any
 
-$_ZNSaIiEC2Ev = comdat any
-
-$_ZNSt6vectorIiSaIiEEC2IPivEET_S4_RKS0_ = comdat any
-
-$_ZNSaIiED2Ev = comdat any
-
-$_Z10customSortIiiEvPT_S1_PT0_S0_ = comdat any
-
-$_ZNSt6vectorIiSaIiEE4dataEv = comdat any
-
-$_ZNSt6vectorIiSaIiEEixEm = comdat any
-
-$_ZNSt6vectorIiSaIiEED2Ev = comdat any
-
-$_ZN9__gnu_cxx13new_allocatorIiEC2Ev = comdat any
-
-$_ZNSt12_Vector_baseIiSaIiEEC2ERKS0_ = comdat any
-
-$_ZNSt6vectorIiSaIiEE22_M_initialize_dispatchIPiEEvT_S4_St12__false_type = comdat any
-
-$_ZNSt12_Vector_baseIiSaIiEED2Ev = comdat any
-
-$_ZNSt12_Vector_baseIiSaIiEE12_Vector_implC2ERKS0_ = comdat any
-
-$_ZNSaIiEC2ERKS_ = comdat any
-
-$_ZN9__gnu_cxx13new_allocatorIiEC2ERKS1_ = comdat any
-
-$_ZNSt6vectorIiSaIiEE19_M_range_initializeIPiEEvT_S4_St20forward_iterator_tag = comdat any
-
-$_ZSt8distanceIPiENSt15iterator_traitsIT_E15difference_typeES2_S2_ = comdat any
-
-$_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm = comdat any
-
-$_ZSt22__uninitialized_copy_aIPiS0_iET0_T_S2_S1_RSaIT1_E = comdat any
-
-$_ZNSt12_Vector_baseIiSaIiEE19_M_get_Tp_allocatorEv = comdat any
-
-$_ZSt10__distanceIPiENSt15iterator_traitsIT_E15difference_typeES2_S2_St26random_access_iterator_tag = comdat any
-
-$_ZSt19__iterator_categoryIPiENSt15iterator_traitsIT_E17iterator_categoryERKS2_ = comdat any
-
-$_ZNSt16allocator_traitsISaIiEE8allocateERS0_m = comdat any
-
-$_ZN9__gnu_cxx13new_allocatorIiE8allocateEmPKv = comdat any
-
-$_ZNK9__gnu_cxx13new_allocatorIiE8max_sizeEv = comdat any
-
-$_ZSt18uninitialized_copyIPiS0_ET0_T_S2_S1_ = comdat any
-
-$_ZNSt20__uninitialized_copyILb1EE13__uninit_copyIPiS2_EET0_T_S4_S3_ = comdat any
-
-$_ZSt4copyIPiS0_ET0_T_S2_S1_ = comdat any
-
-$_ZSt14__copy_move_a2ILb0EPiS0_ET1_T0_S2_S1_ = comdat any
-
-$_ZSt12__miter_baseIPiET_S1_ = comdat any
-
-$_ZSt13__copy_move_aILb0EPiS0_ET1_T0_S2_S1_ = comdat any
-
-$_ZSt12__niter_baseIPiET_S1_ = comdat any
-
-$_ZNSt11__copy_moveILb0ELb1ESt26random_access_iterator_tagE8__copy_mIiEEPT_PKS3_S6_S4_ = comdat any
-
-$_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim = comdat any
-
-$_ZNSt12_Vector_baseIiSaIiEE12_Vector_implD2Ev = comdat any
-
-$_ZNSt16allocator_traitsISaIiEE10deallocateERS0_Pim = comdat any
-
-$_ZN9__gnu_cxx13new_allocatorIiE10deallocateEPim = comdat any
-
-$_ZN9__gnu_cxx13new_allocatorIiED2Ev = comdat any
-
-$_ZNSt6vectorISt5tupleIJiiiiEESaIS1_EEC2Ev = comdat any
-
-$_ZNSt6vectorISt5tupleIJiiiiEESaIS1_EE9push_backEOS1_ = comdat any
-
-$_ZSt10make_tupleIJRiS0_S0_S0_EESt5tupleIJDpNSt17__decay_and_stripIT_E6__typeEEEDpOS3_ = comdat any
-
-$_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEEPFbRKS3_SA_EEvT_SD_T0_ = comdat any
-
-$_ZNSt6vectorISt5tupleIJiiiiEESaIS1_EE5beginEv = comdat any
-
-$_ZNSt6vectorISt5tupleIJiiiiEESaIS1_EE3endEv = comdat any
-
-$_Z7compareIiiEbRKSt5tupleIJT_S1_T0_S1_EES5_ = comdat any
-
-$_ZSt3getILm0EJiiiiEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS4_ = comdat any
-
-$_ZNSt6vectorISt5tupleIJiiiiEESaIS1_EEixEm = comdat any
-
-$_ZSt3getILm1EJiiiiEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS4_ = comdat any
-
-$_ZSt3getILm2EJiiiiEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS4_ = comdat any
-
-$_ZNSt6vectorISt5tupleIJiiiiEESaIS1_EED2Ev = comdat any
-
-$_ZNSt12_Vector_baseISt5tupleIJiiiiEESaIS1_EEC2Ev = comdat any
-
-$_ZNSt12_Vector_baseISt5tupleIJiiiiEESaIS1_EE12_Vector_implC2Ev = comdat any
-
-$_ZNSaISt5tupleIJiiiiEEEC2Ev = comdat any
-
-$_ZN9__gnu_cxx13new_allocatorISt5tupleIJiiiiEEEC2Ev = comdat any
-
-$_ZNSt6vectorISt5tupleIJiiiiEESaIS1_EE12emplace_backIJS1_EEEvDpOT_ = comdat any
-
-$_ZSt4moveIRSt5tupleIJiiiiEEEONSt16remove_referenceIT_E4typeEOS4_ = comdat any
-
-$_ZNSt16allocator_traitsISaISt5tupleIJiiiiEEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_ = comdat any
-
-$_ZSt7forwardISt5tupleIJiiiiEEEOT_RNSt16remove_referenceIS2_E4typeE = comdat any
-
-$_ZNSt6vectorISt5tupleIJiiiiEESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_ = comdat any
-
-$_ZN9__gnu_cxx13new_allocatorISt5tupleIJiiiiEEE9constructIS2_JS2_EEEvPT_DpOT0_ = comdat any
-
-$_ZNSt5tupleIJiiiiEEC2EOS0_ = comdat any
-
-$_ZNSt11_Tuple_implILm0EJiiiiEEC2EOS0_ = comdat any
-
-$_ZSt4moveIRSt11_Tuple_implILm1EJiiiEEEONSt16remove_referenceIT_E4typeEOS4_ = comdat any
-
-$_ZNSt11_Tuple_implILm0EJiiiiEE7_M_tailERS0_ = comdat any
-
-$_ZNSt11_Tuple_implILm1EJiiiEEC2EOS0_ = comdat any
-
-$_ZNSt11_Tuple_implILm0EJiiiiEE7_M_headERS0_ = comdat any
-
-$_ZNSt10_Head_baseILm0EiLb0EEC2IiEEOT_ = comdat any
-
-$_ZSt4moveIRSt11_Tuple_implILm2EJiiEEEONSt16remove_referenceIT_E4typeEOS4_ = comdat any
-
-$_ZNSt11_Tuple_implILm1EJiiiEE7_M_tailERS0_ = comdat any
-
-$_ZNSt11_Tuple_implILm2EJiiEEC2EOS0_ = comdat any
-
-$_ZNSt11_Tuple_implILm1EJiiiEE7_M_headERS0_ = comdat any
-
-$_ZNSt10_Head_baseILm1EiLb0EEC2IiEEOT_ = comdat any
-
-$_ZSt4moveIRSt11_Tuple_implILm3EJiEEEONSt16remove_referenceIT_E4typeEOS4_ = comdat any
-
-$_ZNSt11_Tuple_implILm2EJiiEE7_M_tailERS0_ = comdat any
-
-$_ZNSt11_Tuple_implILm3EJiEEC2EOS0_ = comdat any
-
-$_ZNSt11_Tuple_implILm2EJiiEE7_M_headERS0_ = comdat any
-
-$_ZNSt10_Head_baseILm2EiLb0EEC2IiEEOT_ = comdat any
-
-$_ZNSt11_Tuple_implILm3EJiEE7_M_headERS0_ = comdat any
-
-$_ZNSt10_Head_baseILm3EiLb0EEC2IiEEOT_ = comdat any
-
-$_ZNSt10_Head_baseILm3EiLb0EE7_M_headERS0_ = comdat any
-
-$_ZNSt10_Head_baseILm2EiLb0EE7_M_headERS0_ = comdat any
-
-$_ZNSt10_Head_baseILm1EiLb0EE7_M_headERS0_ = comdat any
-
-$_ZNSt10_Head_baseILm0EiLb0EE7_M_headERS0_ = comdat any
-
-$_ZNKSt6vectorISt5tupleIJiiiiEESaIS1_EE12_M_check_lenEmPKc = comdat any
-
-$_ZN9__gnu_cxxmiIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSA_SD_ = comdat any
-
-$_ZNSt12_Vector_baseISt5tupleIJiiiiEESaIS1_EE11_M_allocateEm = comdat any
-
-$_ZSt34__uninitialized_move_if_noexcept_aIPSt5tupleIJiiiiEES2_SaIS1_EET0_T_S5_S4_RT1_ = comdat any
-
-$_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEE4baseEv = comdat any
-
-$_ZNSt12_Vector_baseISt5tupleIJiiiiEESaIS1_EE19_M_get_Tp_allocatorEv = comdat any
-
-$_ZNSt16allocator_traitsISaISt5tupleIJiiiiEEEE7destroyIS1_EEvRS2_PT_ = comdat any
-
-$_ZSt8_DestroyIPSt5tupleIJiiiiEES1_EvT_S3_RSaIT0_E = comdat any
-
-$_ZNSt12_Vector_baseISt5tupleIJiiiiEESaIS1_EE13_M_deallocateEPS1_m = comdat any
-
-$_ZNKSt6vectorISt5tupleIJiiiiEESaIS1_EE8max_sizeEv = comdat any
-
-$_ZNKSt6vectorISt5tupleIJiiiiEESaIS1_EE4sizeEv = comdat any
-
-$_ZSt3maxImERKT_S2_S2_ = comdat any
-
-$_ZNSt16allocator_traitsISaISt5tupleIJiiiiEEEE8max_sizeERKS2_ = comdat any
-
-$_ZNKSt12_Vector_baseISt5tupleIJiiiiEESaIS1_EE19_M_get_Tp_allocatorEv = comdat any
-
-$_ZNK9__gnu_cxx13new_allocatorISt5tupleIJiiiiEEE8max_sizeEv = comdat any
-
-$_ZNSt16allocator_traitsISaISt5tupleIJiiiiEEEE8allocateERS2_m = comdat any
-
-$_ZN9__gnu_cxx13new_allocatorISt5tupleIJiiiiEEE8allocateEmPKv = comdat any
-
-$_ZSt22__uninitialized_copy_aISt13move_iteratorIPSt5tupleIJiiiiEEES3_S2_ET0_T_S6_S5_RSaIT1_E = comdat any
-
-$_ZSt32__make_move_if_noexcept_iteratorISt5tupleIJiiiiEESt13move_iteratorIPS1_EET0_PT_ = comdat any
-
-$_ZSt18uninitialized_copyISt13move_iteratorIPSt5tupleIJiiiiEEES3_ET0_T_S6_S5_ = comdat any
-
-$_ZNSt20__uninitialized_copyILb0EE13__uninit_copyISt13move_iteratorIPSt5tupleIJiiiiEEES5_EET0_T_S8_S7_ = comdat any
-
-$_ZStneIPSt5tupleIJiiiiEEEbRKSt13move_iteratorIT_ES7_ = comdat any
-
-$_ZSt10_ConstructISt5tupleIJiiiiEEJS1_EEvPT_DpOT0_ = comdat any
-
-$_ZSt11__addressofISt5tupleIJiiiiEEEPT_RS2_ = comdat any
-
-$_ZNKSt13move_iteratorIPSt5tupleIJiiiiEEEdeEv = comdat any
-
-$_ZNSt13move_iteratorIPSt5tupleIJiiiiEEEppEv = comdat any
-
-$_ZSt8_DestroyIPSt5tupleIJiiiiEEEvT_S3_ = comdat any
-
-$_ZSteqIPSt5tupleIJiiiiEEEbRKSt13move_iteratorIT_ES7_ = comdat any
-
-$_ZNKSt13move_iteratorIPSt5tupleIJiiiiEEE4baseEv = comdat any
-
-$_ZNSt12_Destroy_auxILb1EE9__destroyIPSt5tupleIJiiiiEEEEvT_S5_ = comdat any
-
-$_ZNSt13move_iteratorIPSt5tupleIJiiiiEEEC2ES2_ = comdat any
-
-$_ZN9__gnu_cxx13new_allocatorISt5tupleIJiiiiEEE7destroyIS2_EEvPT_ = comdat any
-
-$_ZNSt16allocator_traitsISaISt5tupleIJiiiiEEEE10deallocateERS2_PS1_m = comdat any
-
-$_ZN9__gnu_cxx13new_allocatorISt5tupleIJiiiiEEE10deallocateEPS2_m = comdat any
-
-$_ZSt7forwardIRiEOT_RNSt16remove_referenceIS1_E4typeE = comdat any
-
-$_ZNSt5tupleIJiiiiEEC2IJRiS2_S2_S2_ELb1EEEDpOT_ = comdat any
-
-$_ZNSt11_Tuple_implILm0EJiiiiEEC2IRiJS2_S2_S2_EvEEOT_DpOT0_ = comdat any
-
-$_ZNSt11_Tuple_implILm1EJiiiEEC2IRiJS2_S2_EvEEOT_DpOT0_ = comdat any
-
-$_ZNSt10_Head_baseILm0EiLb0EEC2IRiEEOT_ = comdat any
-
-$_ZNSt11_Tuple_implILm2EJiiEEC2IRiJS2_EvEEOT_DpOT0_ = comdat any
-
-$_ZNSt10_Head_baseILm1EiLb0EEC2IRiEEOT_ = comdat any
-
-$_ZNSt11_Tuple_implILm3EJiEEC2IRiEEOT_ = comdat any
-
-$_ZNSt10_Head_baseILm2EiLb0EEC2IRiEEOT_ = comdat any
-
-$_ZNSt10_Head_baseILm3EiLb0EEC2IRiEEOT_ = comdat any
-
-$_ZSt6__sortIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_ = comdat any
-
-$_ZN9__gnu_cxx5__ops16__iter_comp_iterIPFbRKSt5tupleIJiiiiEES5_EEENS0_15_Iter_comp_iterIT_EES9_ = comdat any
-
-$_ZN9__gnu_cxxneIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_ = comdat any
-
-$_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_ = comdat any
-
-$_ZSt4__lgl = comdat any
-
-$_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_ = comdat any
-
-$_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_T0_ = comdat any
-
-$_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_ = comdat any
-
-$_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_T0_ = comdat any
-
-$_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_ = comdat any
-
-$_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_ = comdat any
-
-$_ZN9__gnu_cxxltIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_ = comdat any
-
-$_ZN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKSt5tupleIJiiiiEES5_EEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEESF_EEbT_T0_ = comdat any
-
-$_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_ = comdat any
-
-$_ZN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEppEv = comdat any
-
-$_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEplEl = comdat any
-
-$_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEdeEv = comdat any
-
-$_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_ = comdat any
-
-$_ZN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEC2ERKS3_ = comdat any
-
-$_ZNSt5tupleIJiiiiEEaSEOS0_ = comdat any
-
-$_ZSt4moveIRN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKSt5tupleIJiiiiEES6_EEEEONSt16remove_referenceIT_E4typeEOSC_ = comdat any
-
-$_ZN9__gnu_cxx5__ops14_Iter_comp_valIPFbRKSt5tupleIJiiiiEES5_EEC2EONS0_15_Iter_comp_iterIS7_EE = comdat any
-
-$_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIPFbRKS3_SC_EEEEvT_T0_SH_T1_RT2_ = comdat any
-
-$_ZNSt11_Tuple_implILm0EJiiiiEEaSEOS0_ = comdat any
-
-$_ZNSt11_Tuple_implILm1EJiiiEEaSEOS0_ = comdat any
-
-$_ZNSt11_Tuple_implILm2EJiiEEaSEOS0_ = comdat any
-
-$_ZNSt11_Tuple_implILm3EJiEEaSEOS0_ = comdat any
-
-$_ZSt4moveIRPFbRKSt5tupleIJiiiiEES3_EEONSt16remove_referenceIT_E4typeEOS8_ = comdat any
-
-$_ZN9__gnu_cxx5__ops14_Iter_comp_valIPFbRKSt5tupleIJiiiiEES5_EEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEES3_EEbT_RT0_ = comdat any
-
-$_ZN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEmmEv = comdat any
-
-$_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_ = comdat any
-
-$_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEmiEl = comdat any
-
-$_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_SG_T0_ = comdat any
-
-$_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEES8_EvT_T0_ = comdat any
-
-$_ZSt4swapIJiiiiEEvRSt5tupleIJDpT_EES4_ = comdat any
-
-$_ZNSt5tupleIJiiiiEE4swapERS0_ = comdat any
-
-$_ZNSt11_Tuple_implILm0EJiiiiEE7_M_swapERS0_ = comdat any
-
-$_ZSt4swapIiENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_ = comdat any
-
-$_ZNSt11_Tuple_implILm1EJiiiEE7_M_swapERS0_ = comdat any
-
-$_ZNSt11_Tuple_implILm2EJiiEE7_M_swapERS0_ = comdat any
-
-$_ZNSt11_Tuple_implILm3EJiEE7_M_swapERS0_ = comdat any
-
-$_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_ = comdat any
-
-$_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_ = comdat any
-
-$_ZN9__gnu_cxxeqIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_ = comdat any
-
-$_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_ = comdat any
-
-$_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_ = comdat any
-
-$_ZN9__gnu_cxx5__ops15__val_comp_iterIPFbRKSt5tupleIJiiiiEES5_EEENS0_14_Val_comp_iterIT_EENS0_15_Iter_comp_iterIS9_EE = comdat any
-
-$_ZSt23__copy_move_backward_a2ILb1EN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEES8_ET1_T0_SA_S9_ = comdat any
-
-$_ZSt12__miter_baseIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEEET_S9_ = comdat any
-
-$_ZSt22__copy_move_backward_aILb1EPSt5tupleIJiiiiEES2_ET1_T0_S4_S3_ = comdat any
-
-$_ZSt12__niter_baseIPSt5tupleIJiiiiEESt6vectorIS1_SaIS1_EEET_N9__gnu_cxx17__normal_iteratorIS6_T0_EE = comdat any
-
-$_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIPSt5tupleIJiiiiEES5_EET0_T_S7_S6_ = comdat any
-
-$_ZN9__gnu_cxx5__ops14_Val_comp_iterIPFbRKSt5tupleIJiiiiEES5_EEclIS3_NS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbRT_T0_ = comdat any
-
-$_ZN9__gnu_cxx5__ops14_Val_comp_iterIPFbRKSt5tupleIJiiiiEES5_EEC2EONS0_15_Iter_comp_iterIS7_EE = comdat any
-
-$_ZN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKSt5tupleIJiiiiEES5_EEC2ES7_ = comdat any
-
-$_ZSt3getILm0EJiiiiEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS4_ = comdat any
-
-$_ZSt3getILm1EJiiiiEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS4_ = comdat any
-
-$_ZSt12__get_helperILm0EiJiiiEERKT0_RKSt11_Tuple_implIXT_EJS0_DpT1_EE = comdat any
-
-$_ZNSt11_Tuple_implILm0EJiiiiEE7_M_headERKS0_ = comdat any
-
-$_ZNSt10_Head_baseILm0EiLb0EE7_M_headERKS0_ = comdat any
-
-$_ZSt12__get_helperILm1EiJiiEERKT0_RKSt11_Tuple_implIXT_EJS0_DpT1_EE = comdat any
-
-$_ZNSt11_Tuple_implILm1EJiiiEE7_M_headERKS0_ = comdat any
-
-$_ZNSt10_Head_baseILm1EiLb0EE7_M_headERKS0_ = comdat any
-
-$_ZSt12__get_helperILm0EiJiiiEERT0_RSt11_Tuple_implIXT_EJS0_DpT1_EE = comdat any
-
-$_ZSt12__get_helperILm1EiJiiEERT0_RSt11_Tuple_implIXT_EJS0_DpT1_EE = comdat any
-
-$_ZSt12__get_helperILm2EiJiEERT0_RSt11_Tuple_implIXT_EJS0_DpT1_EE = comdat any
-
-$_ZNSt12_Vector_baseISt5tupleIJiiiiEESaIS1_EED2Ev = comdat any
-
-$_ZNSt12_Vector_baseISt5tupleIJiiiiEESaIS1_EE12_Vector_implD2Ev = comdat any
-
-$_ZNSaISt5tupleIJiiiiEEED2Ev = comdat any
-
-$_ZN9__gnu_cxx13new_allocatorISt5tupleIJiiiiEEED2Ev = comdat any
-
-$_ZNKSt6vectorIiSaIiEE11_M_data_ptrIiEEPT_S4_ = comdat any
-
-$_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E = comdat any
-
-$_ZSt8_DestroyIPiEvT_S1_ = comdat any
-
-$_ZNSt12_Destroy_auxILb1EE9__destroyIPiEEvT_S3_ = comdat any
-
 $_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_ = comdat any
 
 $_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_RKS8_ = comdat any
@@ -777,6 +173,8 @@ $_ZNK9__gnu_cxx17__normal_iteratorIPP14CUgraphNode_stSt6vectorIS2_SaIS2_EEE4base
 $_ZNSt16allocator_traitsISaIP14CUgraphNode_stEE7destroyIS1_EEvRS2_PT_ = comdat any
 
 $_ZNKSt6vectorIP14CUgraphNode_stSaIS1_EE8max_sizeEv = comdat any
+
+$_ZSt3maxImERKT_S2_S2_ = comdat any
 
 $_ZNSt16allocator_traitsISaIP14CUgraphNode_stEE8max_sizeERKS2_ = comdat any
 
@@ -915,14 +313,12 @@ $_ZTI9Benchmark = comdat any
 @.str.76 = private unnamed_addr constant [19 x i8] c"CUDA_ERROR_UNKNOWN\00", align 1
 @.str.77 = private unnamed_addr constant [3 x i8] c"%f\00", align 1
 @.str.78 = private unnamed_addr constant [42 x i8] c"basic_string::_M_construct null not valid\00", align 1
-@.str.79 = private unnamed_addr constant [29 x i8] c"Error: Index out of bounds!\0A\00", align 1
-@.str.80 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
-@.str.81 = private unnamed_addr constant [33 x i8] c"/home/mozw/Exp2/data/input_data/\00", align 1
-@.str.82 = private unnamed_addr constant [2 x i8] c"/\00", align 1
-@.str.83 = private unnamed_addr constant [2 x i8] c"_\00", align 1
-@.str.84 = private unnamed_addr constant [2 x i8] c" \00", align 1
-@.str.85 = private unnamed_addr constant [25 x i8] c"Cannot open the file of \00", align 1
-@.str.86 = private unnamed_addr constant [3 x i8] c"%d\00", align 1
+@.str.79 = private unnamed_addr constant [33 x i8] c"/home/mozw/Exp2/data/input_data/\00", align 1
+@.str.80 = private unnamed_addr constant [2 x i8] c"/\00", align 1
+@.str.81 = private unnamed_addr constant [2 x i8] c"_\00", align 1
+@.str.82 = private unnamed_addr constant [25 x i8] c"Cannot open the file of \00", align 1
+@.str.83 = private unnamed_addr constant [3 x i8] c"%d\00", align 1
+@.str.84 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @0 = private unnamed_addr constant [23 x i8] c"_Z4spmviPfPiS0_S0_S_ii\00", align 1
 @1 = private unnamed_addr constant [24 x i8] c"_Z5spmv2iPfPiS0_S0_S_ii\00", align 1
 @2 = private unnamed_addr constant [24 x i8] c"_Z5spmv3iPiPfS_S_S_S0_i\00", align 1
@@ -1685,1162 +1081,589 @@ define dso_local void @_ZN10Benchmark74initEv(%class.Benchmark7* nonnull align 8
   %40 = alloca %"class.std::allocator.0", align 1
   store %class.Benchmark7* %0, %class.Benchmark7** %2, align 8
   %41 = load %class.Benchmark7*, %class.Benchmark7** %2, align 8
-  %42 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 12
+  %42 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 15
   %43 = load i32*, i32** %42, align 8
-  %44 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 13
-  %45 = load i32*, i32** %44, align 8
-  %46 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 14
-  %47 = load i32*, i32** %46, align 8
-  %48 = bitcast %class.Benchmark7* %41 to %struct.Benchmark*
-  %49 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %48, i32 0, i32 3
-  %50 = load i32, i32* %49, align 8
-  %51 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 1
-  %52 = load i32, i32* %51, align 4
-  call void @_ZN10Benchmark710random_cooEPiS0_S0_ii(%class.Benchmark7* nonnull align 8 dereferenceable(816) %41, i32* %43, i32* %45, i32* %47, i32 %50, i32 %52)
-  %53 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 15
-  %54 = load i32*, i32** %53, align 8
-  %55 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 16
+  %44 = bitcast %class.Benchmark7* %41 to %struct.Benchmark*
+  %45 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %44, i32 0, i32 3
+  %46 = load i32, i32* %45, align 8
+  %47 = add nsw i32 %46, 1
+  %48 = sext i32 %47 to i64
+  call void @_ZNSaIcEC1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %4) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %3, i8* getelementptr inbounds ([3 x i8], [3 x i8]* @.str, i64 0, i64 0), %"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %4)
+          to label %49 unwind label %145
+
+49:                                               ; preds = %1
+  %50 = bitcast %class.Benchmark7* %41 to %struct.Benchmark*
+  %51 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %50, i32 0, i32 3
+  %52 = load i32, i32* %51, align 8
+  call void @_ZNSaIcEC1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %8) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %7, i8* getelementptr inbounds ([8 x i8], [8 x i8]* @.str.1, i64 0, i64 0), %"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %8)
+          to label %53 unwind label %149
+
+53:                                               ; preds = %49
+  invoke void @_Z9read_fileIiEvPT_mNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS7_(i32* %43, i64 %48, %"class.std::__cxx11::basic_string"* %3, i32 %52, %"class.std::__cxx11::basic_string"* %7)
+          to label %54 unwind label %153
+
+54:                                               ; preds = %53
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %7) #3
+  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %8) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %3) #3
+  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %4) #3
+  %55 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 18
   %56 = load i32*, i32** %55, align 8
-  %57 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 17
-  %58 = load i32*, i32** %57, align 8
-  %59 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 12
-  %60 = load i32*, i32** %59, align 8
-  %61 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 13
-  %62 = load i32*, i32** %61, align 8
-  %63 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 14
-  %64 = load i32*, i32** %63, align 8
-  %65 = bitcast %class.Benchmark7* %41 to %struct.Benchmark*
-  %66 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %65, i32 0, i32 3
-  %67 = load i32, i32* %66, align 8
-  %68 = bitcast %class.Benchmark7* %41 to %struct.Benchmark*
-  %69 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %68, i32 0, i32 3
-  %70 = load i32, i32* %69, align 8
-  %71 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 3
-  %72 = load i32, i32* %71, align 4
-  call void @_Z7coo2csrIiiEvPT_S1_PT0_S1_S1_S3_S0_S0_S0_(i32* %54, i32* %56, i32* %58, i32* %60, i32* %62, i32* %64, i32 %67, i32 %70, i32 %72)
-  %73 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 18
-  %74 = load i32*, i32** %73, align 8
-  %75 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 19
-  %76 = load i32*, i32** %75, align 8
-  %77 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 20
-  %78 = load i32*, i32** %77, align 8
-  %79 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 13
+  %57 = bitcast %class.Benchmark7* %41 to %struct.Benchmark*
+  %58 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %57, i32 0, i32 3
+  %59 = load i32, i32* %58, align 8
+  %60 = add nsw i32 %59, 1
+  %61 = sext i32 %60 to i64
+  call void @_ZNSaIcEC1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %10) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %9, i8* getelementptr inbounds ([3 x i8], [3 x i8]* @.str, i64 0, i64 0), %"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %10)
+          to label %62 unwind label %159
+
+62:                                               ; preds = %54
+  %63 = bitcast %class.Benchmark7* %41 to %struct.Benchmark*
+  %64 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %63, i32 0, i32 3
+  %65 = load i32, i32* %64, align 8
+  call void @_ZNSaIcEC1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %12) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %11, i8* getelementptr inbounds ([9 x i8], [9 x i8]* @.str.2, i64 0, i64 0), %"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %12)
+          to label %66 unwind label %163
+
+66:                                               ; preds = %62
+  invoke void @_Z9read_fileIiEvPT_mNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS7_(i32* %56, i64 %61, %"class.std::__cxx11::basic_string"* %9, i32 %65, %"class.std::__cxx11::basic_string"* %11)
+          to label %67 unwind label %167
+
+67:                                               ; preds = %66
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %11) #3
+  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %12) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %9) #3
+  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %10) #3
+  %68 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 16
+  %69 = load i32*, i32** %68, align 8
+  %70 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 3
+  %71 = load i32, i32* %70, align 4
+  %72 = sext i32 %71 to i64
+  call void @_ZNSaIcEC1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %14) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %13, i8* getelementptr inbounds ([3 x i8], [3 x i8]* @.str, i64 0, i64 0), %"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %14)
+          to label %73 unwind label %173
+
+73:                                               ; preds = %67
+  %74 = bitcast %class.Benchmark7* %41 to %struct.Benchmark*
+  %75 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %74, i32 0, i32 3
+  %76 = load i32, i32* %75, align 8
+  call void @_ZNSaIcEC1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %16) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %15, i8* getelementptr inbounds ([8 x i8], [8 x i8]* @.str.3, i64 0, i64 0), %"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %16)
+          to label %77 unwind label %177
+
+77:                                               ; preds = %73
+  invoke void @_Z9read_fileIiEvPT_mNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS7_(i32* %69, i64 %72, %"class.std::__cxx11::basic_string"* %13, i32 %76, %"class.std::__cxx11::basic_string"* %15)
+          to label %78 unwind label %181
+
+78:                                               ; preds = %77
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %15) #3
+  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %16) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %13) #3
+  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %14) #3
+  %79 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 19
   %80 = load i32*, i32** %79, align 8
-  %81 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 12
-  %82 = load i32*, i32** %81, align 8
-  %83 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 14
-  %84 = load i32*, i32** %83, align 8
+  %81 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 3
+  %82 = load i32, i32* %81, align 4
+  %83 = sext i32 %82 to i64
+  call void @_ZNSaIcEC1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %18) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %17, i8* getelementptr inbounds ([3 x i8], [3 x i8]* @.str, i64 0, i64 0), %"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %18)
+          to label %84 unwind label %187
+
+84:                                               ; preds = %78
   %85 = bitcast %class.Benchmark7* %41 to %struct.Benchmark*
   %86 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %85, i32 0, i32 3
   %87 = load i32, i32* %86, align 8
-  %88 = bitcast %class.Benchmark7* %41 to %struct.Benchmark*
-  %89 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %88, i32 0, i32 3
-  %90 = load i32, i32* %89, align 8
-  %91 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 3
-  %92 = load i32, i32* %91, align 4
-  call void @_Z7coo2csrIiiEvPT_S1_PT0_S1_S1_S3_S0_S0_S0_(i32* %74, i32* %76, i32* %78, i32* %80, i32* %82, i32* %84, i32 %87, i32 %90, i32 %92)
-  %93 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 15
-  %94 = load i32*, i32** %93, align 8
-  %95 = bitcast %class.Benchmark7* %41 to %struct.Benchmark*
-  %96 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %95, i32 0, i32 3
-  %97 = load i32, i32* %96, align 8
-  %98 = add nsw i32 %97, 1
-  %99 = sext i32 %98 to i64
-  call void @_ZNSaIcEC1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %4) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %3, i8* getelementptr inbounds ([3 x i8], [3 x i8]* @.str, i64 0, i64 0), %"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %4)
-          to label %100 unwind label %196
-
-100:                                              ; preds = %1
-  %101 = bitcast %class.Benchmark7* %41 to %struct.Benchmark*
-  %102 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %101, i32 0, i32 3
-  %103 = load i32, i32* %102, align 8
-  call void @_ZNSaIcEC1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %8) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %7, i8* getelementptr inbounds ([8 x i8], [8 x i8]* @.str.1, i64 0, i64 0), %"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %8)
-          to label %104 unwind label %200
-
-104:                                              ; preds = %100
-  invoke void @_Z13write_to_fileIiEvPT_mNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS7_(i32* %94, i64 %99, %"class.std::__cxx11::basic_string"* %3, i32 %103, %"class.std::__cxx11::basic_string"* %7)
-          to label %105 unwind label %204
-
-105:                                              ; preds = %104
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %7) #3
-  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %8) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %3) #3
-  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %4) #3
-  %106 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 18
-  %107 = load i32*, i32** %106, align 8
-  %108 = bitcast %class.Benchmark7* %41 to %struct.Benchmark*
-  %109 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %108, i32 0, i32 3
-  %110 = load i32, i32* %109, align 8
-  %111 = add nsw i32 %110, 1
-  %112 = sext i32 %111 to i64
-  call void @_ZNSaIcEC1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %10) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %9, i8* getelementptr inbounds ([3 x i8], [3 x i8]* @.str, i64 0, i64 0), %"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %10)
-          to label %113 unwind label %210
-
-113:                                              ; preds = %105
-  %114 = bitcast %class.Benchmark7* %41 to %struct.Benchmark*
-  %115 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %114, i32 0, i32 3
-  %116 = load i32, i32* %115, align 8
-  call void @_ZNSaIcEC1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %12) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %11, i8* getelementptr inbounds ([9 x i8], [9 x i8]* @.str.2, i64 0, i64 0), %"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %12)
-          to label %117 unwind label %214
-
-117:                                              ; preds = %113
-  invoke void @_Z13write_to_fileIiEvPT_mNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS7_(i32* %107, i64 %112, %"class.std::__cxx11::basic_string"* %9, i32 %116, %"class.std::__cxx11::basic_string"* %11)
-          to label %118 unwind label %218
-
-118:                                              ; preds = %117
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %11) #3
-  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %12) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %9) #3
-  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %10) #3
-  %119 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 16
-  %120 = load i32*, i32** %119, align 8
-  %121 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 3
-  %122 = load i32, i32* %121, align 4
-  %123 = sext i32 %122 to i64
-  call void @_ZNSaIcEC1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %14) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %13, i8* getelementptr inbounds ([3 x i8], [3 x i8]* @.str, i64 0, i64 0), %"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %14)
-          to label %124 unwind label %224
-
-124:                                              ; preds = %118
-  %125 = bitcast %class.Benchmark7* %41 to %struct.Benchmark*
-  %126 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %125, i32 0, i32 3
-  %127 = load i32, i32* %126, align 8
-  call void @_ZNSaIcEC1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %16) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %15, i8* getelementptr inbounds ([8 x i8], [8 x i8]* @.str.3, i64 0, i64 0), %"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %16)
-          to label %128 unwind label %228
-
-128:                                              ; preds = %124
-  invoke void @_Z13write_to_fileIiEvPT_mNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS7_(i32* %120, i64 %123, %"class.std::__cxx11::basic_string"* %13, i32 %127, %"class.std::__cxx11::basic_string"* %15)
-          to label %129 unwind label %232
-
-129:                                              ; preds = %128
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %15) #3
-  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %16) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %13) #3
-  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %14) #3
-  %130 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 19
-  %131 = load i32*, i32** %130, align 8
-  %132 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 3
-  %133 = load i32, i32* %132, align 4
-  %134 = sext i32 %133 to i64
-  call void @_ZNSaIcEC1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %18) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %17, i8* getelementptr inbounds ([3 x i8], [3 x i8]* @.str, i64 0, i64 0), %"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %18)
-          to label %135 unwind label %238
-
-135:                                              ; preds = %129
-  %136 = bitcast %class.Benchmark7* %41 to %struct.Benchmark*
-  %137 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %136, i32 0, i32 3
-  %138 = load i32, i32* %137, align 8
   call void @_ZNSaIcEC1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %20) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %19, i8* getelementptr inbounds ([9 x i8], [9 x i8]* @.str.4, i64 0, i64 0), %"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %20)
-          to label %139 unwind label %242
+          to label %88 unwind label %191
 
-139:                                              ; preds = %135
-  invoke void @_Z13write_to_fileIiEvPT_mNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS7_(i32* %131, i64 %134, %"class.std::__cxx11::basic_string"* %17, i32 %138, %"class.std::__cxx11::basic_string"* %19)
-          to label %140 unwind label %246
+88:                                               ; preds = %84
+  invoke void @_Z9read_fileIiEvPT_mNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS7_(i32* %80, i64 %83, %"class.std::__cxx11::basic_string"* %17, i32 %87, %"class.std::__cxx11::basic_string"* %19)
+          to label %89 unwind label %195
 
-140:                                              ; preds = %139
+89:                                               ; preds = %88
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %19) #3
   call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %20) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %17) #3
   call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %18) #3
-  %141 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 17
-  %142 = load i32*, i32** %141, align 8
-  %143 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 3
-  %144 = load i32, i32* %143, align 4
-  %145 = sext i32 %144 to i64
+  %90 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 17
+  %91 = load i32*, i32** %90, align 8
+  %92 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 3
+  %93 = load i32, i32* %92, align 4
+  %94 = sext i32 %93 to i64
   call void @_ZNSaIcEC1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %22) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %21, i8* getelementptr inbounds ([3 x i8], [3 x i8]* @.str, i64 0, i64 0), %"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %22)
-          to label %146 unwind label %252
+          to label %95 unwind label %201
 
-146:                                              ; preds = %140
-  %147 = bitcast %class.Benchmark7* %41 to %struct.Benchmark*
-  %148 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %147, i32 0, i32 3
-  %149 = load i32, i32* %148, align 8
+95:                                               ; preds = %89
+  %96 = bitcast %class.Benchmark7* %41 to %struct.Benchmark*
+  %97 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %96, i32 0, i32 3
+  %98 = load i32, i32* %97, align 8
   call void @_ZNSaIcEC1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %24) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %23, i8* getelementptr inbounds ([8 x i8], [8 x i8]* @.str.5, i64 0, i64 0), %"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %24)
-          to label %150 unwind label %256
+          to label %99 unwind label %205
 
-150:                                              ; preds = %146
-  invoke void @_Z13write_to_fileIiEvPT_mNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS7_(i32* %142, i64 %145, %"class.std::__cxx11::basic_string"* %21, i32 %149, %"class.std::__cxx11::basic_string"* %23)
-          to label %151 unwind label %260
+99:                                               ; preds = %95
+  invoke void @_Z9read_fileIiEvPT_mNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS7_(i32* %91, i64 %94, %"class.std::__cxx11::basic_string"* %21, i32 %98, %"class.std::__cxx11::basic_string"* %23)
+          to label %100 unwind label %209
 
-151:                                              ; preds = %150
+100:                                              ; preds = %99
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %23) #3
   call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %24) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %21) #3
   call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %22) #3
-  %152 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 20
-  %153 = load i32*, i32** %152, align 8
-  %154 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 3
-  %155 = load i32, i32* %154, align 4
-  %156 = sext i32 %155 to i64
+  %101 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 20
+  %102 = load i32*, i32** %101, align 8
+  %103 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 3
+  %104 = load i32, i32* %103, align 4
+  %105 = sext i32 %104 to i64
   call void @_ZNSaIcEC1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %26) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %25, i8* getelementptr inbounds ([3 x i8], [3 x i8]* @.str, i64 0, i64 0), %"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %26)
-          to label %157 unwind label %266
+          to label %106 unwind label %215
 
-157:                                              ; preds = %151
-  %158 = bitcast %class.Benchmark7* %41 to %struct.Benchmark*
-  %159 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %158, i32 0, i32 3
-  %160 = load i32, i32* %159, align 8
+106:                                              ; preds = %100
+  %107 = bitcast %class.Benchmark7* %41 to %struct.Benchmark*
+  %108 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %107, i32 0, i32 3
+  %109 = load i32, i32* %108, align 8
   call void @_ZNSaIcEC1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %28) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %27, i8* getelementptr inbounds ([9 x i8], [9 x i8]* @.str.6, i64 0, i64 0), %"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %28)
-          to label %161 unwind label %270
+          to label %110 unwind label %219
 
-161:                                              ; preds = %157
-  invoke void @_Z13write_to_fileIiEvPT_mNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS7_(i32* %153, i64 %156, %"class.std::__cxx11::basic_string"* %25, i32 %160, %"class.std::__cxx11::basic_string"* %27)
-          to label %162 unwind label %274
+110:                                              ; preds = %106
+  invoke void @_Z9read_fileIiEvPT_mNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS7_(i32* %102, i64 %105, %"class.std::__cxx11::basic_string"* %25, i32 %109, %"class.std::__cxx11::basic_string"* %27)
+          to label %111 unwind label %223
 
-162:                                              ; preds = %161
+111:                                              ; preds = %110
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %27) #3
   call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %28) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %25) #3
   call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %26) #3
-  %163 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 12
-  %164 = load i32*, i32** %163, align 8
-  %165 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 3
-  %166 = load i32, i32* %165, align 4
-  %167 = sext i32 %166 to i64
+  %112 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 12
+  %113 = load i32*, i32** %112, align 8
+  %114 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 3
+  %115 = load i32, i32* %114, align 4
+  %116 = sext i32 %115 to i64
   call void @_ZNSaIcEC1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %30) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %29, i8* getelementptr inbounds ([3 x i8], [3 x i8]* @.str, i64 0, i64 0), %"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %30)
-          to label %168 unwind label %280
+          to label %117 unwind label %229
 
-168:                                              ; preds = %162
-  %169 = bitcast %class.Benchmark7* %41 to %struct.Benchmark*
-  %170 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %169, i32 0, i32 3
-  %171 = load i32, i32* %170, align 8
+117:                                              ; preds = %111
+  %118 = bitcast %class.Benchmark7* %41 to %struct.Benchmark*
+  %119 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %118, i32 0, i32 3
+  %120 = load i32, i32* %119, align 8
   call void @_ZNSaIcEC1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %32) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %31, i8* getelementptr inbounds ([2 x i8], [2 x i8]* @.str.7, i64 0, i64 0), %"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %32)
-          to label %172 unwind label %284
+          to label %121 unwind label %233
 
-172:                                              ; preds = %168
-  invoke void @_Z13write_to_fileIiEvPT_mNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS7_(i32* %164, i64 %167, %"class.std::__cxx11::basic_string"* %29, i32 %171, %"class.std::__cxx11::basic_string"* %31)
-          to label %173 unwind label %288
+121:                                              ; preds = %117
+  invoke void @_Z9read_fileIiEvPT_mNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS7_(i32* %113, i64 %116, %"class.std::__cxx11::basic_string"* %29, i32 %120, %"class.std::__cxx11::basic_string"* %31)
+          to label %122 unwind label %237
 
-173:                                              ; preds = %172
+122:                                              ; preds = %121
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %31) #3
   call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %32) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %29) #3
   call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %30) #3
-  %174 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 13
-  %175 = load i32*, i32** %174, align 8
-  %176 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 3
-  %177 = load i32, i32* %176, align 4
-  %178 = sext i32 %177 to i64
+  %123 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 13
+  %124 = load i32*, i32** %123, align 8
+  %125 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 3
+  %126 = load i32, i32* %125, align 4
+  %127 = sext i32 %126 to i64
   call void @_ZNSaIcEC1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %34) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %33, i8* getelementptr inbounds ([3 x i8], [3 x i8]* @.str, i64 0, i64 0), %"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %34)
-          to label %179 unwind label %294
+          to label %128 unwind label %243
 
-179:                                              ; preds = %173
-  %180 = bitcast %class.Benchmark7* %41 to %struct.Benchmark*
-  %181 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %180, i32 0, i32 3
-  %182 = load i32, i32* %181, align 8
+128:                                              ; preds = %122
+  %129 = bitcast %class.Benchmark7* %41 to %struct.Benchmark*
+  %130 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %129, i32 0, i32 3
+  %131 = load i32, i32* %130, align 8
   call void @_ZNSaIcEC1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %36) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %35, i8* getelementptr inbounds ([2 x i8], [2 x i8]* @.str.8, i64 0, i64 0), %"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %36)
-          to label %183 unwind label %298
+          to label %132 unwind label %247
 
-183:                                              ; preds = %179
-  invoke void @_Z13write_to_fileIiEvPT_mNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS7_(i32* %175, i64 %178, %"class.std::__cxx11::basic_string"* %33, i32 %182, %"class.std::__cxx11::basic_string"* %35)
-          to label %184 unwind label %302
+132:                                              ; preds = %128
+  invoke void @_Z9read_fileIiEvPT_mNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS7_(i32* %124, i64 %127, %"class.std::__cxx11::basic_string"* %33, i32 %131, %"class.std::__cxx11::basic_string"* %35)
+          to label %133 unwind label %251
 
-184:                                              ; preds = %183
+133:                                              ; preds = %132
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %35) #3
   call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %36) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %33) #3
   call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %34) #3
-  %185 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 14
-  %186 = load i32*, i32** %185, align 8
-  %187 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 3
-  %188 = load i32, i32* %187, align 4
-  %189 = sext i32 %188 to i64
+  %134 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 14
+  %135 = load i32*, i32** %134, align 8
+  %136 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %41, i32 0, i32 3
+  %137 = load i32, i32* %136, align 4
+  %138 = sext i32 %137 to i64
   call void @_ZNSaIcEC1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %38) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %37, i8* getelementptr inbounds ([3 x i8], [3 x i8]* @.str, i64 0, i64 0), %"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %38)
-          to label %190 unwind label %308
+          to label %139 unwind label %257
 
-190:                                              ; preds = %184
-  %191 = bitcast %class.Benchmark7* %41 to %struct.Benchmark*
-  %192 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %191, i32 0, i32 3
-  %193 = load i32, i32* %192, align 8
+139:                                              ; preds = %133
+  %140 = bitcast %class.Benchmark7* %41 to %struct.Benchmark*
+  %141 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %140, i32 0, i32 3
+  %142 = load i32, i32* %141, align 8
   call void @_ZNSaIcEC1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %40) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %39, i8* getelementptr inbounds ([2 x i8], [2 x i8]* @.str.9, i64 0, i64 0), %"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %40)
-          to label %194 unwind label %312
+          to label %143 unwind label %261
 
-194:                                              ; preds = %190
-  invoke void @_Z13write_to_fileIiEvPT_mNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS7_(i32* %186, i64 %189, %"class.std::__cxx11::basic_string"* %37, i32 %193, %"class.std::__cxx11::basic_string"* %39)
-          to label %195 unwind label %316
+143:                                              ; preds = %139
+  invoke void @_Z9read_fileIiEvPT_mNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS7_(i32* %135, i64 %138, %"class.std::__cxx11::basic_string"* %37, i32 %142, %"class.std::__cxx11::basic_string"* %39)
+          to label %144 unwind label %265
 
-195:                                              ; preds = %194
+144:                                              ; preds = %143
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %39) #3
   call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %40) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %37) #3
   call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %38) #3
-  call void @exit(i32 1) #20
-  unreachable
+  ret void
 
-196:                                              ; preds = %1
-  %197 = landingpad { i8*, i32 }
+145:                                              ; preds = %1
+  %146 = landingpad { i8*, i32 }
           cleanup
-  %198 = extractvalue { i8*, i32 } %197, 0
-  store i8* %198, i8** %5, align 8
-  %199 = extractvalue { i8*, i32 } %197, 1
-  store i32 %199, i32* %6, align 4
-  br label %209
+  %147 = extractvalue { i8*, i32 } %146, 0
+  store i8* %147, i8** %5, align 8
+  %148 = extractvalue { i8*, i32 } %146, 1
+  store i32 %148, i32* %6, align 4
+  br label %158
 
-200:                                              ; preds = %100
-  %201 = landingpad { i8*, i32 }
+149:                                              ; preds = %49
+  %150 = landingpad { i8*, i32 }
           cleanup
-  %202 = extractvalue { i8*, i32 } %201, 0
-  store i8* %202, i8** %5, align 8
-  %203 = extractvalue { i8*, i32 } %201, 1
-  store i32 %203, i32* %6, align 4
-  br label %208
+  %151 = extractvalue { i8*, i32 } %150, 0
+  store i8* %151, i8** %5, align 8
+  %152 = extractvalue { i8*, i32 } %150, 1
+  store i32 %152, i32* %6, align 4
+  br label %157
 
-204:                                              ; preds = %104
-  %205 = landingpad { i8*, i32 }
+153:                                              ; preds = %53
+  %154 = landingpad { i8*, i32 }
           cleanup
-  %206 = extractvalue { i8*, i32 } %205, 0
-  store i8* %206, i8** %5, align 8
-  %207 = extractvalue { i8*, i32 } %205, 1
-  store i32 %207, i32* %6, align 4
+  %155 = extractvalue { i8*, i32 } %154, 0
+  store i8* %155, i8** %5, align 8
+  %156 = extractvalue { i8*, i32 } %154, 1
+  store i32 %156, i32* %6, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %7) #3
-  br label %208
+  br label %157
 
-208:                                              ; preds = %204, %200
+157:                                              ; preds = %153, %149
   call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %8) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %3) #3
-  br label %209
+  br label %158
 
-209:                                              ; preds = %208, %196
+158:                                              ; preds = %157, %145
   call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %4) #3
-  br label %322
+  br label %271
 
-210:                                              ; preds = %105
-  %211 = landingpad { i8*, i32 }
+159:                                              ; preds = %54
+  %160 = landingpad { i8*, i32 }
           cleanup
-  %212 = extractvalue { i8*, i32 } %211, 0
-  store i8* %212, i8** %5, align 8
-  %213 = extractvalue { i8*, i32 } %211, 1
-  store i32 %213, i32* %6, align 4
-  br label %223
+  %161 = extractvalue { i8*, i32 } %160, 0
+  store i8* %161, i8** %5, align 8
+  %162 = extractvalue { i8*, i32 } %160, 1
+  store i32 %162, i32* %6, align 4
+  br label %172
 
-214:                                              ; preds = %113
-  %215 = landingpad { i8*, i32 }
+163:                                              ; preds = %62
+  %164 = landingpad { i8*, i32 }
           cleanup
-  %216 = extractvalue { i8*, i32 } %215, 0
-  store i8* %216, i8** %5, align 8
-  %217 = extractvalue { i8*, i32 } %215, 1
-  store i32 %217, i32* %6, align 4
-  br label %222
+  %165 = extractvalue { i8*, i32 } %164, 0
+  store i8* %165, i8** %5, align 8
+  %166 = extractvalue { i8*, i32 } %164, 1
+  store i32 %166, i32* %6, align 4
+  br label %171
 
-218:                                              ; preds = %117
-  %219 = landingpad { i8*, i32 }
+167:                                              ; preds = %66
+  %168 = landingpad { i8*, i32 }
           cleanup
-  %220 = extractvalue { i8*, i32 } %219, 0
-  store i8* %220, i8** %5, align 8
-  %221 = extractvalue { i8*, i32 } %219, 1
-  store i32 %221, i32* %6, align 4
+  %169 = extractvalue { i8*, i32 } %168, 0
+  store i8* %169, i8** %5, align 8
+  %170 = extractvalue { i8*, i32 } %168, 1
+  store i32 %170, i32* %6, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %11) #3
-  br label %222
+  br label %171
 
-222:                                              ; preds = %218, %214
+171:                                              ; preds = %167, %163
   call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %12) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %9) #3
-  br label %223
+  br label %172
 
-223:                                              ; preds = %222, %210
+172:                                              ; preds = %171, %159
   call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %10) #3
-  br label %322
+  br label %271
 
-224:                                              ; preds = %118
-  %225 = landingpad { i8*, i32 }
+173:                                              ; preds = %67
+  %174 = landingpad { i8*, i32 }
           cleanup
-  %226 = extractvalue { i8*, i32 } %225, 0
-  store i8* %226, i8** %5, align 8
-  %227 = extractvalue { i8*, i32 } %225, 1
-  store i32 %227, i32* %6, align 4
-  br label %237
-
-228:                                              ; preds = %124
-  %229 = landingpad { i8*, i32 }
-          cleanup
-  %230 = extractvalue { i8*, i32 } %229, 0
-  store i8* %230, i8** %5, align 8
-  %231 = extractvalue { i8*, i32 } %229, 1
-  store i32 %231, i32* %6, align 4
-  br label %236
-
-232:                                              ; preds = %128
-  %233 = landingpad { i8*, i32 }
-          cleanup
-  %234 = extractvalue { i8*, i32 } %233, 0
-  store i8* %234, i8** %5, align 8
-  %235 = extractvalue { i8*, i32 } %233, 1
-  store i32 %235, i32* %6, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %15) #3
-  br label %236
-
-236:                                              ; preds = %232, %228
-  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %16) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %13) #3
-  br label %237
-
-237:                                              ; preds = %236, %224
-  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %14) #3
-  br label %322
-
-238:                                              ; preds = %129
-  %239 = landingpad { i8*, i32 }
-          cleanup
-  %240 = extractvalue { i8*, i32 } %239, 0
-  store i8* %240, i8** %5, align 8
-  %241 = extractvalue { i8*, i32 } %239, 1
-  store i32 %241, i32* %6, align 4
-  br label %251
-
-242:                                              ; preds = %135
-  %243 = landingpad { i8*, i32 }
-          cleanup
-  %244 = extractvalue { i8*, i32 } %243, 0
-  store i8* %244, i8** %5, align 8
-  %245 = extractvalue { i8*, i32 } %243, 1
-  store i32 %245, i32* %6, align 4
-  br label %250
-
-246:                                              ; preds = %139
-  %247 = landingpad { i8*, i32 }
-          cleanup
-  %248 = extractvalue { i8*, i32 } %247, 0
-  store i8* %248, i8** %5, align 8
-  %249 = extractvalue { i8*, i32 } %247, 1
-  store i32 %249, i32* %6, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %19) #3
-  br label %250
-
-250:                                              ; preds = %246, %242
-  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %20) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %17) #3
-  br label %251
-
-251:                                              ; preds = %250, %238
-  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %18) #3
-  br label %322
-
-252:                                              ; preds = %140
-  %253 = landingpad { i8*, i32 }
-          cleanup
-  %254 = extractvalue { i8*, i32 } %253, 0
-  store i8* %254, i8** %5, align 8
-  %255 = extractvalue { i8*, i32 } %253, 1
-  store i32 %255, i32* %6, align 4
-  br label %265
-
-256:                                              ; preds = %146
-  %257 = landingpad { i8*, i32 }
-          cleanup
-  %258 = extractvalue { i8*, i32 } %257, 0
-  store i8* %258, i8** %5, align 8
-  %259 = extractvalue { i8*, i32 } %257, 1
-  store i32 %259, i32* %6, align 4
-  br label %264
-
-260:                                              ; preds = %150
-  %261 = landingpad { i8*, i32 }
-          cleanup
-  %262 = extractvalue { i8*, i32 } %261, 0
-  store i8* %262, i8** %5, align 8
-  %263 = extractvalue { i8*, i32 } %261, 1
-  store i32 %263, i32* %6, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %23) #3
-  br label %264
-
-264:                                              ; preds = %260, %256
-  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %24) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %21) #3
-  br label %265
-
-265:                                              ; preds = %264, %252
-  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %22) #3
-  br label %322
-
-266:                                              ; preds = %151
-  %267 = landingpad { i8*, i32 }
-          cleanup
-  %268 = extractvalue { i8*, i32 } %267, 0
-  store i8* %268, i8** %5, align 8
-  %269 = extractvalue { i8*, i32 } %267, 1
-  store i32 %269, i32* %6, align 4
-  br label %279
-
-270:                                              ; preds = %157
-  %271 = landingpad { i8*, i32 }
-          cleanup
-  %272 = extractvalue { i8*, i32 } %271, 0
-  store i8* %272, i8** %5, align 8
-  %273 = extractvalue { i8*, i32 } %271, 1
-  store i32 %273, i32* %6, align 4
-  br label %278
-
-274:                                              ; preds = %161
-  %275 = landingpad { i8*, i32 }
-          cleanup
-  %276 = extractvalue { i8*, i32 } %275, 0
-  store i8* %276, i8** %5, align 8
-  %277 = extractvalue { i8*, i32 } %275, 1
-  store i32 %277, i32* %6, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %27) #3
-  br label %278
-
-278:                                              ; preds = %274, %270
-  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %28) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %25) #3
-  br label %279
-
-279:                                              ; preds = %278, %266
-  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %26) #3
-  br label %322
-
-280:                                              ; preds = %162
-  %281 = landingpad { i8*, i32 }
-          cleanup
-  %282 = extractvalue { i8*, i32 } %281, 0
-  store i8* %282, i8** %5, align 8
-  %283 = extractvalue { i8*, i32 } %281, 1
-  store i32 %283, i32* %6, align 4
-  br label %293
-
-284:                                              ; preds = %168
-  %285 = landingpad { i8*, i32 }
-          cleanup
-  %286 = extractvalue { i8*, i32 } %285, 0
-  store i8* %286, i8** %5, align 8
-  %287 = extractvalue { i8*, i32 } %285, 1
-  store i32 %287, i32* %6, align 4
-  br label %292
-
-288:                                              ; preds = %172
-  %289 = landingpad { i8*, i32 }
-          cleanup
-  %290 = extractvalue { i8*, i32 } %289, 0
-  store i8* %290, i8** %5, align 8
-  %291 = extractvalue { i8*, i32 } %289, 1
-  store i32 %291, i32* %6, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %31) #3
-  br label %292
-
-292:                                              ; preds = %288, %284
-  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %32) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %29) #3
-  br label %293
-
-293:                                              ; preds = %292, %280
-  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %30) #3
-  br label %322
-
-294:                                              ; preds = %173
-  %295 = landingpad { i8*, i32 }
-          cleanup
-  %296 = extractvalue { i8*, i32 } %295, 0
-  store i8* %296, i8** %5, align 8
-  %297 = extractvalue { i8*, i32 } %295, 1
-  store i32 %297, i32* %6, align 4
-  br label %307
-
-298:                                              ; preds = %179
-  %299 = landingpad { i8*, i32 }
-          cleanup
-  %300 = extractvalue { i8*, i32 } %299, 0
-  store i8* %300, i8** %5, align 8
-  %301 = extractvalue { i8*, i32 } %299, 1
-  store i32 %301, i32* %6, align 4
-  br label %306
-
-302:                                              ; preds = %183
-  %303 = landingpad { i8*, i32 }
-          cleanup
-  %304 = extractvalue { i8*, i32 } %303, 0
-  store i8* %304, i8** %5, align 8
-  %305 = extractvalue { i8*, i32 } %303, 1
-  store i32 %305, i32* %6, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %35) #3
-  br label %306
-
-306:                                              ; preds = %302, %298
-  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %36) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %33) #3
-  br label %307
-
-307:                                              ; preds = %306, %294
-  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %34) #3
-  br label %322
-
-308:                                              ; preds = %184
-  %309 = landingpad { i8*, i32 }
-          cleanup
-  %310 = extractvalue { i8*, i32 } %309, 0
-  store i8* %310, i8** %5, align 8
-  %311 = extractvalue { i8*, i32 } %309, 1
-  store i32 %311, i32* %6, align 4
-  br label %321
-
-312:                                              ; preds = %190
-  %313 = landingpad { i8*, i32 }
-          cleanup
-  %314 = extractvalue { i8*, i32 } %313, 0
-  store i8* %314, i8** %5, align 8
-  %315 = extractvalue { i8*, i32 } %313, 1
-  store i32 %315, i32* %6, align 4
-  br label %320
-
-316:                                              ; preds = %194
-  %317 = landingpad { i8*, i32 }
-          cleanup
-  %318 = extractvalue { i8*, i32 } %317, 0
-  store i8* %318, i8** %5, align 8
-  %319 = extractvalue { i8*, i32 } %317, 1
-  store i32 %319, i32* %6, align 4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %39) #3
-  br label %320
-
-320:                                              ; preds = %316, %312
-  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %40) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %37) #3
-  br label %321
-
-321:                                              ; preds = %320, %308
-  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %38) #3
-  br label %322
-
-322:                                              ; preds = %321, %307, %293, %279, %265, %251, %237, %223, %209
-  %323 = load i8*, i8** %5, align 8
-  %324 = load i32, i32* %6, align 4
-  %325 = insertvalue { i8*, i32 } undef, i8* %323, 0
-  %326 = insertvalue { i8*, i32 } %325, i32 %324, 1
-  resume { i8*, i32 } %326
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_ZN10Benchmark710random_cooEPiS0_S0_ii(%class.Benchmark7* nonnull align 8 dereferenceable(816) %0, i32* %1, i32* %2, i32* %3, i32 %4, i32 %5) #7 comdat align 2 personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
-  %7 = alloca %class.Benchmark7*, align 8
-  %8 = alloca i32*, align 8
-  %9 = alloca i32*, align 8
-  %10 = alloca i32*, align 8
-  %11 = alloca i32, align 4
-  %12 = alloca i32, align 4
-  %13 = alloca i32, align 4
-  %14 = alloca %"class.std::set", align 8
-  %15 = alloca i32, align 4
-  %16 = alloca i8*, align 8
-  %17 = alloca i32, align 4
-  %18 = alloca %"struct.std::pair", align 8
-  %19 = alloca i32, align 4
-  %20 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
-  %21 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
-  %22 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
-  store %class.Benchmark7* %0, %class.Benchmark7** %7, align 8
-  store i32* %1, i32** %8, align 8
-  store i32* %2, i32** %9, align 8
-  store i32* %3, i32** %10, align 8
-  store i32 %4, i32* %11, align 4
-  store i32 %5, i32* %12, align 4
-  %23 = load %class.Benchmark7*, %class.Benchmark7** %7, align 8
-  store i32 0, i32* %13, align 4
-  br label %24
-
-24:                                               ; preds = %90, %6
-  %25 = load i32, i32* %13, align 4
-  %26 = load i32, i32* %11, align 4
-  %27 = icmp slt i32 %25, %26
-  br i1 %27, label %28, label %93
-
-28:                                               ; preds = %24
-  call void @_ZNSt3setIiSt4lessIiESaIiEEC2Ev(%"class.std::set"* nonnull align 8 dereferenceable(48) %14) #3
-  br label %29
-
-29:                                               ; preds = %39, %28
-  %30 = call i64 @_ZNKSt3setIiSt4lessIiESaIiEE4sizeEv(%"class.std::set"* nonnull align 8 dereferenceable(48) %14) #3
-  %31 = load i32, i32* %12, align 4
-  %32 = sext i32 %31 to i64
-  %33 = icmp ult i64 %30, %32
-  br i1 %33, label %34, label %49
-
-34:                                               ; preds = %29
-  %35 = call i32 @rand() #3
-  %36 = load i32, i32* %11, align 4
-  %37 = srem i32 %35, %36
-  store i32 %37, i32* %15, align 4
-  %38 = invoke { %"struct.std::_Rb_tree_node_base"*, i8 } @_ZNSt3setIiSt4lessIiESaIiEE6insertEOi(%"class.std::set"* nonnull align 8 dereferenceable(48) %14, i32* nonnull align 4 dereferenceable(4) %15)
-          to label %39 unwind label %45
-
-39:                                               ; preds = %34
-  %40 = bitcast %"struct.std::pair"* %18 to { %"struct.std::_Rb_tree_node_base"*, i8 }*
-  %41 = getelementptr inbounds { %"struct.std::_Rb_tree_node_base"*, i8 }, { %"struct.std::_Rb_tree_node_base"*, i8 }* %40, i32 0, i32 0
-  %42 = extractvalue { %"struct.std::_Rb_tree_node_base"*, i8 } %38, 0
-  store %"struct.std::_Rb_tree_node_base"* %42, %"struct.std::_Rb_tree_node_base"** %41, align 8
-  %43 = getelementptr inbounds { %"struct.std::_Rb_tree_node_base"*, i8 }, { %"struct.std::_Rb_tree_node_base"*, i8 }* %40, i32 0, i32 1
-  %44 = extractvalue { %"struct.std::_Rb_tree_node_base"*, i8 } %38, 1
-  store i8 %44, i8* %43, align 8
-  br label %29, !llvm.loop !5
-
-45:                                               ; preds = %34
-  %46 = landingpad { i8*, i32 }
-          cleanup
-  %47 = extractvalue { i8*, i32 } %46, 0
-  store i8* %47, i8** %16, align 8
-  %48 = extractvalue { i8*, i32 } %46, 1
-  store i32 %48, i32* %17, align 4
-  call void @_ZNSt3setIiSt4lessIiESaIiEED2Ev(%"class.std::set"* nonnull align 8 dereferenceable(48) %14) #3
-  br label %94
-
-49:                                               ; preds = %29
-  store i32 0, i32* %19, align 4
-  %50 = call %"struct.std::_Rb_tree_node_base"* @_ZNKSt3setIiSt4lessIiESaIiEE5beginEv(%"class.std::set"* nonnull align 8 dereferenceable(48) %14) #3
-  %51 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", %"struct.std::_Rb_tree_const_iterator"* %20, i32 0, i32 0
-  store %"struct.std::_Rb_tree_node_base"* %50, %"struct.std::_Rb_tree_node_base"** %51, align 8
-  br label %52
-
-52:                                               ; preds = %84, %49
-  %53 = call %"struct.std::_Rb_tree_node_base"* @_ZNKSt3setIiSt4lessIiESaIiEE3endEv(%"class.std::set"* nonnull align 8 dereferenceable(48) %14) #3
-  %54 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", %"struct.std::_Rb_tree_const_iterator"* %21, i32 0, i32 0
-  store %"struct.std::_Rb_tree_node_base"* %53, %"struct.std::_Rb_tree_node_base"** %54, align 8
-  %55 = call zeroext i1 @_ZNKSt23_Rb_tree_const_iteratorIiEneERKS0_(%"struct.std::_Rb_tree_const_iterator"* nonnull align 8 dereferenceable(8) %20, %"struct.std::_Rb_tree_const_iterator"* nonnull align 8 dereferenceable(8) %21) #3
-  br i1 %55, label %56, label %89
-
-56:                                               ; preds = %52
-  %57 = load i32, i32* %13, align 4
-  %58 = load i32*, i32** %8, align 8
-  %59 = load i32, i32* %13, align 4
-  %60 = load i32, i32* %12, align 4
-  %61 = mul nsw i32 %59, %60
-  %62 = load i32, i32* %19, align 4
-  %63 = add nsw i32 %61, %62
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds i32, i32* %58, i64 %64
-  store i32 %57, i32* %65, align 4
-  %66 = call nonnull align 4 dereferenceable(4) i32* @_ZNKSt23_Rb_tree_const_iteratorIiEdeEv(%"struct.std::_Rb_tree_const_iterator"* nonnull align 8 dereferenceable(8) %20) #3
-  %67 = load i32, i32* %66, align 4
-  %68 = load i32*, i32** %9, align 8
-  %69 = load i32, i32* %13, align 4
-  %70 = load i32, i32* %12, align 4
-  %71 = mul nsw i32 %69, %70
-  %72 = load i32, i32* %19, align 4
-  %73 = add nsw i32 %71, %72
-  %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds i32, i32* %68, i64 %74
-  store i32 %67, i32* %75, align 4
-  %76 = load i32*, i32** %10, align 8
-  %77 = load i32, i32* %13, align 4
-  %78 = load i32, i32* %12, align 4
-  %79 = mul nsw i32 %77, %78
-  %80 = load i32, i32* %19, align 4
-  %81 = add nsw i32 %79, %80
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds i32, i32* %76, i64 %82
-  store i32 1, i32* %83, align 4
-  br label %84
-
-84:                                               ; preds = %56
-  %85 = call %"struct.std::_Rb_tree_node_base"* @_ZNSt23_Rb_tree_const_iteratorIiEppEi(%"struct.std::_Rb_tree_const_iterator"* nonnull align 8 dereferenceable(8) %20, i32 0) #3
-  %86 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", %"struct.std::_Rb_tree_const_iterator"* %22, i32 0, i32 0
-  store %"struct.std::_Rb_tree_node_base"* %85, %"struct.std::_Rb_tree_node_base"** %86, align 8
-  %87 = load i32, i32* %19, align 4
-  %88 = add nsw i32 %87, 1
-  store i32 %88, i32* %19, align 4
-  br label %52, !llvm.loop !7
-
-89:                                               ; preds = %52
-  call void @_ZNSt3setIiSt4lessIiESaIiEED2Ev(%"class.std::set"* nonnull align 8 dereferenceable(48) %14) #3
-  br label %90
-
-90:                                               ; preds = %89
-  %91 = load i32, i32* %13, align 4
-  %92 = add nsw i32 %91, 1
-  store i32 %92, i32* %13, align 4
-  br label %24, !llvm.loop !8
-
-93:                                               ; preds = %24
-  ret void
-
-94:                                               ; preds = %45
-  %95 = load i8*, i8** %16, align 8
-  %96 = load i32, i32* %17, align 4
-  %97 = insertvalue { i8*, i32 } undef, i8* %95, 0
-  %98 = insertvalue { i8*, i32 } %97, i32 %96, 1
-  resume { i8*, i32 } %98
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_Z7coo2csrIiiEvPT_S1_PT0_S1_S1_S3_S0_S0_S0_(i32* %0, i32* %1, i32* %2, i32* %3, i32* %4, i32* %5, i32 %6, i32 %7, i32 %8) #7 comdat personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
-  %10 = alloca i32*, align 8
-  %11 = alloca i32*, align 8
-  %12 = alloca i32*, align 8
-  %13 = alloca i32*, align 8
-  %14 = alloca i32*, align 8
-  %15 = alloca i32*, align 8
-  %16 = alloca i32, align 4
-  %17 = alloca i32, align 4
-  %18 = alloca i32, align 4
-  %19 = alloca i32, align 4
-  %20 = alloca i32, align 4
-  %21 = alloca i32, align 4
-  %22 = alloca i32, align 4
-  %23 = alloca i32, align 4
-  %24 = alloca %"class.std::vector.13", align 8
-  %25 = alloca %"class.std::allocator.15", align 1
-  %26 = alloca i8*, align 8
-  %27 = alloca i32, align 4
-  %28 = alloca %"class.std::vector.13", align 8
-  %29 = alloca %"class.std::allocator.15", align 1
-  %30 = alloca %"class.std::vector.13", align 8
-  %31 = alloca %"class.std::allocator.15", align 1
-  %32 = alloca i32, align 4
-  %33 = alloca i32, align 4
-  %34 = alloca i32, align 4
-  %35 = alloca i32, align 4
-  %36 = alloca i32, align 4
-  store i32* %0, i32** %10, align 8
-  store i32* %1, i32** %11, align 8
-  store i32* %2, i32** %12, align 8
-  store i32* %3, i32** %13, align 8
-  store i32* %4, i32** %14, align 8
-  store i32* %5, i32** %15, align 8
-  store i32 %6, i32* %16, align 4
-  store i32 %7, i32* %17, align 4
-  store i32 %8, i32* %18, align 4
-  store i32 0, i32* %23, align 4
-  %37 = load i32*, i32** %13, align 8
-  %38 = load i32*, i32** %13, align 8
-  %39 = load i32, i32* %18, align 4
-  %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds i32, i32* %38, i64 %40
-  call void @_ZNSaIiEC2Ev(%"class.std::allocator.15"* nonnull align 1 dereferenceable(1) %25) #3
-  invoke void @_ZNSt6vectorIiSaIiEEC2IPivEET_S4_RKS0_(%"class.std::vector.13"* nonnull align 8 dereferenceable(24) %24, i32* %37, i32* %41, %"class.std::allocator.15"* nonnull align 1 dereferenceable(1) %25)
-          to label %42 unwind label %72
-
-42:                                               ; preds = %9
-  call void @_ZNSaIiED2Ev(%"class.std::allocator.15"* nonnull align 1 dereferenceable(1) %25) #3
-  %43 = load i32*, i32** %14, align 8
-  %44 = load i32*, i32** %14, align 8
-  %45 = load i32, i32* %18, align 4
-  %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds i32, i32* %44, i64 %46
-  call void @_ZNSaIiEC2Ev(%"class.std::allocator.15"* nonnull align 1 dereferenceable(1) %29) #3
-  invoke void @_ZNSt6vectorIiSaIiEEC2IPivEET_S4_RKS0_(%"class.std::vector.13"* nonnull align 8 dereferenceable(24) %28, i32* %43, i32* %47, %"class.std::allocator.15"* nonnull align 1 dereferenceable(1) %29)
-          to label %48 unwind label %76
-
-48:                                               ; preds = %42
-  call void @_ZNSaIiED2Ev(%"class.std::allocator.15"* nonnull align 1 dereferenceable(1) %29) #3
-  %49 = load i32*, i32** %15, align 8
-  %50 = load i32*, i32** %15, align 8
-  %51 = load i32, i32* %18, align 4
-  %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds i32, i32* %50, i64 %52
-  call void @_ZNSaIiEC2Ev(%"class.std::allocator.15"* nonnull align 1 dereferenceable(1) %31) #3
-  invoke void @_ZNSt6vectorIiSaIiEEC2IPivEET_S4_RKS0_(%"class.std::vector.13"* nonnull align 8 dereferenceable(24) %30, i32* %49, i32* %53, %"class.std::allocator.15"* nonnull align 1 dereferenceable(1) %31)
-          to label %54 unwind label %80
-
-54:                                               ; preds = %48
-  call void @_ZNSaIiED2Ev(%"class.std::allocator.15"* nonnull align 1 dereferenceable(1) %31) #3
-  %55 = call i32* @_ZNSt6vectorIiSaIiEE4dataEv(%"class.std::vector.13"* nonnull align 8 dereferenceable(24) %24) #3
-  %56 = call i32* @_ZNSt6vectorIiSaIiEE4dataEv(%"class.std::vector.13"* nonnull align 8 dereferenceable(24) %28) #3
-  %57 = call i32* @_ZNSt6vectorIiSaIiEE4dataEv(%"class.std::vector.13"* nonnull align 8 dereferenceable(24) %30) #3
-  %58 = load i32, i32* %18, align 4
-  invoke void @_Z10customSortIiiEvPT_S1_PT0_S0_(i32* %55, i32* %56, i32* %57, i32 %58)
-          to label %59 unwind label %84
-
-59:                                               ; preds = %54
-  store i32 0, i32* %32, align 4
-  br label %60
-
-60:                                               ; preds = %69, %59
-  %61 = load i32, i32* %32, align 4
-  %62 = load i32, i32* %16, align 4
-  %63 = icmp sle i32 %61, %62
-  br i1 %63, label %64, label %88
-
-64:                                               ; preds = %60
-  %65 = load i32*, i32** %10, align 8
-  %66 = load i32, i32* %32, align 4
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds i32, i32* %65, i64 %67
-  store i32 0, i32* %68, align 4
-  br label %69
-
-69:                                               ; preds = %64
-  %70 = load i32, i32* %32, align 4
-  %71 = add nsw i32 %70, 1
-  store i32 %71, i32* %32, align 4
-  br label %60, !llvm.loop !9
-
-72:                                               ; preds = %9
-  %73 = landingpad { i8*, i32 }
-          cleanup
-  %74 = extractvalue { i8*, i32 } %73, 0
-  store i8* %74, i8** %26, align 8
-  %75 = extractvalue { i8*, i32 } %73, 1
-  store i32 %75, i32* %27, align 4
-  call void @_ZNSaIiED2Ev(%"class.std::allocator.15"* nonnull align 1 dereferenceable(1) %25) #3
-  br label %223
-
-76:                                               ; preds = %42
-  %77 = landingpad { i8*, i32 }
-          cleanup
-  %78 = extractvalue { i8*, i32 } %77, 0
-  store i8* %78, i8** %26, align 8
-  %79 = extractvalue { i8*, i32 } %77, 1
-  store i32 %79, i32* %27, align 4
-  call void @_ZNSaIiED2Ev(%"class.std::allocator.15"* nonnull align 1 dereferenceable(1) %29) #3
-  br label %222
-
-80:                                               ; preds = %48
-  %81 = landingpad { i8*, i32 }
-          cleanup
-  %82 = extractvalue { i8*, i32 } %81, 0
-  store i8* %82, i8** %26, align 8
-  %83 = extractvalue { i8*, i32 } %81, 1
-  store i32 %83, i32* %27, align 4
-  call void @_ZNSaIiED2Ev(%"class.std::allocator.15"* nonnull align 1 dereferenceable(1) %31) #3
-  br label %221
-
-84:                                               ; preds = %163, %101, %54
-  %85 = landingpad { i8*, i32 }
-          cleanup
-  %86 = extractvalue { i8*, i32 } %85, 0
-  store i8* %86, i8** %26, align 8
-  %87 = extractvalue { i8*, i32 } %85, 1
-  store i32 %87, i32* %27, align 4
-  call void @_ZNSt6vectorIiSaIiEED2Ev(%"class.std::vector.13"* nonnull align 8 dereferenceable(24) %30) #3
-  br label %221
-
-88:                                               ; preds = %60
-  store i32 0, i32* %33, align 4
-  br label %89
-
-89:                                               ; preds = %111, %88
-  %90 = load i32, i32* %33, align 4
-  %91 = load i32, i32* %18, align 4
-  %92 = icmp slt i32 %90, %91
-  br i1 %92, label %93, label %114
-
-93:                                               ; preds = %89
-  %94 = load i32, i32* %33, align 4
-  %95 = sext i32 %94 to i64
-  %96 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt6vectorIiSaIiEEixEm(%"class.std::vector.13"* nonnull align 8 dereferenceable(24) %24, i64 %95) #3
-  %97 = load i32, i32* %96, align 4
-  store i32 %97, i32* %20, align 4
-  %98 = load i32, i32* %20, align 4
-  %99 = load i32, i32* %16, align 4
-  %100 = icmp sge i32 %98, %99
-  br i1 %100, label %101, label %104
-
-101:                                              ; preds = %93
-  %102 = invoke nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) @_ZSt4cout, i8* getelementptr inbounds ([29 x i8], [29 x i8]* @.str.79, i64 0, i64 0))
-          to label %103 unwind label %84
-
-103:                                              ; preds = %101
-  br label %104
-
-104:                                              ; preds = %103, %93
-  %105 = load i32*, i32** %10, align 8
-  %106 = load i32, i32* %20, align 4
-  %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds i32, i32* %105, i64 %107
-  %109 = load i32, i32* %108, align 4
-  %110 = add nsw i32 %109, 1
-  store i32 %110, i32* %108, align 4
-  br label %111
-
-111:                                              ; preds = %104
-  %112 = load i32, i32* %33, align 4
-  %113 = add nsw i32 %112, 1
-  store i32 %113, i32* %33, align 4
-  br label %89, !llvm.loop !10
-
-114:                                              ; preds = %89
-  store i32 0, i32* %34, align 4
-  br label %115
-
-115:                                              ; preds = %133, %114
-  %116 = load i32, i32* %34, align 4
-  %117 = load i32, i32* %16, align 4
-  %118 = icmp slt i32 %116, %117
-  br i1 %118, label %119, label %136
-
-119:                                              ; preds = %115
-  %120 = load i32*, i32** %10, align 8
-  %121 = load i32, i32* %34, align 4
-  %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds i32, i32* %120, i64 %122
-  %124 = load i32, i32* %123, align 4
-  store i32 %124, i32* %19, align 4
-  %125 = load i32, i32* %23, align 4
-  %126 = load i32*, i32** %10, align 8
-  %127 = load i32, i32* %34, align 4
-  %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds i32, i32* %126, i64 %128
-  store i32 %125, i32* %129, align 4
-  %130 = load i32, i32* %19, align 4
-  %131 = load i32, i32* %23, align 4
-  %132 = add nsw i32 %131, %130
-  store i32 %132, i32* %23, align 4
-  br label %133
-
-133:                                              ; preds = %119
-  %134 = load i32, i32* %34, align 4
-  %135 = add nsw i32 %134, 1
-  store i32 %135, i32* %34, align 4
-  br label %115, !llvm.loop !11
-
-136:                                              ; preds = %115
-  %137 = load i32, i32* %18, align 4
-  %138 = load i32*, i32** %10, align 8
-  %139 = load i32, i32* %16, align 4
-  %140 = sext i32 %139 to i64
-  %141 = getelementptr inbounds i32, i32* %138, i64 %140
-  store i32 %137, i32* %141, align 4
-  store i32 0, i32* %35, align 4
-  br label %142
-
-142:                                              ; preds = %186, %136
-  %143 = load i32, i32* %35, align 4
-  %144 = load i32, i32* %18, align 4
-  %145 = icmp slt i32 %143, %144
-  br i1 %145, label %146, label %189
-
-146:                                              ; preds = %142
-  %147 = load i32, i32* %35, align 4
-  %148 = sext i32 %147 to i64
-  %149 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt6vectorIiSaIiEEixEm(%"class.std::vector.13"* nonnull align 8 dereferenceable(24) %24, i64 %148) #3
-  %150 = load i32, i32* %149, align 4
-  store i32 %150, i32* %20, align 4
-  %151 = load i32*, i32** %10, align 8
-  %152 = load i32, i32* %20, align 4
-  %153 = sext i32 %152 to i64
-  %154 = getelementptr inbounds i32, i32* %151, i64 %153
-  %155 = load i32, i32* %154, align 4
-  store i32 %155, i32* %22, align 4
-  %156 = load i32, i32* %35, align 4
-  %157 = sext i32 %156 to i64
-  %158 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt6vectorIiSaIiEEixEm(%"class.std::vector.13"* nonnull align 8 dereferenceable(24) %28, i64 %157) #3
-  %159 = load i32, i32* %158, align 4
-  store i32 %159, i32* %21, align 4
-  %160 = load i32, i32* %21, align 4
-  %161 = load i32, i32* %17, align 4
-  %162 = icmp sge i32 %160, %161
-  br i1 %162, label %163, label %166
-
-163:                                              ; preds = %146
-  %164 = invoke nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) @_ZSt4cout, i8* getelementptr inbounds ([29 x i8], [29 x i8]* @.str.79, i64 0, i64 0))
-          to label %165 unwind label %84
-
-165:                                              ; preds = %163
-  br label %166
-
-166:                                              ; preds = %165, %146
-  %167 = load i32, i32* %21, align 4
-  %168 = load i32*, i32** %11, align 8
-  %169 = load i32, i32* %22, align 4
-  %170 = sext i32 %169 to i64
-  %171 = getelementptr inbounds i32, i32* %168, i64 %170
-  store i32 %167, i32* %171, align 4
-  %172 = load i32, i32* %35, align 4
-  %173 = sext i32 %172 to i64
-  %174 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt6vectorIiSaIiEEixEm(%"class.std::vector.13"* nonnull align 8 dereferenceable(24) %30, i64 %173) #3
-  %175 = load i32, i32* %174, align 4
-  %176 = load i32*, i32** %12, align 8
-  %177 = load i32, i32* %22, align 4
-  %178 = sext i32 %177 to i64
-  %179 = getelementptr inbounds i32, i32* %176, i64 %178
-  store i32 %175, i32* %179, align 4
-  %180 = load i32*, i32** %10, align 8
-  %181 = load i32, i32* %20, align 4
-  %182 = sext i32 %181 to i64
-  %183 = getelementptr inbounds i32, i32* %180, i64 %182
-  %184 = load i32, i32* %183, align 4
-  %185 = add nsw i32 %184, 1
-  store i32 %185, i32* %183, align 4
+  %175 = extractvalue { i8*, i32 } %174, 0
+  store i8* %175, i8** %5, align 8
+  %176 = extractvalue { i8*, i32 } %174, 1
+  store i32 %176, i32* %6, align 4
   br label %186
 
-186:                                              ; preds = %166
-  %187 = load i32, i32* %35, align 4
-  %188 = add nsw i32 %187, 1
-  store i32 %188, i32* %35, align 4
-  br label %142, !llvm.loop !12
+177:                                              ; preds = %73
+  %178 = landingpad { i8*, i32 }
+          cleanup
+  %179 = extractvalue { i8*, i32 } %178, 0
+  store i8* %179, i8** %5, align 8
+  %180 = extractvalue { i8*, i32 } %178, 1
+  store i32 %180, i32* %6, align 4
+  br label %185
 
-189:                                              ; preds = %142
-  store i32 0, i32* %23, align 4
-  store i32 0, i32* %36, align 4
-  br label %190
+181:                                              ; preds = %77
+  %182 = landingpad { i8*, i32 }
+          cleanup
+  %183 = extractvalue { i8*, i32 } %182, 0
+  store i8* %183, i8** %5, align 8
+  %184 = extractvalue { i8*, i32 } %182, 1
+  store i32 %184, i32* %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %15) #3
+  br label %185
 
-190:                                              ; preds = %206, %189
-  %191 = load i32, i32* %36, align 4
-  %192 = load i32, i32* %16, align 4
-  %193 = icmp slt i32 %191, %192
-  br i1 %193, label %194, label %209
+185:                                              ; preds = %181, %177
+  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %16) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %13) #3
+  br label %186
 
-194:                                              ; preds = %190
-  %195 = load i32*, i32** %10, align 8
-  %196 = load i32, i32* %36, align 4
-  %197 = sext i32 %196 to i64
-  %198 = getelementptr inbounds i32, i32* %195, i64 %197
-  %199 = load i32, i32* %198, align 4
-  store i32 %199, i32* %19, align 4
-  %200 = load i32, i32* %23, align 4
-  %201 = load i32*, i32** %10, align 8
-  %202 = load i32, i32* %36, align 4
-  %203 = sext i32 %202 to i64
-  %204 = getelementptr inbounds i32, i32* %201, i64 %203
-  store i32 %200, i32* %204, align 4
-  %205 = load i32, i32* %19, align 4
-  store i32 %205, i32* %23, align 4
-  br label %206
+186:                                              ; preds = %185, %173
+  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %14) #3
+  br label %271
 
-206:                                              ; preds = %194
-  %207 = load i32, i32* %36, align 4
-  %208 = add nsw i32 %207, 1
-  store i32 %208, i32* %36, align 4
-  br label %190, !llvm.loop !13
+187:                                              ; preds = %78
+  %188 = landingpad { i8*, i32 }
+          cleanup
+  %189 = extractvalue { i8*, i32 } %188, 0
+  store i8* %189, i8** %5, align 8
+  %190 = extractvalue { i8*, i32 } %188, 1
+  store i32 %190, i32* %6, align 4
+  br label %200
 
-209:                                              ; preds = %190
-  %210 = load i32*, i32** %10, align 8
-  %211 = load i32, i32* %16, align 4
-  %212 = sext i32 %211 to i64
-  %213 = getelementptr inbounds i32, i32* %210, i64 %212
-  %214 = load i32, i32* %213, align 4
-  store i32 %214, i32* %19, align 4
-  %215 = load i32, i32* %23, align 4
-  %216 = load i32*, i32** %10, align 8
-  %217 = load i32, i32* %16, align 4
-  %218 = sext i32 %217 to i64
-  %219 = getelementptr inbounds i32, i32* %216, i64 %218
-  store i32 %215, i32* %219, align 4
-  %220 = load i32, i32* %19, align 4
-  store i32 %220, i32* %23, align 4
-  call void @_ZNSt6vectorIiSaIiEED2Ev(%"class.std::vector.13"* nonnull align 8 dereferenceable(24) %30) #3
-  call void @_ZNSt6vectorIiSaIiEED2Ev(%"class.std::vector.13"* nonnull align 8 dereferenceable(24) %28) #3
-  call void @_ZNSt6vectorIiSaIiEED2Ev(%"class.std::vector.13"* nonnull align 8 dereferenceable(24) %24) #3
-  ret void
+191:                                              ; preds = %84
+  %192 = landingpad { i8*, i32 }
+          cleanup
+  %193 = extractvalue { i8*, i32 } %192, 0
+  store i8* %193, i8** %5, align 8
+  %194 = extractvalue { i8*, i32 } %192, 1
+  store i32 %194, i32* %6, align 4
+  br label %199
 
-221:                                              ; preds = %84, %80
-  call void @_ZNSt6vectorIiSaIiEED2Ev(%"class.std::vector.13"* nonnull align 8 dereferenceable(24) %28) #3
-  br label %222
+195:                                              ; preds = %88
+  %196 = landingpad { i8*, i32 }
+          cleanup
+  %197 = extractvalue { i8*, i32 } %196, 0
+  store i8* %197, i8** %5, align 8
+  %198 = extractvalue { i8*, i32 } %196, 1
+  store i32 %198, i32* %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %19) #3
+  br label %199
 
-222:                                              ; preds = %221, %76
-  call void @_ZNSt6vectorIiSaIiEED2Ev(%"class.std::vector.13"* nonnull align 8 dereferenceable(24) %24) #3
-  br label %223
+199:                                              ; preds = %195, %191
+  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %20) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %17) #3
+  br label %200
 
-223:                                              ; preds = %222, %72
-  %224 = load i8*, i8** %26, align 8
-  %225 = load i32, i32* %27, align 4
-  %226 = insertvalue { i8*, i32 } undef, i8* %224, 0
-  %227 = insertvalue { i8*, i32 } %226, i32 %225, 1
-  resume { i8*, i32 } %227
+200:                                              ; preds = %199, %187
+  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %18) #3
+  br label %271
+
+201:                                              ; preds = %89
+  %202 = landingpad { i8*, i32 }
+          cleanup
+  %203 = extractvalue { i8*, i32 } %202, 0
+  store i8* %203, i8** %5, align 8
+  %204 = extractvalue { i8*, i32 } %202, 1
+  store i32 %204, i32* %6, align 4
+  br label %214
+
+205:                                              ; preds = %95
+  %206 = landingpad { i8*, i32 }
+          cleanup
+  %207 = extractvalue { i8*, i32 } %206, 0
+  store i8* %207, i8** %5, align 8
+  %208 = extractvalue { i8*, i32 } %206, 1
+  store i32 %208, i32* %6, align 4
+  br label %213
+
+209:                                              ; preds = %99
+  %210 = landingpad { i8*, i32 }
+          cleanup
+  %211 = extractvalue { i8*, i32 } %210, 0
+  store i8* %211, i8** %5, align 8
+  %212 = extractvalue { i8*, i32 } %210, 1
+  store i32 %212, i32* %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %23) #3
+  br label %213
+
+213:                                              ; preds = %209, %205
+  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %24) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %21) #3
+  br label %214
+
+214:                                              ; preds = %213, %201
+  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %22) #3
+  br label %271
+
+215:                                              ; preds = %100
+  %216 = landingpad { i8*, i32 }
+          cleanup
+  %217 = extractvalue { i8*, i32 } %216, 0
+  store i8* %217, i8** %5, align 8
+  %218 = extractvalue { i8*, i32 } %216, 1
+  store i32 %218, i32* %6, align 4
+  br label %228
+
+219:                                              ; preds = %106
+  %220 = landingpad { i8*, i32 }
+          cleanup
+  %221 = extractvalue { i8*, i32 } %220, 0
+  store i8* %221, i8** %5, align 8
+  %222 = extractvalue { i8*, i32 } %220, 1
+  store i32 %222, i32* %6, align 4
+  br label %227
+
+223:                                              ; preds = %110
+  %224 = landingpad { i8*, i32 }
+          cleanup
+  %225 = extractvalue { i8*, i32 } %224, 0
+  store i8* %225, i8** %5, align 8
+  %226 = extractvalue { i8*, i32 } %224, 1
+  store i32 %226, i32* %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %27) #3
+  br label %227
+
+227:                                              ; preds = %223, %219
+  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %28) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %25) #3
+  br label %228
+
+228:                                              ; preds = %227, %215
+  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %26) #3
+  br label %271
+
+229:                                              ; preds = %111
+  %230 = landingpad { i8*, i32 }
+          cleanup
+  %231 = extractvalue { i8*, i32 } %230, 0
+  store i8* %231, i8** %5, align 8
+  %232 = extractvalue { i8*, i32 } %230, 1
+  store i32 %232, i32* %6, align 4
+  br label %242
+
+233:                                              ; preds = %117
+  %234 = landingpad { i8*, i32 }
+          cleanup
+  %235 = extractvalue { i8*, i32 } %234, 0
+  store i8* %235, i8** %5, align 8
+  %236 = extractvalue { i8*, i32 } %234, 1
+  store i32 %236, i32* %6, align 4
+  br label %241
+
+237:                                              ; preds = %121
+  %238 = landingpad { i8*, i32 }
+          cleanup
+  %239 = extractvalue { i8*, i32 } %238, 0
+  store i8* %239, i8** %5, align 8
+  %240 = extractvalue { i8*, i32 } %238, 1
+  store i32 %240, i32* %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %31) #3
+  br label %241
+
+241:                                              ; preds = %237, %233
+  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %32) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %29) #3
+  br label %242
+
+242:                                              ; preds = %241, %229
+  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %30) #3
+  br label %271
+
+243:                                              ; preds = %122
+  %244 = landingpad { i8*, i32 }
+          cleanup
+  %245 = extractvalue { i8*, i32 } %244, 0
+  store i8* %245, i8** %5, align 8
+  %246 = extractvalue { i8*, i32 } %244, 1
+  store i32 %246, i32* %6, align 4
+  br label %256
+
+247:                                              ; preds = %128
+  %248 = landingpad { i8*, i32 }
+          cleanup
+  %249 = extractvalue { i8*, i32 } %248, 0
+  store i8* %249, i8** %5, align 8
+  %250 = extractvalue { i8*, i32 } %248, 1
+  store i32 %250, i32* %6, align 4
+  br label %255
+
+251:                                              ; preds = %132
+  %252 = landingpad { i8*, i32 }
+          cleanup
+  %253 = extractvalue { i8*, i32 } %252, 0
+  store i8* %253, i8** %5, align 8
+  %254 = extractvalue { i8*, i32 } %252, 1
+  store i32 %254, i32* %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %35) #3
+  br label %255
+
+255:                                              ; preds = %251, %247
+  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %36) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %33) #3
+  br label %256
+
+256:                                              ; preds = %255, %243
+  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %34) #3
+  br label %271
+
+257:                                              ; preds = %133
+  %258 = landingpad { i8*, i32 }
+          cleanup
+  %259 = extractvalue { i8*, i32 } %258, 0
+  store i8* %259, i8** %5, align 8
+  %260 = extractvalue { i8*, i32 } %258, 1
+  store i32 %260, i32* %6, align 4
+  br label %270
+
+261:                                              ; preds = %139
+  %262 = landingpad { i8*, i32 }
+          cleanup
+  %263 = extractvalue { i8*, i32 } %262, 0
+  store i8* %263, i8** %5, align 8
+  %264 = extractvalue { i8*, i32 } %262, 1
+  store i32 %264, i32* %6, align 4
+  br label %269
+
+265:                                              ; preds = %143
+  %266 = landingpad { i8*, i32 }
+          cleanup
+  %267 = extractvalue { i8*, i32 } %266, 0
+  store i8* %267, i8** %5, align 8
+  %268 = extractvalue { i8*, i32 } %266, 1
+  store i32 %268, i32* %6, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %39) #3
+  br label %269
+
+269:                                              ; preds = %265, %261
+  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %40) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %37) #3
+  br label %270
+
+270:                                              ; preds = %269, %257
+  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %38) #3
+  br label %271
+
+271:                                              ; preds = %270, %256, %242, %228, %214, %200, %186, %172, %158
+  %272 = load i8*, i8** %5, align 8
+  %273 = load i32, i32* %6, align 4
+  %274 = insertvalue { i8*, i32 } undef, i8* %272, 0
+  %275 = insertvalue { i8*, i32 } %274, i32 %273, 1
+  resume { i8*, i32 } %275
 }
 
 ; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_Z13write_to_fileIiEvPT_mNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS7_(i32* %0, i64 %1, %"class.std::__cxx11::basic_string"* %2, i32 %3, %"class.std::__cxx11::basic_string"* %4) #7 comdat personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
+define linkonce_odr dso_local void @_Z9read_fileIiEvPT_mNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS7_(i32* %0, i64 %1, %"class.std::__cxx11::basic_string"* %2, i32 %3, %"class.std::__cxx11::basic_string"* %4) #7 comdat personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
   %6 = alloca i32*, align 8
   %7 = alloca i64, align 8
   %8 = alloca i32, align 4
@@ -2856,232 +1679,228 @@ define linkonce_odr dso_local void @_Z13write_to_fileIiEvPT_mNSt7__cxx1112basic_
   %18 = alloca %"class.std::__cxx11::basic_string", align 8
   %19 = alloca %"class.std::basic_fstream", align 8
   %20 = alloca i64, align 8
+  %21 = alloca i32, align 4
   store i32* %0, i32** %6, align 8
   store i64 %1, i64* %7, align 8
   store i32 %3, i32* %8, align 4
   call void @_ZNSaIcEC1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %10) #3
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %9, i8* getelementptr inbounds ([33 x i8], [33 x i8]* @.str.81, i64 0, i64 0), %"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %10)
-          to label %21 unwind label %52
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %9, i8* getelementptr inbounds ([33 x i8], [33 x i8]* @.str.79, i64 0, i64 0), %"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %10)
+          to label %22 unwind label %49
 
-21:                                               ; preds = %5
+22:                                               ; preds = %5
   call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %10) #3
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_(%"class.std::__cxx11::basic_string"* sret(%"class.std::__cxx11::basic_string") align 8 %17, %"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %9, %"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %2)
-          to label %22 unwind label %56
-
-22:                                               ; preds = %21
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(%"class.std::__cxx11::basic_string"* sret(%"class.std::__cxx11::basic_string") align 8 %16, %"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %17, i8* getelementptr inbounds ([2 x i8], [2 x i8]* @.str.82, i64 0, i64 0))
-          to label %23 unwind label %60
+          to label %23 unwind label %53
 
 23:                                               ; preds = %22
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_RKS8_(%"class.std::__cxx11::basic_string"* sret(%"class.std::__cxx11::basic_string") align 8 %15, %"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %16, %"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %4)
-          to label %24 unwind label %64
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(%"class.std::__cxx11::basic_string"* sret(%"class.std::__cxx11::basic_string") align 8 %16, %"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %17, i8* getelementptr inbounds ([2 x i8], [2 x i8]* @.str.80, i64 0, i64 0))
+          to label %24 unwind label %57
 
 24:                                               ; preds = %23
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(%"class.std::__cxx11::basic_string"* sret(%"class.std::__cxx11::basic_string") align 8 %14, %"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %15, i8* getelementptr inbounds ([2 x i8], [2 x i8]* @.str.83, i64 0, i64 0))
-          to label %25 unwind label %68
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_RKS8_(%"class.std::__cxx11::basic_string"* sret(%"class.std::__cxx11::basic_string") align 8 %15, %"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %16, %"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %4)
+          to label %25 unwind label %61
 
 25:                                               ; preds = %24
-  %26 = load i32, i32* %8, align 4
-  invoke void @_ZNSt7__cxx119to_stringEi(%"class.std::__cxx11::basic_string"* sret(%"class.std::__cxx11::basic_string") align 8 %18, i32 %26)
-          to label %27 unwind label %72
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(%"class.std::__cxx11::basic_string"* sret(%"class.std::__cxx11::basic_string") align 8 %14, %"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %15, i8* getelementptr inbounds ([2 x i8], [2 x i8]* @.str.81, i64 0, i64 0))
+          to label %26 unwind label %65
 
-27:                                               ; preds = %25
+26:                                               ; preds = %25
+  %27 = load i32, i32* %8, align 4
+  invoke void @_ZNSt7__cxx119to_stringEi(%"class.std::__cxx11::basic_string"* sret(%"class.std::__cxx11::basic_string") align 8 %18, i32 %27)
+          to label %28 unwind label %69
+
+28:                                               ; preds = %26
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_(%"class.std::__cxx11::basic_string"* sret(%"class.std::__cxx11::basic_string") align 8 %13, %"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %14, %"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %18)
-          to label %28 unwind label %76
-
-28:                                               ; preds = %27
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %18) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %14) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %15) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %16) #3
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %17) #3
-  invoke void @_ZNSt13basic_fstreamIcSt11char_traitsIcEEC1ERKNSt7__cxx1112basic_stringIcS1_SaIcEEESt13_Ios_Openmode(%"class.std::basic_fstream"* nonnull align 8 dereferenceable(264) %19, %"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %13, i32 16)
-          to label %29 unwind label %84
+          to label %29 unwind label %73
 
 29:                                               ; preds = %28
-  %30 = invoke zeroext i1 @_ZNSt13basic_fstreamIcSt11char_traitsIcEE7is_openEv(%"class.std::basic_fstream"* nonnull align 8 dereferenceable(264) %19)
-          to label %31 unwind label %88
-
-31:                                               ; preds = %29
-  br i1 %30, label %32, label %94
-
-32:                                               ; preds = %31
-  store i64 0, i64* %20, align 8
-  br label %33
-
-33:                                               ; preds = %49, %32
-  %34 = load i64, i64* %20, align 8
-  %35 = load i64, i64* %7, align 8
-  %36 = icmp ult i64 %34, %35
-  br i1 %36, label %37, label %92
-
-37:                                               ; preds = %33
-  %38 = bitcast %"class.std::basic_fstream"* %19 to i8*
-  %39 = getelementptr inbounds i8, i8* %38, i64 16
-  %40 = bitcast i8* %39 to %"class.std::basic_ostream"*
-  %41 = load i32*, i32** %6, align 8
-  %42 = load i64, i64* %20, align 8
-  %43 = getelementptr inbounds i32, i32* %41, i64 %42
-  %44 = load i32, i32* %43, align 4
-  %45 = invoke nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEi(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %40, i32 %44)
-          to label %46 unwind label %88
-
-46:                                               ; preds = %37
-  %47 = invoke nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %45, i8* getelementptr inbounds ([2 x i8], [2 x i8]* @.str.84, i64 0, i64 0))
-          to label %48 unwind label %88
-
-48:                                               ; preds = %46
-  br label %49
-
-49:                                               ; preds = %48
-  %50 = load i64, i64* %20, align 8
-  %51 = add i64 %50, 1
-  store i64 %51, i64* %20, align 8
-  br label %33, !llvm.loop !14
-
-52:                                               ; preds = %5
-  %53 = landingpad { i8*, i32 }
-          cleanup
-  %54 = extractvalue { i8*, i32 } %53, 0
-  store i8* %54, i8** %11, align 8
-  %55 = extractvalue { i8*, i32 } %53, 1
-  store i32 %55, i32* %12, align 4
-  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %10) #3
-  br label %104
-
-56:                                               ; preds = %21
-  %57 = landingpad { i8*, i32 }
-          cleanup
-  %58 = extractvalue { i8*, i32 } %57, 0
-  store i8* %58, i8** %11, align 8
-  %59 = extractvalue { i8*, i32 } %57, 1
-  store i32 %59, i32* %12, align 4
-  br label %103
-
-60:                                               ; preds = %22
-  %61 = landingpad { i8*, i32 }
-          cleanup
-  %62 = extractvalue { i8*, i32 } %61, 0
-  store i8* %62, i8** %11, align 8
-  %63 = extractvalue { i8*, i32 } %61, 1
-  store i32 %63, i32* %12, align 4
-  br label %83
-
-64:                                               ; preds = %23
-  %65 = landingpad { i8*, i32 }
-          cleanup
-  %66 = extractvalue { i8*, i32 } %65, 0
-  store i8* %66, i8** %11, align 8
-  %67 = extractvalue { i8*, i32 } %65, 1
-  store i32 %67, i32* %12, align 4
-  br label %82
-
-68:                                               ; preds = %24
-  %69 = landingpad { i8*, i32 }
-          cleanup
-  %70 = extractvalue { i8*, i32 } %69, 0
-  store i8* %70, i8** %11, align 8
-  %71 = extractvalue { i8*, i32 } %69, 1
-  store i32 %71, i32* %12, align 4
-  br label %81
-
-72:                                               ; preds = %25
-  %73 = landingpad { i8*, i32 }
-          cleanup
-  %74 = extractvalue { i8*, i32 } %73, 0
-  store i8* %74, i8** %11, align 8
-  %75 = extractvalue { i8*, i32 } %73, 1
-  store i32 %75, i32* %12, align 4
-  br label %80
-
-76:                                               ; preds = %27
-  %77 = landingpad { i8*, i32 }
-          cleanup
-  %78 = extractvalue { i8*, i32 } %77, 0
-  store i8* %78, i8** %11, align 8
-  %79 = extractvalue { i8*, i32 } %77, 1
-  store i32 %79, i32* %12, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %18) #3
-  br label %80
-
-80:                                               ; preds = %76, %72
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %14) #3
-  br label %81
-
-81:                                               ; preds = %80, %68
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %15) #3
-  br label %82
-
-82:                                               ; preds = %81, %64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %16) #3
-  br label %83
-
-83:                                               ; preds = %82, %60
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %17) #3
-  br label %103
+  invoke void @_ZNSt13basic_fstreamIcSt11char_traitsIcEEC1ERKNSt7__cxx1112basic_stringIcS1_SaIcEEESt13_Ios_Openmode(%"class.std::basic_fstream"* nonnull align 8 dereferenceable(264) %19, %"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %13, i32 8)
+          to label %30 unwind label %81
 
-84:                                               ; preds = %28
-  %85 = landingpad { i8*, i32 }
+30:                                               ; preds = %29
+  %31 = invoke zeroext i1 @_ZNSt13basic_fstreamIcSt11char_traitsIcEE7is_openEv(%"class.std::basic_fstream"* nonnull align 8 dereferenceable(264) %19)
+          to label %32 unwind label %85
+
+32:                                               ; preds = %30
+  br i1 %31, label %33, label %91
+
+33:                                               ; preds = %32
+  store i64 0, i64* %20, align 8
+  br label %34
+
+34:                                               ; preds = %46, %33
+  %35 = load i64, i64* %20, align 8
+  %36 = load i64, i64* %7, align 8
+  %37 = icmp ult i64 %35, %36
+  br i1 %37, label %38, label %89
+
+38:                                               ; preds = %34
+  %39 = bitcast %"class.std::basic_fstream"* %19 to %"class.std::basic_istream"*
+  %40 = invoke nonnull align 8 dereferenceable(16) %"class.std::basic_istream"* @_ZNSirsERi(%"class.std::basic_istream"* nonnull align 8 dereferenceable(16) %39, i32* nonnull align 4 dereferenceable(4) %21)
+          to label %41 unwind label %85
+
+41:                                               ; preds = %38
+  %42 = load i32, i32* %21, align 4
+  %43 = load i32*, i32** %6, align 8
+  %44 = load i64, i64* %20, align 8
+  %45 = getelementptr inbounds i32, i32* %43, i64 %44
+  store i32 %42, i32* %45, align 4
+  br label %46
+
+46:                                               ; preds = %41
+  %47 = load i64, i64* %20, align 8
+  %48 = add i64 %47, 1
+  store i64 %48, i64* %20, align 8
+  br label %34, !llvm.loop !5
+
+49:                                               ; preds = %5
+  %50 = landingpad { i8*, i32 }
           cleanup
-  %86 = extractvalue { i8*, i32 } %85, 0
-  store i8* %86, i8** %11, align 8
-  %87 = extractvalue { i8*, i32 } %85, 1
-  store i32 %87, i32* %12, align 4
-  br label %102
-
-88:                                               ; preds = %98, %96, %94, %92, %46, %37, %29
-  %89 = landingpad { i8*, i32 }
-          cleanup
-  %90 = extractvalue { i8*, i32 } %89, 0
-  store i8* %90, i8** %11, align 8
-  %91 = extractvalue { i8*, i32 } %89, 1
-  store i32 %91, i32* %12, align 4
-  call void @_ZNSt13basic_fstreamIcSt11char_traitsIcEED1Ev(%"class.std::basic_fstream"* nonnull align 8 dereferenceable(264) %19) #3
-  br label %102
-
-92:                                               ; preds = %33
-  invoke void @_ZNSt13basic_fstreamIcSt11char_traitsIcEE5closeEv(%"class.std::basic_fstream"* nonnull align 8 dereferenceable(264) %19)
-          to label %93 unwind label %88
-
-93:                                               ; preds = %92
+  %51 = extractvalue { i8*, i32 } %50, 0
+  store i8* %51, i8** %11, align 8
+  %52 = extractvalue { i8*, i32 } %50, 1
+  store i32 %52, i32* %12, align 4
+  call void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %10) #3
   br label %101
 
-94:                                               ; preds = %31
-  %95 = invoke nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) @_ZSt4cout, i8* getelementptr inbounds ([25 x i8], [25 x i8]* @.str.85, i64 0, i64 0))
-          to label %96 unwind label %88
+53:                                               ; preds = %22
+  %54 = landingpad { i8*, i32 }
+          cleanup
+  %55 = extractvalue { i8*, i32 } %54, 0
+  store i8* %55, i8** %11, align 8
+  %56 = extractvalue { i8*, i32 } %54, 1
+  store i32 %56, i32* %12, align 4
+  br label %100
 
-96:                                               ; preds = %94
-  %97 = invoke nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %95, %"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %13)
-          to label %98 unwind label %88
+57:                                               ; preds = %23
+  %58 = landingpad { i8*, i32 }
+          cleanup
+  %59 = extractvalue { i8*, i32 } %58, 0
+  store i8* %59, i8** %11, align 8
+  %60 = extractvalue { i8*, i32 } %58, 1
+  store i32 %60, i32* %12, align 4
+  br label %80
 
-98:                                               ; preds = %96
-  %99 = invoke nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEPFRSoS_E(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %97, %"class.std::basic_ostream"* (%"class.std::basic_ostream"*)* @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-          to label %100 unwind label %88
+61:                                               ; preds = %24
+  %62 = landingpad { i8*, i32 }
+          cleanup
+  %63 = extractvalue { i8*, i32 } %62, 0
+  store i8* %63, i8** %11, align 8
+  %64 = extractvalue { i8*, i32 } %62, 1
+  store i32 %64, i32* %12, align 4
+  br label %79
 
-100:                                              ; preds = %98
-  call void @exit(i32 1) #20
+65:                                               ; preds = %25
+  %66 = landingpad { i8*, i32 }
+          cleanup
+  %67 = extractvalue { i8*, i32 } %66, 0
+  store i8* %67, i8** %11, align 8
+  %68 = extractvalue { i8*, i32 } %66, 1
+  store i32 %68, i32* %12, align 4
+  br label %78
+
+69:                                               ; preds = %26
+  %70 = landingpad { i8*, i32 }
+          cleanup
+  %71 = extractvalue { i8*, i32 } %70, 0
+  store i8* %71, i8** %11, align 8
+  %72 = extractvalue { i8*, i32 } %70, 1
+  store i32 %72, i32* %12, align 4
+  br label %77
+
+73:                                               ; preds = %28
+  %74 = landingpad { i8*, i32 }
+          cleanup
+  %75 = extractvalue { i8*, i32 } %74, 0
+  store i8* %75, i8** %11, align 8
+  %76 = extractvalue { i8*, i32 } %74, 1
+  store i32 %76, i32* %12, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %18) #3
+  br label %77
+
+77:                                               ; preds = %73, %69
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %14) #3
+  br label %78
+
+78:                                               ; preds = %77, %65
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %15) #3
+  br label %79
+
+79:                                               ; preds = %78, %61
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %16) #3
+  br label %80
+
+80:                                               ; preds = %79, %57
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %17) #3
+  br label %100
+
+81:                                               ; preds = %29
+  %82 = landingpad { i8*, i32 }
+          cleanup
+  %83 = extractvalue { i8*, i32 } %82, 0
+  store i8* %83, i8** %11, align 8
+  %84 = extractvalue { i8*, i32 } %82, 1
+  store i32 %84, i32* %12, align 4
+  br label %99
+
+85:                                               ; preds = %95, %93, %91, %89, %38, %30
+  %86 = landingpad { i8*, i32 }
+          cleanup
+  %87 = extractvalue { i8*, i32 } %86, 0
+  store i8* %87, i8** %11, align 8
+  %88 = extractvalue { i8*, i32 } %86, 1
+  store i32 %88, i32* %12, align 4
+  call void @_ZNSt13basic_fstreamIcSt11char_traitsIcEED1Ev(%"class.std::basic_fstream"* nonnull align 8 dereferenceable(264) %19) #3
+  br label %99
+
+89:                                               ; preds = %34
+  invoke void @_ZNSt13basic_fstreamIcSt11char_traitsIcEE5closeEv(%"class.std::basic_fstream"* nonnull align 8 dereferenceable(264) %19)
+          to label %90 unwind label %85
+
+90:                                               ; preds = %89
+  br label %98
+
+91:                                               ; preds = %32
+  %92 = invoke nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) @_ZSt4cout, i8* getelementptr inbounds ([25 x i8], [25 x i8]* @.str.82, i64 0, i64 0))
+          to label %93 unwind label %85
+
+93:                                               ; preds = %91
+  %94 = invoke nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %92, %"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %13)
+          to label %95 unwind label %85
+
+95:                                               ; preds = %93
+  %96 = invoke nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEPFRSoS_E(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %94, %"class.std::basic_ostream"* (%"class.std::basic_ostream"*)* @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+          to label %97 unwind label %85
+
+97:                                               ; preds = %95
+  call void @exit(i32 1) #18
   unreachable
 
-101:                                              ; preds = %93
+98:                                               ; preds = %90
   call void @_ZNSt13basic_fstreamIcSt11char_traitsIcEED1Ev(%"class.std::basic_fstream"* nonnull align 8 dereferenceable(264) %19) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %13) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %9) #3
   ret void
 
-102:                                              ; preds = %88, %84
+99:                                               ; preds = %85, %81
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %13) #3
-  br label %103
+  br label %100
 
-103:                                              ; preds = %102, %83, %56
+100:                                              ; preds = %99, %80, %53
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %9) #3
-  br label %104
+  br label %101
 
-104:                                              ; preds = %103, %52
-  %105 = load i8*, i8** %11, align 8
-  %106 = load i32, i32* %12, align 4
-  %107 = insertvalue { i8*, i32 } undef, i8* %105, 0
-  %108 = insertvalue { i8*, i32 } %107, i32 %106, 1
-  resume { i8*, i32 } %108
+101:                                              ; preds = %100, %49
+  %102 = load i8*, i8** %11, align 8
+  %103 = load i32, i32* %12, align 4
+  %104 = insertvalue { i8*, i32 } undef, i8* %102, 0
+  %105 = insertvalue { i8*, i32 } %104, i32 %103, 1
+  resume { i8*, i32 } %105
 }
 
 ; Function Attrs: nounwind
@@ -3096,9 +1915,6 @@ declare dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1E
 
 ; Function Attrs: nounwind
 declare dso_local void @_ZNSaIcED1Ev(%"class.std::allocator.0"* nonnull align 1 dereferenceable(1)) unnamed_addr #2
-
-; Function Attrs: noreturn nounwind
-declare dso_local void @exit(i32) #8
 
 ; Function Attrs: mustprogress noinline nounwind optnone uwtable
 define dso_local void @_ZN10Benchmark75resetEv(%class.Benchmark7* nonnull align 8 dereferenceable(816) %0) unnamed_addr #6 align 2 {
@@ -3173,7 +1989,7 @@ define dso_local void @_ZN10Benchmark75resetEv(%class.Benchmark7* nonnull align 
   %58 = load i32, i32* %3, align 4
   %59 = add nsw i32 %58, 1
   store i32 %59, i32* %3, align 4
-  br label %7, !llvm.loop !15
+  br label %7, !llvm.loop !7
 
 60:                                               ; preds = %7
   store i32 0, i32* %4, align 4
@@ -3219,7 +2035,7 @@ define dso_local void @_ZN10Benchmark75resetEv(%class.Benchmark7* nonnull align 
   %92 = load i32, i32* %4, align 4
   %93 = add nsw i32 %92, 1
   store i32 %93, i32* %4, align 4
-  br label %61, !llvm.loop !16
+  br label %61, !llvm.loop !8
 
 94:                                               ; preds = %61
   store i32 0, i32* %5, align 4
@@ -3264,7 +2080,7 @@ define dso_local void @_ZN10Benchmark75resetEv(%class.Benchmark7* nonnull align 
   %123 = load i32, i32* %5, align 4
   %124 = add nsw i32 %123, 1
   store i32 %124, i32* %5, align 4
-  br label %95, !llvm.loop !17
+  br label %95, !llvm.loop !9
 
 125:                                              ; preds = %95
   %126 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %6, i32 0, i32 25
@@ -3326,12 +2142,12 @@ define dso_local void @_ZN10Benchmark712execute_syncEi(%class.Benchmark7* nonnul
   store i32 0, i32* %5, align 4
   br label %36
 
-36:                                               ; preds = %388, %2
+36:                                               ; preds = %394, %2
   %37 = load i32, i32* %5, align 4
   %38 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %35, i32 0, i32 2
   %39 = load i32, i32* %38, align 8
   %40 = icmp slt i32 %37, %39
-  br i1 %40, label %41, label %391
+  br i1 %40, label %41, label %397
 
 41:                                               ; preds = %36
   %42 = bitcast %class.Benchmark7* %35 to %struct.Benchmark*
@@ -3704,74 +2520,80 @@ define dso_local void @_ZN10Benchmark712execute_syncEi(%class.Benchmark7* nonnul
   %343 = bitcast %class.Benchmark7* %35 to %struct.Benchmark*
   %344 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %343, i32 0, i32 14
   store i32 %342, i32* %344, align 4
-  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %31, i32 1, i32 1, i32 1)
-  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %32, i32 1, i32 1, i32 1)
-  %345 = bitcast { i64, i32 }* %33 to i8*
-  %346 = bitcast %struct.dim3* %31 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %345, i8* align 4 %346, i64 12, i1 false)
-  %347 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %33, i32 0, i32 0
-  %348 = load i64, i64* %347, align 4
-  %349 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %33, i32 0, i32 1
+  %345 = bitcast %class.Benchmark7* %35 to %struct.Benchmark*
+  %346 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %345, i32 0, i32 6
+  %347 = load i32, i32* %346, align 4
+  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %31, i32 %347, i32 1, i32 1)
+  %348 = bitcast %class.Benchmark7* %35 to %struct.Benchmark*
+  %349 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %348, i32 0, i32 4
   %350 = load i32, i32* %349, align 4
-  %351 = bitcast { i64, i32 }* %34 to i8*
-  %352 = bitcast %struct.dim3* %32 to i8*
+  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %32, i32 %350, i32 1, i32 1)
+  %351 = bitcast { i64, i32 }* %33 to i8*
+  %352 = bitcast %struct.dim3* %31 to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %351, i8* align 4 %352, i64 12, i1 false)
-  %353 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %34, i32 0, i32 0
+  %353 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %33, i32 0, i32 0
   %354 = load i64, i64* %353, align 4
-  %355 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %34, i32 0, i32 1
+  %355 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %33, i32 0, i32 1
   %356 = load i32, i32* %355, align 4
-  %357 = call i32 @__cudaPushCallConfiguration(i64 %348, i32 %350, i64 %354, i32 %356, i64 0, i8* null)
-  %358 = icmp ne i32 %357, 0
-  br i1 %358, label %368, label %359
+  %357 = bitcast { i64, i32 }* %34 to i8*
+  %358 = bitcast %struct.dim3* %32 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %357, i8* align 4 %358, i64 12, i1 false)
+  %359 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %34, i32 0, i32 0
+  %360 = load i64, i64* %359, align 4
+  %361 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %34, i32 0, i32 1
+  %362 = load i32, i32* %361, align 4
+  %363 = call i32 @__cudaPushCallConfiguration(i64 %354, i32 %356, i64 %360, i32 %362, i64 0, i8* null)
+  %364 = icmp ne i32 %363, 0
+  br i1 %364, label %374, label %365
 
-359:                                              ; preds = %341
-  %360 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %35, i32 0, i32 25
-  %361 = load float*, float** %360, align 8
-  %362 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %35, i32 0, i32 26
-  %363 = load float*, float** %362, align 8
-  %364 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %35, i32 0, i32 10
-  %365 = load i32*, i32** %364, align 8
-  %366 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %35, i32 0, i32 11
-  %367 = load i32*, i32** %366, align 8
-  call void @_Z27__device_stub__reset_kerneliPfS_PiS0_(i32 4, float* %361, float* %363, i32* %365, i32* %367)
-  br label %368
+365:                                              ; preds = %341
+  %366 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %35, i32 0, i32 25
+  %367 = load float*, float** %366, align 8
+  %368 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %35, i32 0, i32 26
+  %369 = load float*, float** %368, align 8
+  %370 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %35, i32 0, i32 10
+  %371 = load i32*, i32** %370, align 8
+  %372 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %35, i32 0, i32 11
+  %373 = load i32*, i32** %372, align 8
+  call void @_Z27__device_stub__reset_kerneliPfS_PiS0_(i32 4, float* %367, float* %369, i32* %371, i32* %373)
+  br label %374
 
-368:                                              ; preds = %359, %341
-  %369 = call i32 @cudaDeviceSynchronize()
-  %370 = bitcast %class.Benchmark7* %35 to %struct.Benchmark*
-  %371 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %370, i32 0, i32 14
-  store i32 %369, i32* %371, align 4
-  %372 = bitcast %class.Benchmark7* %35 to %struct.Benchmark*
-  %373 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %372, i32 0, i32 1
-  %374 = load i32, i32* %373, align 8
-  %375 = icmp ne i32 %374, 0
-  br i1 %375, label %376, label %387
+374:                                              ; preds = %365, %341
+  %375 = call i32 @cudaDeviceSynchronize()
+  %376 = bitcast %class.Benchmark7* %35 to %struct.Benchmark*
+  %377 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %376, i32 0, i32 14
+  store i32 %375, i32* %377, align 4
+  %378 = bitcast %class.Benchmark7* %35 to %struct.Benchmark*
+  %379 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %378, i32 0, i32 1
+  %380 = load i32, i32* %379, align 8
+  %381 = icmp ne i32 %380, 0
+  br i1 %381, label %382, label %393
 
-376:                                              ; preds = %368
-  %377 = bitcast %class.Benchmark7* %35 to %struct.Benchmark*
-  %378 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %377, i32 0, i32 14
-  %379 = load i32, i32* %378, align 4
-  %380 = icmp ne i32 %379, 0
-  br i1 %380, label %381, label %387
+382:                                              ; preds = %374
+  %383 = bitcast %class.Benchmark7* %35 to %struct.Benchmark*
+  %384 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %383, i32 0, i32 14
+  %385 = load i32, i32* %384, align 4
+  %386 = icmp ne i32 %385, 0
+  br i1 %386, label %387, label %393
 
-381:                                              ; preds = %376
-  %382 = bitcast %class.Benchmark7* %35 to %struct.Benchmark*
-  %383 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %382, i32 0, i32 14
-  %384 = load i32, i32* %383, align 4
-  %385 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEi(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) @_ZSt4cout, i32 %384)
-  %386 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEPFRSoS_E(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %385, %"class.std::basic_ostream"* (%"class.std::basic_ostream"*)* @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  br label %387
+387:                                              ; preds = %382
+  %388 = bitcast %class.Benchmark7* %35 to %struct.Benchmark*
+  %389 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %388, i32 0, i32 14
+  %390 = load i32, i32* %389, align 4
+  %391 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEi(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) @_ZSt4cout, i32 %390)
+  %392 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEPFRSoS_E(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %391, %"class.std::basic_ostream"* (%"class.std::basic_ostream"*)* @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  br label %393
 
-387:                                              ; preds = %381, %376, %368
-  br label %388
+393:                                              ; preds = %387, %382, %374
+  br label %394
 
-388:                                              ; preds = %387
-  %389 = load i32, i32* %5, align 4
-  %390 = add nsw i32 %389, 1
-  store i32 %390, i32* %5, align 4
-  br label %36, !llvm.loop !18
+394:                                              ; preds = %393
+  %395 = load i32, i32* %5, align 4
+  %396 = add nsw i32 %395, 1
+  store i32 %396, i32* %5, align 4
+  br label %36, !llvm.loop !10
 
-391:                                              ; preds = %36
+397:                                              ; preds = %36
   ret void
 }
 
@@ -3791,7 +2613,7 @@ define linkonce_odr dso_local float @_ZSt4ceilf(float %0) #6 comdat {
 declare dso_local i32 @__cudaPushCallConfiguration(i64, i32, i64, i32, i64, i8*) #1
 
 ; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %0, i32 %1, i32 %2, i32 %3) unnamed_addr #9 comdat align 2 {
+define linkonce_odr dso_local void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %0, i32 %1, i32 %2, i32 %3) unnamed_addr #8 comdat align 2 {
   %5 = alloca %struct.dim3*, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -4079,35 +2901,37 @@ define dso_local void @_Z6FUNCb7PiPfS_S_S_S0_iS_S0_S_S_S_S0_S0_S0_iiim(i32* %0, 
   br label %204
 
 204:                                              ; preds = %199, %182
-  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %63, i32 1, i32 1, i32 1)
-  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %64, i32 1, i32 1, i32 1)
-  %205 = bitcast { i64, i32 }* %65 to i8*
-  %206 = bitcast %struct.dim3* %63 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %205, i8* align 4 %206, i64 12, i1 false)
-  %207 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %65, i32 0, i32 0
-  %208 = load i64, i64* %207, align 4
-  %209 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %65, i32 0, i32 1
-  %210 = load i32, i32* %209, align 4
-  %211 = bitcast { i64, i32 }* %66 to i8*
-  %212 = bitcast %struct.dim3* %64 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %211, i8* align 4 %212, i64 12, i1 false)
-  %213 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %66, i32 0, i32 0
-  %214 = load i64, i64* %213, align 4
-  %215 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %66, i32 0, i32 1
-  %216 = load i32, i32* %215, align 4
-  %217 = call i32 @__cudaPushCallConfiguration(i64 %208, i32 %210, i64 %214, i32 %216, i64 0, i8* null)
-  %218 = icmp ne i32 %217, 0
-  br i1 %218, label %224, label %219
+  %205 = load i32, i32* %36, align 4
+  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %63, i32 %205, i32 1, i32 1)
+  %206 = load i32, i32* %37, align 4
+  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %64, i32 %206, i32 1, i32 1)
+  %207 = bitcast { i64, i32 }* %65 to i8*
+  %208 = bitcast %struct.dim3* %63 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %207, i8* align 4 %208, i64 12, i1 false)
+  %209 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %65, i32 0, i32 0
+  %210 = load i64, i64* %209, align 4
+  %211 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %65, i32 0, i32 1
+  %212 = load i32, i32* %211, align 4
+  %213 = bitcast { i64, i32 }* %66 to i8*
+  %214 = bitcast %struct.dim3* %64 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %213, i8* align 4 %214, i64 12, i1 false)
+  %215 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %66, i32 0, i32 0
+  %216 = load i64, i64* %215, align 4
+  %217 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %66, i32 0, i32 1
+  %218 = load i32, i32* %217, align 4
+  %219 = call i32 @__cudaPushCallConfiguration(i64 %210, i32 %212, i64 %216, i32 %218, i64 0, i8* null)
+  %220 = icmp ne i32 %219, 0
+  br i1 %220, label %226, label %221
 
-219:                                              ; preds = %204
-  %220 = load float*, float** %33, align 8
-  %221 = load float*, float** %34, align 8
-  %222 = load i32*, i32** %20, align 8
-  %223 = load i32*, i32** %27, align 8
-  call void @_Z27__device_stub__reset_kerneliPfS_PiS0_(i32 4, float* %220, float* %221, i32* %222, i32* %223)
-  br label %224
+221:                                              ; preds = %204
+  %222 = load float*, float** %33, align 8
+  %223 = load float*, float** %34, align 8
+  %224 = load i32*, i32** %20, align 8
+  %225 = load i32*, i32** %27, align 8
+  call void @_Z27__device_stub__reset_kerneliPfS_PiS0_(i32 4, float* %222, float* %223, i32* %224, i32* %225)
+  br label %226
 
-224:                                              ; preds = %219, %204
+226:                                              ; preds = %221, %204
   ret void
 }
 
@@ -4299,7 +3123,7 @@ define dso_local void @_ZN10Benchmark716execute_AssOfKFCEi(%class.Benchmark7* no
   %162 = load i32, i32* %5, align 4
   %163 = add nsw i32 %162, 1
   store i32 %163, i32* %5, align 4
-  br label %8, !llvm.loop !19
+  br label %8, !llvm.loop !11
 
 164:                                              ; preds = %8
   ret void
@@ -4397,12 +3221,12 @@ define dso_local void @_ZN10Benchmark713execute_asyncEi(%class.Benchmark7* nonnu
   store i32 0, i32* %5, align 4
   br label %80
 
-80:                                               ; preds = %541, %79
+80:                                               ; preds = %535, %79
   %81 = load i32, i32* %5, align 4
   %82 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %38, i32 0, i32 2
   %83 = load i32, i32* %82, align 8
   %84 = icmp slt i32 %81, %83
-  br i1 %84, label %85, label %544
+  br i1 %84, label %85, label %538
 
 85:                                               ; preds = %80
   %86 = bitcast %class.Benchmark7* %38 to %struct.Benchmark*
@@ -4867,101 +3691,91 @@ define dso_local void @_ZN10Benchmark713execute_asyncEi(%class.Benchmark7* nonnu
   %474 = load %struct.CUevent_st*, %struct.CUevent_st** %33, align 8
   %475 = call i32 @cudaStreamWaitEvent(%struct.CUstream_st* %473, %struct.CUevent_st* %474, i32 0)
   call void @_Z17__checkCudaErrorsiPKci(i32 %475, i8* getelementptr inbounds ([26 x i8], [26 x i8]* @.str.10, i64 0, i64 0), i32 469)
-  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %34, i32 1, i32 1, i32 1)
-  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %35, i32 1, i32 1, i32 1)
-  %476 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %38, i32 0, i32 27
-  %477 = load %struct.CUstream_st*, %struct.CUstream_st** %476, align 8
-  %478 = bitcast %struct.CUstream_st* %477 to i8*
-  %479 = bitcast { i64, i32 }* %36 to i8*
-  %480 = bitcast %struct.dim3* %34 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %479, i8* align 4 %480, i64 12, i1 false)
-  %481 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %36, i32 0, i32 0
-  %482 = load i64, i64* %481, align 4
-  %483 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %36, i32 0, i32 1
-  %484 = load i32, i32* %483, align 4
-  %485 = bitcast { i64, i32 }* %37 to i8*
-  %486 = bitcast %struct.dim3* %35 to i8*
+  %476 = bitcast %class.Benchmark7* %38 to %struct.Benchmark*
+  %477 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %476, i32 0, i32 6
+  %478 = load i32, i32* %477, align 4
+  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %34, i32 %478, i32 1, i32 1)
+  %479 = bitcast %class.Benchmark7* %38 to %struct.Benchmark*
+  %480 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %479, i32 0, i32 4
+  %481 = load i32, i32* %480, align 4
+  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %35, i32 %481, i32 1, i32 1)
+  %482 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %38, i32 0, i32 27
+  %483 = load %struct.CUstream_st*, %struct.CUstream_st** %482, align 8
+  %484 = bitcast %struct.CUstream_st* %483 to i8*
+  %485 = bitcast { i64, i32 }* %36 to i8*
+  %486 = bitcast %struct.dim3* %34 to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %485, i8* align 4 %486, i64 12, i1 false)
-  %487 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %37, i32 0, i32 0
+  %487 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %36, i32 0, i32 0
   %488 = load i64, i64* %487, align 4
-  %489 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %37, i32 0, i32 1
+  %489 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %36, i32 0, i32 1
   %490 = load i32, i32* %489, align 4
-  %491 = call i32 @__cudaPushCallConfiguration(i64 %482, i32 %484, i64 %488, i32 %490, i64 0, i8* %478)
-  %492 = icmp ne i32 %491, 0
-  br i1 %492, label %502, label %493
+  %491 = bitcast { i64, i32 }* %37 to i8*
+  %492 = bitcast %struct.dim3* %35 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %491, i8* align 4 %492, i64 12, i1 false)
+  %493 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %37, i32 0, i32 0
+  %494 = load i64, i64* %493, align 4
+  %495 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %37, i32 0, i32 1
+  %496 = load i32, i32* %495, align 4
+  %497 = call i32 @__cudaPushCallConfiguration(i64 %488, i32 %490, i64 %494, i32 %496, i64 0, i8* %484)
+  %498 = icmp ne i32 %497, 0
+  br i1 %498, label %508, label %499
 
-493:                                              ; preds = %466
-  %494 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %38, i32 0, i32 25
-  %495 = load float*, float** %494, align 8
-  %496 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %38, i32 0, i32 26
-  %497 = load float*, float** %496, align 8
-  %498 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %38, i32 0, i32 10
-  %499 = load i32*, i32** %498, align 8
-  %500 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %38, i32 0, i32 11
-  %501 = load i32*, i32** %500, align 8
-  call void @_Z27__device_stub__reset_kerneliPfS_PiS0_(i32 4, float* %495, float* %497, i32* %499, i32* %501)
-  br label %502
+499:                                              ; preds = %466
+  %500 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %38, i32 0, i32 25
+  %501 = load float*, float** %500, align 8
+  %502 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %38, i32 0, i32 26
+  %503 = load float*, float** %502, align 8
+  %504 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %38, i32 0, i32 10
+  %505 = load i32*, i32** %504, align 8
+  %506 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %38, i32 0, i32 11
+  %507 = load i32*, i32** %506, align 8
+  call void @_Z27__device_stub__reset_kerneliPfS_PiS0_(i32 4, float* %501, float* %503, i32* %505, i32* %507)
+  br label %508
 
-502:                                              ; preds = %493, %466
-  %503 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %38, i32 0, i32 27
-  %504 = load %struct.CUstream_st*, %struct.CUstream_st** %503, align 8
-  %505 = call i32 @cudaStreamSynchronize(%struct.CUstream_st* %504)
-  %506 = bitcast %class.Benchmark7* %38 to %struct.Benchmark*
-  %507 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %506, i32 0, i32 14
-  store i32 %505, i32* %507, align 4
-  %508 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %38, i32 0, i32 28
-  %509 = load %struct.CUstream_st*, %struct.CUstream_st** %508, align 8
-  %510 = call i32 @cudaStreamSynchronize(%struct.CUstream_st* %509)
-  %511 = bitcast %class.Benchmark7* %38 to %struct.Benchmark*
-  %512 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %511, i32 0, i32 14
-  store i32 %510, i32* %512, align 4
-  %513 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %38, i32 0, i32 25
-  %514 = load float*, float** %513, align 8
-  %515 = getelementptr inbounds float, float* %514, i64 0
-  store float 0.000000e+00, float* %515, align 4
-  %516 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %38, i32 0, i32 26
-  %517 = load float*, float** %516, align 8
-  %518 = getelementptr inbounds float, float* %517, i64 0
-  store float 0.000000e+00, float* %518, align 4
-  %519 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %38, i32 0, i32 10
-  %520 = load i32*, i32** %519, align 8
-  %521 = getelementptr inbounds i32, i32* %520, i64 0
-  store i32 0, i32* %521, align 4
-  %522 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %38, i32 0, i32 11
-  %523 = load i32*, i32** %522, align 8
-  %524 = getelementptr inbounds i32, i32* %523, i64 0
-  store i32 0, i32* %524, align 4
-  %525 = bitcast %class.Benchmark7* %38 to %struct.Benchmark*
-  %526 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %525, i32 0, i32 1
-  %527 = load i32, i32* %526, align 8
-  %528 = icmp ne i32 %527, 0
-  br i1 %528, label %529, label %540
+508:                                              ; preds = %499, %466
+  %509 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %38, i32 0, i32 27
+  %510 = load %struct.CUstream_st*, %struct.CUstream_st** %509, align 8
+  %511 = call i32 @cudaStreamSynchronize(%struct.CUstream_st* %510)
+  %512 = bitcast %class.Benchmark7* %38 to %struct.Benchmark*
+  %513 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %512, i32 0, i32 14
+  store i32 %511, i32* %513, align 4
+  %514 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %38, i32 0, i32 28
+  %515 = load %struct.CUstream_st*, %struct.CUstream_st** %514, align 8
+  %516 = call i32 @cudaStreamSynchronize(%struct.CUstream_st* %515)
+  %517 = bitcast %class.Benchmark7* %38 to %struct.Benchmark*
+  %518 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %517, i32 0, i32 14
+  store i32 %516, i32* %518, align 4
+  %519 = bitcast %class.Benchmark7* %38 to %struct.Benchmark*
+  %520 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %519, i32 0, i32 1
+  %521 = load i32, i32* %520, align 8
+  %522 = icmp ne i32 %521, 0
+  br i1 %522, label %523, label %534
 
-529:                                              ; preds = %502
-  %530 = bitcast %class.Benchmark7* %38 to %struct.Benchmark*
-  %531 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %530, i32 0, i32 14
-  %532 = load i32, i32* %531, align 4
-  %533 = icmp ne i32 %532, 0
-  br i1 %533, label %534, label %540
+523:                                              ; preds = %508
+  %524 = bitcast %class.Benchmark7* %38 to %struct.Benchmark*
+  %525 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %524, i32 0, i32 14
+  %526 = load i32, i32* %525, align 4
+  %527 = icmp ne i32 %526, 0
+  br i1 %527, label %528, label %534
 
-534:                                              ; preds = %529
-  %535 = bitcast %class.Benchmark7* %38 to %struct.Benchmark*
-  %536 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %535, i32 0, i32 14
-  %537 = load i32, i32* %536, align 4
-  %538 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEi(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) @_ZSt4cout, i32 %537)
-  %539 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEPFRSoS_E(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %538, %"class.std::basic_ostream"* (%"class.std::basic_ostream"*)* @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-  br label %540
+528:                                              ; preds = %523
+  %529 = bitcast %class.Benchmark7* %38 to %struct.Benchmark*
+  %530 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %529, i32 0, i32 14
+  %531 = load i32, i32* %530, align 4
+  %532 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEi(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) @_ZSt4cout, i32 %531)
+  %533 = call nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZNSolsEPFRSoS_E(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8) %532, %"class.std::basic_ostream"* (%"class.std::basic_ostream"*)* @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  br label %534
 
-540:                                              ; preds = %534, %529, %502
-  br label %541
+534:                                              ; preds = %528, %523, %508
+  br label %535
 
-541:                                              ; preds = %540
-  %542 = load i32, i32* %5, align 4
-  %543 = add nsw i32 %542, 1
-  store i32 %543, i32* %5, align 4
-  br label %80, !llvm.loop !20
+535:                                              ; preds = %534
+  %536 = load i32, i32* %5, align 4
+  %537 = add nsw i32 %536, 1
+  store i32 %537, i32* %5, align 4
+  br label %80, !llvm.loop !12
 
-544:                                              ; preds = %80
+538:                                              ; preds = %80
   ret void
 }
 
@@ -5029,7 +3843,7 @@ define linkonce_odr dso_local void @_Z17__checkCudaErrorsiPKci(i32 %0, i8* %1, i
   %14 = load i8*, i8** %5, align 8
   %15 = load i32, i32* %6, align 4
   %16 = call i32 (%struct._IO_FILE*, i8*, ...) @fprintf(%struct._IO_FILE* %10, i8* getelementptr inbounds ([73 x i8], [73 x i8]* @.str.14, i64 0, i64 0), i32 %11, i8* %13, i8* %14, i32 %15)
-  call void @exit(i32 1) #20
+  call void @exit(i32 1) #18
   unreachable
 
 17:                                               ; preds = %3
@@ -5082,7 +3896,7 @@ define dso_local void @_ZN10Benchmark717execute_cudagraphEi(%class.Benchmark7* n
   %40 = load %class.Benchmark7*, %class.Benchmark7** %3, align 8
   %41 = load i32, i32* %4, align 4
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %374
+  br i1 %42, label %43, label %380
 
 43:                                               ; preds = %2
   %44 = call i32 @cudaEventCreate(%struct.CUevent_st** %5)
@@ -5100,12 +3914,12 @@ define dso_local void @_ZN10Benchmark717execute_cudagraphEi(%class.Benchmark7* n
   store i32 0, i32* %6, align 4
   br label %56
 
-56:                                               ; preds = %362, %43
+56:                                               ; preds = %368, %43
   %57 = load i32, i32* %6, align 4
   %58 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %40, i32 0, i32 2
   %59 = load i32, i32* %58, align 8
   %60 = icmp slt i32 %57, %59
-  br i1 %60, label %61, label %365
+  br i1 %60, label %61, label %371
 
 61:                                               ; preds = %56
   %62 = call i32 @cudaEventCreate(%struct.CUevent_st** %7)
@@ -5432,86 +4246,92 @@ define dso_local void @_ZN10Benchmark717execute_cudagraphEi(%class.Benchmark7* n
   %324 = load %struct.CUevent_st*, %struct.CUevent_st** %34, align 8
   %325 = call i32 @cudaStreamWaitEvent(%struct.CUstream_st* %323, %struct.CUevent_st* %324, i32 0)
   call void @_Z17__checkCudaErrorsiPKci(i32 %325, i8* getelementptr inbounds ([26 x i8], [26 x i8]* @.str.10, i64 0, i64 0), i32 534)
-  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %35, i32 1, i32 1, i32 1)
-  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %36, i32 1, i32 1, i32 1)
-  %326 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %40, i32 0, i32 27
-  %327 = load %struct.CUstream_st*, %struct.CUstream_st** %326, align 8
-  %328 = bitcast %struct.CUstream_st* %327 to i8*
-  %329 = bitcast { i64, i32 }* %37 to i8*
-  %330 = bitcast %struct.dim3* %35 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %329, i8* align 4 %330, i64 12, i1 false)
-  %331 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %37, i32 0, i32 0
-  %332 = load i64, i64* %331, align 4
-  %333 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %37, i32 0, i32 1
-  %334 = load i32, i32* %333, align 4
-  %335 = bitcast { i64, i32 }* %38 to i8*
-  %336 = bitcast %struct.dim3* %36 to i8*
+  %326 = bitcast %class.Benchmark7* %40 to %struct.Benchmark*
+  %327 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %326, i32 0, i32 6
+  %328 = load i32, i32* %327, align 4
+  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %35, i32 %328, i32 1, i32 1)
+  %329 = bitcast %class.Benchmark7* %40 to %struct.Benchmark*
+  %330 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %329, i32 0, i32 4
+  %331 = load i32, i32* %330, align 4
+  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %36, i32 %331, i32 1, i32 1)
+  %332 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %40, i32 0, i32 27
+  %333 = load %struct.CUstream_st*, %struct.CUstream_st** %332, align 8
+  %334 = bitcast %struct.CUstream_st* %333 to i8*
+  %335 = bitcast { i64, i32 }* %37 to i8*
+  %336 = bitcast %struct.dim3* %35 to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %335, i8* align 4 %336, i64 12, i1 false)
-  %337 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %38, i32 0, i32 0
+  %337 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %37, i32 0, i32 0
   %338 = load i64, i64* %337, align 4
-  %339 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %38, i32 0, i32 1
+  %339 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %37, i32 0, i32 1
   %340 = load i32, i32* %339, align 4
-  %341 = call i32 @__cudaPushCallConfiguration(i64 %332, i32 %334, i64 %338, i32 %340, i64 0, i8* %328)
-  %342 = icmp ne i32 %341, 0
-  br i1 %342, label %352, label %343
+  %341 = bitcast { i64, i32 }* %38 to i8*
+  %342 = bitcast %struct.dim3* %36 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %341, i8* align 4 %342, i64 12, i1 false)
+  %343 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %38, i32 0, i32 0
+  %344 = load i64, i64* %343, align 4
+  %345 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %38, i32 0, i32 1
+  %346 = load i32, i32* %345, align 4
+  %347 = call i32 @__cudaPushCallConfiguration(i64 %338, i32 %340, i64 %344, i32 %346, i64 0, i8* %334)
+  %348 = icmp ne i32 %347, 0
+  br i1 %348, label %358, label %349
 
-343:                                              ; preds = %316
-  %344 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %40, i32 0, i32 25
-  %345 = load float*, float** %344, align 8
-  %346 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %40, i32 0, i32 26
-  %347 = load float*, float** %346, align 8
-  %348 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %40, i32 0, i32 10
-  %349 = load i32*, i32** %348, align 8
-  %350 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %40, i32 0, i32 11
-  %351 = load i32*, i32** %350, align 8
-  call void @_Z27__device_stub__reset_kerneliPfS_PiS0_(i32 4, float* %345, float* %347, i32* %349, i32* %351)
-  br label %352
+349:                                              ; preds = %316
+  %350 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %40, i32 0, i32 25
+  %351 = load float*, float** %350, align 8
+  %352 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %40, i32 0, i32 26
+  %353 = load float*, float** %352, align 8
+  %354 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %40, i32 0, i32 10
+  %355 = load i32*, i32** %354, align 8
+  %356 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %40, i32 0, i32 11
+  %357 = load i32*, i32** %356, align 8
+  call void @_Z27__device_stub__reset_kerneliPfS_PiS0_(i32 4, float* %351, float* %353, i32* %355, i32* %357)
+  br label %358
 
-352:                                              ; preds = %343, %316
-  %353 = call i32 @cudaEventCreate(%struct.CUevent_st** %39)
-  %354 = load %struct.CUevent_st*, %struct.CUevent_st** %39, align 8
-  %355 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %40, i32 0, i32 27
-  %356 = load %struct.CUstream_st*, %struct.CUstream_st** %355, align 8
-  %357 = call i32 @cudaEventRecord(%struct.CUevent_st* %354, %struct.CUstream_st* %356)
-  %358 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %40, i32 0, i32 28
-  %359 = load %struct.CUstream_st*, %struct.CUstream_st** %358, align 8
+358:                                              ; preds = %349, %316
+  %359 = call i32 @cudaEventCreate(%struct.CUevent_st** %39)
   %360 = load %struct.CUevent_st*, %struct.CUevent_st** %39, align 8
-  %361 = call i32 @cudaStreamWaitEvent(%struct.CUstream_st* %359, %struct.CUevent_st* %360, i32 0)
-  call void @_Z17__checkCudaErrorsiPKci(i32 %361, i8* getelementptr inbounds ([26 x i8], [26 x i8]* @.str.10, i64 0, i64 0), i32 544)
-  br label %362
+  %361 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %40, i32 0, i32 27
+  %362 = load %struct.CUstream_st*, %struct.CUstream_st** %361, align 8
+  %363 = call i32 @cudaEventRecord(%struct.CUevent_st* %360, %struct.CUstream_st* %362)
+  %364 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %40, i32 0, i32 28
+  %365 = load %struct.CUstream_st*, %struct.CUstream_st** %364, align 8
+  %366 = load %struct.CUevent_st*, %struct.CUevent_st** %39, align 8
+  %367 = call i32 @cudaStreamWaitEvent(%struct.CUstream_st* %365, %struct.CUevent_st* %366, i32 0)
+  call void @_Z17__checkCudaErrorsiPKci(i32 %367, i8* getelementptr inbounds ([26 x i8], [26 x i8]* @.str.10, i64 0, i64 0), i32 544)
+  br label %368
 
-362:                                              ; preds = %352
-  %363 = load i32, i32* %6, align 4
-  %364 = add nsw i32 %363, 1
-  store i32 %364, i32* %6, align 4
-  br label %56, !llvm.loop !21
+368:                                              ; preds = %358
+  %369 = load i32, i32* %6, align 4
+  %370 = add nsw i32 %369, 1
+  store i32 %370, i32* %6, align 4
+  br label %56, !llvm.loop !13
 
-365:                                              ; preds = %56
-  %366 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %40, i32 0, i32 27
-  %367 = load %struct.CUstream_st*, %struct.CUstream_st** %366, align 8
-  %368 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %40, i32 0, i32 29
-  %369 = call i32 @cudaStreamEndCapture(%struct.CUstream_st* %367, %struct.CUgraph_st** %368)
-  call void @_Z17__checkCudaErrorsiPKci(i32 %369, i8* getelementptr inbounds ([26 x i8], [26 x i8]* @.str.10, i64 0, i64 0), i32 547)
-  %370 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %40, i32 0, i32 30
-  %371 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %40, i32 0, i32 29
-  %372 = load %struct.CUgraph_st*, %struct.CUgraph_st** %371, align 8
-  %373 = call i32 @cudaGraphInstantiate(%struct.CUgraphExec_st** %370, %struct.CUgraph_st* %372, %struct.CUgraphNode_st** null, i8* null, i64 0)
-  call void @_Z17__checkCudaErrorsiPKci(i32 %373, i8* getelementptr inbounds ([26 x i8], [26 x i8]* @.str.10, i64 0, i64 0), i32 548)
-  br label %374
+371:                                              ; preds = %56
+  %372 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %40, i32 0, i32 27
+  %373 = load %struct.CUstream_st*, %struct.CUstream_st** %372, align 8
+  %374 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %40, i32 0, i32 29
+  %375 = call i32 @cudaStreamEndCapture(%struct.CUstream_st* %373, %struct.CUgraph_st** %374)
+  call void @_Z17__checkCudaErrorsiPKci(i32 %375, i8* getelementptr inbounds ([26 x i8], [26 x i8]* @.str.10, i64 0, i64 0), i32 547)
+  %376 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %40, i32 0, i32 30
+  %377 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %40, i32 0, i32 29
+  %378 = load %struct.CUgraph_st*, %struct.CUgraph_st** %377, align 8
+  %379 = call i32 @cudaGraphInstantiate(%struct.CUgraphExec_st** %376, %struct.CUgraph_st* %378, %struct.CUgraphNode_st** null, i8* null, i64 0)
+  call void @_Z17__checkCudaErrorsiPKci(i32 %379, i8* getelementptr inbounds ([26 x i8], [26 x i8]* @.str.10, i64 0, i64 0), i32 548)
+  br label %380
 
-374:                                              ; preds = %365, %2
-  %375 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %40, i32 0, i32 30
-  %376 = load %struct.CUgraphExec_st*, %struct.CUgraphExec_st** %375, align 8
-  %377 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %40, i32 0, i32 27
-  %378 = load %struct.CUstream_st*, %struct.CUstream_st** %377, align 8
-  %379 = call i32 @cudaGraphLaunch(%struct.CUgraphExec_st* %376, %struct.CUstream_st* %378)
-  call void @_Z17__checkCudaErrorsiPKci(i32 %379, i8* getelementptr inbounds ([26 x i8], [26 x i8]* @.str.10, i64 0, i64 0), i32 550)
-  %380 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %40, i32 0, i32 27
-  %381 = load %struct.CUstream_st*, %struct.CUstream_st** %380, align 8
-  %382 = call i32 @cudaStreamSynchronize(%struct.CUstream_st* %381)
-  %383 = bitcast %class.Benchmark7* %40 to %struct.Benchmark*
-  %384 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %383, i32 0, i32 14
-  store i32 %382, i32* %384, align 4
+380:                                              ; preds = %371, %2
+  %381 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %40, i32 0, i32 30
+  %382 = load %struct.CUgraphExec_st*, %struct.CUgraphExec_st** %381, align 8
+  %383 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %40, i32 0, i32 27
+  %384 = load %struct.CUstream_st*, %struct.CUstream_st** %383, align 8
+  %385 = call i32 @cudaGraphLaunch(%struct.CUgraphExec_st* %382, %struct.CUstream_st* %384)
+  call void @_Z17__checkCudaErrorsiPKci(i32 %385, i8* getelementptr inbounds ([26 x i8], [26 x i8]* @.str.10, i64 0, i64 0), i32 550)
+  %386 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %40, i32 0, i32 27
+  %387 = load %struct.CUstream_st*, %struct.CUstream_st** %386, align 8
+  %388 = call i32 @cudaStreamSynchronize(%struct.CUstream_st* %387)
+  %389 = bitcast %class.Benchmark7* %40 to %struct.Benchmark*
+  %390 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %389, i32 0, i32 14
+  store i32 %388, i32* %390, align 4
   ret void
 }
 
@@ -6067,7 +4887,7 @@ define dso_local void @_ZN10Benchmark724execute_cudagraph_manualEi(%class.Benchm
   %408 = load i32, i32* %17, align 4
   %409 = add nsw i32 %408, 1
   store i32 %409, i32* %17, align 4
-  br label %184, !llvm.loop !22
+  br label %184, !llvm.loop !14
 
 410:                                              ; preds = %184
   %411 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %42, i32 0, i32 30
@@ -6096,7 +4916,7 @@ define dso_local void @_ZN10Benchmark724execute_cudagraph_manualEi(%class.Benchm
 declare dso_local i32 @cudaGraphCreate(%struct.CUgraph_st**, i32) #1
 
 ; Function Attrs: argmemonly nofree nounwind willreturn writeonly
-declare void @llvm.memset.p0i8.i64(i8* nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0i8.i64(i8* nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress noinline nounwind optnone uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIP14CUgraphNode_stSaIS1_EE5clearEv(%"class.std::vector"* nonnull align 8 dereferenceable(24) %0) #6 comdat align 2 {
@@ -6115,7 +4935,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIP14CUgraphNode_stSaIS1_EE5clear
 define linkonce_odr dso_local void @_ZNSt6vectorIP14CUgraphNode_stSaIS1_EE9push_backERKS1_(%"class.std::vector"* nonnull align 8 dereferenceable(24) %0, %struct.CUgraphNode_st** nonnull align 8 dereferenceable(8) %1) #7 comdat align 2 {
   %3 = alloca %"class.std::vector"*, align 8
   %4 = alloca %struct.CUgraphNode_st**, align 8
-  %5 = alloca %"class.__gnu_cxx::__normal_iterator.30", align 8
+  %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   store %"class.std::vector"* %0, %"class.std::vector"** %3, align 8
   store %struct.CUgraphNode_st** %1, %struct.CUgraphNode_st*** %4, align 8
   %6 = load %"class.std::vector"*, %"class.std::vector"** %3, align 8
@@ -6150,10 +4970,10 @@ define linkonce_odr dso_local void @_ZNSt6vectorIP14CUgraphNode_stSaIS1_EE9push_
 
 30:                                               ; preds = %2
   %31 = call %struct.CUgraphNode_st** @_ZNSt6vectorIP14CUgraphNode_stSaIS1_EE3endEv(%"class.std::vector"* nonnull align 8 dereferenceable(24) %6) #3
-  %32 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.30", %"class.__gnu_cxx::__normal_iterator.30"* %5, i32 0, i32 0
+  %32 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %5, i32 0, i32 0
   store %struct.CUgraphNode_st** %31, %struct.CUgraphNode_st*** %32, align 8
   %33 = load %struct.CUgraphNode_st**, %struct.CUgraphNode_st*** %4, align 8
-  %34 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.30", %"class.__gnu_cxx::__normal_iterator.30"* %5, i32 0, i32 0
+  %34 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %5, i32 0, i32 0
   %35 = load %struct.CUgraphNode_st**, %struct.CUgraphNode_st*** %34, align 8
   call void @_ZNSt6vectorIP14CUgraphNode_stSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(%"class.std::vector"* nonnull align 8 dereferenceable(24) %6, %struct.CUgraphNode_st** %35, %struct.CUgraphNode_st** nonnull align 8 dereferenceable(8) %33)
   br label %36
@@ -6238,7 +5058,7 @@ define dso_local void @_ZN10Benchmark724execute_cudagraph_singleEi(%class.Benchm
   %35 = load %class.Benchmark7*, %class.Benchmark7** %3, align 8
   %36 = load i32, i32* %4, align 4
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %316
+  br i1 %37, label %38, label %322
 
 38:                                               ; preds = %2
   %39 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %35, i32 0, i32 27
@@ -6247,12 +5067,12 @@ define dso_local void @_ZN10Benchmark724execute_cudagraph_singleEi(%class.Benchm
   store i32 0, i32* %5, align 4
   br label %42
 
-42:                                               ; preds = %304, %38
+42:                                               ; preds = %310, %38
   %43 = load i32, i32* %5, align 4
   %44 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %35, i32 0, i32 2
   %45 = load i32, i32* %44, align 8
   %46 = icmp slt i32 %43, %45
-  br i1 %46, label %47, label %307
+  br i1 %46, label %47, label %313
 
 47:                                               ; preds = %42
   %48 = bitcast %class.Benchmark7* %35 to %struct.Benchmark*
@@ -6539,76 +5359,82 @@ define dso_local void @_ZN10Benchmark724execute_cudagraph_singleEi(%class.Benchm
   br label %276
 
 276:                                              ; preds = %266, %242
-  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %31, i32 1, i32 1, i32 1)
-  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %32, i32 1, i32 1, i32 1)
-  %277 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %35, i32 0, i32 27
-  %278 = load %struct.CUstream_st*, %struct.CUstream_st** %277, align 8
-  %279 = bitcast %struct.CUstream_st* %278 to i8*
-  %280 = bitcast { i64, i32 }* %33 to i8*
-  %281 = bitcast %struct.dim3* %31 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %280, i8* align 4 %281, i64 12, i1 false)
-  %282 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %33, i32 0, i32 0
-  %283 = load i64, i64* %282, align 4
-  %284 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %33, i32 0, i32 1
-  %285 = load i32, i32* %284, align 4
-  %286 = bitcast { i64, i32 }* %34 to i8*
-  %287 = bitcast %struct.dim3* %32 to i8*
+  %277 = bitcast %class.Benchmark7* %35 to %struct.Benchmark*
+  %278 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %277, i32 0, i32 6
+  %279 = load i32, i32* %278, align 4
+  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %31, i32 %279, i32 1, i32 1)
+  %280 = bitcast %class.Benchmark7* %35 to %struct.Benchmark*
+  %281 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %280, i32 0, i32 4
+  %282 = load i32, i32* %281, align 4
+  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %32, i32 %282, i32 1, i32 1)
+  %283 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %35, i32 0, i32 27
+  %284 = load %struct.CUstream_st*, %struct.CUstream_st** %283, align 8
+  %285 = bitcast %struct.CUstream_st* %284 to i8*
+  %286 = bitcast { i64, i32 }* %33 to i8*
+  %287 = bitcast %struct.dim3* %31 to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %286, i8* align 4 %287, i64 12, i1 false)
-  %288 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %34, i32 0, i32 0
+  %288 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %33, i32 0, i32 0
   %289 = load i64, i64* %288, align 4
-  %290 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %34, i32 0, i32 1
+  %290 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %33, i32 0, i32 1
   %291 = load i32, i32* %290, align 4
-  %292 = call i32 @__cudaPushCallConfiguration(i64 %283, i32 %285, i64 %289, i32 %291, i64 0, i8* %279)
-  %293 = icmp ne i32 %292, 0
-  br i1 %293, label %303, label %294
+  %292 = bitcast { i64, i32 }* %34 to i8*
+  %293 = bitcast %struct.dim3* %32 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %292, i8* align 4 %293, i64 12, i1 false)
+  %294 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %34, i32 0, i32 0
+  %295 = load i64, i64* %294, align 4
+  %296 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %34, i32 0, i32 1
+  %297 = load i32, i32* %296, align 4
+  %298 = call i32 @__cudaPushCallConfiguration(i64 %289, i32 %291, i64 %295, i32 %297, i64 0, i8* %285)
+  %299 = icmp ne i32 %298, 0
+  br i1 %299, label %309, label %300
 
-294:                                              ; preds = %276
-  %295 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %35, i32 0, i32 25
-  %296 = load float*, float** %295, align 8
-  %297 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %35, i32 0, i32 26
-  %298 = load float*, float** %297, align 8
-  %299 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %35, i32 0, i32 10
-  %300 = load i32*, i32** %299, align 8
-  %301 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %35, i32 0, i32 11
-  %302 = load i32*, i32** %301, align 8
-  call void @_Z27__device_stub__reset_kerneliPfS_PiS0_(i32 4, float* %296, float* %298, i32* %300, i32* %302)
-  br label %303
+300:                                              ; preds = %276
+  %301 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %35, i32 0, i32 25
+  %302 = load float*, float** %301, align 8
+  %303 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %35, i32 0, i32 26
+  %304 = load float*, float** %303, align 8
+  %305 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %35, i32 0, i32 10
+  %306 = load i32*, i32** %305, align 8
+  %307 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %35, i32 0, i32 11
+  %308 = load i32*, i32** %307, align 8
+  call void @_Z27__device_stub__reset_kerneliPfS_PiS0_(i32 4, float* %302, float* %304, i32* %306, i32* %308)
+  br label %309
 
-303:                                              ; preds = %294, %276
-  br label %304
+309:                                              ; preds = %300, %276
+  br label %310
 
-304:                                              ; preds = %303
-  %305 = load i32, i32* %5, align 4
-  %306 = add nsw i32 %305, 1
-  store i32 %306, i32* %5, align 4
-  br label %42, !llvm.loop !23
+310:                                              ; preds = %309
+  %311 = load i32, i32* %5, align 4
+  %312 = add nsw i32 %311, 1
+  store i32 %312, i32* %5, align 4
+  br label %42, !llvm.loop !15
 
-307:                                              ; preds = %42
-  %308 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %35, i32 0, i32 27
-  %309 = load %struct.CUstream_st*, %struct.CUstream_st** %308, align 8
-  %310 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %35, i32 0, i32 29
-  %311 = call i32 @cudaStreamEndCapture(%struct.CUstream_st* %309, %struct.CUgraph_st** %310)
-  call void @_Z17__checkCudaErrorsiPKci(i32 %311, i8* getelementptr inbounds ([26 x i8], [26 x i8]* @.str.10, i64 0, i64 0), i32 691)
-  %312 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %35, i32 0, i32 30
-  %313 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %35, i32 0, i32 29
-  %314 = load %struct.CUgraph_st*, %struct.CUgraph_st** %313, align 8
-  %315 = call i32 @cudaGraphInstantiate(%struct.CUgraphExec_st** %312, %struct.CUgraph_st* %314, %struct.CUgraphNode_st** null, i8* null, i64 0)
-  call void @_Z17__checkCudaErrorsiPKci(i32 %315, i8* getelementptr inbounds ([26 x i8], [26 x i8]* @.str.10, i64 0, i64 0), i32 692)
-  br label %316
+313:                                              ; preds = %42
+  %314 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %35, i32 0, i32 27
+  %315 = load %struct.CUstream_st*, %struct.CUstream_st** %314, align 8
+  %316 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %35, i32 0, i32 29
+  %317 = call i32 @cudaStreamEndCapture(%struct.CUstream_st* %315, %struct.CUgraph_st** %316)
+  call void @_Z17__checkCudaErrorsiPKci(i32 %317, i8* getelementptr inbounds ([26 x i8], [26 x i8]* @.str.10, i64 0, i64 0), i32 691)
+  %318 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %35, i32 0, i32 30
+  %319 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %35, i32 0, i32 29
+  %320 = load %struct.CUgraph_st*, %struct.CUgraph_st** %319, align 8
+  %321 = call i32 @cudaGraphInstantiate(%struct.CUgraphExec_st** %318, %struct.CUgraph_st* %320, %struct.CUgraphNode_st** null, i8* null, i64 0)
+  call void @_Z17__checkCudaErrorsiPKci(i32 %321, i8* getelementptr inbounds ([26 x i8], [26 x i8]* @.str.10, i64 0, i64 0), i32 692)
+  br label %322
 
-316:                                              ; preds = %307, %2
-  %317 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %35, i32 0, i32 30
-  %318 = load %struct.CUgraphExec_st*, %struct.CUgraphExec_st** %317, align 8
-  %319 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %35, i32 0, i32 27
-  %320 = load %struct.CUstream_st*, %struct.CUstream_st** %319, align 8
-  %321 = call i32 @cudaGraphLaunch(%struct.CUgraphExec_st* %318, %struct.CUstream_st* %320)
-  call void @_Z17__checkCudaErrorsiPKci(i32 %321, i8* getelementptr inbounds ([26 x i8], [26 x i8]* @.str.10, i64 0, i64 0), i32 694)
-  %322 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %35, i32 0, i32 27
-  %323 = load %struct.CUstream_st*, %struct.CUstream_st** %322, align 8
-  %324 = call i32 @cudaStreamSynchronize(%struct.CUstream_st* %323)
-  %325 = bitcast %class.Benchmark7* %35 to %struct.Benchmark*
-  %326 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %325, i32 0, i32 14
-  store i32 %324, i32* %326, align 4
+322:                                              ; preds = %313, %2
+  %323 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %35, i32 0, i32 30
+  %324 = load %struct.CUgraphExec_st*, %struct.CUgraphExec_st** %323, align 8
+  %325 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %35, i32 0, i32 27
+  %326 = load %struct.CUstream_st*, %struct.CUstream_st** %325, align 8
+  %327 = call i32 @cudaGraphLaunch(%struct.CUgraphExec_st* %324, %struct.CUstream_st* %326)
+  call void @_Z17__checkCudaErrorsiPKci(i32 %327, i8* getelementptr inbounds ([26 x i8], [26 x i8]* @.str.10, i64 0, i64 0), i32 694)
+  %328 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %35, i32 0, i32 27
+  %329 = load %struct.CUstream_st*, %struct.CUstream_st** %328, align 8
+  %330 = call i32 @cudaStreamSynchronize(%struct.CUstream_st* %329)
+  %331 = bitcast %class.Benchmark7* %35 to %struct.Benchmark*
+  %332 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %331, i32 0, i32 14
+  store i32 %330, i32* %332, align 4
   ret void
 }
 
@@ -6684,7 +5510,7 @@ define dso_local void @_ZN10Benchmark712print_resultB5cxx11Eb(%"class.std::__cxx
   %41 = load i32, i32* %11, align 4
   %42 = add nsw i32 %41, 1
   store i32 %42, i32* %11, align 4
-  br label %26, !llvm.loop !24
+  br label %26, !llvm.loop !16
 
 43:                                               ; preds = %24
   %44 = landingpad { i8*, i32 }
@@ -6835,7 +5661,7 @@ define linkonce_odr dso_local void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx111
 }
 
 ; Function Attrs: noinline nounwind optnone uwtable
-define dso_local void @_ZN10Benchmark7D2Ev(%class.Benchmark7* nonnull align 8 dereferenceable(816) %0) unnamed_addr #9 align 2 personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
+define dso_local void @_ZN10Benchmark7D2Ev(%class.Benchmark7* nonnull align 8 dereferenceable(816) %0) unnamed_addr #8 align 2 personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
   %2 = alloca %class.Benchmark7*, align 8
   %3 = alloca i8*, align 8
   %4 = alloca i32, align 4
@@ -7010,7 +5836,7 @@ define dso_local void @_ZN10Benchmark7D2Ev(%class.Benchmark7* nonnull align 8 de
 
 120:                                              ; preds = %114
   %121 = load i8*, i8** %3, align 8
-  call void @__clang_call_terminate(i8* %121) #20
+  call void @__clang_call_terminate(i8* %121) #18
   unreachable
 }
 
@@ -7022,7 +5848,7 @@ declare dso_local i32 @cudaFree(i8*) #1
 declare dso_local i32 @cudaStreamDestroy(%struct.CUstream_st*) #1
 
 ; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt6vectorIP14CUgraphNode_stSaIS1_EED2Ev(%"class.std::vector"* nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
+define linkonce_odr dso_local void @_ZNSt6vectorIP14CUgraphNode_stSaIS1_EED2Ev(%"class.std::vector"* nonnull align 8 dereferenceable(24) %0) unnamed_addr #8 comdat align 2 personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
   %2 = alloca %"class.std::vector"*, align 8
   %3 = alloca i8*, align 8
   %4 = alloca i32, align 4
@@ -7059,12 +5885,12 @@ define linkonce_odr dso_local void @_ZNSt6vectorIP14CUgraphNode_stSaIS1_EED2Ev(%
 
 23:                                               ; preds = %18
   %24 = load i8*, i8** %3, align 8
-  call void @__clang_call_terminate(i8* %24) #20
+  call void @__clang_call_terminate(i8* %24) #18
   unreachable
 }
 
 ; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZN9BenchmarkD2Ev(%struct.Benchmark* nonnull align 8 dereferenceable(60) %0) unnamed_addr #9 comdat align 2 {
+define linkonce_odr dso_local void @_ZN9BenchmarkD2Ev(%struct.Benchmark* nonnull align 8 dereferenceable(60) %0) unnamed_addr #8 comdat align 2 {
   %2 = alloca %struct.Benchmark*, align 8
   store %struct.Benchmark* %0, %struct.Benchmark** %2, align 8
   %3 = load %struct.Benchmark*, %struct.Benchmark** %2, align 8
@@ -7072,9 +5898,9 @@ define linkonce_odr dso_local void @_ZN9BenchmarkD2Ev(%struct.Benchmark* nonnull
 }
 
 ; Function Attrs: noinline noreturn nounwind
-define linkonce_odr hidden void @__clang_call_terminate(i8* %0) #11 comdat {
+define linkonce_odr hidden void @__clang_call_terminate(i8* %0) #10 comdat {
   %2 = call i8* @__cxa_begin_catch(i8* %0) #3
-  call void @_ZSt9terminatev() #20
+  call void @_ZSt9terminatev() #18
   unreachable
 }
 
@@ -7083,1433 +5909,21 @@ declare dso_local i8* @__cxa_begin_catch(i8*)
 declare dso_local void @_ZSt9terminatev()
 
 ; Function Attrs: noinline nounwind optnone uwtable
-define dso_local void @_ZN10Benchmark7D0Ev(%class.Benchmark7* nonnull align 8 dereferenceable(816) %0) unnamed_addr #9 align 2 {
+define dso_local void @_ZN10Benchmark7D0Ev(%class.Benchmark7* nonnull align 8 dereferenceable(816) %0) unnamed_addr #8 align 2 {
   %2 = alloca %class.Benchmark7*, align 8
   store %class.Benchmark7* %0, %class.Benchmark7** %2, align 8
   %3 = load %class.Benchmark7*, %class.Benchmark7** %2, align 8
   call void @_ZN10Benchmark7D1Ev(%class.Benchmark7* nonnull align 8 dereferenceable(816) %3) #3
   %4 = bitcast %class.Benchmark7* %3 to i8*
-  call void @_ZdlPv(i8* %4) #21
+  call void @_ZdlPv(i8* %4) #19
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare dso_local void @_ZdlPv(i8*) #12
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt3setIiSt4lessIiESaIiEEC2Ev(%"class.std::set"* nonnull align 8 dereferenceable(48) %0) unnamed_addr #9 comdat align 2 {
-  %2 = alloca %"class.std::set"*, align 8
-  store %"class.std::set"* %0, %"class.std::set"** %2, align 8
-  %3 = load %"class.std::set"*, %"class.std::set"** %2, align 8
-  %4 = getelementptr inbounds %"class.std::set", %"class.std::set"* %3, i32 0, i32 0
-  call void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEEC2Ev(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %4) #3
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local i64 @_ZNKSt3setIiSt4lessIiESaIiEE4sizeEv(%"class.std::set"* nonnull align 8 dereferenceable(48) %0) #6 comdat align 2 {
-  %2 = alloca %"class.std::set"*, align 8
-  store %"class.std::set"* %0, %"class.std::set"** %2, align 8
-  %3 = load %"class.std::set"*, %"class.std::set"** %2, align 8
-  %4 = getelementptr inbounds %"class.std::set", %"class.std::set"* %3, i32 0, i32 0
-  %5 = call i64 @_ZNKSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE4sizeEv(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %4) #3
-  ret i64 %5
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local { %"struct.std::_Rb_tree_node_base"*, i8 } @_ZNSt3setIiSt4lessIiESaIiEE6insertEOi(%"class.std::set"* nonnull align 8 dereferenceable(48) %0, i32* nonnull align 4 dereferenceable(4) %1) #7 comdat align 2 {
-  %3 = alloca %"struct.std::pair", align 8
-  %4 = alloca %"class.std::set"*, align 8
-  %5 = alloca i32*, align 8
-  %6 = alloca %"struct.std::pair.6", align 8
-  store %"class.std::set"* %0, %"class.std::set"** %4, align 8
-  store i32* %1, i32** %5, align 8
-  %7 = load %"class.std::set"*, %"class.std::set"** %4, align 8
-  %8 = getelementptr inbounds %"class.std::set", %"class.std::set"* %7, i32 0, i32 0
-  %9 = load i32*, i32** %5, align 8
-  %10 = call nonnull align 4 dereferenceable(4) i32* @_ZSt4moveIRiEONSt16remove_referenceIT_E4typeEOS2_(i32* nonnull align 4 dereferenceable(4) %9) #3
-  %11 = call { %"struct.std::_Rb_tree_node_base"*, i8 } @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE16_M_insert_uniqueIiEESt4pairISt17_Rb_tree_iteratorIiEbEOT_(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %8, i32* nonnull align 4 dereferenceable(4) %10)
-  %12 = bitcast %"struct.std::pair.6"* %6 to { %"struct.std::_Rb_tree_node_base"*, i8 }*
-  %13 = getelementptr inbounds { %"struct.std::_Rb_tree_node_base"*, i8 }, { %"struct.std::_Rb_tree_node_base"*, i8 }* %12, i32 0, i32 0
-  %14 = extractvalue { %"struct.std::_Rb_tree_node_base"*, i8 } %11, 0
-  store %"struct.std::_Rb_tree_node_base"* %14, %"struct.std::_Rb_tree_node_base"** %13, align 8
-  %15 = getelementptr inbounds { %"struct.std::_Rb_tree_node_base"*, i8 }, { %"struct.std::_Rb_tree_node_base"*, i8 }* %12, i32 0, i32 1
-  %16 = extractvalue { %"struct.std::_Rb_tree_node_base"*, i8 } %11, 1
-  store i8 %16, i8* %15, align 8
-  %17 = getelementptr inbounds %"struct.std::pair.6", %"struct.std::pair.6"* %6, i32 0, i32 0
-  %18 = getelementptr inbounds %"struct.std::pair.6", %"struct.std::pair.6"* %6, i32 0, i32 1
-  call void @_ZNSt4pairISt23_Rb_tree_const_iteratorIiEbEC2IRSt17_Rb_tree_iteratorIiERbLb1EEEOT_OT0_(%"struct.std::pair"* nonnull align 8 dereferenceable(9) %3, %"struct.std::_Rb_tree_iterator"* nonnull align 8 dereferenceable(8) %17, i8* nonnull align 1 dereferenceable(1) %18)
-  %19 = bitcast %"struct.std::pair"* %3 to { %"struct.std::_Rb_tree_node_base"*, i8 }*
-  %20 = load { %"struct.std::_Rb_tree_node_base"*, i8 }, { %"struct.std::_Rb_tree_node_base"*, i8 }* %19, align 8
-  ret { %"struct.std::_Rb_tree_node_base"*, i8 } %20
-}
-
-; Function Attrs: nounwind
-declare dso_local i32 @rand() #2
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local %"struct.std::_Rb_tree_node_base"* @_ZNKSt3setIiSt4lessIiESaIiEE5beginEv(%"class.std::set"* nonnull align 8 dereferenceable(48) %0) #6 comdat align 2 {
-  %2 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
-  %3 = alloca %"class.std::set"*, align 8
-  store %"class.std::set"* %0, %"class.std::set"** %3, align 8
-  %4 = load %"class.std::set"*, %"class.std::set"** %3, align 8
-  %5 = getelementptr inbounds %"class.std::set", %"class.std::set"* %4, i32 0, i32 0
-  %6 = call %"struct.std::_Rb_tree_node_base"* @_ZNKSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE5beginEv(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %5) #3
-  %7 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", %"struct.std::_Rb_tree_const_iterator"* %2, i32 0, i32 0
-  store %"struct.std::_Rb_tree_node_base"* %6, %"struct.std::_Rb_tree_node_base"** %7, align 8
-  %8 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", %"struct.std::_Rb_tree_const_iterator"* %2, i32 0, i32 0
-  %9 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %8, align 8
-  ret %"struct.std::_Rb_tree_node_base"* %9
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local zeroext i1 @_ZNKSt23_Rb_tree_const_iteratorIiEneERKS0_(%"struct.std::_Rb_tree_const_iterator"* nonnull align 8 dereferenceable(8) %0, %"struct.std::_Rb_tree_const_iterator"* nonnull align 8 dereferenceable(8) %1) #6 comdat align 2 {
-  %3 = alloca %"struct.std::_Rb_tree_const_iterator"*, align 8
-  %4 = alloca %"struct.std::_Rb_tree_const_iterator"*, align 8
-  store %"struct.std::_Rb_tree_const_iterator"* %0, %"struct.std::_Rb_tree_const_iterator"** %3, align 8
-  store %"struct.std::_Rb_tree_const_iterator"* %1, %"struct.std::_Rb_tree_const_iterator"** %4, align 8
-  %5 = load %"struct.std::_Rb_tree_const_iterator"*, %"struct.std::_Rb_tree_const_iterator"** %3, align 8
-  %6 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", %"struct.std::_Rb_tree_const_iterator"* %5, i32 0, i32 0
-  %7 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %6, align 8
-  %8 = load %"struct.std::_Rb_tree_const_iterator"*, %"struct.std::_Rb_tree_const_iterator"** %4, align 8
-  %9 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", %"struct.std::_Rb_tree_const_iterator"* %8, i32 0, i32 0
-  %10 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %9, align 8
-  %11 = icmp ne %"struct.std::_Rb_tree_node_base"* %7, %10
-  ret i1 %11
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local %"struct.std::_Rb_tree_node_base"* @_ZNKSt3setIiSt4lessIiESaIiEE3endEv(%"class.std::set"* nonnull align 8 dereferenceable(48) %0) #6 comdat align 2 {
-  %2 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
-  %3 = alloca %"class.std::set"*, align 8
-  store %"class.std::set"* %0, %"class.std::set"** %3, align 8
-  %4 = load %"class.std::set"*, %"class.std::set"** %3, align 8
-  %5 = getelementptr inbounds %"class.std::set", %"class.std::set"* %4, i32 0, i32 0
-  %6 = call %"struct.std::_Rb_tree_node_base"* @_ZNKSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE3endEv(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %5) #3
-  %7 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", %"struct.std::_Rb_tree_const_iterator"* %2, i32 0, i32 0
-  store %"struct.std::_Rb_tree_node_base"* %6, %"struct.std::_Rb_tree_node_base"** %7, align 8
-  %8 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", %"struct.std::_Rb_tree_const_iterator"* %2, i32 0, i32 0
-  %9 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %8, align 8
-  ret %"struct.std::_Rb_tree_node_base"* %9
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(4) i32* @_ZNKSt23_Rb_tree_const_iteratorIiEdeEv(%"struct.std::_Rb_tree_const_iterator"* nonnull align 8 dereferenceable(8) %0) #6 comdat align 2 {
-  %2 = alloca %"struct.std::_Rb_tree_const_iterator"*, align 8
-  store %"struct.std::_Rb_tree_const_iterator"* %0, %"struct.std::_Rb_tree_const_iterator"** %2, align 8
-  %3 = load %"struct.std::_Rb_tree_const_iterator"*, %"struct.std::_Rb_tree_const_iterator"** %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", %"struct.std::_Rb_tree_const_iterator"* %3, i32 0, i32 0
-  %5 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %4, align 8
-  %6 = bitcast %"struct.std::_Rb_tree_node_base"* %5 to %"struct.std::_Rb_tree_node"*
-  %7 = call i32* @_ZNKSt13_Rb_tree_nodeIiE9_M_valptrEv(%"struct.std::_Rb_tree_node"* nonnull align 8 dereferenceable(36) %6)
-  ret i32* %7
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local %"struct.std::_Rb_tree_node_base"* @_ZNSt23_Rb_tree_const_iteratorIiEppEi(%"struct.std::_Rb_tree_const_iterator"* nonnull align 8 dereferenceable(8) %0, i32 %1) #6 comdat align 2 {
-  %3 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
-  %4 = alloca %"struct.std::_Rb_tree_const_iterator"*, align 8
-  %5 = alloca i32, align 4
-  store %"struct.std::_Rb_tree_const_iterator"* %0, %"struct.std::_Rb_tree_const_iterator"** %4, align 8
-  store i32 %1, i32* %5, align 4
-  %6 = load %"struct.std::_Rb_tree_const_iterator"*, %"struct.std::_Rb_tree_const_iterator"** %4, align 8
-  %7 = bitcast %"struct.std::_Rb_tree_const_iterator"* %3 to i8*
-  %8 = bitcast %"struct.std::_Rb_tree_const_iterator"* %6 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %7, i8* align 8 %8, i64 8, i1 false)
-  %9 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", %"struct.std::_Rb_tree_const_iterator"* %6, i32 0, i32 0
-  %10 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %9, align 8
-  %11 = call %"struct.std::_Rb_tree_node_base"* @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(%"struct.std::_Rb_tree_node_base"* %10) #22
-  %12 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", %"struct.std::_Rb_tree_const_iterator"* %6, i32 0, i32 0
-  store %"struct.std::_Rb_tree_node_base"* %11, %"struct.std::_Rb_tree_node_base"** %12, align 8
-  %13 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", %"struct.std::_Rb_tree_const_iterator"* %3, i32 0, i32 0
-  %14 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %13, align 8
-  ret %"struct.std::_Rb_tree_node_base"* %14
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt3setIiSt4lessIiESaIiEED2Ev(%"class.std::set"* nonnull align 8 dereferenceable(48) %0) unnamed_addr #9 comdat align 2 {
-  %2 = alloca %"class.std::set"*, align 8
-  store %"class.std::set"* %0, %"class.std::set"** %2, align 8
-  %3 = load %"class.std::set"*, %"class.std::set"** %2, align 8
-  %4 = getelementptr inbounds %"class.std::set", %"class.std::set"* %3, i32 0, i32 0
-  call void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEED2Ev(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %4) #3
-  ret void
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEEC2Ev(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %0) unnamed_addr #9 comdat align 2 {
-  %2 = alloca %"class.std::_Rb_tree"*, align 8
-  store %"class.std::_Rb_tree"* %0, %"class.std::_Rb_tree"** %2, align 8
-  %3 = load %"class.std::_Rb_tree"*, %"class.std::_Rb_tree"** %2, align 8
-  %4 = getelementptr inbounds %"class.std::_Rb_tree", %"class.std::_Rb_tree"* %3, i32 0, i32 0
-  call void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE13_Rb_tree_implIS3_Lb1EEC2Ev(%"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl"* nonnull align 8 dereferenceable(48) %4) #3
-  ret void
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE13_Rb_tree_implIS3_Lb1EEC2Ev(%"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl"* nonnull align 8 dereferenceable(48) %0) unnamed_addr #9 comdat align 2 {
-  %2 = alloca %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl"*, align 8
-  store %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl"* %0, %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl"** %2, align 8
-  %3 = load %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl"*, %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl"** %2, align 8
-  %4 = bitcast %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl"* %3 to %"class.std::allocator.3"*
-  call void @_ZNSaISt13_Rb_tree_nodeIiEEC2Ev(%"class.std::allocator.3"* nonnull align 1 dereferenceable(1) %4) #3
-  %5 = bitcast %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl"* %3 to %"struct.std::_Rb_tree_key_compare"*
-  call void @_ZNSt20_Rb_tree_key_compareISt4lessIiEEC2Ev(%"struct.std::_Rb_tree_key_compare"* nonnull align 1 dereferenceable(1) %5) #3
-  %6 = bitcast %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl"* %3 to i8*
-  %7 = getelementptr inbounds i8, i8* %6, i64 8
-  %8 = bitcast i8* %7 to %"struct.std::_Rb_tree_header"*
-  call void @_ZNSt15_Rb_tree_headerC2Ev(%"struct.std::_Rb_tree_header"* nonnull align 8 dereferenceable(40) %8) #3
-  ret void
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSaISt13_Rb_tree_nodeIiEEC2Ev(%"class.std::allocator.3"* nonnull align 1 dereferenceable(1) %0) unnamed_addr #9 comdat align 2 {
-  %2 = alloca %"class.std::allocator.3"*, align 8
-  store %"class.std::allocator.3"* %0, %"class.std::allocator.3"** %2, align 8
-  %3 = load %"class.std::allocator.3"*, %"class.std::allocator.3"** %2, align 8
-  %4 = bitcast %"class.std::allocator.3"* %3 to %"class.__gnu_cxx::new_allocator.4"*
-  call void @_ZN9__gnu_cxx13new_allocatorISt13_Rb_tree_nodeIiEEC2Ev(%"class.__gnu_cxx::new_allocator.4"* nonnull align 1 dereferenceable(1) %4) #3
-  ret void
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt20_Rb_tree_key_compareISt4lessIiEEC2Ev(%"struct.std::_Rb_tree_key_compare"* nonnull align 1 dereferenceable(1) %0) unnamed_addr #9 comdat align 2 {
-  %2 = alloca %"struct.std::_Rb_tree_key_compare"*, align 8
-  store %"struct.std::_Rb_tree_key_compare"* %0, %"struct.std::_Rb_tree_key_compare"** %2, align 8
-  %3 = load %"struct.std::_Rb_tree_key_compare"*, %"struct.std::_Rb_tree_key_compare"** %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_key_compare"* %3, i32 0, i32 0
-  ret void
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt15_Rb_tree_headerC2Ev(%"struct.std::_Rb_tree_header"* nonnull align 8 dereferenceable(40) %0) unnamed_addr #9 comdat align 2 personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
-  %2 = alloca %"struct.std::_Rb_tree_header"*, align 8
-  store %"struct.std::_Rb_tree_header"* %0, %"struct.std::_Rb_tree_header"** %2, align 8
-  %3 = load %"struct.std::_Rb_tree_header"*, %"struct.std::_Rb_tree_header"** %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Rb_tree_header", %"struct.std::_Rb_tree_header"* %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Rb_tree_header", %"struct.std::_Rb_tree_header"* %3, i32 0, i32 0
-  %6 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", %"struct.std::_Rb_tree_node_base"* %5, i32 0, i32 0
-  store i32 0, i32* %6, align 8
-  invoke void @_ZNSt15_Rb_tree_header8_M_resetEv(%"struct.std::_Rb_tree_header"* nonnull align 8 dereferenceable(40) %3)
-          to label %7 unwind label %8
-
-7:                                                ; preds = %1
-  ret void
-
-8:                                                ; preds = %1
-  %9 = landingpad { i8*, i32 }
-          catch i8* null
-  %10 = extractvalue { i8*, i32 } %9, 0
-  call void @__clang_call_terminate(i8* %10) #20
-  unreachable
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZN9__gnu_cxx13new_allocatorISt13_Rb_tree_nodeIiEEC2Ev(%"class.__gnu_cxx::new_allocator.4"* nonnull align 1 dereferenceable(1) %0) unnamed_addr #9 comdat align 2 {
-  %2 = alloca %"class.__gnu_cxx::new_allocator.4"*, align 8
-  store %"class.__gnu_cxx::new_allocator.4"* %0, %"class.__gnu_cxx::new_allocator.4"** %2, align 8
-  %3 = load %"class.__gnu_cxx::new_allocator.4"*, %"class.__gnu_cxx::new_allocator.4"** %2, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt15_Rb_tree_header8_M_resetEv(%"struct.std::_Rb_tree_header"* nonnull align 8 dereferenceable(40) %0) #6 comdat align 2 {
-  %2 = alloca %"struct.std::_Rb_tree_header"*, align 8
-  store %"struct.std::_Rb_tree_header"* %0, %"struct.std::_Rb_tree_header"** %2, align 8
-  %3 = load %"struct.std::_Rb_tree_header"*, %"struct.std::_Rb_tree_header"** %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Rb_tree_header", %"struct.std::_Rb_tree_header"* %3, i32 0, i32 0
-  %5 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", %"struct.std::_Rb_tree_node_base"* %4, i32 0, i32 1
-  store %"struct.std::_Rb_tree_node_base"* null, %"struct.std::_Rb_tree_node_base"** %5, align 8
-  %6 = getelementptr inbounds %"struct.std::_Rb_tree_header", %"struct.std::_Rb_tree_header"* %3, i32 0, i32 0
-  %7 = getelementptr inbounds %"struct.std::_Rb_tree_header", %"struct.std::_Rb_tree_header"* %3, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", %"struct.std::_Rb_tree_node_base"* %7, i32 0, i32 2
-  store %"struct.std::_Rb_tree_node_base"* %6, %"struct.std::_Rb_tree_node_base"** %8, align 8
-  %9 = getelementptr inbounds %"struct.std::_Rb_tree_header", %"struct.std::_Rb_tree_header"* %3, i32 0, i32 0
-  %10 = getelementptr inbounds %"struct.std::_Rb_tree_header", %"struct.std::_Rb_tree_header"* %3, i32 0, i32 0
-  %11 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", %"struct.std::_Rb_tree_node_base"* %10, i32 0, i32 3
-  store %"struct.std::_Rb_tree_node_base"* %9, %"struct.std::_Rb_tree_node_base"** %11, align 8
-  %12 = getelementptr inbounds %"struct.std::_Rb_tree_header", %"struct.std::_Rb_tree_header"* %3, i32 0, i32 1
-  store i64 0, i64* %12, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local i64 @_ZNKSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE4sizeEv(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %0) #6 comdat align 2 {
-  %2 = alloca %"class.std::_Rb_tree"*, align 8
-  store %"class.std::_Rb_tree"* %0, %"class.std::_Rb_tree"** %2, align 8
-  %3 = load %"class.std::_Rb_tree"*, %"class.std::_Rb_tree"** %2, align 8
-  %4 = getelementptr inbounds %"class.std::_Rb_tree", %"class.std::_Rb_tree"* %3, i32 0, i32 0
-  %5 = bitcast %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl"* %4 to i8*
-  %6 = getelementptr inbounds i8, i8* %5, i64 8
-  %7 = bitcast i8* %6 to %"struct.std::_Rb_tree_header"*
-  %8 = getelementptr inbounds %"struct.std::_Rb_tree_header", %"struct.std::_Rb_tree_header"* %7, i32 0, i32 1
-  %9 = load i64, i64* %8, align 8
-  ret i64 %9
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local { %"struct.std::_Rb_tree_node_base"*, i8 } @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE16_M_insert_uniqueIiEESt4pairISt17_Rb_tree_iteratorIiEbEOT_(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %0, i32* nonnull align 4 dereferenceable(4) %1) #7 comdat align 2 {
-  %3 = alloca %"struct.std::pair.6", align 8
-  %4 = alloca %"class.std::_Rb_tree"*, align 8
-  %5 = alloca i32*, align 8
-  %6 = alloca %"struct.std::pair.10", align 8
-  %7 = alloca %"struct.std::_Identity", align 1
-  %8 = alloca %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Alloc_node", align 8
-  %9 = alloca %"struct.std::_Rb_tree_iterator", align 8
-  %10 = alloca i8, align 1
-  %11 = alloca %"struct.std::_Rb_tree_iterator", align 8
-  %12 = alloca i8, align 1
-  store %"class.std::_Rb_tree"* %0, %"class.std::_Rb_tree"** %4, align 8
-  store i32* %1, i32** %5, align 8
-  %13 = load %"class.std::_Rb_tree"*, %"class.std::_Rb_tree"** %4, align 8
-  %14 = load i32*, i32** %5, align 8
-  %15 = call nonnull align 4 dereferenceable(4) i32* @_ZNKSt9_IdentityIiEclERi(%"struct.std::_Identity"* nonnull align 1 dereferenceable(1) %7, i32* nonnull align 4 dereferenceable(4) %14)
-  %16 = call { %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"* } @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE24_M_get_insert_unique_posERKi(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %13, i32* nonnull align 4 dereferenceable(4) %15)
-  %17 = bitcast %"struct.std::pair.10"* %6 to { %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"* }*
-  %18 = getelementptr inbounds { %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"* }, { %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"* }* %17, i32 0, i32 0
-  %19 = extractvalue { %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"* } %16, 0
-  store %"struct.std::_Rb_tree_node_base"* %19, %"struct.std::_Rb_tree_node_base"** %18, align 8
-  %20 = getelementptr inbounds { %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"* }, { %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"* }* %17, i32 0, i32 1
-  %21 = extractvalue { %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"* } %16, 1
-  store %"struct.std::_Rb_tree_node_base"* %21, %"struct.std::_Rb_tree_node_base"** %20, align 8
-  %22 = getelementptr inbounds %"struct.std::pair.10", %"struct.std::pair.10"* %6, i32 0, i32 1
-  %23 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %22, align 8
-  %24 = icmp ne %"struct.std::_Rb_tree_node_base"* %23, null
-  br i1 %24, label %25, label %34
-
-25:                                               ; preds = %2
-  call void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE11_Alloc_nodeC2ERS5_(%"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Alloc_node"* nonnull align 8 dereferenceable(8) %8, %"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %13)
-  %26 = getelementptr inbounds %"struct.std::pair.10", %"struct.std::pair.10"* %6, i32 0, i32 0
-  %27 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %26, align 8
-  %28 = getelementptr inbounds %"struct.std::pair.10", %"struct.std::pair.10"* %6, i32 0, i32 1
-  %29 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %28, align 8
-  %30 = load i32*, i32** %5, align 8
-  %31 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIiEOT_RNSt16remove_referenceIS0_E4typeE(i32* nonnull align 4 dereferenceable(4) %30) #3
-  %32 = call %"struct.std::_Rb_tree_node_base"* @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiEPSt18_Rb_tree_node_baseSB_OT_RT0_(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %13, %"struct.std::_Rb_tree_node_base"* %27, %"struct.std::_Rb_tree_node_base"* %29, i32* nonnull align 4 dereferenceable(4) %31, %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Alloc_node"* nonnull align 8 dereferenceable(8) %8)
-  %33 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", %"struct.std::_Rb_tree_iterator"* %9, i32 0, i32 0
-  store %"struct.std::_Rb_tree_node_base"* %32, %"struct.std::_Rb_tree_node_base"** %33, align 8
-  store i8 1, i8* %10, align 1
-  call void @_ZNSt4pairISt17_Rb_tree_iteratorIiEbEC2IS1_bLb1EEEOT_OT0_(%"struct.std::pair.6"* nonnull align 8 dereferenceable(9) %3, %"struct.std::_Rb_tree_iterator"* nonnull align 8 dereferenceable(8) %9, i8* nonnull align 1 dereferenceable(1) %10)
-  br label %37
-
-34:                                               ; preds = %2
-  %35 = getelementptr inbounds %"struct.std::pair.10", %"struct.std::pair.10"* %6, i32 0, i32 0
-  %36 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %35, align 8
-  call void @_ZNSt17_Rb_tree_iteratorIiEC2EPSt18_Rb_tree_node_base(%"struct.std::_Rb_tree_iterator"* nonnull align 8 dereferenceable(8) %11, %"struct.std::_Rb_tree_node_base"* %36) #3
-  store i8 0, i8* %12, align 1
-  call void @_ZNSt4pairISt17_Rb_tree_iteratorIiEbEC2IS1_bLb1EEEOT_OT0_(%"struct.std::pair.6"* nonnull align 8 dereferenceable(9) %3, %"struct.std::_Rb_tree_iterator"* nonnull align 8 dereferenceable(8) %11, i8* nonnull align 1 dereferenceable(1) %12)
-  br label %37
-
-37:                                               ; preds = %34, %25
-  %38 = bitcast %"struct.std::pair.6"* %3 to { %"struct.std::_Rb_tree_node_base"*, i8 }*
-  %39 = load { %"struct.std::_Rb_tree_node_base"*, i8 }, { %"struct.std::_Rb_tree_node_base"*, i8 }* %38, align 8
-  ret { %"struct.std::_Rb_tree_node_base"*, i8 } %39
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(4) i32* @_ZSt4moveIRiEONSt16remove_referenceIT_E4typeEOS2_(i32* nonnull align 4 dereferenceable(4) %0) #6 comdat {
-  %2 = alloca i32*, align 8
-  store i32* %0, i32** %2, align 8
-  %3 = load i32*, i32** %2, align 8
-  ret i32* %3
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt4pairISt23_Rb_tree_const_iteratorIiEbEC2IRSt17_Rb_tree_iteratorIiERbLb1EEEOT_OT0_(%"struct.std::pair"* nonnull align 8 dereferenceable(9) %0, %"struct.std::_Rb_tree_iterator"* nonnull align 8 dereferenceable(8) %1, i8* nonnull align 1 dereferenceable(1) %2) unnamed_addr #9 comdat align 2 {
-  %4 = alloca %"struct.std::pair"*, align 8
-  %5 = alloca %"struct.std::_Rb_tree_iterator"*, align 8
-  %6 = alloca i8*, align 8
-  store %"struct.std::pair"* %0, %"struct.std::pair"** %4, align 8
-  store %"struct.std::_Rb_tree_iterator"* %1, %"struct.std::_Rb_tree_iterator"** %5, align 8
-  store i8* %2, i8** %6, align 8
-  %7 = load %"struct.std::pair"*, %"struct.std::pair"** %4, align 8
-  %8 = bitcast %"struct.std::pair"* %7 to %"class.std::__pair_base"*
-  %9 = getelementptr inbounds %"struct.std::pair", %"struct.std::pair"* %7, i32 0, i32 0
-  %10 = load %"struct.std::_Rb_tree_iterator"*, %"struct.std::_Rb_tree_iterator"** %5, align 8
-  %11 = call nonnull align 8 dereferenceable(8) %"struct.std::_Rb_tree_iterator"* @_ZSt7forwardIRSt17_Rb_tree_iteratorIiEEOT_RNSt16remove_referenceIS3_E4typeE(%"struct.std::_Rb_tree_iterator"* nonnull align 8 dereferenceable(8) %10) #3
-  call void @_ZNSt23_Rb_tree_const_iteratorIiEC2ERKSt17_Rb_tree_iteratorIiE(%"struct.std::_Rb_tree_const_iterator"* nonnull align 8 dereferenceable(8) %9, %"struct.std::_Rb_tree_iterator"* nonnull align 8 dereferenceable(8) %11) #3
-  %12 = getelementptr inbounds %"struct.std::pair", %"struct.std::pair"* %7, i32 0, i32 1
-  %13 = load i8*, i8** %6, align 8
-  %14 = call nonnull align 1 dereferenceable(1) i8* @_ZSt7forwardIRbEOT_RNSt16remove_referenceIS1_E4typeE(i8* nonnull align 1 dereferenceable(1) %13) #3
-  %15 = load i8, i8* %14, align 1
-  %16 = trunc i8 %15 to i1
-  %17 = zext i1 %16 to i8
-  store i8 %17, i8* %12, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local { %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"* } @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE24_M_get_insert_unique_posERKi(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %0, i32* nonnull align 4 dereferenceable(4) %1) #7 comdat align 2 {
-  %3 = alloca %"struct.std::pair.10", align 8
-  %4 = alloca %"class.std::_Rb_tree"*, align 8
-  %5 = alloca i32*, align 8
-  %6 = alloca %"struct.std::_Rb_tree_node"*, align 8
-  %7 = alloca %"struct.std::_Rb_tree_node_base"*, align 8
-  %8 = alloca i8, align 1
-  %9 = alloca %"struct.std::_Rb_tree_iterator", align 8
-  %10 = alloca %"struct.std::_Rb_tree_iterator", align 8
-  %11 = alloca %"struct.std::_Rb_tree_node_base"*, align 8
-  store %"class.std::_Rb_tree"* %0, %"class.std::_Rb_tree"** %4, align 8
-  store i32* %1, i32** %5, align 8
-  %12 = load %"class.std::_Rb_tree"*, %"class.std::_Rb_tree"** %4, align 8
-  %13 = call %"struct.std::_Rb_tree_node"* @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_beginEv(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %12) #3
-  store %"struct.std::_Rb_tree_node"* %13, %"struct.std::_Rb_tree_node"** %6, align 8
-  %14 = call %"struct.std::_Rb_tree_node_base"* @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE6_M_endEv(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %12) #3
-  store %"struct.std::_Rb_tree_node_base"* %14, %"struct.std::_Rb_tree_node_base"** %7, align 8
-  store i8 1, i8* %8, align 1
-  br label %15
-
-15:                                               ; preds = %39, %2
-  %16 = load %"struct.std::_Rb_tree_node"*, %"struct.std::_Rb_tree_node"** %6, align 8
-  %17 = icmp ne %"struct.std::_Rb_tree_node"* %16, null
-  br i1 %17, label %18, label %41
-
-18:                                               ; preds = %15
-  %19 = load %"struct.std::_Rb_tree_node"*, %"struct.std::_Rb_tree_node"** %6, align 8
-  %20 = bitcast %"struct.std::_Rb_tree_node"* %19 to %"struct.std::_Rb_tree_node_base"*
-  store %"struct.std::_Rb_tree_node_base"* %20, %"struct.std::_Rb_tree_node_base"** %7, align 8
-  %21 = getelementptr inbounds %"class.std::_Rb_tree", %"class.std::_Rb_tree"* %12, i32 0, i32 0
-  %22 = bitcast %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl"* %21 to %"struct.std::_Rb_tree_key_compare"*
-  %23 = getelementptr inbounds %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_key_compare"* %22, i32 0, i32 0
-  %24 = load i32*, i32** %5, align 8
-  %25 = load %"struct.std::_Rb_tree_node"*, %"struct.std::_Rb_tree_node"** %6, align 8
-  %26 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE6_S_keyEPKSt13_Rb_tree_nodeIiE(%"struct.std::_Rb_tree_node"* %25)
-  %27 = call zeroext i1 @_ZNKSt4lessIiEclERKiS2_(%"struct.std::less"* nonnull align 1 dereferenceable(1) %23, i32* nonnull align 4 dereferenceable(4) %24, i32* nonnull align 4 dereferenceable(4) %26)
-  %28 = zext i1 %27 to i8
-  store i8 %28, i8* %8, align 1
-  %29 = load i8, i8* %8, align 1
-  %30 = trunc i8 %29 to i1
-  br i1 %30, label %31, label %35
-
-31:                                               ; preds = %18
-  %32 = load %"struct.std::_Rb_tree_node"*, %"struct.std::_Rb_tree_node"** %6, align 8
-  %33 = bitcast %"struct.std::_Rb_tree_node"* %32 to %"struct.std::_Rb_tree_node_base"*
-  %34 = call %"struct.std::_Rb_tree_node"* @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE7_S_leftEPSt18_Rb_tree_node_base(%"struct.std::_Rb_tree_node_base"* %33) #3
-  br label %39
-
-35:                                               ; preds = %18
-  %36 = load %"struct.std::_Rb_tree_node"*, %"struct.std::_Rb_tree_node"** %6, align 8
-  %37 = bitcast %"struct.std::_Rb_tree_node"* %36 to %"struct.std::_Rb_tree_node_base"*
-  %38 = call %"struct.std::_Rb_tree_node"* @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_S_rightEPSt18_Rb_tree_node_base(%"struct.std::_Rb_tree_node_base"* %37) #3
-  br label %39
-
-39:                                               ; preds = %35, %31
-  %40 = phi %"struct.std::_Rb_tree_node"* [ %34, %31 ], [ %38, %35 ]
-  store %"struct.std::_Rb_tree_node"* %40, %"struct.std::_Rb_tree_node"** %6, align 8
-  br label %15, !llvm.loop !25
-
-41:                                               ; preds = %15
-  %42 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %7, align 8
-  call void @_ZNSt17_Rb_tree_iteratorIiEC2EPSt18_Rb_tree_node_base(%"struct.std::_Rb_tree_iterator"* nonnull align 8 dereferenceable(8) %9, %"struct.std::_Rb_tree_node_base"* %42) #3
-  %43 = load i8, i8* %8, align 1
-  %44 = trunc i8 %43 to i1
-  br i1 %44, label %45, label %53
-
-45:                                               ; preds = %41
-  %46 = call %"struct.std::_Rb_tree_node_base"* @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE5beginEv(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %12) #3
-  %47 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", %"struct.std::_Rb_tree_iterator"* %10, i32 0, i32 0
-  store %"struct.std::_Rb_tree_node_base"* %46, %"struct.std::_Rb_tree_node_base"** %47, align 8
-  %48 = call zeroext i1 @_ZNKSt17_Rb_tree_iteratorIiEeqERKS0_(%"struct.std::_Rb_tree_iterator"* nonnull align 8 dereferenceable(8) %9, %"struct.std::_Rb_tree_iterator"* nonnull align 8 dereferenceable(8) %10) #3
-  br i1 %48, label %49, label %50
-
-49:                                               ; preds = %45
-  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRPSt13_Rb_tree_nodeIiERS1_Lb1EEEOT_OT0_(%"struct.std::pair.10"* nonnull align 8 dereferenceable(16) %3, %"struct.std::_Rb_tree_node"** nonnull align 8 dereferenceable(8) %6, %"struct.std::_Rb_tree_node_base"** nonnull align 8 dereferenceable(8) %7)
-  br label %65
-
-50:                                               ; preds = %45
-  %51 = call nonnull align 8 dereferenceable(8) %"struct.std::_Rb_tree_iterator"* @_ZNSt17_Rb_tree_iteratorIiEmmEv(%"struct.std::_Rb_tree_iterator"* nonnull align 8 dereferenceable(8) %9) #3
-  br label %52
-
-52:                                               ; preds = %50
-  br label %53
-
-53:                                               ; preds = %52, %41
-  %54 = getelementptr inbounds %"class.std::_Rb_tree", %"class.std::_Rb_tree"* %12, i32 0, i32 0
-  %55 = bitcast %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl"* %54 to %"struct.std::_Rb_tree_key_compare"*
-  %56 = getelementptr inbounds %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_key_compare"* %55, i32 0, i32 0
-  %57 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", %"struct.std::_Rb_tree_iterator"* %9, i32 0, i32 0
-  %58 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %57, align 8
-  %59 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE6_S_keyEPKSt18_Rb_tree_node_base(%"struct.std::_Rb_tree_node_base"* %58)
-  %60 = load i32*, i32** %5, align 8
-  %61 = call zeroext i1 @_ZNKSt4lessIiEclERKiS2_(%"struct.std::less"* nonnull align 1 dereferenceable(1) %56, i32* nonnull align 4 dereferenceable(4) %59, i32* nonnull align 4 dereferenceable(4) %60)
-  br i1 %61, label %62, label %63
-
-62:                                               ; preds = %53
-  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRPSt13_Rb_tree_nodeIiERS1_Lb1EEEOT_OT0_(%"struct.std::pair.10"* nonnull align 8 dereferenceable(16) %3, %"struct.std::_Rb_tree_node"** nonnull align 8 dereferenceable(8) %6, %"struct.std::_Rb_tree_node_base"** nonnull align 8 dereferenceable(8) %7)
-  br label %65
-
-63:                                               ; preds = %53
-  %64 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", %"struct.std::_Rb_tree_iterator"* %9, i32 0, i32 0
-  store %"struct.std::_Rb_tree_node_base"* null, %"struct.std::_Rb_tree_node_base"** %11, align 8
-  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRS1_Lb1EEEOT_RKS1_(%"struct.std::pair.10"* nonnull align 8 dereferenceable(16) %3, %"struct.std::_Rb_tree_node_base"** nonnull align 8 dereferenceable(8) %64, %"struct.std::_Rb_tree_node_base"** nonnull align 8 dereferenceable(8) %11)
-  br label %65
-
-65:                                               ; preds = %63, %62, %49
-  %66 = bitcast %"struct.std::pair.10"* %3 to { %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"* }*
-  %67 = load { %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"* }, { %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"* }* %66, align 8
-  ret { %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"* } %67
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(4) i32* @_ZNKSt9_IdentityIiEclERi(%"struct.std::_Identity"* nonnull align 1 dereferenceable(1) %0, i32* nonnull align 4 dereferenceable(4) %1) #6 comdat align 2 {
-  %3 = alloca %"struct.std::_Identity"*, align 8
-  %4 = alloca i32*, align 8
-  store %"struct.std::_Identity"* %0, %"struct.std::_Identity"** %3, align 8
-  store i32* %1, i32** %4, align 8
-  %5 = load %"struct.std::_Identity"*, %"struct.std::_Identity"** %3, align 8
-  %6 = load i32*, i32** %4, align 8
-  ret i32* %6
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE11_Alloc_nodeC2ERS5_(%"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Alloc_node"* nonnull align 8 dereferenceable(8) %0, %"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %1) unnamed_addr #9 comdat align 2 {
-  %3 = alloca %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Alloc_node"*, align 8
-  %4 = alloca %"class.std::_Rb_tree"*, align 8
-  store %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Alloc_node"* %0, %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Alloc_node"** %3, align 8
-  store %"class.std::_Rb_tree"* %1, %"class.std::_Rb_tree"** %4, align 8
-  %5 = load %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Alloc_node"*, %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Alloc_node"** %3, align 8
-  %6 = getelementptr inbounds %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Alloc_node", %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Alloc_node"* %5, i32 0, i32 0
-  %7 = load %"class.std::_Rb_tree"*, %"class.std::_Rb_tree"** %4, align 8
-  store %"class.std::_Rb_tree"* %7, %"class.std::_Rb_tree"** %6, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local %"struct.std::_Rb_tree_node_base"* @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IiNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIiEPSt18_Rb_tree_node_baseSB_OT_RT0_(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %0, %"struct.std::_Rb_tree_node_base"* %1, %"struct.std::_Rb_tree_node_base"* %2, i32* nonnull align 4 dereferenceable(4) %3, %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Alloc_node"* nonnull align 8 dereferenceable(8) %4) #7 comdat align 2 {
-  %6 = alloca %"struct.std::_Rb_tree_iterator", align 8
-  %7 = alloca %"class.std::_Rb_tree"*, align 8
-  %8 = alloca %"struct.std::_Rb_tree_node_base"*, align 8
-  %9 = alloca %"struct.std::_Rb_tree_node_base"*, align 8
-  %10 = alloca i32*, align 8
-  %11 = alloca %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Alloc_node"*, align 8
-  %12 = alloca i8, align 1
-  %13 = alloca %"struct.std::_Identity", align 1
-  %14 = alloca %"struct.std::_Rb_tree_node"*, align 8
-  store %"class.std::_Rb_tree"* %0, %"class.std::_Rb_tree"** %7, align 8
-  store %"struct.std::_Rb_tree_node_base"* %1, %"struct.std::_Rb_tree_node_base"** %8, align 8
-  store %"struct.std::_Rb_tree_node_base"* %2, %"struct.std::_Rb_tree_node_base"** %9, align 8
-  store i32* %3, i32** %10, align 8
-  store %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Alloc_node"* %4, %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Alloc_node"** %11, align 8
-  %15 = load %"class.std::_Rb_tree"*, %"class.std::_Rb_tree"** %7, align 8
-  %16 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %8, align 8
-  %17 = icmp ne %"struct.std::_Rb_tree_node_base"* %16, null
-  br i1 %17, label %31, label %18
-
-18:                                               ; preds = %5
-  %19 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %9, align 8
-  %20 = call %"struct.std::_Rb_tree_node_base"* @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE6_M_endEv(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %15) #3
-  %21 = icmp eq %"struct.std::_Rb_tree_node_base"* %19, %20
-  br i1 %21, label %31, label %22
-
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds %"class.std::_Rb_tree", %"class.std::_Rb_tree"* %15, i32 0, i32 0
-  %24 = bitcast %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl"* %23 to %"struct.std::_Rb_tree_key_compare"*
-  %25 = getelementptr inbounds %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_key_compare"* %24, i32 0, i32 0
-  %26 = load i32*, i32** %10, align 8
-  %27 = call nonnull align 4 dereferenceable(4) i32* @_ZNKSt9_IdentityIiEclERi(%"struct.std::_Identity"* nonnull align 1 dereferenceable(1) %13, i32* nonnull align 4 dereferenceable(4) %26)
-  %28 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %9, align 8
-  %29 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE6_S_keyEPKSt18_Rb_tree_node_base(%"struct.std::_Rb_tree_node_base"* %28)
-  %30 = call zeroext i1 @_ZNKSt4lessIiEclERKiS2_(%"struct.std::less"* nonnull align 1 dereferenceable(1) %25, i32* nonnull align 4 dereferenceable(4) %27, i32* nonnull align 4 dereferenceable(4) %29)
-  br label %31
-
-31:                                               ; preds = %22, %18, %5
-  %32 = phi i1 [ true, %18 ], [ true, %5 ], [ %30, %22 ]
-  %33 = zext i1 %32 to i8
-  store i8 %33, i8* %12, align 1
-  %34 = load %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Alloc_node"*, %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Alloc_node"** %11, align 8
-  %35 = load i32*, i32** %10, align 8
-  %36 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIiEOT_RNSt16remove_referenceIS0_E4typeE(i32* nonnull align 4 dereferenceable(4) %35) #3
-  %37 = call %"struct.std::_Rb_tree_node"* @_ZNKSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE11_Alloc_nodeclIiEEPSt13_Rb_tree_nodeIiEOT_(%"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Alloc_node"* nonnull align 8 dereferenceable(8) %34, i32* nonnull align 4 dereferenceable(4) %36)
-  store %"struct.std::_Rb_tree_node"* %37, %"struct.std::_Rb_tree_node"** %14, align 8
-  %38 = load i8, i8* %12, align 1
-  %39 = trunc i8 %38 to i1
-  %40 = load %"struct.std::_Rb_tree_node"*, %"struct.std::_Rb_tree_node"** %14, align 8
-  %41 = bitcast %"struct.std::_Rb_tree_node"* %40 to %"struct.std::_Rb_tree_node_base"*
-  %42 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %9, align 8
-  %43 = getelementptr inbounds %"class.std::_Rb_tree", %"class.std::_Rb_tree"* %15, i32 0, i32 0
-  %44 = bitcast %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl"* %43 to i8*
-  %45 = getelementptr inbounds i8, i8* %44, i64 8
-  %46 = bitcast i8* %45 to %"struct.std::_Rb_tree_header"*
-  %47 = getelementptr inbounds %"struct.std::_Rb_tree_header", %"struct.std::_Rb_tree_header"* %46, i32 0, i32 0
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 zeroext %39, %"struct.std::_Rb_tree_node_base"* %41, %"struct.std::_Rb_tree_node_base"* %42, %"struct.std::_Rb_tree_node_base"* nonnull align 8 dereferenceable(32) %47) #3
-  %48 = getelementptr inbounds %"class.std::_Rb_tree", %"class.std::_Rb_tree"* %15, i32 0, i32 0
-  %49 = bitcast %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl"* %48 to i8*
-  %50 = getelementptr inbounds i8, i8* %49, i64 8
-  %51 = bitcast i8* %50 to %"struct.std::_Rb_tree_header"*
-  %52 = getelementptr inbounds %"struct.std::_Rb_tree_header", %"struct.std::_Rb_tree_header"* %51, i32 0, i32 1
-  %53 = load i64, i64* %52, align 8
-  %54 = add i64 %53, 1
-  store i64 %54, i64* %52, align 8
-  %55 = load %"struct.std::_Rb_tree_node"*, %"struct.std::_Rb_tree_node"** %14, align 8
-  %56 = bitcast %"struct.std::_Rb_tree_node"* %55 to %"struct.std::_Rb_tree_node_base"*
-  call void @_ZNSt17_Rb_tree_iteratorIiEC2EPSt18_Rb_tree_node_base(%"struct.std::_Rb_tree_iterator"* nonnull align 8 dereferenceable(8) %6, %"struct.std::_Rb_tree_node_base"* %56) #3
-  %57 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", %"struct.std::_Rb_tree_iterator"* %6, i32 0, i32 0
-  %58 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %57, align 8
-  ret %"struct.std::_Rb_tree_node_base"* %58
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIiEOT_RNSt16remove_referenceIS0_E4typeE(i32* nonnull align 4 dereferenceable(4) %0) #6 comdat {
-  %2 = alloca i32*, align 8
-  store i32* %0, i32** %2, align 8
-  %3 = load i32*, i32** %2, align 8
-  ret i32* %3
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt4pairISt17_Rb_tree_iteratorIiEbEC2IS1_bLb1EEEOT_OT0_(%"struct.std::pair.6"* nonnull align 8 dereferenceable(9) %0, %"struct.std::_Rb_tree_iterator"* nonnull align 8 dereferenceable(8) %1, i8* nonnull align 1 dereferenceable(1) %2) unnamed_addr #9 comdat align 2 {
-  %4 = alloca %"struct.std::pair.6"*, align 8
-  %5 = alloca %"struct.std::_Rb_tree_iterator"*, align 8
-  %6 = alloca i8*, align 8
-  store %"struct.std::pair.6"* %0, %"struct.std::pair.6"** %4, align 8
-  store %"struct.std::_Rb_tree_iterator"* %1, %"struct.std::_Rb_tree_iterator"** %5, align 8
-  store i8* %2, i8** %6, align 8
-  %7 = load %"struct.std::pair.6"*, %"struct.std::pair.6"** %4, align 8
-  %8 = bitcast %"struct.std::pair.6"* %7 to %"class.std::__pair_base.7"*
-  %9 = getelementptr inbounds %"struct.std::pair.6", %"struct.std::pair.6"* %7, i32 0, i32 0
-  %10 = load %"struct.std::_Rb_tree_iterator"*, %"struct.std::_Rb_tree_iterator"** %5, align 8
-  %11 = call nonnull align 8 dereferenceable(8) %"struct.std::_Rb_tree_iterator"* @_ZSt7forwardISt17_Rb_tree_iteratorIiEEOT_RNSt16remove_referenceIS2_E4typeE(%"struct.std::_Rb_tree_iterator"* nonnull align 8 dereferenceable(8) %10) #3
-  %12 = bitcast %"struct.std::_Rb_tree_iterator"* %9 to i8*
-  %13 = bitcast %"struct.std::_Rb_tree_iterator"* %11 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %12, i8* align 8 %13, i64 8, i1 false)
-  %14 = getelementptr inbounds %"struct.std::pair.6", %"struct.std::pair.6"* %7, i32 0, i32 1
-  %15 = load i8*, i8** %6, align 8
-  %16 = call nonnull align 1 dereferenceable(1) i8* @_ZSt7forwardIbEOT_RNSt16remove_referenceIS0_E4typeE(i8* nonnull align 1 dereferenceable(1) %15) #3
-  %17 = load i8, i8* %16, align 1
-  %18 = trunc i8 %17 to i1
-  %19 = zext i1 %18 to i8
-  store i8 %19, i8* %14, align 8
-  ret void
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt17_Rb_tree_iteratorIiEC2EPSt18_Rb_tree_node_base(%"struct.std::_Rb_tree_iterator"* nonnull align 8 dereferenceable(8) %0, %"struct.std::_Rb_tree_node_base"* %1) unnamed_addr #9 comdat align 2 {
-  %3 = alloca %"struct.std::_Rb_tree_iterator"*, align 8
-  %4 = alloca %"struct.std::_Rb_tree_node_base"*, align 8
-  store %"struct.std::_Rb_tree_iterator"* %0, %"struct.std::_Rb_tree_iterator"** %3, align 8
-  store %"struct.std::_Rb_tree_node_base"* %1, %"struct.std::_Rb_tree_node_base"** %4, align 8
-  %5 = load %"struct.std::_Rb_tree_iterator"*, %"struct.std::_Rb_tree_iterator"** %3, align 8
-  %6 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", %"struct.std::_Rb_tree_iterator"* %5, i32 0, i32 0
-  %7 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %4, align 8
-  store %"struct.std::_Rb_tree_node_base"* %7, %"struct.std::_Rb_tree_node_base"** %6, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local %"struct.std::_Rb_tree_node"* @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_beginEv(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %0) #6 comdat align 2 {
-  %2 = alloca %"class.std::_Rb_tree"*, align 8
-  store %"class.std::_Rb_tree"* %0, %"class.std::_Rb_tree"** %2, align 8
-  %3 = load %"class.std::_Rb_tree"*, %"class.std::_Rb_tree"** %2, align 8
-  %4 = getelementptr inbounds %"class.std::_Rb_tree", %"class.std::_Rb_tree"* %3, i32 0, i32 0
-  %5 = bitcast %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl"* %4 to i8*
-  %6 = getelementptr inbounds i8, i8* %5, i64 8
-  %7 = bitcast i8* %6 to %"struct.std::_Rb_tree_header"*
-  %8 = getelementptr inbounds %"struct.std::_Rb_tree_header", %"struct.std::_Rb_tree_header"* %7, i32 0, i32 0
-  %9 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", %"struct.std::_Rb_tree_node_base"* %8, i32 0, i32 1
-  %10 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %9, align 8
-  %11 = bitcast %"struct.std::_Rb_tree_node_base"* %10 to %"struct.std::_Rb_tree_node"*
-  ret %"struct.std::_Rb_tree_node"* %11
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local %"struct.std::_Rb_tree_node_base"* @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE6_M_endEv(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %0) #6 comdat align 2 {
-  %2 = alloca %"class.std::_Rb_tree"*, align 8
-  store %"class.std::_Rb_tree"* %0, %"class.std::_Rb_tree"** %2, align 8
-  %3 = load %"class.std::_Rb_tree"*, %"class.std::_Rb_tree"** %2, align 8
-  %4 = getelementptr inbounds %"class.std::_Rb_tree", %"class.std::_Rb_tree"* %3, i32 0, i32 0
-  %5 = bitcast %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl"* %4 to i8*
-  %6 = getelementptr inbounds i8, i8* %5, i64 8
-  %7 = bitcast i8* %6 to %"struct.std::_Rb_tree_header"*
-  %8 = getelementptr inbounds %"struct.std::_Rb_tree_header", %"struct.std::_Rb_tree_header"* %7, i32 0, i32 0
-  ret %"struct.std::_Rb_tree_node_base"* %8
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local zeroext i1 @_ZNKSt4lessIiEclERKiS2_(%"struct.std::less"* nonnull align 1 dereferenceable(1) %0, i32* nonnull align 4 dereferenceable(4) %1, i32* nonnull align 4 dereferenceable(4) %2) #6 comdat align 2 {
-  %4 = alloca %"struct.std::less"*, align 8
-  %5 = alloca i32*, align 8
-  %6 = alloca i32*, align 8
-  store %"struct.std::less"* %0, %"struct.std::less"** %4, align 8
-  store i32* %1, i32** %5, align 8
-  store i32* %2, i32** %6, align 8
-  %7 = load %"struct.std::less"*, %"struct.std::less"** %4, align 8
-  %8 = load i32*, i32** %5, align 8
-  %9 = load i32, i32* %8, align 4
-  %10 = load i32*, i32** %6, align 8
-  %11 = load i32, i32* %10, align 4
-  %12 = icmp slt i32 %9, %11
-  ret i1 %12
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(4) i32* @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE6_S_keyEPKSt13_Rb_tree_nodeIiE(%"struct.std::_Rb_tree_node"* %0) #7 comdat align 2 {
-  %2 = alloca %"struct.std::_Rb_tree_node"*, align 8
-  %3 = alloca %"struct.std::_Identity", align 1
-  store %"struct.std::_Rb_tree_node"* %0, %"struct.std::_Rb_tree_node"** %2, align 8
-  %4 = load %"struct.std::_Rb_tree_node"*, %"struct.std::_Rb_tree_node"** %2, align 8
-  %5 = call i32* @_ZNKSt13_Rb_tree_nodeIiE9_M_valptrEv(%"struct.std::_Rb_tree_node"* nonnull align 8 dereferenceable(36) %4)
-  %6 = call nonnull align 4 dereferenceable(4) i32* @_ZNKSt9_IdentityIiEclERKi(%"struct.std::_Identity"* nonnull align 1 dereferenceable(1) %3, i32* nonnull align 4 dereferenceable(4) %5)
-  ret i32* %6
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local %"struct.std::_Rb_tree_node"* @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE7_S_leftEPSt18_Rb_tree_node_base(%"struct.std::_Rb_tree_node_base"* %0) #6 comdat align 2 {
-  %2 = alloca %"struct.std::_Rb_tree_node_base"*, align 8
-  store %"struct.std::_Rb_tree_node_base"* %0, %"struct.std::_Rb_tree_node_base"** %2, align 8
-  %3 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", %"struct.std::_Rb_tree_node_base"* %3, i32 0, i32 2
-  %5 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %4, align 8
-  %6 = bitcast %"struct.std::_Rb_tree_node_base"* %5 to %"struct.std::_Rb_tree_node"*
-  ret %"struct.std::_Rb_tree_node"* %6
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local %"struct.std::_Rb_tree_node"* @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_S_rightEPSt18_Rb_tree_node_base(%"struct.std::_Rb_tree_node_base"* %0) #6 comdat align 2 {
-  %2 = alloca %"struct.std::_Rb_tree_node_base"*, align 8
-  store %"struct.std::_Rb_tree_node_base"* %0, %"struct.std::_Rb_tree_node_base"** %2, align 8
-  %3 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", %"struct.std::_Rb_tree_node_base"* %3, i32 0, i32 3
-  %5 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %4, align 8
-  %6 = bitcast %"struct.std::_Rb_tree_node_base"* %5 to %"struct.std::_Rb_tree_node"*
-  ret %"struct.std::_Rb_tree_node"* %6
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local zeroext i1 @_ZNKSt17_Rb_tree_iteratorIiEeqERKS0_(%"struct.std::_Rb_tree_iterator"* nonnull align 8 dereferenceable(8) %0, %"struct.std::_Rb_tree_iterator"* nonnull align 8 dereferenceable(8) %1) #6 comdat align 2 {
-  %3 = alloca %"struct.std::_Rb_tree_iterator"*, align 8
-  %4 = alloca %"struct.std::_Rb_tree_iterator"*, align 8
-  store %"struct.std::_Rb_tree_iterator"* %0, %"struct.std::_Rb_tree_iterator"** %3, align 8
-  store %"struct.std::_Rb_tree_iterator"* %1, %"struct.std::_Rb_tree_iterator"** %4, align 8
-  %5 = load %"struct.std::_Rb_tree_iterator"*, %"struct.std::_Rb_tree_iterator"** %3, align 8
-  %6 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", %"struct.std::_Rb_tree_iterator"* %5, i32 0, i32 0
-  %7 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %6, align 8
-  %8 = load %"struct.std::_Rb_tree_iterator"*, %"struct.std::_Rb_tree_iterator"** %4, align 8
-  %9 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", %"struct.std::_Rb_tree_iterator"* %8, i32 0, i32 0
-  %10 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %9, align 8
-  %11 = icmp eq %"struct.std::_Rb_tree_node_base"* %7, %10
-  ret i1 %11
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local %"struct.std::_Rb_tree_node_base"* @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE5beginEv(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %0) #6 comdat align 2 {
-  %2 = alloca %"struct.std::_Rb_tree_iterator", align 8
-  %3 = alloca %"class.std::_Rb_tree"*, align 8
-  store %"class.std::_Rb_tree"* %0, %"class.std::_Rb_tree"** %3, align 8
-  %4 = load %"class.std::_Rb_tree"*, %"class.std::_Rb_tree"** %3, align 8
-  %5 = getelementptr inbounds %"class.std::_Rb_tree", %"class.std::_Rb_tree"* %4, i32 0, i32 0
-  %6 = bitcast %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl"* %5 to i8*
-  %7 = getelementptr inbounds i8, i8* %6, i64 8
-  %8 = bitcast i8* %7 to %"struct.std::_Rb_tree_header"*
-  %9 = getelementptr inbounds %"struct.std::_Rb_tree_header", %"struct.std::_Rb_tree_header"* %8, i32 0, i32 0
-  %10 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", %"struct.std::_Rb_tree_node_base"* %9, i32 0, i32 2
-  %11 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %10, align 8
-  call void @_ZNSt17_Rb_tree_iteratorIiEC2EPSt18_Rb_tree_node_base(%"struct.std::_Rb_tree_iterator"* nonnull align 8 dereferenceable(8) %2, %"struct.std::_Rb_tree_node_base"* %11) #3
-  %12 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", %"struct.std::_Rb_tree_iterator"* %2, i32 0, i32 0
-  %13 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %12, align 8
-  ret %"struct.std::_Rb_tree_node_base"* %13
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRPSt13_Rb_tree_nodeIiERS1_Lb1EEEOT_OT0_(%"struct.std::pair.10"* nonnull align 8 dereferenceable(16) %0, %"struct.std::_Rb_tree_node"** nonnull align 8 dereferenceable(8) %1, %"struct.std::_Rb_tree_node_base"** nonnull align 8 dereferenceable(8) %2) unnamed_addr #9 comdat align 2 {
-  %4 = alloca %"struct.std::pair.10"*, align 8
-  %5 = alloca %"struct.std::_Rb_tree_node"**, align 8
-  %6 = alloca %"struct.std::_Rb_tree_node_base"**, align 8
-  store %"struct.std::pair.10"* %0, %"struct.std::pair.10"** %4, align 8
-  store %"struct.std::_Rb_tree_node"** %1, %"struct.std::_Rb_tree_node"*** %5, align 8
-  store %"struct.std::_Rb_tree_node_base"** %2, %"struct.std::_Rb_tree_node_base"*** %6, align 8
-  %7 = load %"struct.std::pair.10"*, %"struct.std::pair.10"** %4, align 8
-  %8 = bitcast %"struct.std::pair.10"* %7 to %"class.std::__pair_base.11"*
-  %9 = getelementptr inbounds %"struct.std::pair.10", %"struct.std::pair.10"* %7, i32 0, i32 0
-  %10 = load %"struct.std::_Rb_tree_node"**, %"struct.std::_Rb_tree_node"*** %5, align 8
-  %11 = call nonnull align 8 dereferenceable(8) %"struct.std::_Rb_tree_node"** @_ZSt7forwardIRPSt13_Rb_tree_nodeIiEEOT_RNSt16remove_referenceIS4_E4typeE(%"struct.std::_Rb_tree_node"** nonnull align 8 dereferenceable(8) %10) #3
-  %12 = load %"struct.std::_Rb_tree_node"*, %"struct.std::_Rb_tree_node"** %11, align 8
-  %13 = bitcast %"struct.std::_Rb_tree_node"* %12 to %"struct.std::_Rb_tree_node_base"*
-  store %"struct.std::_Rb_tree_node_base"* %13, %"struct.std::_Rb_tree_node_base"** %9, align 8
-  %14 = getelementptr inbounds %"struct.std::pair.10", %"struct.std::pair.10"* %7, i32 0, i32 1
-  %15 = load %"struct.std::_Rb_tree_node_base"**, %"struct.std::_Rb_tree_node_base"*** %6, align 8
-  %16 = call nonnull align 8 dereferenceable(8) %"struct.std::_Rb_tree_node_base"** @_ZSt7forwardIRPSt18_Rb_tree_node_baseEOT_RNSt16remove_referenceIS3_E4typeE(%"struct.std::_Rb_tree_node_base"** nonnull align 8 dereferenceable(8) %15) #3
-  %17 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %16, align 8
-  store %"struct.std::_Rb_tree_node_base"* %17, %"struct.std::_Rb_tree_node_base"** %14, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 8 dereferenceable(8) %"struct.std::_Rb_tree_iterator"* @_ZNSt17_Rb_tree_iteratorIiEmmEv(%"struct.std::_Rb_tree_iterator"* nonnull align 8 dereferenceable(8) %0) #6 comdat align 2 {
-  %2 = alloca %"struct.std::_Rb_tree_iterator"*, align 8
-  store %"struct.std::_Rb_tree_iterator"* %0, %"struct.std::_Rb_tree_iterator"** %2, align 8
-  %3 = load %"struct.std::_Rb_tree_iterator"*, %"struct.std::_Rb_tree_iterator"** %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", %"struct.std::_Rb_tree_iterator"* %3, i32 0, i32 0
-  %5 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %4, align 8
-  %6 = call %"struct.std::_Rb_tree_node_base"* @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(%"struct.std::_Rb_tree_node_base"* %5) #22
-  %7 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", %"struct.std::_Rb_tree_iterator"* %3, i32 0, i32 0
-  store %"struct.std::_Rb_tree_node_base"* %6, %"struct.std::_Rb_tree_node_base"** %7, align 8
-  ret %"struct.std::_Rb_tree_iterator"* %3
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(4) i32* @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE6_S_keyEPKSt18_Rb_tree_node_base(%"struct.std::_Rb_tree_node_base"* %0) #7 comdat align 2 {
-  %2 = alloca %"struct.std::_Rb_tree_node_base"*, align 8
-  store %"struct.std::_Rb_tree_node_base"* %0, %"struct.std::_Rb_tree_node_base"** %2, align 8
-  %3 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %2, align 8
-  %4 = bitcast %"struct.std::_Rb_tree_node_base"* %3 to %"struct.std::_Rb_tree_node"*
-  %5 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE6_S_keyEPKSt13_Rb_tree_nodeIiE(%"struct.std::_Rb_tree_node"* %4)
-  ret i32* %5
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRS1_Lb1EEEOT_RKS1_(%"struct.std::pair.10"* nonnull align 8 dereferenceable(16) %0, %"struct.std::_Rb_tree_node_base"** nonnull align 8 dereferenceable(8) %1, %"struct.std::_Rb_tree_node_base"** nonnull align 8 dereferenceable(8) %2) unnamed_addr #9 comdat align 2 {
-  %4 = alloca %"struct.std::pair.10"*, align 8
-  %5 = alloca %"struct.std::_Rb_tree_node_base"**, align 8
-  %6 = alloca %"struct.std::_Rb_tree_node_base"**, align 8
-  store %"struct.std::pair.10"* %0, %"struct.std::pair.10"** %4, align 8
-  store %"struct.std::_Rb_tree_node_base"** %1, %"struct.std::_Rb_tree_node_base"*** %5, align 8
-  store %"struct.std::_Rb_tree_node_base"** %2, %"struct.std::_Rb_tree_node_base"*** %6, align 8
-  %7 = load %"struct.std::pair.10"*, %"struct.std::pair.10"** %4, align 8
-  %8 = bitcast %"struct.std::pair.10"* %7 to %"class.std::__pair_base.11"*
-  %9 = getelementptr inbounds %"struct.std::pair.10", %"struct.std::pair.10"* %7, i32 0, i32 0
-  %10 = load %"struct.std::_Rb_tree_node_base"**, %"struct.std::_Rb_tree_node_base"*** %5, align 8
-  %11 = call nonnull align 8 dereferenceable(8) %"struct.std::_Rb_tree_node_base"** @_ZSt7forwardIRPSt18_Rb_tree_node_baseEOT_RNSt16remove_referenceIS3_E4typeE(%"struct.std::_Rb_tree_node_base"** nonnull align 8 dereferenceable(8) %10) #3
-  %12 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %11, align 8
-  store %"struct.std::_Rb_tree_node_base"* %12, %"struct.std::_Rb_tree_node_base"** %9, align 8
-  %13 = getelementptr inbounds %"struct.std::pair.10", %"struct.std::pair.10"* %7, i32 0, i32 1
-  %14 = load %"struct.std::_Rb_tree_node_base"**, %"struct.std::_Rb_tree_node_base"*** %6, align 8
-  %15 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %14, align 8
-  store %"struct.std::_Rb_tree_node_base"* %15, %"struct.std::_Rb_tree_node_base"** %13, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(4) i32* @_ZNKSt9_IdentityIiEclERKi(%"struct.std::_Identity"* nonnull align 1 dereferenceable(1) %0, i32* nonnull align 4 dereferenceable(4) %1) #6 comdat align 2 {
-  %3 = alloca %"struct.std::_Identity"*, align 8
-  %4 = alloca i32*, align 8
-  store %"struct.std::_Identity"* %0, %"struct.std::_Identity"** %3, align 8
-  store i32* %1, i32** %4, align 8
-  %5 = load %"struct.std::_Identity"*, %"struct.std::_Identity"** %3, align 8
-  %6 = load i32*, i32** %4, align 8
-  ret i32* %6
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local i32* @_ZNKSt13_Rb_tree_nodeIiE9_M_valptrEv(%"struct.std::_Rb_tree_node"* nonnull align 8 dereferenceable(36) %0) #6 comdat align 2 {
-  %2 = alloca %"struct.std::_Rb_tree_node"*, align 8
-  store %"struct.std::_Rb_tree_node"* %0, %"struct.std::_Rb_tree_node"** %2, align 8
-  %3 = load %"struct.std::_Rb_tree_node"*, %"struct.std::_Rb_tree_node"** %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Rb_tree_node", %"struct.std::_Rb_tree_node"* %3, i32 0, i32 1
-  %5 = call i32* @_ZNK9__gnu_cxx16__aligned_membufIiE6_M_ptrEv(%"struct.__gnu_cxx::__aligned_membuf"* nonnull align 4 dereferenceable(4) %4) #3
-  ret i32* %5
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local i32* @_ZNK9__gnu_cxx16__aligned_membufIiE6_M_ptrEv(%"struct.__gnu_cxx::__aligned_membuf"* nonnull align 4 dereferenceable(4) %0) #6 comdat align 2 {
-  %2 = alloca %"struct.__gnu_cxx::__aligned_membuf"*, align 8
-  store %"struct.__gnu_cxx::__aligned_membuf"* %0, %"struct.__gnu_cxx::__aligned_membuf"** %2, align 8
-  %3 = load %"struct.__gnu_cxx::__aligned_membuf"*, %"struct.__gnu_cxx::__aligned_membuf"** %2, align 8
-  %4 = call i8* @_ZNK9__gnu_cxx16__aligned_membufIiE7_M_addrEv(%"struct.__gnu_cxx::__aligned_membuf"* nonnull align 4 dereferenceable(4) %3) #3
-  %5 = bitcast i8* %4 to i32*
-  ret i32* %5
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local i8* @_ZNK9__gnu_cxx16__aligned_membufIiE7_M_addrEv(%"struct.__gnu_cxx::__aligned_membuf"* nonnull align 4 dereferenceable(4) %0) #6 comdat align 2 {
-  %2 = alloca %"struct.__gnu_cxx::__aligned_membuf"*, align 8
-  store %"struct.__gnu_cxx::__aligned_membuf"* %0, %"struct.__gnu_cxx::__aligned_membuf"** %2, align 8
-  %3 = load %"struct.__gnu_cxx::__aligned_membuf"*, %"struct.__gnu_cxx::__aligned_membuf"** %2, align 8
-  %4 = getelementptr inbounds %"struct.__gnu_cxx::__aligned_membuf", %"struct.__gnu_cxx::__aligned_membuf"* %3, i32 0, i32 0
-  %5 = bitcast [4 x i8]* %4 to i8*
-  ret i8* %5
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 8 dereferenceable(8) %"struct.std::_Rb_tree_node"** @_ZSt7forwardIRPSt13_Rb_tree_nodeIiEEOT_RNSt16remove_referenceIS4_E4typeE(%"struct.std::_Rb_tree_node"** nonnull align 8 dereferenceable(8) %0) #6 comdat {
-  %2 = alloca %"struct.std::_Rb_tree_node"**, align 8
-  store %"struct.std::_Rb_tree_node"** %0, %"struct.std::_Rb_tree_node"*** %2, align 8
-  %3 = load %"struct.std::_Rb_tree_node"**, %"struct.std::_Rb_tree_node"*** %2, align 8
-  ret %"struct.std::_Rb_tree_node"** %3
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 8 dereferenceable(8) %"struct.std::_Rb_tree_node_base"** @_ZSt7forwardIRPSt18_Rb_tree_node_baseEOT_RNSt16remove_referenceIS3_E4typeE(%"struct.std::_Rb_tree_node_base"** nonnull align 8 dereferenceable(8) %0) #6 comdat {
-  %2 = alloca %"struct.std::_Rb_tree_node_base"**, align 8
-  store %"struct.std::_Rb_tree_node_base"** %0, %"struct.std::_Rb_tree_node_base"*** %2, align 8
-  %3 = load %"struct.std::_Rb_tree_node_base"**, %"struct.std::_Rb_tree_node_base"*** %2, align 8
-  ret %"struct.std::_Rb_tree_node_base"** %3
-}
-
-; Function Attrs: nounwind readonly willreturn
-declare dso_local %"struct.std::_Rb_tree_node_base"* @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(%"struct.std::_Rb_tree_node_base"*) #13
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local %"struct.std::_Rb_tree_node"* @_ZNKSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE11_Alloc_nodeclIiEEPSt13_Rb_tree_nodeIiEOT_(%"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Alloc_node"* nonnull align 8 dereferenceable(8) %0, i32* nonnull align 4 dereferenceable(4) %1) #7 comdat align 2 {
-  %3 = alloca %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Alloc_node"*, align 8
-  %4 = alloca i32*, align 8
-  store %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Alloc_node"* %0, %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Alloc_node"** %3, align 8
-  store i32* %1, i32** %4, align 8
-  %5 = load %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Alloc_node"*, %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Alloc_node"** %3, align 8
-  %6 = getelementptr inbounds %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Alloc_node", %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Alloc_node"* %5, i32 0, i32 0
-  %7 = load %"class.std::_Rb_tree"*, %"class.std::_Rb_tree"** %6, align 8
-  %8 = load i32*, i32** %4, align 8
-  %9 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIiEOT_RNSt16remove_referenceIS0_E4typeE(i32* nonnull align 4 dereferenceable(4) %8) #3
-  %10 = call %"struct.std::_Rb_tree_node"* @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_create_nodeIJiEEEPSt13_Rb_tree_nodeIiEDpOT_(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %7, i32* nonnull align 4 dereferenceable(4) %9)
-  ret %"struct.std::_Rb_tree_node"* %10
-}
-
-; Function Attrs: nounwind
-declare dso_local void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 zeroext, %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"* nonnull align 8 dereferenceable(32)) #2
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local %"struct.std::_Rb_tree_node"* @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_create_nodeIJiEEEPSt13_Rb_tree_nodeIiEDpOT_(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %0, i32* nonnull align 4 dereferenceable(4) %1) #7 comdat align 2 {
-  %3 = alloca %"class.std::_Rb_tree"*, align 8
-  %4 = alloca i32*, align 8
-  %5 = alloca %"struct.std::_Rb_tree_node"*, align 8
-  store %"class.std::_Rb_tree"* %0, %"class.std::_Rb_tree"** %3, align 8
-  store i32* %1, i32** %4, align 8
-  %6 = load %"class.std::_Rb_tree"*, %"class.std::_Rb_tree"** %3, align 8
-  %7 = call %"struct.std::_Rb_tree_node"* @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE11_M_get_nodeEv(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %6)
-  store %"struct.std::_Rb_tree_node"* %7, %"struct.std::_Rb_tree_node"** %5, align 8
-  %8 = load %"struct.std::_Rb_tree_node"*, %"struct.std::_Rb_tree_node"** %5, align 8
-  %9 = load i32*, i32** %4, align 8
-  %10 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIiEOT_RNSt16remove_referenceIS0_E4typeE(i32* nonnull align 4 dereferenceable(4) %9) #3
-  call void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE17_M_construct_nodeIJiEEEvPSt13_Rb_tree_nodeIiEDpOT_(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %6, %"struct.std::_Rb_tree_node"* %8, i32* nonnull align 4 dereferenceable(4) %10)
-  %11 = load %"struct.std::_Rb_tree_node"*, %"struct.std::_Rb_tree_node"** %5, align 8
-  ret %"struct.std::_Rb_tree_node"* %11
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local %"struct.std::_Rb_tree_node"* @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE11_M_get_nodeEv(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %0) #7 comdat align 2 {
-  %2 = alloca %"class.std::_Rb_tree"*, align 8
-  store %"class.std::_Rb_tree"* %0, %"class.std::_Rb_tree"** %2, align 8
-  %3 = load %"class.std::_Rb_tree"*, %"class.std::_Rb_tree"** %2, align 8
-  %4 = call nonnull align 1 dereferenceable(1) %"class.std::allocator.3"* @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE21_M_get_Node_allocatorEv(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %3) #3
-  %5 = call %"struct.std::_Rb_tree_node"* @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeIiEEE8allocateERS2_m(%"class.std::allocator.3"* nonnull align 1 dereferenceable(1) %4, i64 1)
-  ret %"struct.std::_Rb_tree_node"* %5
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE17_M_construct_nodeIJiEEEvPSt13_Rb_tree_nodeIiEDpOT_(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %0, %"struct.std::_Rb_tree_node"* %1, i32* nonnull align 4 dereferenceable(4) %2) #7 comdat align 2 personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
-  %4 = alloca %"class.std::_Rb_tree"*, align 8
-  %5 = alloca %"struct.std::_Rb_tree_node"*, align 8
-  %6 = alloca i32*, align 8
-  %7 = alloca i8*, align 8
-  %8 = alloca i32, align 4
-  store %"class.std::_Rb_tree"* %0, %"class.std::_Rb_tree"** %4, align 8
-  store %"struct.std::_Rb_tree_node"* %1, %"struct.std::_Rb_tree_node"** %5, align 8
-  store i32* %2, i32** %6, align 8
-  %9 = load %"class.std::_Rb_tree"*, %"class.std::_Rb_tree"** %4, align 8
-  %10 = load %"struct.std::_Rb_tree_node"*, %"struct.std::_Rb_tree_node"** %5, align 8
-  %11 = bitcast %"struct.std::_Rb_tree_node"* %10 to i8*
-  %12 = bitcast i8* %11 to %"struct.std::_Rb_tree_node"*
-  %13 = call nonnull align 1 dereferenceable(1) %"class.std::allocator.3"* @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE21_M_get_Node_allocatorEv(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %9) #3
-  %14 = load %"struct.std::_Rb_tree_node"*, %"struct.std::_Rb_tree_node"** %5, align 8
-  %15 = invoke i32* @_ZNSt13_Rb_tree_nodeIiE9_M_valptrEv(%"struct.std::_Rb_tree_node"* nonnull align 8 dereferenceable(36) %14)
-          to label %16 unwind label %20
-
-16:                                               ; preds = %3
-  %17 = load i32*, i32** %6, align 8
-  %18 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIiEOT_RNSt16remove_referenceIS0_E4typeE(i32* nonnull align 4 dereferenceable(4) %17) #3
-  invoke void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeIiEEE9constructIiJiEEEvRS2_PT_DpOT0_(%"class.std::allocator.3"* nonnull align 1 dereferenceable(1) %13, i32* %15, i32* nonnull align 4 dereferenceable(4) %18)
-          to label %19 unwind label %20
-
-19:                                               ; preds = %16
-  br label %34
-
-20:                                               ; preds = %16, %3
-  %21 = landingpad { i8*, i32 }
-          catch i8* null
-  %22 = extractvalue { i8*, i32 } %21, 0
-  store i8* %22, i8** %7, align 8
-  %23 = extractvalue { i8*, i32 } %21, 1
-  store i32 %23, i32* %8, align 4
-  br label %24
-
-24:                                               ; preds = %20
-  %25 = load i8*, i8** %7, align 8
-  %26 = call i8* @__cxa_begin_catch(i8* %25) #3
-  %27 = load %"struct.std::_Rb_tree_node"*, %"struct.std::_Rb_tree_node"** %5, align 8
-  %28 = load %"struct.std::_Rb_tree_node"*, %"struct.std::_Rb_tree_node"** %5, align 8
-  call void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE11_M_put_nodeEPSt13_Rb_tree_nodeIiE(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %9, %"struct.std::_Rb_tree_node"* %28) #3
-  invoke void @__cxa_rethrow() #23
-          to label %43 unwind label %29
-
-29:                                               ; preds = %24
-  %30 = landingpad { i8*, i32 }
-          cleanup
-  %31 = extractvalue { i8*, i32 } %30, 0
-  store i8* %31, i8** %7, align 8
-  %32 = extractvalue { i8*, i32 } %30, 1
-  store i32 %32, i32* %8, align 4
-  invoke void @__cxa_end_catch()
-          to label %33 unwind label %40
-
-33:                                               ; preds = %29
-  br label %35
-
-34:                                               ; preds = %19
-  ret void
-
-35:                                               ; preds = %33
-  %36 = load i8*, i8** %7, align 8
-  %37 = load i32, i32* %8, align 4
-  %38 = insertvalue { i8*, i32 } undef, i8* %36, 0
-  %39 = insertvalue { i8*, i32 } %38, i32 %37, 1
-  resume { i8*, i32 } %39
-
-40:                                               ; preds = %29
-  %41 = landingpad { i8*, i32 }
-          catch i8* null
-  %42 = extractvalue { i8*, i32 } %41, 0
-  call void @__clang_call_terminate(i8* %42) #20
-  unreachable
-
-43:                                               ; preds = %24
-  unreachable
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local %"struct.std::_Rb_tree_node"* @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeIiEEE8allocateERS2_m(%"class.std::allocator.3"* nonnull align 1 dereferenceable(1) %0, i64 %1) #7 comdat align 2 {
-  %3 = alloca %"class.std::allocator.3"*, align 8
-  %4 = alloca i64, align 8
-  store %"class.std::allocator.3"* %0, %"class.std::allocator.3"** %3, align 8
-  store i64 %1, i64* %4, align 8
-  %5 = load %"class.std::allocator.3"*, %"class.std::allocator.3"** %3, align 8
-  %6 = bitcast %"class.std::allocator.3"* %5 to %"class.__gnu_cxx::new_allocator.4"*
-  %7 = load i64, i64* %4, align 8
-  %8 = call %"struct.std::_Rb_tree_node"* @_ZN9__gnu_cxx13new_allocatorISt13_Rb_tree_nodeIiEE8allocateEmPKv(%"class.__gnu_cxx::new_allocator.4"* nonnull align 1 dereferenceable(1) %6, i64 %7, i8* null)
-  ret %"struct.std::_Rb_tree_node"* %8
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 1 dereferenceable(1) %"class.std::allocator.3"* @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE21_M_get_Node_allocatorEv(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %0) #6 comdat align 2 {
-  %2 = alloca %"class.std::_Rb_tree"*, align 8
-  store %"class.std::_Rb_tree"* %0, %"class.std::_Rb_tree"** %2, align 8
-  %3 = load %"class.std::_Rb_tree"*, %"class.std::_Rb_tree"** %2, align 8
-  %4 = getelementptr inbounds %"class.std::_Rb_tree", %"class.std::_Rb_tree"* %3, i32 0, i32 0
-  %5 = bitcast %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl"* %4 to %"class.std::allocator.3"*
-  ret %"class.std::allocator.3"* %5
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local %"struct.std::_Rb_tree_node"* @_ZN9__gnu_cxx13new_allocatorISt13_Rb_tree_nodeIiEE8allocateEmPKv(%"class.__gnu_cxx::new_allocator.4"* nonnull align 1 dereferenceable(1) %0, i64 %1, i8* %2) #7 comdat align 2 {
-  %4 = alloca %"class.__gnu_cxx::new_allocator.4"*, align 8
-  %5 = alloca i64, align 8
-  %6 = alloca i8*, align 8
-  store %"class.__gnu_cxx::new_allocator.4"* %0, %"class.__gnu_cxx::new_allocator.4"** %4, align 8
-  store i64 %1, i64* %5, align 8
-  store i8* %2, i8** %6, align 8
-  %7 = load %"class.__gnu_cxx::new_allocator.4"*, %"class.__gnu_cxx::new_allocator.4"** %4, align 8
-  %8 = load i64, i64* %5, align 8
-  %9 = call i64 @_ZNK9__gnu_cxx13new_allocatorISt13_Rb_tree_nodeIiEE8max_sizeEv(%"class.__gnu_cxx::new_allocator.4"* nonnull align 1 dereferenceable(1) %7) #3
-  %10 = icmp ugt i64 %8, %9
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %3
-  call void @_ZSt17__throw_bad_allocv() #23
-  unreachable
-
-12:                                               ; preds = %3
-  %13 = load i64, i64* %5, align 8
-  %14 = mul i64 %13, 40
-  %15 = call noalias nonnull i8* @_Znwm(i64 %14) #24
-  %16 = bitcast i8* %15 to %"struct.std::_Rb_tree_node"*
-  ret %"struct.std::_Rb_tree_node"* %16
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local i64 @_ZNK9__gnu_cxx13new_allocatorISt13_Rb_tree_nodeIiEE8max_sizeEv(%"class.__gnu_cxx::new_allocator.4"* nonnull align 1 dereferenceable(1) %0) #6 comdat align 2 {
-  %2 = alloca %"class.__gnu_cxx::new_allocator.4"*, align 8
-  store %"class.__gnu_cxx::new_allocator.4"* %0, %"class.__gnu_cxx::new_allocator.4"** %2, align 8
-  %3 = load %"class.__gnu_cxx::new_allocator.4"*, %"class.__gnu_cxx::new_allocator.4"** %2, align 8
-  ret i64 461168601842738790
-}
-
-; Function Attrs: noreturn
-declare dso_local void @_ZSt17__throw_bad_allocv() #14
-
-; Function Attrs: nobuiltin allocsize(0)
-declare dso_local nonnull i8* @_Znwm(i64) #15
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeIiEEE9constructIiJiEEEvRS2_PT_DpOT0_(%"class.std::allocator.3"* nonnull align 1 dereferenceable(1) %0, i32* %1, i32* nonnull align 4 dereferenceable(4) %2) #7 comdat align 2 {
-  %4 = alloca %"class.std::allocator.3"*, align 8
-  %5 = alloca i32*, align 8
-  %6 = alloca i32*, align 8
-  store %"class.std::allocator.3"* %0, %"class.std::allocator.3"** %4, align 8
-  store i32* %1, i32** %5, align 8
-  store i32* %2, i32** %6, align 8
-  %7 = load %"class.std::allocator.3"*, %"class.std::allocator.3"** %4, align 8
-  %8 = bitcast %"class.std::allocator.3"* %7 to %"class.__gnu_cxx::new_allocator.4"*
-  %9 = load i32*, i32** %5, align 8
-  %10 = load i32*, i32** %6, align 8
-  %11 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIiEOT_RNSt16remove_referenceIS0_E4typeE(i32* nonnull align 4 dereferenceable(4) %10) #3
-  call void @_ZN9__gnu_cxx13new_allocatorISt13_Rb_tree_nodeIiEE9constructIiJiEEEvPT_DpOT0_(%"class.__gnu_cxx::new_allocator.4"* nonnull align 1 dereferenceable(1) %8, i32* %9, i32* nonnull align 4 dereferenceable(4) %11)
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local i32* @_ZNSt13_Rb_tree_nodeIiE9_M_valptrEv(%"struct.std::_Rb_tree_node"* nonnull align 8 dereferenceable(36) %0) #6 comdat align 2 {
-  %2 = alloca %"struct.std::_Rb_tree_node"*, align 8
-  store %"struct.std::_Rb_tree_node"* %0, %"struct.std::_Rb_tree_node"** %2, align 8
-  %3 = load %"struct.std::_Rb_tree_node"*, %"struct.std::_Rb_tree_node"** %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Rb_tree_node", %"struct.std::_Rb_tree_node"* %3, i32 0, i32 1
-  %5 = call i32* @_ZN9__gnu_cxx16__aligned_membufIiE6_M_ptrEv(%"struct.__gnu_cxx::__aligned_membuf"* nonnull align 4 dereferenceable(4) %4) #3
-  ret i32* %5
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE11_M_put_nodeEPSt13_Rb_tree_nodeIiE(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %0, %"struct.std::_Rb_tree_node"* %1) #6 comdat align 2 personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
-  %3 = alloca %"class.std::_Rb_tree"*, align 8
-  %4 = alloca %"struct.std::_Rb_tree_node"*, align 8
-  store %"class.std::_Rb_tree"* %0, %"class.std::_Rb_tree"** %3, align 8
-  store %"struct.std::_Rb_tree_node"* %1, %"struct.std::_Rb_tree_node"** %4, align 8
-  %5 = load %"class.std::_Rb_tree"*, %"class.std::_Rb_tree"** %3, align 8
-  %6 = call nonnull align 1 dereferenceable(1) %"class.std::allocator.3"* @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE21_M_get_Node_allocatorEv(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %5) #3
-  %7 = load %"struct.std::_Rb_tree_node"*, %"struct.std::_Rb_tree_node"** %4, align 8
-  invoke void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeIiEEE10deallocateERS2_PS1_m(%"class.std::allocator.3"* nonnull align 1 dereferenceable(1) %6, %"struct.std::_Rb_tree_node"* %7, i64 1)
-          to label %8 unwind label %9
-
-8:                                                ; preds = %2
-  ret void
-
-9:                                                ; preds = %2
-  %10 = landingpad { i8*, i32 }
-          catch i8* null
-  %11 = extractvalue { i8*, i32 } %10, 0
-  call void @__clang_call_terminate(i8* %11) #20
-  unreachable
-}
-
-declare dso_local void @__cxa_rethrow()
-
-declare dso_local void @__cxa_end_catch()
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZN9__gnu_cxx13new_allocatorISt13_Rb_tree_nodeIiEE9constructIiJiEEEvPT_DpOT0_(%"class.__gnu_cxx::new_allocator.4"* nonnull align 1 dereferenceable(1) %0, i32* %1, i32* nonnull align 4 dereferenceable(4) %2) #6 comdat align 2 {
-  %4 = alloca %"class.__gnu_cxx::new_allocator.4"*, align 8
-  %5 = alloca i32*, align 8
-  %6 = alloca i32*, align 8
-  store %"class.__gnu_cxx::new_allocator.4"* %0, %"class.__gnu_cxx::new_allocator.4"** %4, align 8
-  store i32* %1, i32** %5, align 8
-  store i32* %2, i32** %6, align 8
-  %7 = load %"class.__gnu_cxx::new_allocator.4"*, %"class.__gnu_cxx::new_allocator.4"** %4, align 8
-  %8 = load i32*, i32** %5, align 8
-  %9 = bitcast i32* %8 to i8*
-  %10 = bitcast i8* %9 to i32*
-  %11 = load i32*, i32** %6, align 8
-  %12 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIiEOT_RNSt16remove_referenceIS0_E4typeE(i32* nonnull align 4 dereferenceable(4) %11) #3
-  %13 = load i32, i32* %12, align 4
-  store i32 %13, i32* %10, align 4
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local i32* @_ZN9__gnu_cxx16__aligned_membufIiE6_M_ptrEv(%"struct.__gnu_cxx::__aligned_membuf"* nonnull align 4 dereferenceable(4) %0) #6 comdat align 2 {
-  %2 = alloca %"struct.__gnu_cxx::__aligned_membuf"*, align 8
-  store %"struct.__gnu_cxx::__aligned_membuf"* %0, %"struct.__gnu_cxx::__aligned_membuf"** %2, align 8
-  %3 = load %"struct.__gnu_cxx::__aligned_membuf"*, %"struct.__gnu_cxx::__aligned_membuf"** %2, align 8
-  %4 = call i8* @_ZN9__gnu_cxx16__aligned_membufIiE7_M_addrEv(%"struct.__gnu_cxx::__aligned_membuf"* nonnull align 4 dereferenceable(4) %3) #3
-  %5 = bitcast i8* %4 to i32*
-  ret i32* %5
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local i8* @_ZN9__gnu_cxx16__aligned_membufIiE7_M_addrEv(%"struct.__gnu_cxx::__aligned_membuf"* nonnull align 4 dereferenceable(4) %0) #6 comdat align 2 {
-  %2 = alloca %"struct.__gnu_cxx::__aligned_membuf"*, align 8
-  store %"struct.__gnu_cxx::__aligned_membuf"* %0, %"struct.__gnu_cxx::__aligned_membuf"** %2, align 8
-  %3 = load %"struct.__gnu_cxx::__aligned_membuf"*, %"struct.__gnu_cxx::__aligned_membuf"** %2, align 8
-  %4 = getelementptr inbounds %"struct.__gnu_cxx::__aligned_membuf", %"struct.__gnu_cxx::__aligned_membuf"* %3, i32 0, i32 0
-  %5 = bitcast [4 x i8]* %4 to i8*
-  ret i8* %5
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeIiEEE10deallocateERS2_PS1_m(%"class.std::allocator.3"* nonnull align 1 dereferenceable(1) %0, %"struct.std::_Rb_tree_node"* %1, i64 %2) #7 comdat align 2 {
-  %4 = alloca %"class.std::allocator.3"*, align 8
-  %5 = alloca %"struct.std::_Rb_tree_node"*, align 8
-  %6 = alloca i64, align 8
-  store %"class.std::allocator.3"* %0, %"class.std::allocator.3"** %4, align 8
-  store %"struct.std::_Rb_tree_node"* %1, %"struct.std::_Rb_tree_node"** %5, align 8
-  store i64 %2, i64* %6, align 8
-  %7 = load %"class.std::allocator.3"*, %"class.std::allocator.3"** %4, align 8
-  %8 = bitcast %"class.std::allocator.3"* %7 to %"class.__gnu_cxx::new_allocator.4"*
-  %9 = load %"struct.std::_Rb_tree_node"*, %"struct.std::_Rb_tree_node"** %5, align 8
-  %10 = load i64, i64* %6, align 8
-  call void @_ZN9__gnu_cxx13new_allocatorISt13_Rb_tree_nodeIiEE10deallocateEPS2_m(%"class.__gnu_cxx::new_allocator.4"* nonnull align 1 dereferenceable(1) %8, %"struct.std::_Rb_tree_node"* %9, i64 %10)
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZN9__gnu_cxx13new_allocatorISt13_Rb_tree_nodeIiEE10deallocateEPS2_m(%"class.__gnu_cxx::new_allocator.4"* nonnull align 1 dereferenceable(1) %0, %"struct.std::_Rb_tree_node"* %1, i64 %2) #6 comdat align 2 {
-  %4 = alloca %"class.__gnu_cxx::new_allocator.4"*, align 8
-  %5 = alloca %"struct.std::_Rb_tree_node"*, align 8
-  %6 = alloca i64, align 8
-  store %"class.__gnu_cxx::new_allocator.4"* %0, %"class.__gnu_cxx::new_allocator.4"** %4, align 8
-  store %"struct.std::_Rb_tree_node"* %1, %"struct.std::_Rb_tree_node"** %5, align 8
-  store i64 %2, i64* %6, align 8
-  %7 = load %"class.__gnu_cxx::new_allocator.4"*, %"class.__gnu_cxx::new_allocator.4"** %4, align 8
-  %8 = load %"struct.std::_Rb_tree_node"*, %"struct.std::_Rb_tree_node"** %5, align 8
-  %9 = bitcast %"struct.std::_Rb_tree_node"* %8 to i8*
-  call void @_ZdlPv(i8* %9) #3
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 8 dereferenceable(8) %"struct.std::_Rb_tree_iterator"* @_ZSt7forwardISt17_Rb_tree_iteratorIiEEOT_RNSt16remove_referenceIS2_E4typeE(%"struct.std::_Rb_tree_iterator"* nonnull align 8 dereferenceable(8) %0) #6 comdat {
-  %2 = alloca %"struct.std::_Rb_tree_iterator"*, align 8
-  store %"struct.std::_Rb_tree_iterator"* %0, %"struct.std::_Rb_tree_iterator"** %2, align 8
-  %3 = load %"struct.std::_Rb_tree_iterator"*, %"struct.std::_Rb_tree_iterator"** %2, align 8
-  ret %"struct.std::_Rb_tree_iterator"* %3
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 1 dereferenceable(1) i8* @_ZSt7forwardIbEOT_RNSt16remove_referenceIS0_E4typeE(i8* nonnull align 1 dereferenceable(1) %0) #6 comdat {
-  %2 = alloca i8*, align 8
-  store i8* %0, i8** %2, align 8
-  %3 = load i8*, i8** %2, align 8
-  ret i8* %3
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 8 dereferenceable(8) %"struct.std::_Rb_tree_iterator"* @_ZSt7forwardIRSt17_Rb_tree_iteratorIiEEOT_RNSt16remove_referenceIS3_E4typeE(%"struct.std::_Rb_tree_iterator"* nonnull align 8 dereferenceable(8) %0) #6 comdat {
-  %2 = alloca %"struct.std::_Rb_tree_iterator"*, align 8
-  store %"struct.std::_Rb_tree_iterator"* %0, %"struct.std::_Rb_tree_iterator"** %2, align 8
-  %3 = load %"struct.std::_Rb_tree_iterator"*, %"struct.std::_Rb_tree_iterator"** %2, align 8
-  ret %"struct.std::_Rb_tree_iterator"* %3
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt23_Rb_tree_const_iteratorIiEC2ERKSt17_Rb_tree_iteratorIiE(%"struct.std::_Rb_tree_const_iterator"* nonnull align 8 dereferenceable(8) %0, %"struct.std::_Rb_tree_iterator"* nonnull align 8 dereferenceable(8) %1) unnamed_addr #9 comdat align 2 {
-  %3 = alloca %"struct.std::_Rb_tree_const_iterator"*, align 8
-  %4 = alloca %"struct.std::_Rb_tree_iterator"*, align 8
-  store %"struct.std::_Rb_tree_const_iterator"* %0, %"struct.std::_Rb_tree_const_iterator"** %3, align 8
-  store %"struct.std::_Rb_tree_iterator"* %1, %"struct.std::_Rb_tree_iterator"** %4, align 8
-  %5 = load %"struct.std::_Rb_tree_const_iterator"*, %"struct.std::_Rb_tree_const_iterator"** %3, align 8
-  %6 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", %"struct.std::_Rb_tree_const_iterator"* %5, i32 0, i32 0
-  %7 = load %"struct.std::_Rb_tree_iterator"*, %"struct.std::_Rb_tree_iterator"** %4, align 8
-  %8 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", %"struct.std::_Rb_tree_iterator"* %7, i32 0, i32 0
-  %9 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %8, align 8
-  store %"struct.std::_Rb_tree_node_base"* %9, %"struct.std::_Rb_tree_node_base"** %6, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 1 dereferenceable(1) i8* @_ZSt7forwardIRbEOT_RNSt16remove_referenceIS1_E4typeE(i8* nonnull align 1 dereferenceable(1) %0) #6 comdat {
-  %2 = alloca i8*, align 8
-  store i8* %0, i8** %2, align 8
-  %3 = load i8*, i8** %2, align 8
-  ret i8* %3
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local %"struct.std::_Rb_tree_node_base"* @_ZNKSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE5beginEv(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %0) #6 comdat align 2 {
-  %2 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
-  %3 = alloca %"class.std::_Rb_tree"*, align 8
-  store %"class.std::_Rb_tree"* %0, %"class.std::_Rb_tree"** %3, align 8
-  %4 = load %"class.std::_Rb_tree"*, %"class.std::_Rb_tree"** %3, align 8
-  %5 = getelementptr inbounds %"class.std::_Rb_tree", %"class.std::_Rb_tree"* %4, i32 0, i32 0
-  %6 = bitcast %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl"* %5 to i8*
-  %7 = getelementptr inbounds i8, i8* %6, i64 8
-  %8 = bitcast i8* %7 to %"struct.std::_Rb_tree_header"*
-  %9 = getelementptr inbounds %"struct.std::_Rb_tree_header", %"struct.std::_Rb_tree_header"* %8, i32 0, i32 0
-  %10 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", %"struct.std::_Rb_tree_node_base"* %9, i32 0, i32 2
-  %11 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %10, align 8
-  call void @_ZNSt23_Rb_tree_const_iteratorIiEC2EPKSt18_Rb_tree_node_base(%"struct.std::_Rb_tree_const_iterator"* nonnull align 8 dereferenceable(8) %2, %"struct.std::_Rb_tree_node_base"* %11) #3
-  %12 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", %"struct.std::_Rb_tree_const_iterator"* %2, i32 0, i32 0
-  %13 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %12, align 8
-  ret %"struct.std::_Rb_tree_node_base"* %13
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt23_Rb_tree_const_iteratorIiEC2EPKSt18_Rb_tree_node_base(%"struct.std::_Rb_tree_const_iterator"* nonnull align 8 dereferenceable(8) %0, %"struct.std::_Rb_tree_node_base"* %1) unnamed_addr #9 comdat align 2 {
-  %3 = alloca %"struct.std::_Rb_tree_const_iterator"*, align 8
-  %4 = alloca %"struct.std::_Rb_tree_node_base"*, align 8
-  store %"struct.std::_Rb_tree_const_iterator"* %0, %"struct.std::_Rb_tree_const_iterator"** %3, align 8
-  store %"struct.std::_Rb_tree_node_base"* %1, %"struct.std::_Rb_tree_node_base"** %4, align 8
-  %5 = load %"struct.std::_Rb_tree_const_iterator"*, %"struct.std::_Rb_tree_const_iterator"** %3, align 8
-  %6 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", %"struct.std::_Rb_tree_const_iterator"* %5, i32 0, i32 0
-  %7 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %4, align 8
-  store %"struct.std::_Rb_tree_node_base"* %7, %"struct.std::_Rb_tree_node_base"** %6, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local %"struct.std::_Rb_tree_node_base"* @_ZNKSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE3endEv(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %0) #6 comdat align 2 {
-  %2 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
-  %3 = alloca %"class.std::_Rb_tree"*, align 8
-  store %"class.std::_Rb_tree"* %0, %"class.std::_Rb_tree"** %3, align 8
-  %4 = load %"class.std::_Rb_tree"*, %"class.std::_Rb_tree"** %3, align 8
-  %5 = getelementptr inbounds %"class.std::_Rb_tree", %"class.std::_Rb_tree"* %4, i32 0, i32 0
-  %6 = bitcast %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl"* %5 to i8*
-  %7 = getelementptr inbounds i8, i8* %6, i64 8
-  %8 = bitcast i8* %7 to %"struct.std::_Rb_tree_header"*
-  %9 = getelementptr inbounds %"struct.std::_Rb_tree_header", %"struct.std::_Rb_tree_header"* %8, i32 0, i32 0
-  call void @_ZNSt23_Rb_tree_const_iteratorIiEC2EPKSt18_Rb_tree_node_base(%"struct.std::_Rb_tree_const_iterator"* nonnull align 8 dereferenceable(8) %2, %"struct.std::_Rb_tree_node_base"* %9) #3
-  %10 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", %"struct.std::_Rb_tree_const_iterator"* %2, i32 0, i32 0
-  %11 = load %"struct.std::_Rb_tree_node_base"*, %"struct.std::_Rb_tree_node_base"** %10, align 8
-  ret %"struct.std::_Rb_tree_node_base"* %11
-}
-
-; Function Attrs: nounwind readonly willreturn
-declare dso_local %"struct.std::_Rb_tree_node_base"* @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(%"struct.std::_Rb_tree_node_base"*) #13
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEED2Ev(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %0) unnamed_addr #9 comdat align 2 personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
-  %2 = alloca %"class.std::_Rb_tree"*, align 8
-  %3 = alloca i8*, align 8
-  %4 = alloca i32, align 4
-  store %"class.std::_Rb_tree"* %0, %"class.std::_Rb_tree"** %2, align 8
-  %5 = load %"class.std::_Rb_tree"*, %"class.std::_Rb_tree"** %2, align 8
-  %6 = call %"struct.std::_Rb_tree_node"* @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_beginEv(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %5) #3
-  invoke void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_eraseEPSt13_Rb_tree_nodeIiE(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %5, %"struct.std::_Rb_tree_node"* %6)
-          to label %7 unwind label %9
-
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds %"class.std::_Rb_tree", %"class.std::_Rb_tree"* %5, i32 0, i32 0
-  call void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE13_Rb_tree_implIS3_Lb1EED2Ev(%"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl"* nonnull align 8 dereferenceable(48) %8) #3
-  ret void
-
-9:                                                ; preds = %1
-  %10 = landingpad { i8*, i32 }
-          catch i8* null
-  %11 = extractvalue { i8*, i32 } %10, 0
-  store i8* %11, i8** %3, align 8
-  %12 = extractvalue { i8*, i32 } %10, 1
-  store i32 %12, i32* %4, align 4
-  %13 = getelementptr inbounds %"class.std::_Rb_tree", %"class.std::_Rb_tree"* %5, i32 0, i32 0
-  call void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE13_Rb_tree_implIS3_Lb1EED2Ev(%"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl"* nonnull align 8 dereferenceable(48) %13) #3
-  br label %14
-
-14:                                               ; preds = %9
-  %15 = load i8*, i8** %3, align 8
-  call void @__clang_call_terminate(i8* %15) #20
-  unreachable
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_eraseEPSt13_Rb_tree_nodeIiE(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %0, %"struct.std::_Rb_tree_node"* %1) #7 comdat align 2 {
-  %3 = alloca %"class.std::_Rb_tree"*, align 8
-  %4 = alloca %"struct.std::_Rb_tree_node"*, align 8
-  %5 = alloca %"struct.std::_Rb_tree_node"*, align 8
-  store %"class.std::_Rb_tree"* %0, %"class.std::_Rb_tree"** %3, align 8
-  store %"struct.std::_Rb_tree_node"* %1, %"struct.std::_Rb_tree_node"** %4, align 8
-  %6 = load %"class.std::_Rb_tree"*, %"class.std::_Rb_tree"** %3, align 8
-  br label %7
-
-7:                                                ; preds = %10, %2
-  %8 = load %"struct.std::_Rb_tree_node"*, %"struct.std::_Rb_tree_node"** %4, align 8
-  %9 = icmp ne %"struct.std::_Rb_tree_node"* %8, null
-  br i1 %9, label %10, label %19
-
-10:                                               ; preds = %7
-  %11 = load %"struct.std::_Rb_tree_node"*, %"struct.std::_Rb_tree_node"** %4, align 8
-  %12 = bitcast %"struct.std::_Rb_tree_node"* %11 to %"struct.std::_Rb_tree_node_base"*
-  %13 = call %"struct.std::_Rb_tree_node"* @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_S_rightEPSt18_Rb_tree_node_base(%"struct.std::_Rb_tree_node_base"* %12) #3
-  call void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_eraseEPSt13_Rb_tree_nodeIiE(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %6, %"struct.std::_Rb_tree_node"* %13)
-  %14 = load %"struct.std::_Rb_tree_node"*, %"struct.std::_Rb_tree_node"** %4, align 8
-  %15 = bitcast %"struct.std::_Rb_tree_node"* %14 to %"struct.std::_Rb_tree_node_base"*
-  %16 = call %"struct.std::_Rb_tree_node"* @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE7_S_leftEPSt18_Rb_tree_node_base(%"struct.std::_Rb_tree_node_base"* %15) #3
-  store %"struct.std::_Rb_tree_node"* %16, %"struct.std::_Rb_tree_node"** %5, align 8
-  %17 = load %"struct.std::_Rb_tree_node"*, %"struct.std::_Rb_tree_node"** %4, align 8
-  call void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE12_M_drop_nodeEPSt13_Rb_tree_nodeIiE(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %6, %"struct.std::_Rb_tree_node"* %17) #3
-  %18 = load %"struct.std::_Rb_tree_node"*, %"struct.std::_Rb_tree_node"** %5, align 8
-  store %"struct.std::_Rb_tree_node"* %18, %"struct.std::_Rb_tree_node"** %4, align 8
-  br label %7, !llvm.loop !26
-
-19:                                               ; preds = %7
-  ret void
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE13_Rb_tree_implIS3_Lb1EED2Ev(%"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl"* nonnull align 8 dereferenceable(48) %0) unnamed_addr #9 comdat align 2 {
-  %2 = alloca %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl"*, align 8
-  store %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl"* %0, %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl"** %2, align 8
-  %3 = load %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl"*, %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl"** %2, align 8
-  %4 = bitcast %"struct.std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>>::_Rb_tree_impl"* %3 to %"class.std::allocator.3"*
-  call void @_ZNSaISt13_Rb_tree_nodeIiEED2Ev(%"class.std::allocator.3"* nonnull align 1 dereferenceable(1) %4) #3
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE12_M_drop_nodeEPSt13_Rb_tree_nodeIiE(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %0, %"struct.std::_Rb_tree_node"* %1) #6 comdat align 2 {
-  %3 = alloca %"class.std::_Rb_tree"*, align 8
-  %4 = alloca %"struct.std::_Rb_tree_node"*, align 8
-  store %"class.std::_Rb_tree"* %0, %"class.std::_Rb_tree"** %3, align 8
-  store %"struct.std::_Rb_tree_node"* %1, %"struct.std::_Rb_tree_node"** %4, align 8
-  %5 = load %"class.std::_Rb_tree"*, %"class.std::_Rb_tree"** %3, align 8
-  %6 = load %"struct.std::_Rb_tree_node"*, %"struct.std::_Rb_tree_node"** %4, align 8
-  call void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE15_M_destroy_nodeEPSt13_Rb_tree_nodeIiE(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %5, %"struct.std::_Rb_tree_node"* %6) #3
-  %7 = load %"struct.std::_Rb_tree_node"*, %"struct.std::_Rb_tree_node"** %4, align 8
-  call void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE11_M_put_nodeEPSt13_Rb_tree_nodeIiE(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %5, %"struct.std::_Rb_tree_node"* %7) #3
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE15_M_destroy_nodeEPSt13_Rb_tree_nodeIiE(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %0, %"struct.std::_Rb_tree_node"* %1) #6 comdat align 2 personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
-  %3 = alloca %"class.std::_Rb_tree"*, align 8
-  %4 = alloca %"struct.std::_Rb_tree_node"*, align 8
-  store %"class.std::_Rb_tree"* %0, %"class.std::_Rb_tree"** %3, align 8
-  store %"struct.std::_Rb_tree_node"* %1, %"struct.std::_Rb_tree_node"** %4, align 8
-  %5 = load %"class.std::_Rb_tree"*, %"class.std::_Rb_tree"** %3, align 8
-  %6 = call nonnull align 1 dereferenceable(1) %"class.std::allocator.3"* @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE21_M_get_Node_allocatorEv(%"class.std::_Rb_tree"* nonnull align 8 dereferenceable(48) %5) #3
-  %7 = load %"struct.std::_Rb_tree_node"*, %"struct.std::_Rb_tree_node"** %4, align 8
-  %8 = call i32* @_ZNSt13_Rb_tree_nodeIiE9_M_valptrEv(%"struct.std::_Rb_tree_node"* nonnull align 8 dereferenceable(36) %7)
-  invoke void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeIiEEE7destroyIiEEvRS2_PT_(%"class.std::allocator.3"* nonnull align 1 dereferenceable(1) %6, i32* %8)
-          to label %9 unwind label %11
-
-9:                                                ; preds = %2
-  %10 = load %"struct.std::_Rb_tree_node"*, %"struct.std::_Rb_tree_node"** %4, align 8
-  ret void
-
-11:                                               ; preds = %2
-  %12 = landingpad { i8*, i32 }
-          catch i8* null
-  %13 = extractvalue { i8*, i32 } %12, 0
-  call void @__clang_call_terminate(i8* %13) #20
-  unreachable
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeIiEEE7destroyIiEEvRS2_PT_(%"class.std::allocator.3"* nonnull align 1 dereferenceable(1) %0, i32* %1) #7 comdat align 2 {
-  %3 = alloca %"class.std::allocator.3"*, align 8
-  %4 = alloca i32*, align 8
-  store %"class.std::allocator.3"* %0, %"class.std::allocator.3"** %3, align 8
-  store i32* %1, i32** %4, align 8
-  %5 = load %"class.std::allocator.3"*, %"class.std::allocator.3"** %3, align 8
-  %6 = bitcast %"class.std::allocator.3"* %5 to %"class.__gnu_cxx::new_allocator.4"*
-  %7 = load i32*, i32** %4, align 8
-  call void @_ZN9__gnu_cxx13new_allocatorISt13_Rb_tree_nodeIiEE7destroyIiEEvPT_(%"class.__gnu_cxx::new_allocator.4"* nonnull align 1 dereferenceable(1) %6, i32* %7)
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZN9__gnu_cxx13new_allocatorISt13_Rb_tree_nodeIiEE7destroyIiEEvPT_(%"class.__gnu_cxx::new_allocator.4"* nonnull align 1 dereferenceable(1) %0, i32* %1) #6 comdat align 2 {
-  %3 = alloca %"class.__gnu_cxx::new_allocator.4"*, align 8
-  %4 = alloca i32*, align 8
-  store %"class.__gnu_cxx::new_allocator.4"* %0, %"class.__gnu_cxx::new_allocator.4"** %3, align 8
-  store i32* %1, i32** %4, align 8
-  %5 = load %"class.__gnu_cxx::new_allocator.4"*, %"class.__gnu_cxx::new_allocator.4"** %3, align 8
-  %6 = load i32*, i32** %4, align 8
-  ret void
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSaISt13_Rb_tree_nodeIiEED2Ev(%"class.std::allocator.3"* nonnull align 1 dereferenceable(1) %0) unnamed_addr #9 comdat align 2 {
-  %2 = alloca %"class.std::allocator.3"*, align 8
-  store %"class.std::allocator.3"* %0, %"class.std::allocator.3"** %2, align 8
-  %3 = load %"class.std::allocator.3"*, %"class.std::allocator.3"** %2, align 8
-  %4 = bitcast %"class.std::allocator.3"* %3 to %"class.__gnu_cxx::new_allocator.4"*
-  call void @_ZN9__gnu_cxx13new_allocatorISt13_Rb_tree_nodeIiEED2Ev(%"class.__gnu_cxx::new_allocator.4"* nonnull align 1 dereferenceable(1) %4) #3
-  ret void
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZN9__gnu_cxx13new_allocatorISt13_Rb_tree_nodeIiEED2Ev(%"class.__gnu_cxx::new_allocator.4"* nonnull align 1 dereferenceable(1) %0) unnamed_addr #9 comdat align 2 {
-  %2 = alloca %"class.__gnu_cxx::new_allocator.4"*, align 8
-  store %"class.__gnu_cxx::new_allocator.4"* %0, %"class.__gnu_cxx::new_allocator.4"** %2, align 8
-  %3 = load %"class.__gnu_cxx::new_allocator.4"*, %"class.__gnu_cxx::new_allocator.4"** %2, align 8
-  ret void
-}
+declare dso_local void @_ZdlPv(i8*) #11
 
 ; Function Attrs: nofree nosync nounwind readnone speculatable willreturn
-declare float @llvm.ceil.f32(float) #16
+declare float @llvm.ceil.f32(float) #12
 
 declare dso_local i32 @fprintf(%struct._IO_FILE*, i8*, ...) #1
 
@@ -8549,7 +5963,7 @@ define linkonce_odr dso_local i8* @_Z21getCudaDrvErrorStringi(i32 %0) #6 comdat 
   %23 = load i32, i32* %4, align 4
   %24 = add nsw i32 %23, 1
   store i32 %24, i32* %4, align 4
-  br label %5, !llvm.loop !27
+  br label %5, !llvm.loop !17
 
 25:                                               ; preds = %20
   %26 = load i32, i32* %4, align 4
@@ -8578,6 +5992,9 @@ define linkonce_odr dso_local i8* @_Z21getCudaDrvErrorStringi(i32 %0) #6 comdat 
   %41 = load i8*, i8** %2, align 8
   ret i8* %41
 }
+
+; Function Attrs: noreturn nounwind
+declare dso_local void @exit(i32) #13
 
 ; Function Attrs: mustprogress noinline optnone uwtable
 define linkonce_odr dso_local void @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEET_PFiPT0_mPKS8_P13__va_list_tagEmSB_z(%"class.std::__cxx11::basic_string"* noalias sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 (i8*, i64, i8*, %struct.__va_list_tag*)* %1, i64 %2, i8* %3, ...) #7 comdat personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
@@ -8648,13 +6065,13 @@ define linkonce_odr dso_local void @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112bas
 declare dso_local i32 @vsnprintf(i8*, i64, i8*, %struct.__va_list_tag*) #2
 
 ; Function Attrs: nofree nosync nounwind willreturn
-declare void @llvm.va_start(i8*) #17
+declare void @llvm.va_start(i8*) #14
 
 ; Function Attrs: nofree nosync nounwind willreturn
-declare void @llvm.va_end(i8*) #17
+declare void @llvm.va_end(i8*) #14
 
 ; Function Attrs: noinline optnone uwtable
-define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPcvEET_S7_RKS3_(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %0, i8* %1, i8* %2, %"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %3) unnamed_addr #18 comdat align 2 personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
+define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPcvEET_S7_RKS3_(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %0, i8* %1, i8* %2, %"class.std::allocator.0"* nonnull align 1 dereferenceable(1) %3) unnamed_addr #15 comdat align 2 personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
   %5 = alloca %"class.std::__cxx11::basic_string"*, align 8
   %6 = alloca i8*, align 8
   %7 = alloca i8*, align 8
@@ -8717,7 +6134,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
 }
 
 ; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD2Ev(%"struct.std::__cxx11::basic_string<char>::_Alloc_hider"* nonnull align 8 dereferenceable(8) %0) unnamed_addr #9 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD2Ev(%"struct.std::__cxx11::basic_string<char>::_Alloc_hider"* nonnull align 8 dereferenceable(8) %0) unnamed_addr #8 comdat align 2 {
   %2 = alloca %"struct.std::__cxx11::basic_string<char>::_Alloc_hider"*, align 8
   store %"struct.std::__cxx11::basic_string<char>::_Alloc_hider"* %0, %"struct.std::__cxx11::basic_string<char>::_Alloc_hider"** %2, align 8
   %3 = load %"struct.std::__cxx11::basic_string<char>::_Alloc_hider"*, %"struct.std::__cxx11::basic_string<char>::_Alloc_hider"** %2, align 8
@@ -8769,7 +6186,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %14
-  call void @_ZSt19__throw_logic_errorPKc(i8* getelementptr inbounds ([42 x i8], [42 x i8]* @.str.78, i64 0, i64 0)) #23
+  call void @_ZSt19__throw_logic_errorPKc(i8* getelementptr inbounds ([42 x i8], [42 x i8]* @.str.78, i64 0, i64 0)) #20
   unreachable
 
 19:                                               ; preds = %14, %3
@@ -8814,7 +6231,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
           to label %40 unwind label %41
 
 40:                                               ; preds = %37
-  invoke void @__cxa_rethrow() #23
+  invoke void @__cxa_rethrow() #20
           to label %56 unwind label %41
 
 41:                                               ; preds = %40, %37
@@ -8846,7 +6263,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
   %54 = landingpad { i8*, i32 }
           catch i8* null
   %55 = extractvalue { i8*, i32 } %54, 0
-  call void @__clang_call_terminate(i8* %55) #20
+  call void @__clang_call_terminate(i8* %55) #18
   unreachable
 
 56:                                               ; preds = %40
@@ -8863,7 +6280,7 @@ define linkonce_odr dso_local zeroext i1 @_ZN9__gnu_cxx17__is_null_pointerIcEEbP
 }
 
 ; Function Attrs: noreturn
-declare dso_local void @_ZSt19__throw_logic_errorPKc(i8*) #14
+declare dso_local void @_ZSt19__throw_logic_errorPKc(i8*) #16
 
 ; Function Attrs: mustprogress noinline optnone uwtable
 define linkonce_odr dso_local i64 @_ZSt8distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_(i8* %0, i8* %1) #7 comdat {
@@ -8892,6 +6309,10 @@ declare dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_
 declare dso_local i8* @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32)) #1
 
 declare dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32)) #1
+
+declare dso_local void @__cxa_rethrow()
+
+declare dso_local void @__cxa_end_catch()
 
 declare dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(%"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32), i64) #1
 
@@ -8949,7 +6370,7 @@ define linkonce_odr dso_local nonnull align 1 dereferenceable(1) %"class.std::al
 }
 
 ; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt12_Vector_baseIP14CUgraphNode_stSaIS1_EED2Ev(%"struct.std::_Vector_base"* nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
+define linkonce_odr dso_local void @_ZNSt12_Vector_baseIP14CUgraphNode_stSaIS1_EED2Ev(%"struct.std::_Vector_base"* nonnull align 8 dereferenceable(24) %0) unnamed_addr #8 comdat align 2 personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
   %2 = alloca %"struct.std::_Vector_base"*, align 8
   %3 = alloca i8*, align 8
   %4 = alloca i32, align 4
@@ -8989,7 +6410,7 @@ define linkonce_odr dso_local void @_ZNSt12_Vector_baseIP14CUgraphNode_stSaIS1_E
 
 26:                                               ; preds = %21
   %27 = load i8*, i8** %3, align 8
-  call void @__clang_call_terminate(i8* %27) #20
+  call void @__clang_call_terminate(i8* %27) #18
   unreachable
 }
 
@@ -9040,7 +6461,7 @@ define linkonce_odr dso_local void @_ZNSt12_Vector_baseIP14CUgraphNode_stSaIS1_E
 }
 
 ; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt12_Vector_baseIP14CUgraphNode_stSaIS1_EE12_Vector_implD2Ev(%"struct.std::_Vector_base<CUgraphNode_st *, std::allocator<CUgraphNode_st *>>::_Vector_impl"* nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSt12_Vector_baseIP14CUgraphNode_stSaIS1_EE12_Vector_implD2Ev(%"struct.std::_Vector_base<CUgraphNode_st *, std::allocator<CUgraphNode_st *>>::_Vector_impl"* nonnull align 8 dereferenceable(24) %0) unnamed_addr #8 comdat align 2 {
   %2 = alloca %"struct.std::_Vector_base<CUgraphNode_st *, std::allocator<CUgraphNode_st *>>::_Vector_impl"*, align 8
   store %"struct.std::_Vector_base<CUgraphNode_st *, std::allocator<CUgraphNode_st *>>::_Vector_impl"* %0, %"struct.std::_Vector_base<CUgraphNode_st *, std::allocator<CUgraphNode_st *>>::_Vector_impl"** %2, align 8
   %3 = load %"struct.std::_Vector_base<CUgraphNode_st *, std::allocator<CUgraphNode_st *>>::_Vector_impl"*, %"struct.std::_Vector_base<CUgraphNode_st *, std::allocator<CUgraphNode_st *>>::_Vector_impl"** %2, align 8
@@ -9081,7 +6502,7 @@ define linkonce_odr dso_local void @_ZN9__gnu_cxx13new_allocatorIP14CUgraphNode_
 }
 
 ; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSaIP14CUgraphNode_stED2Ev(%"class.std::allocator"* nonnull align 1 dereferenceable(1) %0) unnamed_addr #9 comdat align 2 {
+define linkonce_odr dso_local void @_ZNSaIP14CUgraphNode_stED2Ev(%"class.std::allocator"* nonnull align 1 dereferenceable(1) %0) unnamed_addr #8 comdat align 2 {
   %2 = alloca %"class.std::allocator"*, align 8
   store %"class.std::allocator"* %0, %"class.std::allocator"** %2, align 8
   %3 = load %"class.std::allocator"*, %"class.std::allocator"** %2, align 8
@@ -9091,7 +6512,7 @@ define linkonce_odr dso_local void @_ZNSaIP14CUgraphNode_stED2Ev(%"class.std::al
 }
 
 ; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZN9__gnu_cxx13new_allocatorIP14CUgraphNode_stED2Ev(%"class.__gnu_cxx::new_allocator"* nonnull align 1 dereferenceable(1) %0) unnamed_addr #9 comdat align 2 {
+define linkonce_odr dso_local void @_ZN9__gnu_cxx13new_allocatorIP14CUgraphNode_stED2Ev(%"class.__gnu_cxx::new_allocator"* nonnull align 1 dereferenceable(1) %0) unnamed_addr #8 comdat align 2 {
   %2 = alloca %"class.__gnu_cxx::new_allocator"*, align 8
   store %"class.__gnu_cxx::new_allocator"* %0, %"class.__gnu_cxx::new_allocator"** %2, align 8
   %3 = load %"class.__gnu_cxx::new_allocator"*, %"class.__gnu_cxx::new_allocator"** %2, align 8
@@ -9099,4885 +6520,6 @@ define linkonce_odr dso_local void @_ZN9__gnu_cxx13new_allocatorIP14CUgraphNode_
 }
 
 declare dso_local i32 @cudaMallocManaged(i8**, i64, i32) #1
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSaIiEC2Ev(%"class.std::allocator.15"* nonnull align 1 dereferenceable(1) %0) unnamed_addr #9 comdat align 2 {
-  %2 = alloca %"class.std::allocator.15"*, align 8
-  store %"class.std::allocator.15"* %0, %"class.std::allocator.15"** %2, align 8
-  %3 = load %"class.std::allocator.15"*, %"class.std::allocator.15"** %2, align 8
-  %4 = bitcast %"class.std::allocator.15"* %3 to %"class.__gnu_cxx::new_allocator.16"*
-  call void @_ZN9__gnu_cxx13new_allocatorIiEC2Ev(%"class.__gnu_cxx::new_allocator.16"* nonnull align 1 dereferenceable(1) %4) #3
-  ret void
-}
-
-; Function Attrs: noinline optnone uwtable
-define linkonce_odr dso_local void @_ZNSt6vectorIiSaIiEEC2IPivEET_S4_RKS0_(%"class.std::vector.13"* nonnull align 8 dereferenceable(24) %0, i32* %1, i32* %2, %"class.std::allocator.15"* nonnull align 1 dereferenceable(1) %3) unnamed_addr #18 comdat align 2 personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
-  %5 = alloca %"class.std::vector.13"*, align 8
-  %6 = alloca i32*, align 8
-  %7 = alloca i32*, align 8
-  %8 = alloca %"class.std::allocator.15"*, align 8
-  %9 = alloca %"struct.std::__false_type", align 1
-  %10 = alloca i8*, align 8
-  %11 = alloca i32, align 4
-  store %"class.std::vector.13"* %0, %"class.std::vector.13"** %5, align 8
-  store i32* %1, i32** %6, align 8
-  store i32* %2, i32** %7, align 8
-  store %"class.std::allocator.15"* %3, %"class.std::allocator.15"** %8, align 8
-  %12 = load %"class.std::vector.13"*, %"class.std::vector.13"** %5, align 8
-  %13 = bitcast %"class.std::vector.13"* %12 to %"struct.std::_Vector_base.14"*
-  %14 = load %"class.std::allocator.15"*, %"class.std::allocator.15"** %8, align 8
-  call void @_ZNSt12_Vector_baseIiSaIiEEC2ERKS0_(%"struct.std::_Vector_base.14"* nonnull align 8 dereferenceable(24) %13, %"class.std::allocator.15"* nonnull align 1 dereferenceable(1) %14) #3
-  %15 = load i32*, i32** %6, align 8
-  %16 = load i32*, i32** %7, align 8
-  invoke void @_ZNSt6vectorIiSaIiEE22_M_initialize_dispatchIPiEEvT_S4_St12__false_type(%"class.std::vector.13"* nonnull align 8 dereferenceable(24) %12, i32* %15, i32* %16)
-          to label %17 unwind label %18
-
-17:                                               ; preds = %4
-  ret void
-
-18:                                               ; preds = %4
-  %19 = landingpad { i8*, i32 }
-          cleanup
-  %20 = extractvalue { i8*, i32 } %19, 0
-  store i8* %20, i8** %10, align 8
-  %21 = extractvalue { i8*, i32 } %19, 1
-  store i32 %21, i32* %11, align 4
-  %22 = bitcast %"class.std::vector.13"* %12 to %"struct.std::_Vector_base.14"*
-  call void @_ZNSt12_Vector_baseIiSaIiEED2Ev(%"struct.std::_Vector_base.14"* nonnull align 8 dereferenceable(24) %22) #3
-  br label %23
-
-23:                                               ; preds = %18
-  %24 = load i8*, i8** %10, align 8
-  %25 = load i32, i32* %11, align 4
-  %26 = insertvalue { i8*, i32 } undef, i8* %24, 0
-  %27 = insertvalue { i8*, i32 } %26, i32 %25, 1
-  resume { i8*, i32 } %27
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSaIiED2Ev(%"class.std::allocator.15"* nonnull align 1 dereferenceable(1) %0) unnamed_addr #9 comdat align 2 {
-  %2 = alloca %"class.std::allocator.15"*, align 8
-  store %"class.std::allocator.15"* %0, %"class.std::allocator.15"** %2, align 8
-  %3 = load %"class.std::allocator.15"*, %"class.std::allocator.15"** %2, align 8
-  %4 = bitcast %"class.std::allocator.15"* %3 to %"class.__gnu_cxx::new_allocator.16"*
-  call void @_ZN9__gnu_cxx13new_allocatorIiED2Ev(%"class.__gnu_cxx::new_allocator.16"* nonnull align 1 dereferenceable(1) %4) #3
-  ret void
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_Z10customSortIiiEvPT_S1_PT0_S0_(i32* %0, i32* %1, i32* %2, i32 %3) #7 comdat personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
-  %5 = alloca i32*, align 8
-  %6 = alloca i32*, align 8
-  %7 = alloca i32*, align 8
-  %8 = alloca i32, align 4
-  %9 = alloca i32, align 4
-  %10 = alloca %"class.std::vector.18", align 8
-  %11 = alloca i32, align 4
-  %12 = alloca %"class.std::tuple", align 4
-  %13 = alloca i8*, align 8
-  %14 = alloca i32, align 4
-  %15 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %16 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %17 = alloca i32, align 4
-  store i32* %0, i32** %5, align 8
-  store i32* %1, i32** %6, align 8
-  store i32* %2, i32** %7, align 8
-  store i32 %3, i32* %8, align 4
-  %18 = load i32, i32* %8, align 4
-  store i32 %18, i32* %9, align 4
-  call void @_ZNSt6vectorISt5tupleIJiiiiEESaIS1_EEC2Ev(%"class.std::vector.18"* nonnull align 8 dereferenceable(24) %10) #3
-  store i32 0, i32* %11, align 4
-  br label %19
-
-19:                                               ; preds = %38, %4
-  %20 = load i32, i32* %11, align 4
-  %21 = load i32, i32* %9, align 4
-  %22 = icmp slt i32 %20, %21
-  br i1 %22, label %23, label %45
-
-23:                                               ; preds = %19
-  %24 = load i32*, i32** %5, align 8
-  %25 = load i32, i32* %11, align 4
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i32, i32* %24, i64 %26
-  %28 = load i32*, i32** %6, align 8
-  %29 = load i32, i32* %11, align 4
-  %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds i32, i32* %28, i64 %30
-  %32 = load i32*, i32** %7, align 8
-  %33 = load i32, i32* %11, align 4
-  %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds i32, i32* %32, i64 %34
-  invoke void @_ZSt10make_tupleIJRiS0_S0_S0_EESt5tupleIJDpNSt17__decay_and_stripIT_E6__typeEEEDpOS3_(%"class.std::tuple"* sret(%"class.std::tuple") align 4 %12, i32* nonnull align 4 dereferenceable(4) %27, i32* nonnull align 4 dereferenceable(4) %31, i32* nonnull align 4 dereferenceable(4) %35, i32* nonnull align 4 dereferenceable(4) %11)
-          to label %36 unwind label %41
-
-36:                                               ; preds = %23
-  invoke void @_ZNSt6vectorISt5tupleIJiiiiEESaIS1_EE9push_backEOS1_(%"class.std::vector.18"* nonnull align 8 dereferenceable(24) %10, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %12)
-          to label %37 unwind label %41
-
-37:                                               ; preds = %36
-  br label %38
-
-38:                                               ; preds = %37
-  %39 = load i32, i32* %11, align 4
-  %40 = add nsw i32 %39, 1
-  store i32 %40, i32* %11, align 4
-  br label %19, !llvm.loop !28
-
-41:                                               ; preds = %45, %36, %23
-  %42 = landingpad { i8*, i32 }
-          cleanup
-  %43 = extractvalue { i8*, i32 } %42, 0
-  store i8* %43, i8** %13, align 8
-  %44 = extractvalue { i8*, i32 } %42, 1
-  store i32 %44, i32* %14, align 4
-  call void @_ZNSt6vectorISt5tupleIJiiiiEESaIS1_EED2Ev(%"class.std::vector.18"* nonnull align 8 dereferenceable(24) %10) #3
-  br label %91
-
-45:                                               ; preds = %19
-  %46 = call %"class.std::tuple"* @_ZNSt6vectorISt5tupleIJiiiiEESaIS1_EE5beginEv(%"class.std::vector.18"* nonnull align 8 dereferenceable(24) %10) #3
-  %47 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %15, i32 0, i32 0
-  store %"class.std::tuple"* %46, %"class.std::tuple"** %47, align 8
-  %48 = call %"class.std::tuple"* @_ZNSt6vectorISt5tupleIJiiiiEESaIS1_EE3endEv(%"class.std::vector.18"* nonnull align 8 dereferenceable(24) %10) #3
-  %49 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %16, i32 0, i32 0
-  store %"class.std::tuple"* %48, %"class.std::tuple"** %49, align 8
-  %50 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %15, i32 0, i32 0
-  %51 = load %"class.std::tuple"*, %"class.std::tuple"** %50, align 8
-  %52 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %16, i32 0, i32 0
-  %53 = load %"class.std::tuple"*, %"class.std::tuple"** %52, align 8
-  invoke void @_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEEPFbRKS3_SA_EEvT_SD_T0_(%"class.std::tuple"* %51, %"class.std::tuple"* %53, i1 (%"class.std::tuple"*, %"class.std::tuple"*)* @_Z7compareIiiEbRKSt5tupleIJT_S1_T0_S1_EES5_)
-          to label %54 unwind label %41
-
-54:                                               ; preds = %45
-  store i32 0, i32* %17, align 4
-  br label %55
-
-55:                                               ; preds = %87, %54
-  %56 = load i32, i32* %17, align 4
-  %57 = load i32, i32* %9, align 4
-  %58 = icmp slt i32 %56, %57
-  br i1 %58, label %59, label %90
-
-59:                                               ; preds = %55
-  %60 = load i32, i32* %17, align 4
-  %61 = sext i32 %60 to i64
-  %62 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNSt6vectorISt5tupleIJiiiiEESaIS1_EEixEm(%"class.std::vector.18"* nonnull align 8 dereferenceable(24) %10, i64 %61) #3
-  %63 = call nonnull align 4 dereferenceable(4) i32* @_ZSt3getILm0EJiiiiEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS4_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %62) #3
-  %64 = load i32, i32* %63, align 4
-  %65 = load i32*, i32** %5, align 8
-  %66 = load i32, i32* %17, align 4
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds i32, i32* %65, i64 %67
-  store i32 %64, i32* %68, align 4
-  %69 = load i32, i32* %17, align 4
-  %70 = sext i32 %69 to i64
-  %71 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNSt6vectorISt5tupleIJiiiiEESaIS1_EEixEm(%"class.std::vector.18"* nonnull align 8 dereferenceable(24) %10, i64 %70) #3
-  %72 = call nonnull align 4 dereferenceable(4) i32* @_ZSt3getILm1EJiiiiEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS4_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %71) #3
-  %73 = load i32, i32* %72, align 4
-  %74 = load i32*, i32** %6, align 8
-  %75 = load i32, i32* %17, align 4
-  %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds i32, i32* %74, i64 %76
-  store i32 %73, i32* %77, align 4
-  %78 = load i32, i32* %17, align 4
-  %79 = sext i32 %78 to i64
-  %80 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNSt6vectorISt5tupleIJiiiiEESaIS1_EEixEm(%"class.std::vector.18"* nonnull align 8 dereferenceable(24) %10, i64 %79) #3
-  %81 = call nonnull align 4 dereferenceable(4) i32* @_ZSt3getILm2EJiiiiEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS4_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %80) #3
-  %82 = load i32, i32* %81, align 4
-  %83 = load i32*, i32** %7, align 8
-  %84 = load i32, i32* %17, align 4
-  %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds i32, i32* %83, i64 %85
-  store i32 %82, i32* %86, align 4
-  br label %87
-
-87:                                               ; preds = %59
-  %88 = load i32, i32* %17, align 4
-  %89 = add nsw i32 %88, 1
-  store i32 %89, i32* %17, align 4
-  br label %55, !llvm.loop !29
-
-90:                                               ; preds = %55
-  call void @_ZNSt6vectorISt5tupleIJiiiiEESaIS1_EED2Ev(%"class.std::vector.18"* nonnull align 8 dereferenceable(24) %10) #3
-  ret void
-
-91:                                               ; preds = %41
-  %92 = load i8*, i8** %13, align 8
-  %93 = load i32, i32* %14, align 4
-  %94 = insertvalue { i8*, i32 } undef, i8* %92, 0
-  %95 = insertvalue { i8*, i32 } %94, i32 %93, 1
-  resume { i8*, i32 } %95
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local i32* @_ZNSt6vectorIiSaIiEE4dataEv(%"class.std::vector.13"* nonnull align 8 dereferenceable(24) %0) #6 comdat align 2 {
-  %2 = alloca %"class.std::vector.13"*, align 8
-  store %"class.std::vector.13"* %0, %"class.std::vector.13"** %2, align 8
-  %3 = load %"class.std::vector.13"*, %"class.std::vector.13"** %2, align 8
-  %4 = bitcast %"class.std::vector.13"* %3 to %"struct.std::_Vector_base.14"*
-  %5 = getelementptr inbounds %"struct.std::_Vector_base.14", %"struct.std::_Vector_base.14"* %4, i32 0, i32 0
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl", %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl"* %5, i32 0, i32 0
-  %7 = load i32*, i32** %6, align 8
-  %8 = call i32* @_ZNKSt6vectorIiSaIiEE11_M_data_ptrIiEEPT_S4_(%"class.std::vector.13"* nonnull align 8 dereferenceable(24) %3, i32* %7) #3
-  ret i32* %8
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(4) i32* @_ZNSt6vectorIiSaIiEEixEm(%"class.std::vector.13"* nonnull align 8 dereferenceable(24) %0, i64 %1) #6 comdat align 2 {
-  %3 = alloca %"class.std::vector.13"*, align 8
-  %4 = alloca i64, align 8
-  store %"class.std::vector.13"* %0, %"class.std::vector.13"** %3, align 8
-  store i64 %1, i64* %4, align 8
-  %5 = load %"class.std::vector.13"*, %"class.std::vector.13"** %3, align 8
-  %6 = bitcast %"class.std::vector.13"* %5 to %"struct.std::_Vector_base.14"*
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.14", %"struct.std::_Vector_base.14"* %6, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl", %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl"* %7, i32 0, i32 0
-  %9 = load i32*, i32** %8, align 8
-  %10 = load i64, i64* %4, align 8
-  %11 = getelementptr inbounds i32, i32* %9, i64 %10
-  ret i32* %11
-}
-
-declare dso_local nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8), i8*) #1
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt6vectorIiSaIiEED2Ev(%"class.std::vector.13"* nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
-  %2 = alloca %"class.std::vector.13"*, align 8
-  %3 = alloca i8*, align 8
-  %4 = alloca i32, align 4
-  store %"class.std::vector.13"* %0, %"class.std::vector.13"** %2, align 8
-  %5 = load %"class.std::vector.13"*, %"class.std::vector.13"** %2, align 8
-  %6 = bitcast %"class.std::vector.13"* %5 to %"struct.std::_Vector_base.14"*
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.14", %"struct.std::_Vector_base.14"* %6, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl", %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl"* %7, i32 0, i32 0
-  %9 = load i32*, i32** %8, align 8
-  %10 = bitcast %"class.std::vector.13"* %5 to %"struct.std::_Vector_base.14"*
-  %11 = getelementptr inbounds %"struct.std::_Vector_base.14", %"struct.std::_Vector_base.14"* %10, i32 0, i32 0
-  %12 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl", %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl"* %11, i32 0, i32 1
-  %13 = load i32*, i32** %12, align 8
-  %14 = bitcast %"class.std::vector.13"* %5 to %"struct.std::_Vector_base.14"*
-  %15 = call nonnull align 1 dereferenceable(1) %"class.std::allocator.15"* @_ZNSt12_Vector_baseIiSaIiEE19_M_get_Tp_allocatorEv(%"struct.std::_Vector_base.14"* nonnull align 8 dereferenceable(24) %14) #3
-  invoke void @_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E(i32* %9, i32* %13, %"class.std::allocator.15"* nonnull align 1 dereferenceable(1) %15)
-          to label %16 unwind label %18
-
-16:                                               ; preds = %1
-  %17 = bitcast %"class.std::vector.13"* %5 to %"struct.std::_Vector_base.14"*
-  call void @_ZNSt12_Vector_baseIiSaIiEED2Ev(%"struct.std::_Vector_base.14"* nonnull align 8 dereferenceable(24) %17) #3
-  ret void
-
-18:                                               ; preds = %1
-  %19 = landingpad { i8*, i32 }
-          catch i8* null
-  %20 = extractvalue { i8*, i32 } %19, 0
-  store i8* %20, i8** %3, align 8
-  %21 = extractvalue { i8*, i32 } %19, 1
-  store i32 %21, i32* %4, align 4
-  %22 = bitcast %"class.std::vector.13"* %5 to %"struct.std::_Vector_base.14"*
-  call void @_ZNSt12_Vector_baseIiSaIiEED2Ev(%"struct.std::_Vector_base.14"* nonnull align 8 dereferenceable(24) %22) #3
-  br label %23
-
-23:                                               ; preds = %18
-  %24 = load i8*, i8** %3, align 8
-  call void @__clang_call_terminate(i8* %24) #20
-  unreachable
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZN9__gnu_cxx13new_allocatorIiEC2Ev(%"class.__gnu_cxx::new_allocator.16"* nonnull align 1 dereferenceable(1) %0) unnamed_addr #9 comdat align 2 {
-  %2 = alloca %"class.__gnu_cxx::new_allocator.16"*, align 8
-  store %"class.__gnu_cxx::new_allocator.16"* %0, %"class.__gnu_cxx::new_allocator.16"** %2, align 8
-  %3 = load %"class.__gnu_cxx::new_allocator.16"*, %"class.__gnu_cxx::new_allocator.16"** %2, align 8
-  ret void
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt12_Vector_baseIiSaIiEEC2ERKS0_(%"struct.std::_Vector_base.14"* nonnull align 8 dereferenceable(24) %0, %"class.std::allocator.15"* nonnull align 1 dereferenceable(1) %1) unnamed_addr #9 comdat align 2 {
-  %3 = alloca %"struct.std::_Vector_base.14"*, align 8
-  %4 = alloca %"class.std::allocator.15"*, align 8
-  store %"struct.std::_Vector_base.14"* %0, %"struct.std::_Vector_base.14"** %3, align 8
-  store %"class.std::allocator.15"* %1, %"class.std::allocator.15"** %4, align 8
-  %5 = load %"struct.std::_Vector_base.14"*, %"struct.std::_Vector_base.14"** %3, align 8
-  %6 = getelementptr inbounds %"struct.std::_Vector_base.14", %"struct.std::_Vector_base.14"* %5, i32 0, i32 0
-  %7 = load %"class.std::allocator.15"*, %"class.std::allocator.15"** %4, align 8
-  call void @_ZNSt12_Vector_baseIiSaIiEE12_Vector_implC2ERKS0_(%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl"* nonnull align 8 dereferenceable(24) %6, %"class.std::allocator.15"* nonnull align 1 dereferenceable(1) %7) #3
-  ret void
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_ZNSt6vectorIiSaIiEE22_M_initialize_dispatchIPiEEvT_S4_St12__false_type(%"class.std::vector.13"* nonnull align 8 dereferenceable(24) %0, i32* %1, i32* %2) #7 comdat align 2 {
-  %4 = alloca %"struct.std::__false_type", align 1
-  %5 = alloca %"class.std::vector.13"*, align 8
-  %6 = alloca i32*, align 8
-  %7 = alloca i32*, align 8
-  %8 = alloca %"struct.std::forward_iterator_tag", align 1
-  %9 = alloca %"struct.std::random_access_iterator_tag", align 1
-  store %"class.std::vector.13"* %0, %"class.std::vector.13"** %5, align 8
-  store i32* %1, i32** %6, align 8
-  store i32* %2, i32** %7, align 8
-  %10 = load %"class.std::vector.13"*, %"class.std::vector.13"** %5, align 8
-  %11 = load i32*, i32** %6, align 8
-  %12 = load i32*, i32** %7, align 8
-  %13 = bitcast %"struct.std::random_access_iterator_tag"* %9 to %"struct.std::forward_iterator_tag"*
-  call void @_ZNSt6vectorIiSaIiEE19_M_range_initializeIPiEEvT_S4_St20forward_iterator_tag(%"class.std::vector.13"* nonnull align 8 dereferenceable(24) %10, i32* %11, i32* %12)
-  ret void
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt12_Vector_baseIiSaIiEED2Ev(%"struct.std::_Vector_base.14"* nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
-  %2 = alloca %"struct.std::_Vector_base.14"*, align 8
-  %3 = alloca i8*, align 8
-  %4 = alloca i32, align 4
-  store %"struct.std::_Vector_base.14"* %0, %"struct.std::_Vector_base.14"** %2, align 8
-  %5 = load %"struct.std::_Vector_base.14"*, %"struct.std::_Vector_base.14"** %2, align 8
-  %6 = getelementptr inbounds %"struct.std::_Vector_base.14", %"struct.std::_Vector_base.14"* %5, i32 0, i32 0
-  %7 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl", %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl"* %6, i32 0, i32 0
-  %8 = load i32*, i32** %7, align 8
-  %9 = getelementptr inbounds %"struct.std::_Vector_base.14", %"struct.std::_Vector_base.14"* %5, i32 0, i32 0
-  %10 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl", %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl"* %9, i32 0, i32 2
-  %11 = load i32*, i32** %10, align 8
-  %12 = getelementptr inbounds %"struct.std::_Vector_base.14", %"struct.std::_Vector_base.14"* %5, i32 0, i32 0
-  %13 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl", %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl"* %12, i32 0, i32 0
-  %14 = load i32*, i32** %13, align 8
-  %15 = ptrtoint i32* %11 to i64
-  %16 = ptrtoint i32* %14 to i64
-  %17 = sub i64 %15, %16
-  %18 = sdiv exact i64 %17, 4
-  invoke void @_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim(%"struct.std::_Vector_base.14"* nonnull align 8 dereferenceable(24) %5, i32* %8, i64 %18)
-          to label %19 unwind label %21
-
-19:                                               ; preds = %1
-  %20 = getelementptr inbounds %"struct.std::_Vector_base.14", %"struct.std::_Vector_base.14"* %5, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseIiSaIiEE12_Vector_implD2Ev(%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl"* nonnull align 8 dereferenceable(24) %20) #3
-  ret void
-
-21:                                               ; preds = %1
-  %22 = landingpad { i8*, i32 }
-          catch i8* null
-  %23 = extractvalue { i8*, i32 } %22, 0
-  store i8* %23, i8** %3, align 8
-  %24 = extractvalue { i8*, i32 } %22, 1
-  store i32 %24, i32* %4, align 4
-  %25 = getelementptr inbounds %"struct.std::_Vector_base.14", %"struct.std::_Vector_base.14"* %5, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseIiSaIiEE12_Vector_implD2Ev(%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl"* nonnull align 8 dereferenceable(24) %25) #3
-  br label %26
-
-26:                                               ; preds = %21
-  %27 = load i8*, i8** %3, align 8
-  call void @__clang_call_terminate(i8* %27) #20
-  unreachable
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt12_Vector_baseIiSaIiEE12_Vector_implC2ERKS0_(%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl"* nonnull align 8 dereferenceable(24) %0, %"class.std::allocator.15"* nonnull align 1 dereferenceable(1) %1) unnamed_addr #9 comdat align 2 {
-  %3 = alloca %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl"*, align 8
-  %4 = alloca %"class.std::allocator.15"*, align 8
-  store %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl"* %0, %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl"** %3, align 8
-  store %"class.std::allocator.15"* %1, %"class.std::allocator.15"** %4, align 8
-  %5 = load %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl"*, %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl"** %3, align 8
-  %6 = bitcast %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl"* %5 to %"class.std::allocator.15"*
-  %7 = load %"class.std::allocator.15"*, %"class.std::allocator.15"** %4, align 8
-  call void @_ZNSaIiEC2ERKS_(%"class.std::allocator.15"* nonnull align 1 dereferenceable(1) %6, %"class.std::allocator.15"* nonnull align 1 dereferenceable(1) %7) #3
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl", %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl"* %5, i32 0, i32 0
-  store i32* null, i32** %8, align 8
-  %9 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl", %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl"* %5, i32 0, i32 1
-  store i32* null, i32** %9, align 8
-  %10 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl", %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl"* %5, i32 0, i32 2
-  store i32* null, i32** %10, align 8
-  ret void
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSaIiEC2ERKS_(%"class.std::allocator.15"* nonnull align 1 dereferenceable(1) %0, %"class.std::allocator.15"* nonnull align 1 dereferenceable(1) %1) unnamed_addr #9 comdat align 2 {
-  %3 = alloca %"class.std::allocator.15"*, align 8
-  %4 = alloca %"class.std::allocator.15"*, align 8
-  store %"class.std::allocator.15"* %0, %"class.std::allocator.15"** %3, align 8
-  store %"class.std::allocator.15"* %1, %"class.std::allocator.15"** %4, align 8
-  %5 = load %"class.std::allocator.15"*, %"class.std::allocator.15"** %3, align 8
-  %6 = bitcast %"class.std::allocator.15"* %5 to %"class.__gnu_cxx::new_allocator.16"*
-  %7 = load %"class.std::allocator.15"*, %"class.std::allocator.15"** %4, align 8
-  %8 = bitcast %"class.std::allocator.15"* %7 to %"class.__gnu_cxx::new_allocator.16"*
-  call void @_ZN9__gnu_cxx13new_allocatorIiEC2ERKS1_(%"class.__gnu_cxx::new_allocator.16"* nonnull align 1 dereferenceable(1) %6, %"class.__gnu_cxx::new_allocator.16"* nonnull align 1 dereferenceable(1) %8) #3
-  ret void
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZN9__gnu_cxx13new_allocatorIiEC2ERKS1_(%"class.__gnu_cxx::new_allocator.16"* nonnull align 1 dereferenceable(1) %0, %"class.__gnu_cxx::new_allocator.16"* nonnull align 1 dereferenceable(1) %1) unnamed_addr #9 comdat align 2 {
-  %3 = alloca %"class.__gnu_cxx::new_allocator.16"*, align 8
-  %4 = alloca %"class.__gnu_cxx::new_allocator.16"*, align 8
-  store %"class.__gnu_cxx::new_allocator.16"* %0, %"class.__gnu_cxx::new_allocator.16"** %3, align 8
-  store %"class.__gnu_cxx::new_allocator.16"* %1, %"class.__gnu_cxx::new_allocator.16"** %4, align 8
-  %5 = load %"class.__gnu_cxx::new_allocator.16"*, %"class.__gnu_cxx::new_allocator.16"** %3, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_ZNSt6vectorIiSaIiEE19_M_range_initializeIPiEEvT_S4_St20forward_iterator_tag(%"class.std::vector.13"* nonnull align 8 dereferenceable(24) %0, i32* %1, i32* %2) #7 comdat align 2 {
-  %4 = alloca %"struct.std::forward_iterator_tag", align 1
-  %5 = alloca %"class.std::vector.13"*, align 8
-  %6 = alloca i32*, align 8
-  %7 = alloca i32*, align 8
-  %8 = alloca i64, align 8
-  store %"class.std::vector.13"* %0, %"class.std::vector.13"** %5, align 8
-  store i32* %1, i32** %6, align 8
-  store i32* %2, i32** %7, align 8
-  %9 = load %"class.std::vector.13"*, %"class.std::vector.13"** %5, align 8
-  %10 = load i32*, i32** %6, align 8
-  %11 = load i32*, i32** %7, align 8
-  %12 = call i64 @_ZSt8distanceIPiENSt15iterator_traitsIT_E15difference_typeES2_S2_(i32* %10, i32* %11)
-  store i64 %12, i64* %8, align 8
-  %13 = bitcast %"class.std::vector.13"* %9 to %"struct.std::_Vector_base.14"*
-  %14 = load i64, i64* %8, align 8
-  %15 = call i32* @_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm(%"struct.std::_Vector_base.14"* nonnull align 8 dereferenceable(24) %13, i64 %14)
-  %16 = bitcast %"class.std::vector.13"* %9 to %"struct.std::_Vector_base.14"*
-  %17 = getelementptr inbounds %"struct.std::_Vector_base.14", %"struct.std::_Vector_base.14"* %16, i32 0, i32 0
-  %18 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl", %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl"* %17, i32 0, i32 0
-  store i32* %15, i32** %18, align 8
-  %19 = bitcast %"class.std::vector.13"* %9 to %"struct.std::_Vector_base.14"*
-  %20 = getelementptr inbounds %"struct.std::_Vector_base.14", %"struct.std::_Vector_base.14"* %19, i32 0, i32 0
-  %21 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl", %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl"* %20, i32 0, i32 0
-  %22 = load i32*, i32** %21, align 8
-  %23 = load i64, i64* %8, align 8
-  %24 = getelementptr inbounds i32, i32* %22, i64 %23
-  %25 = bitcast %"class.std::vector.13"* %9 to %"struct.std::_Vector_base.14"*
-  %26 = getelementptr inbounds %"struct.std::_Vector_base.14", %"struct.std::_Vector_base.14"* %25, i32 0, i32 0
-  %27 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl", %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl"* %26, i32 0, i32 2
-  store i32* %24, i32** %27, align 8
-  %28 = load i32*, i32** %6, align 8
-  %29 = load i32*, i32** %7, align 8
-  %30 = bitcast %"class.std::vector.13"* %9 to %"struct.std::_Vector_base.14"*
-  %31 = getelementptr inbounds %"struct.std::_Vector_base.14", %"struct.std::_Vector_base.14"* %30, i32 0, i32 0
-  %32 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl", %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl"* %31, i32 0, i32 0
-  %33 = load i32*, i32** %32, align 8
-  %34 = bitcast %"class.std::vector.13"* %9 to %"struct.std::_Vector_base.14"*
-  %35 = call nonnull align 1 dereferenceable(1) %"class.std::allocator.15"* @_ZNSt12_Vector_baseIiSaIiEE19_M_get_Tp_allocatorEv(%"struct.std::_Vector_base.14"* nonnull align 8 dereferenceable(24) %34) #3
-  %36 = call i32* @_ZSt22__uninitialized_copy_aIPiS0_iET0_T_S2_S1_RSaIT1_E(i32* %28, i32* %29, i32* %33, %"class.std::allocator.15"* nonnull align 1 dereferenceable(1) %35)
-  %37 = bitcast %"class.std::vector.13"* %9 to %"struct.std::_Vector_base.14"*
-  %38 = getelementptr inbounds %"struct.std::_Vector_base.14", %"struct.std::_Vector_base.14"* %37, i32 0, i32 0
-  %39 = getelementptr inbounds %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl", %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl"* %38, i32 0, i32 1
-  store i32* %36, i32** %39, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local i64 @_ZSt8distanceIPiENSt15iterator_traitsIT_E15difference_typeES2_S2_(i32* %0, i32* %1) #7 comdat {
-  %3 = alloca i32*, align 8
-  %4 = alloca i32*, align 8
-  %5 = alloca %"struct.std::random_access_iterator_tag", align 1
-  %6 = alloca %"struct.std::random_access_iterator_tag", align 1
-  store i32* %0, i32** %3, align 8
-  store i32* %1, i32** %4, align 8
-  %7 = load i32*, i32** %3, align 8
-  %8 = load i32*, i32** %4, align 8
-  call void @_ZSt19__iterator_categoryIPiENSt15iterator_traitsIT_E17iterator_categoryERKS2_(i32** nonnull align 8 dereferenceable(8) %3)
-  %9 = call i64 @_ZSt10__distanceIPiENSt15iterator_traitsIT_E15difference_typeES2_S2_St26random_access_iterator_tag(i32* %7, i32* %8)
-  ret i64 %9
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local i32* @_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm(%"struct.std::_Vector_base.14"* nonnull align 8 dereferenceable(24) %0, i64 %1) #7 comdat align 2 {
-  %3 = alloca %"struct.std::_Vector_base.14"*, align 8
-  %4 = alloca i64, align 8
-  store %"struct.std::_Vector_base.14"* %0, %"struct.std::_Vector_base.14"** %3, align 8
-  store i64 %1, i64* %4, align 8
-  %5 = load %"struct.std::_Vector_base.14"*, %"struct.std::_Vector_base.14"** %3, align 8
-  %6 = load i64, i64* %4, align 8
-  %7 = icmp ne i64 %6, 0
-  br i1 %7, label %8, label %13
-
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds %"struct.std::_Vector_base.14", %"struct.std::_Vector_base.14"* %5, i32 0, i32 0
-  %10 = bitcast %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl"* %9 to %"class.std::allocator.15"*
-  %11 = load i64, i64* %4, align 8
-  %12 = call i32* @_ZNSt16allocator_traitsISaIiEE8allocateERS0_m(%"class.std::allocator.15"* nonnull align 1 dereferenceable(1) %10, i64 %11)
-  br label %14
-
-13:                                               ; preds = %2
-  br label %14
-
-14:                                               ; preds = %13, %8
-  %15 = phi i32* [ %12, %8 ], [ null, %13 ]
-  ret i32* %15
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local i32* @_ZSt22__uninitialized_copy_aIPiS0_iET0_T_S2_S1_RSaIT1_E(i32* %0, i32* %1, i32* %2, %"class.std::allocator.15"* nonnull align 1 dereferenceable(1) %3) #7 comdat {
-  %5 = alloca i32*, align 8
-  %6 = alloca i32*, align 8
-  %7 = alloca i32*, align 8
-  %8 = alloca %"class.std::allocator.15"*, align 8
-  store i32* %0, i32** %5, align 8
-  store i32* %1, i32** %6, align 8
-  store i32* %2, i32** %7, align 8
-  store %"class.std::allocator.15"* %3, %"class.std::allocator.15"** %8, align 8
-  %9 = load i32*, i32** %5, align 8
-  %10 = load i32*, i32** %6, align 8
-  %11 = load i32*, i32** %7, align 8
-  %12 = call i32* @_ZSt18uninitialized_copyIPiS0_ET0_T_S2_S1_(i32* %9, i32* %10, i32* %11)
-  ret i32* %12
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 1 dereferenceable(1) %"class.std::allocator.15"* @_ZNSt12_Vector_baseIiSaIiEE19_M_get_Tp_allocatorEv(%"struct.std::_Vector_base.14"* nonnull align 8 dereferenceable(24) %0) #6 comdat align 2 {
-  %2 = alloca %"struct.std::_Vector_base.14"*, align 8
-  store %"struct.std::_Vector_base.14"* %0, %"struct.std::_Vector_base.14"** %2, align 8
-  %3 = load %"struct.std::_Vector_base.14"*, %"struct.std::_Vector_base.14"** %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.14", %"struct.std::_Vector_base.14"* %3, i32 0, i32 0
-  %5 = bitcast %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl"* %4 to %"class.std::allocator.15"*
-  ret %"class.std::allocator.15"* %5
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local i64 @_ZSt10__distanceIPiENSt15iterator_traitsIT_E15difference_typeES2_S2_St26random_access_iterator_tag(i32* %0, i32* %1) #6 comdat {
-  %3 = alloca %"struct.std::random_access_iterator_tag", align 1
-  %4 = alloca i32*, align 8
-  %5 = alloca i32*, align 8
-  store i32* %0, i32** %4, align 8
-  store i32* %1, i32** %5, align 8
-  %6 = load i32*, i32** %5, align 8
-  %7 = load i32*, i32** %4, align 8
-  %8 = ptrtoint i32* %6 to i64
-  %9 = ptrtoint i32* %7 to i64
-  %10 = sub i64 %8, %9
-  %11 = sdiv exact i64 %10, 4
-  ret i64 %11
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZSt19__iterator_categoryIPiENSt15iterator_traitsIT_E17iterator_categoryERKS2_(i32** nonnull align 8 dereferenceable(8) %0) #6 comdat {
-  %2 = alloca i32**, align 8
-  store i32** %0, i32*** %2, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local i32* @_ZNSt16allocator_traitsISaIiEE8allocateERS0_m(%"class.std::allocator.15"* nonnull align 1 dereferenceable(1) %0, i64 %1) #7 comdat align 2 {
-  %3 = alloca %"class.std::allocator.15"*, align 8
-  %4 = alloca i64, align 8
-  store %"class.std::allocator.15"* %0, %"class.std::allocator.15"** %3, align 8
-  store i64 %1, i64* %4, align 8
-  %5 = load %"class.std::allocator.15"*, %"class.std::allocator.15"** %3, align 8
-  %6 = bitcast %"class.std::allocator.15"* %5 to %"class.__gnu_cxx::new_allocator.16"*
-  %7 = load i64, i64* %4, align 8
-  %8 = call i32* @_ZN9__gnu_cxx13new_allocatorIiE8allocateEmPKv(%"class.__gnu_cxx::new_allocator.16"* nonnull align 1 dereferenceable(1) %6, i64 %7, i8* null)
-  ret i32* %8
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local i32* @_ZN9__gnu_cxx13new_allocatorIiE8allocateEmPKv(%"class.__gnu_cxx::new_allocator.16"* nonnull align 1 dereferenceable(1) %0, i64 %1, i8* %2) #7 comdat align 2 {
-  %4 = alloca %"class.__gnu_cxx::new_allocator.16"*, align 8
-  %5 = alloca i64, align 8
-  %6 = alloca i8*, align 8
-  store %"class.__gnu_cxx::new_allocator.16"* %0, %"class.__gnu_cxx::new_allocator.16"** %4, align 8
-  store i64 %1, i64* %5, align 8
-  store i8* %2, i8** %6, align 8
-  %7 = load %"class.__gnu_cxx::new_allocator.16"*, %"class.__gnu_cxx::new_allocator.16"** %4, align 8
-  %8 = load i64, i64* %5, align 8
-  %9 = call i64 @_ZNK9__gnu_cxx13new_allocatorIiE8max_sizeEv(%"class.__gnu_cxx::new_allocator.16"* nonnull align 1 dereferenceable(1) %7) #3
-  %10 = icmp ugt i64 %8, %9
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %3
-  call void @_ZSt17__throw_bad_allocv() #23
-  unreachable
-
-12:                                               ; preds = %3
-  %13 = load i64, i64* %5, align 8
-  %14 = mul i64 %13, 4
-  %15 = call noalias nonnull i8* @_Znwm(i64 %14) #24
-  %16 = bitcast i8* %15 to i32*
-  ret i32* %16
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local i64 @_ZNK9__gnu_cxx13new_allocatorIiE8max_sizeEv(%"class.__gnu_cxx::new_allocator.16"* nonnull align 1 dereferenceable(1) %0) #6 comdat align 2 {
-  %2 = alloca %"class.__gnu_cxx::new_allocator.16"*, align 8
-  store %"class.__gnu_cxx::new_allocator.16"* %0, %"class.__gnu_cxx::new_allocator.16"** %2, align 8
-  %3 = load %"class.__gnu_cxx::new_allocator.16"*, %"class.__gnu_cxx::new_allocator.16"** %2, align 8
-  ret i64 4611686018427387903
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local i32* @_ZSt18uninitialized_copyIPiS0_ET0_T_S2_S1_(i32* %0, i32* %1, i32* %2) #7 comdat {
-  %4 = alloca i32*, align 8
-  %5 = alloca i32*, align 8
-  %6 = alloca i32*, align 8
-  %7 = alloca i8, align 1
-  store i32* %0, i32** %4, align 8
-  store i32* %1, i32** %5, align 8
-  store i32* %2, i32** %6, align 8
-  store i8 1, i8* %7, align 1
-  %8 = load i32*, i32** %4, align 8
-  %9 = load i32*, i32** %5, align 8
-  %10 = load i32*, i32** %6, align 8
-  %11 = call i32* @_ZNSt20__uninitialized_copyILb1EE13__uninit_copyIPiS2_EET0_T_S4_S3_(i32* %8, i32* %9, i32* %10)
-  ret i32* %11
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local i32* @_ZNSt20__uninitialized_copyILb1EE13__uninit_copyIPiS2_EET0_T_S4_S3_(i32* %0, i32* %1, i32* %2) #7 comdat align 2 {
-  %4 = alloca i32*, align 8
-  %5 = alloca i32*, align 8
-  %6 = alloca i32*, align 8
-  store i32* %0, i32** %4, align 8
-  store i32* %1, i32** %5, align 8
-  store i32* %2, i32** %6, align 8
-  %7 = load i32*, i32** %4, align 8
-  %8 = load i32*, i32** %5, align 8
-  %9 = load i32*, i32** %6, align 8
-  %10 = call i32* @_ZSt4copyIPiS0_ET0_T_S2_S1_(i32* %7, i32* %8, i32* %9)
-  ret i32* %10
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local i32* @_ZSt4copyIPiS0_ET0_T_S2_S1_(i32* %0, i32* %1, i32* %2) #7 comdat {
-  %4 = alloca i32*, align 8
-  %5 = alloca i32*, align 8
-  %6 = alloca i32*, align 8
-  store i32* %0, i32** %4, align 8
-  store i32* %1, i32** %5, align 8
-  store i32* %2, i32** %6, align 8
-  %7 = load i32*, i32** %4, align 8
-  %8 = call i32* @_ZSt12__miter_baseIPiET_S1_(i32* %7)
-  %9 = load i32*, i32** %5, align 8
-  %10 = call i32* @_ZSt12__miter_baseIPiET_S1_(i32* %9)
-  %11 = load i32*, i32** %6, align 8
-  %12 = call i32* @_ZSt14__copy_move_a2ILb0EPiS0_ET1_T0_S2_S1_(i32* %8, i32* %10, i32* %11)
-  ret i32* %12
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local i32* @_ZSt14__copy_move_a2ILb0EPiS0_ET1_T0_S2_S1_(i32* %0, i32* %1, i32* %2) #7 comdat {
-  %4 = alloca i32*, align 8
-  %5 = alloca i32*, align 8
-  %6 = alloca i32*, align 8
-  store i32* %0, i32** %4, align 8
-  store i32* %1, i32** %5, align 8
-  store i32* %2, i32** %6, align 8
-  %7 = load i32*, i32** %4, align 8
-  %8 = call i32* @_ZSt12__niter_baseIPiET_S1_(i32* %7)
-  %9 = load i32*, i32** %5, align 8
-  %10 = call i32* @_ZSt12__niter_baseIPiET_S1_(i32* %9)
-  %11 = load i32*, i32** %6, align 8
-  %12 = call i32* @_ZSt12__niter_baseIPiET_S1_(i32* %11)
-  %13 = call i32* @_ZSt13__copy_move_aILb0EPiS0_ET1_T0_S2_S1_(i32* %8, i32* %10, i32* %12)
-  ret i32* %13
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local i32* @_ZSt12__miter_baseIPiET_S1_(i32* %0) #6 comdat {
-  %2 = alloca i32*, align 8
-  store i32* %0, i32** %2, align 8
-  %3 = load i32*, i32** %2, align 8
-  ret i32* %3
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local i32* @_ZSt13__copy_move_aILb0EPiS0_ET1_T0_S2_S1_(i32* %0, i32* %1, i32* %2) #7 comdat {
-  %4 = alloca i32*, align 8
-  %5 = alloca i32*, align 8
-  %6 = alloca i32*, align 8
-  %7 = alloca i8, align 1
-  store i32* %0, i32** %4, align 8
-  store i32* %1, i32** %5, align 8
-  store i32* %2, i32** %6, align 8
-  store i8 1, i8* %7, align 1
-  %8 = load i32*, i32** %4, align 8
-  %9 = load i32*, i32** %5, align 8
-  %10 = load i32*, i32** %6, align 8
-  %11 = call i32* @_ZNSt11__copy_moveILb0ELb1ESt26random_access_iterator_tagE8__copy_mIiEEPT_PKS3_S6_S4_(i32* %8, i32* %9, i32* %10)
-  ret i32* %11
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local i32* @_ZSt12__niter_baseIPiET_S1_(i32* %0) #6 comdat {
-  %2 = alloca i32*, align 8
-  store i32* %0, i32** %2, align 8
-  %3 = load i32*, i32** %2, align 8
-  ret i32* %3
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local i32* @_ZNSt11__copy_moveILb0ELb1ESt26random_access_iterator_tagE8__copy_mIiEEPT_PKS3_S6_S4_(i32* %0, i32* %1, i32* %2) #6 comdat align 2 {
-  %4 = alloca i32*, align 8
-  %5 = alloca i32*, align 8
-  %6 = alloca i32*, align 8
-  %7 = alloca i64, align 8
-  store i32* %0, i32** %4, align 8
-  store i32* %1, i32** %5, align 8
-  store i32* %2, i32** %6, align 8
-  %8 = load i32*, i32** %5, align 8
-  %9 = load i32*, i32** %4, align 8
-  %10 = ptrtoint i32* %8 to i64
-  %11 = ptrtoint i32* %9 to i64
-  %12 = sub i64 %10, %11
-  %13 = sdiv exact i64 %12, 4
-  store i64 %13, i64* %7, align 8
-  %14 = load i64, i64* %7, align 8
-  %15 = icmp ne i64 %14, 0
-  br i1 %15, label %16, label %23
-
-16:                                               ; preds = %3
-  %17 = load i32*, i32** %6, align 8
-  %18 = bitcast i32* %17 to i8*
-  %19 = load i32*, i32** %4, align 8
-  %20 = bitcast i32* %19 to i8*
-  %21 = load i64, i64* %7, align 8
-  %22 = mul i64 4, %21
-  call void @llvm.memmove.p0i8.p0i8.i64(i8* align 4 %18, i8* align 4 %20, i64 %22, i1 false)
-  br label %23
-
-23:                                               ; preds = %16, %3
-  %24 = load i32*, i32** %6, align 8
-  %25 = load i64, i64* %7, align 8
-  %26 = getelementptr inbounds i32, i32* %24, i64 %25
-  ret i32* %26
-}
-
-; Function Attrs: argmemonly nofree nounwind willreturn
-declare void @llvm.memmove.p0i8.p0i8.i64(i8* nocapture writeonly, i8* nocapture readonly, i64, i1 immarg) #5
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim(%"struct.std::_Vector_base.14"* nonnull align 8 dereferenceable(24) %0, i32* %1, i64 %2) #7 comdat align 2 {
-  %4 = alloca %"struct.std::_Vector_base.14"*, align 8
-  %5 = alloca i32*, align 8
-  %6 = alloca i64, align 8
-  store %"struct.std::_Vector_base.14"* %0, %"struct.std::_Vector_base.14"** %4, align 8
-  store i32* %1, i32** %5, align 8
-  store i64 %2, i64* %6, align 8
-  %7 = load %"struct.std::_Vector_base.14"*, %"struct.std::_Vector_base.14"** %4, align 8
-  %8 = load i32*, i32** %5, align 8
-  %9 = icmp ne i32* %8, null
-  br i1 %9, label %10, label %15
-
-10:                                               ; preds = %3
-  %11 = getelementptr inbounds %"struct.std::_Vector_base.14", %"struct.std::_Vector_base.14"* %7, i32 0, i32 0
-  %12 = bitcast %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl"* %11 to %"class.std::allocator.15"*
-  %13 = load i32*, i32** %5, align 8
-  %14 = load i64, i64* %6, align 8
-  call void @_ZNSt16allocator_traitsISaIiEE10deallocateERS0_Pim(%"class.std::allocator.15"* nonnull align 1 dereferenceable(1) %12, i32* %13, i64 %14)
-  br label %15
-
-15:                                               ; preds = %10, %3
-  ret void
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt12_Vector_baseIiSaIiEE12_Vector_implD2Ev(%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl"* nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 {
-  %2 = alloca %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl"*, align 8
-  store %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl"* %0, %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl"** %2, align 8
-  %3 = load %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl"*, %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl"** %2, align 8
-  %4 = bitcast %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl"* %3 to %"class.std::allocator.15"*
-  call void @_ZNSaIiED2Ev(%"class.std::allocator.15"* nonnull align 1 dereferenceable(1) %4) #3
-  ret void
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_ZNSt16allocator_traitsISaIiEE10deallocateERS0_Pim(%"class.std::allocator.15"* nonnull align 1 dereferenceable(1) %0, i32* %1, i64 %2) #7 comdat align 2 {
-  %4 = alloca %"class.std::allocator.15"*, align 8
-  %5 = alloca i32*, align 8
-  %6 = alloca i64, align 8
-  store %"class.std::allocator.15"* %0, %"class.std::allocator.15"** %4, align 8
-  store i32* %1, i32** %5, align 8
-  store i64 %2, i64* %6, align 8
-  %7 = load %"class.std::allocator.15"*, %"class.std::allocator.15"** %4, align 8
-  %8 = bitcast %"class.std::allocator.15"* %7 to %"class.__gnu_cxx::new_allocator.16"*
-  %9 = load i32*, i32** %5, align 8
-  %10 = load i64, i64* %6, align 8
-  call void @_ZN9__gnu_cxx13new_allocatorIiE10deallocateEPim(%"class.__gnu_cxx::new_allocator.16"* nonnull align 1 dereferenceable(1) %8, i32* %9, i64 %10)
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZN9__gnu_cxx13new_allocatorIiE10deallocateEPim(%"class.__gnu_cxx::new_allocator.16"* nonnull align 1 dereferenceable(1) %0, i32* %1, i64 %2) #6 comdat align 2 {
-  %4 = alloca %"class.__gnu_cxx::new_allocator.16"*, align 8
-  %5 = alloca i32*, align 8
-  %6 = alloca i64, align 8
-  store %"class.__gnu_cxx::new_allocator.16"* %0, %"class.__gnu_cxx::new_allocator.16"** %4, align 8
-  store i32* %1, i32** %5, align 8
-  store i64 %2, i64* %6, align 8
-  %7 = load %"class.__gnu_cxx::new_allocator.16"*, %"class.__gnu_cxx::new_allocator.16"** %4, align 8
-  %8 = load i32*, i32** %5, align 8
-  %9 = bitcast i32* %8 to i8*
-  call void @_ZdlPv(i8* %9) #3
-  ret void
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZN9__gnu_cxx13new_allocatorIiED2Ev(%"class.__gnu_cxx::new_allocator.16"* nonnull align 1 dereferenceable(1) %0) unnamed_addr #9 comdat align 2 {
-  %2 = alloca %"class.__gnu_cxx::new_allocator.16"*, align 8
-  store %"class.__gnu_cxx::new_allocator.16"* %0, %"class.__gnu_cxx::new_allocator.16"** %2, align 8
-  %3 = load %"class.__gnu_cxx::new_allocator.16"*, %"class.__gnu_cxx::new_allocator.16"** %2, align 8
-  ret void
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt6vectorISt5tupleIJiiiiEESaIS1_EEC2Ev(%"class.std::vector.18"* nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
-  %2 = alloca %"class.std::vector.18"*, align 8
-  store %"class.std::vector.18"* %0, %"class.std::vector.18"** %2, align 8
-  %3 = load %"class.std::vector.18"*, %"class.std::vector.18"** %2, align 8
-  %4 = bitcast %"class.std::vector.18"* %3 to %"struct.std::_Vector_base.19"*
-  invoke void @_ZNSt12_Vector_baseISt5tupleIJiiiiEESaIS1_EEC2Ev(%"struct.std::_Vector_base.19"* nonnull align 8 dereferenceable(24) %4)
-          to label %5 unwind label %6
-
-5:                                                ; preds = %1
-  ret void
-
-6:                                                ; preds = %1
-  %7 = landingpad { i8*, i32 }
-          catch i8* null
-  %8 = extractvalue { i8*, i32 } %7, 0
-  call void @__clang_call_terminate(i8* %8) #20
-  unreachable
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_ZNSt6vectorISt5tupleIJiiiiEESaIS1_EE9push_backEOS1_(%"class.std::vector.18"* nonnull align 8 dereferenceable(24) %0, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %1) #7 comdat align 2 {
-  %3 = alloca %"class.std::vector.18"*, align 8
-  %4 = alloca %"class.std::tuple"*, align 8
-  store %"class.std::vector.18"* %0, %"class.std::vector.18"** %3, align 8
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %4, align 8
-  %5 = load %"class.std::vector.18"*, %"class.std::vector.18"** %3, align 8
-  %6 = load %"class.std::tuple"*, %"class.std::tuple"** %4, align 8
-  %7 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZSt4moveIRSt5tupleIJiiiiEEEONSt16remove_referenceIT_E4typeEOS4_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %6) #3
-  call void @_ZNSt6vectorISt5tupleIJiiiiEESaIS1_EE12emplace_backIJS1_EEEvDpOT_(%"class.std::vector.18"* nonnull align 8 dereferenceable(24) %5, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %7)
-  ret void
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_ZSt10make_tupleIJRiS0_S0_S0_EESt5tupleIJDpNSt17__decay_and_stripIT_E6__typeEEEDpOS3_(%"class.std::tuple"* noalias sret(%"class.std::tuple") align 4 %0, i32* nonnull align 4 dereferenceable(4) %1, i32* nonnull align 4 dereferenceable(4) %2, i32* nonnull align 4 dereferenceable(4) %3, i32* nonnull align 4 dereferenceable(4) %4) #7 comdat {
-  %6 = alloca i8*, align 8
-  %7 = alloca i32*, align 8
-  %8 = alloca i32*, align 8
-  %9 = alloca i32*, align 8
-  %10 = alloca i32*, align 8
-  %11 = bitcast %"class.std::tuple"* %0 to i8*
-  store i8* %11, i8** %6, align 8
-  store i32* %1, i32** %7, align 8
-  store i32* %2, i32** %8, align 8
-  store i32* %3, i32** %9, align 8
-  store i32* %4, i32** %10, align 8
-  %12 = load i32*, i32** %7, align 8
-  %13 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIRiEOT_RNSt16remove_referenceIS1_E4typeE(i32* nonnull align 4 dereferenceable(4) %12) #3
-  %14 = load i32*, i32** %8, align 8
-  %15 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIRiEOT_RNSt16remove_referenceIS1_E4typeE(i32* nonnull align 4 dereferenceable(4) %14) #3
-  %16 = load i32*, i32** %9, align 8
-  %17 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIRiEOT_RNSt16remove_referenceIS1_E4typeE(i32* nonnull align 4 dereferenceable(4) %16) #3
-  %18 = load i32*, i32** %10, align 8
-  %19 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIRiEOT_RNSt16remove_referenceIS1_E4typeE(i32* nonnull align 4 dereferenceable(4) %18) #3
-  call void @_ZNSt5tupleIJiiiiEEC2IJRiS2_S2_S2_ELb1EEEDpOT_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %0, i32* nonnull align 4 dereferenceable(4) %13, i32* nonnull align 4 dereferenceable(4) %15, i32* nonnull align 4 dereferenceable(4) %17, i32* nonnull align 4 dereferenceable(4) %19)
-  ret void
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEEPFbRKS3_SA_EEvT_SD_T0_(%"class.std::tuple"* %0, %"class.std::tuple"* %1, i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %2) #7 comdat {
-  %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %6 = alloca i1 (%"class.std::tuple"*, %"class.std::tuple"*)*, align 8
-  %7 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %8 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %9 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
-  %10 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %4, i32 0, i32 0
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %10, align 8
-  %11 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %5, i32 0, i32 0
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %11, align 8
-  store i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %2, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %6, align 8
-  %12 = bitcast %"class.__gnu_cxx::__normal_iterator"* %7 to i8*
-  %13 = bitcast %"class.__gnu_cxx::__normal_iterator"* %4 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %12, i8* align 8 %13, i64 8, i1 false)
-  %14 = bitcast %"class.__gnu_cxx::__normal_iterator"* %8 to i8*
-  %15 = bitcast %"class.__gnu_cxx::__normal_iterator"* %5 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %14, i8* align 8 %15, i64 8, i1 false)
-  %16 = load i1 (%"class.std::tuple"*, %"class.std::tuple"*)*, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %6, align 8
-  %17 = call i1 (%"class.std::tuple"*, %"class.std::tuple"*)* @_ZN9__gnu_cxx5__ops16__iter_comp_iterIPFbRKSt5tupleIJiiiiEES5_EEENS0_15_Iter_comp_iterIT_EES9_(i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %16)
-  %18 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Iter_comp_iter", %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %9, i32 0, i32 0
-  store i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %17, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %18, align 8
-  %19 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %7, i32 0, i32 0
-  %20 = load %"class.std::tuple"*, %"class.std::tuple"** %19, align 8
-  %21 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %8, i32 0, i32 0
-  %22 = load %"class.std::tuple"*, %"class.std::tuple"** %21, align 8
-  %23 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Iter_comp_iter", %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %9, i32 0, i32 0
-  %24 = load i1 (%"class.std::tuple"*, %"class.std::tuple"*)*, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %23, align 8
-  call void @_ZSt6__sortIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_(%"class.std::tuple"* %20, %"class.std::tuple"* %22, i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %24)
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local %"class.std::tuple"* @_ZNSt6vectorISt5tupleIJiiiiEESaIS1_EE5beginEv(%"class.std::vector.18"* nonnull align 8 dereferenceable(24) %0) #6 comdat align 2 {
-  %2 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %3 = alloca %"class.std::vector.18"*, align 8
-  store %"class.std::vector.18"* %0, %"class.std::vector.18"** %3, align 8
-  %4 = load %"class.std::vector.18"*, %"class.std::vector.18"** %3, align 8
-  %5 = bitcast %"class.std::vector.18"* %4 to %"struct.std::_Vector_base.19"*
-  %6 = getelementptr inbounds %"struct.std::_Vector_base.19", %"struct.std::_Vector_base.19"* %5, i32 0, i32 0
-  %7 = getelementptr inbounds %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl", %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* %6, i32 0, i32 0
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEC2ERKS3_(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %2, %"class.std::tuple"** nonnull align 8 dereferenceable(8) %7) #3
-  %8 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %2, i32 0, i32 0
-  %9 = load %"class.std::tuple"*, %"class.std::tuple"** %8, align 8
-  ret %"class.std::tuple"* %9
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local %"class.std::tuple"* @_ZNSt6vectorISt5tupleIJiiiiEESaIS1_EE3endEv(%"class.std::vector.18"* nonnull align 8 dereferenceable(24) %0) #6 comdat align 2 {
-  %2 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %3 = alloca %"class.std::vector.18"*, align 8
-  store %"class.std::vector.18"* %0, %"class.std::vector.18"** %3, align 8
-  %4 = load %"class.std::vector.18"*, %"class.std::vector.18"** %3, align 8
-  %5 = bitcast %"class.std::vector.18"* %4 to %"struct.std::_Vector_base.19"*
-  %6 = getelementptr inbounds %"struct.std::_Vector_base.19", %"struct.std::_Vector_base.19"* %5, i32 0, i32 0
-  %7 = getelementptr inbounds %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl", %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* %6, i32 0, i32 1
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEC2ERKS3_(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %2, %"class.std::tuple"** nonnull align 8 dereferenceable(8) %7) #3
-  %8 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %2, i32 0, i32 0
-  %9 = load %"class.std::tuple"*, %"class.std::tuple"** %8, align 8
-  ret %"class.std::tuple"* %9
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local zeroext i1 @_Z7compareIiiEbRKSt5tupleIJT_S1_T0_S1_EES5_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %0, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %1) #6 comdat {
-  %3 = alloca i1, align 1
-  %4 = alloca %"class.std::tuple"*, align 8
-  %5 = alloca %"class.std::tuple"*, align 8
-  %6 = alloca i32, align 4
-  %7 = alloca i32, align 4
-  %8 = alloca i32, align 4
-  %9 = alloca i32, align 4
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %4, align 8
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %5, align 8
-  %10 = load %"class.std::tuple"*, %"class.std::tuple"** %4, align 8
-  %11 = call nonnull align 4 dereferenceable(4) i32* @_ZSt3getILm0EJiiiiEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS4_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %10) #3
-  %12 = load i32, i32* %11, align 4
-  store i32 %12, i32* %6, align 4
-  %13 = load %"class.std::tuple"*, %"class.std::tuple"** %5, align 8
-  %14 = call nonnull align 4 dereferenceable(4) i32* @_ZSt3getILm0EJiiiiEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS4_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %13) #3
-  %15 = load i32, i32* %14, align 4
-  store i32 %15, i32* %7, align 4
-  %16 = load %"class.std::tuple"*, %"class.std::tuple"** %4, align 8
-  %17 = call nonnull align 4 dereferenceable(4) i32* @_ZSt3getILm1EJiiiiEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS4_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %16) #3
-  %18 = load i32, i32* %17, align 4
-  store i32 %18, i32* %8, align 4
-  %19 = load %"class.std::tuple"*, %"class.std::tuple"** %5, align 8
-  %20 = call nonnull align 4 dereferenceable(4) i32* @_ZSt3getILm1EJiiiiEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS4_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %19) #3
-  %21 = load i32, i32* %20, align 4
-  store i32 %21, i32* %9, align 4
-  %22 = load i32, i32* %6, align 4
-  %23 = load i32, i32* %7, align 4
-  %24 = icmp eq i32 %22, %23
-  br i1 %24, label %25, label %29
-
-25:                                               ; preds = %2
-  %26 = load i32, i32* %8, align 4
-  %27 = load i32, i32* %9, align 4
-  %28 = icmp slt i32 %26, %27
-  store i1 %28, i1* %3, align 1
-  br label %33
-
-29:                                               ; preds = %2
-  %30 = load i32, i32* %6, align 4
-  %31 = load i32, i32* %7, align 4
-  %32 = icmp slt i32 %30, %31
-  store i1 %32, i1* %3, align 1
-  br label %33
-
-33:                                               ; preds = %29, %25
-  %34 = load i1, i1* %3, align 1
-  ret i1 %34
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(4) i32* @_ZSt3getILm0EJiiiiEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS4_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %0) #6 comdat {
-  %2 = alloca %"class.std::tuple"*, align 8
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %2, align 8
-  %3 = load %"class.std::tuple"*, %"class.std::tuple"** %2, align 8
-  %4 = bitcast %"class.std::tuple"* %3 to %"struct.std::_Tuple_impl"*
-  %5 = call nonnull align 4 dereferenceable(4) i32* @_ZSt12__get_helperILm0EiJiiiEERT0_RSt11_Tuple_implIXT_EJS0_DpT1_EE(%"struct.std::_Tuple_impl"* nonnull align 4 dereferenceable(16) %4) #3
-  ret i32* %5
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNSt6vectorISt5tupleIJiiiiEESaIS1_EEixEm(%"class.std::vector.18"* nonnull align 8 dereferenceable(24) %0, i64 %1) #6 comdat align 2 {
-  %3 = alloca %"class.std::vector.18"*, align 8
-  %4 = alloca i64, align 8
-  store %"class.std::vector.18"* %0, %"class.std::vector.18"** %3, align 8
-  store i64 %1, i64* %4, align 8
-  %5 = load %"class.std::vector.18"*, %"class.std::vector.18"** %3, align 8
-  %6 = bitcast %"class.std::vector.18"* %5 to %"struct.std::_Vector_base.19"*
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.19", %"struct.std::_Vector_base.19"* %6, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl", %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* %7, i32 0, i32 0
-  %9 = load %"class.std::tuple"*, %"class.std::tuple"** %8, align 8
-  %10 = load i64, i64* %4, align 8
-  %11 = getelementptr inbounds %"class.std::tuple", %"class.std::tuple"* %9, i64 %10
-  ret %"class.std::tuple"* %11
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(4) i32* @_ZSt3getILm1EJiiiiEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS4_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %0) #6 comdat {
-  %2 = alloca %"class.std::tuple"*, align 8
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %2, align 8
-  %3 = load %"class.std::tuple"*, %"class.std::tuple"** %2, align 8
-  %4 = bitcast %"class.std::tuple"* %3 to %"struct.std::_Tuple_impl.23"*
-  %5 = call nonnull align 4 dereferenceable(4) i32* @_ZSt12__get_helperILm1EiJiiEERT0_RSt11_Tuple_implIXT_EJS0_DpT1_EE(%"struct.std::_Tuple_impl.23"* nonnull align 4 dereferenceable(12) %4) #3
-  ret i32* %5
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(4) i32* @_ZSt3getILm2EJiiiiEERNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERS4_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %0) #6 comdat {
-  %2 = alloca %"class.std::tuple"*, align 8
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %2, align 8
-  %3 = load %"class.std::tuple"*, %"class.std::tuple"** %2, align 8
-  %4 = bitcast %"class.std::tuple"* %3 to %"struct.std::_Tuple_impl.24"*
-  %5 = call nonnull align 4 dereferenceable(4) i32* @_ZSt12__get_helperILm2EiJiEERT0_RSt11_Tuple_implIXT_EJS0_DpT1_EE(%"struct.std::_Tuple_impl.24"* nonnull align 4 dereferenceable(8) %4) #3
-  ret i32* %5
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt6vectorISt5tupleIJiiiiEESaIS1_EED2Ev(%"class.std::vector.18"* nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
-  %2 = alloca %"class.std::vector.18"*, align 8
-  %3 = alloca i8*, align 8
-  %4 = alloca i32, align 4
-  store %"class.std::vector.18"* %0, %"class.std::vector.18"** %2, align 8
-  %5 = load %"class.std::vector.18"*, %"class.std::vector.18"** %2, align 8
-  %6 = bitcast %"class.std::vector.18"* %5 to %"struct.std::_Vector_base.19"*
-  %7 = getelementptr inbounds %"struct.std::_Vector_base.19", %"struct.std::_Vector_base.19"* %6, i32 0, i32 0
-  %8 = getelementptr inbounds %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl", %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* %7, i32 0, i32 0
-  %9 = load %"class.std::tuple"*, %"class.std::tuple"** %8, align 8
-  %10 = bitcast %"class.std::vector.18"* %5 to %"struct.std::_Vector_base.19"*
-  %11 = getelementptr inbounds %"struct.std::_Vector_base.19", %"struct.std::_Vector_base.19"* %10, i32 0, i32 0
-  %12 = getelementptr inbounds %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl", %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* %11, i32 0, i32 1
-  %13 = load %"class.std::tuple"*, %"class.std::tuple"** %12, align 8
-  %14 = bitcast %"class.std::vector.18"* %5 to %"struct.std::_Vector_base.19"*
-  %15 = call nonnull align 1 dereferenceable(1) %"class.std::allocator.20"* @_ZNSt12_Vector_baseISt5tupleIJiiiiEESaIS1_EE19_M_get_Tp_allocatorEv(%"struct.std::_Vector_base.19"* nonnull align 8 dereferenceable(24) %14) #3
-  invoke void @_ZSt8_DestroyIPSt5tupleIJiiiiEES1_EvT_S3_RSaIT0_E(%"class.std::tuple"* %9, %"class.std::tuple"* %13, %"class.std::allocator.20"* nonnull align 1 dereferenceable(1) %15)
-          to label %16 unwind label %18
-
-16:                                               ; preds = %1
-  %17 = bitcast %"class.std::vector.18"* %5 to %"struct.std::_Vector_base.19"*
-  call void @_ZNSt12_Vector_baseISt5tupleIJiiiiEESaIS1_EED2Ev(%"struct.std::_Vector_base.19"* nonnull align 8 dereferenceable(24) %17) #3
-  ret void
-
-18:                                               ; preds = %1
-  %19 = landingpad { i8*, i32 }
-          catch i8* null
-  %20 = extractvalue { i8*, i32 } %19, 0
-  store i8* %20, i8** %3, align 8
-  %21 = extractvalue { i8*, i32 } %19, 1
-  store i32 %21, i32* %4, align 4
-  %22 = bitcast %"class.std::vector.18"* %5 to %"struct.std::_Vector_base.19"*
-  call void @_ZNSt12_Vector_baseISt5tupleIJiiiiEESaIS1_EED2Ev(%"struct.std::_Vector_base.19"* nonnull align 8 dereferenceable(24) %22) #3
-  br label %23
-
-23:                                               ; preds = %18
-  %24 = load i8*, i8** %3, align 8
-  call void @__clang_call_terminate(i8* %24) #20
-  unreachable
-}
-
-; Function Attrs: noinline optnone uwtable
-define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt5tupleIJiiiiEESaIS1_EEC2Ev(%"struct.std::_Vector_base.19"* nonnull align 8 dereferenceable(24) %0) unnamed_addr #18 comdat align 2 {
-  %2 = alloca %"struct.std::_Vector_base.19"*, align 8
-  store %"struct.std::_Vector_base.19"* %0, %"struct.std::_Vector_base.19"** %2, align 8
-  %3 = load %"struct.std::_Vector_base.19"*, %"struct.std::_Vector_base.19"** %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.19", %"struct.std::_Vector_base.19"* %3, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseISt5tupleIJiiiiEESaIS1_EE12_Vector_implC2Ev(%"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* nonnull align 8 dereferenceable(24) %4)
-  ret void
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt5tupleIJiiiiEESaIS1_EE12_Vector_implC2Ev(%"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 {
-  %2 = alloca %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"*, align 8
-  store %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* %0, %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"** %2, align 8
-  %3 = load %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"*, %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"** %2, align 8
-  %4 = bitcast %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* %3 to %"class.std::allocator.20"*
-  call void @_ZNSaISt5tupleIJiiiiEEEC2Ev(%"class.std::allocator.20"* nonnull align 1 dereferenceable(1) %4) #3
-  %5 = getelementptr inbounds %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl", %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* %3, i32 0, i32 0
-  store %"class.std::tuple"* null, %"class.std::tuple"** %5, align 8
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl", %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* %3, i32 0, i32 1
-  store %"class.std::tuple"* null, %"class.std::tuple"** %6, align 8
-  %7 = getelementptr inbounds %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl", %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* %3, i32 0, i32 2
-  store %"class.std::tuple"* null, %"class.std::tuple"** %7, align 8
-  ret void
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSaISt5tupleIJiiiiEEEC2Ev(%"class.std::allocator.20"* nonnull align 1 dereferenceable(1) %0) unnamed_addr #9 comdat align 2 {
-  %2 = alloca %"class.std::allocator.20"*, align 8
-  store %"class.std::allocator.20"* %0, %"class.std::allocator.20"** %2, align 8
-  %3 = load %"class.std::allocator.20"*, %"class.std::allocator.20"** %2, align 8
-  %4 = bitcast %"class.std::allocator.20"* %3 to %"class.__gnu_cxx::new_allocator.21"*
-  call void @_ZN9__gnu_cxx13new_allocatorISt5tupleIJiiiiEEEC2Ev(%"class.__gnu_cxx::new_allocator.21"* nonnull align 1 dereferenceable(1) %4) #3
-  ret void
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZN9__gnu_cxx13new_allocatorISt5tupleIJiiiiEEEC2Ev(%"class.__gnu_cxx::new_allocator.21"* nonnull align 1 dereferenceable(1) %0) unnamed_addr #9 comdat align 2 {
-  %2 = alloca %"class.__gnu_cxx::new_allocator.21"*, align 8
-  store %"class.__gnu_cxx::new_allocator.21"* %0, %"class.__gnu_cxx::new_allocator.21"** %2, align 8
-  %3 = load %"class.__gnu_cxx::new_allocator.21"*, %"class.__gnu_cxx::new_allocator.21"** %2, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_ZNSt6vectorISt5tupleIJiiiiEESaIS1_EE12emplace_backIJS1_EEEvDpOT_(%"class.std::vector.18"* nonnull align 8 dereferenceable(24) %0, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %1) #7 comdat align 2 {
-  %3 = alloca %"class.std::vector.18"*, align 8
-  %4 = alloca %"class.std::tuple"*, align 8
-  %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  store %"class.std::vector.18"* %0, %"class.std::vector.18"** %3, align 8
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %4, align 8
-  %6 = load %"class.std::vector.18"*, %"class.std::vector.18"** %3, align 8
-  %7 = bitcast %"class.std::vector.18"* %6 to %"struct.std::_Vector_base.19"*
-  %8 = getelementptr inbounds %"struct.std::_Vector_base.19", %"struct.std::_Vector_base.19"* %7, i32 0, i32 0
-  %9 = getelementptr inbounds %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl", %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* %8, i32 0, i32 1
-  %10 = load %"class.std::tuple"*, %"class.std::tuple"** %9, align 8
-  %11 = bitcast %"class.std::vector.18"* %6 to %"struct.std::_Vector_base.19"*
-  %12 = getelementptr inbounds %"struct.std::_Vector_base.19", %"struct.std::_Vector_base.19"* %11, i32 0, i32 0
-  %13 = getelementptr inbounds %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl", %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* %12, i32 0, i32 2
-  %14 = load %"class.std::tuple"*, %"class.std::tuple"** %13, align 8
-  %15 = icmp ne %"class.std::tuple"* %10, %14
-  br i1 %15, label %16, label %31
-
-16:                                               ; preds = %2
-  %17 = bitcast %"class.std::vector.18"* %6 to %"struct.std::_Vector_base.19"*
-  %18 = getelementptr inbounds %"struct.std::_Vector_base.19", %"struct.std::_Vector_base.19"* %17, i32 0, i32 0
-  %19 = bitcast %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* %18 to %"class.std::allocator.20"*
-  %20 = bitcast %"class.std::vector.18"* %6 to %"struct.std::_Vector_base.19"*
-  %21 = getelementptr inbounds %"struct.std::_Vector_base.19", %"struct.std::_Vector_base.19"* %20, i32 0, i32 0
-  %22 = getelementptr inbounds %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl", %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* %21, i32 0, i32 1
-  %23 = load %"class.std::tuple"*, %"class.std::tuple"** %22, align 8
-  %24 = load %"class.std::tuple"*, %"class.std::tuple"** %4, align 8
-  %25 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZSt7forwardISt5tupleIJiiiiEEEOT_RNSt16remove_referenceIS2_E4typeE(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %24) #3
-  call void @_ZNSt16allocator_traitsISaISt5tupleIJiiiiEEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_(%"class.std::allocator.20"* nonnull align 1 dereferenceable(1) %19, %"class.std::tuple"* %23, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %25)
-  %26 = bitcast %"class.std::vector.18"* %6 to %"struct.std::_Vector_base.19"*
-  %27 = getelementptr inbounds %"struct.std::_Vector_base.19", %"struct.std::_Vector_base.19"* %26, i32 0, i32 0
-  %28 = getelementptr inbounds %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl", %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* %27, i32 0, i32 1
-  %29 = load %"class.std::tuple"*, %"class.std::tuple"** %28, align 8
-  %30 = getelementptr inbounds %"class.std::tuple", %"class.std::tuple"* %29, i32 1
-  store %"class.std::tuple"* %30, %"class.std::tuple"** %28, align 8
-  br label %38
-
-31:                                               ; preds = %2
-  %32 = call %"class.std::tuple"* @_ZNSt6vectorISt5tupleIJiiiiEESaIS1_EE3endEv(%"class.std::vector.18"* nonnull align 8 dereferenceable(24) %6) #3
-  %33 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %5, i32 0, i32 0
-  store %"class.std::tuple"* %32, %"class.std::tuple"** %33, align 8
-  %34 = load %"class.std::tuple"*, %"class.std::tuple"** %4, align 8
-  %35 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZSt7forwardISt5tupleIJiiiiEEEOT_RNSt16remove_referenceIS2_E4typeE(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %34) #3
-  %36 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %5, i32 0, i32 0
-  %37 = load %"class.std::tuple"*, %"class.std::tuple"** %36, align 8
-  call void @_ZNSt6vectorISt5tupleIJiiiiEESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(%"class.std::vector.18"* nonnull align 8 dereferenceable(24) %6, %"class.std::tuple"* %37, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %35)
-  br label %38
-
-38:                                               ; preds = %31, %16
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZSt4moveIRSt5tupleIJiiiiEEEONSt16remove_referenceIT_E4typeEOS4_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %0) #6 comdat {
-  %2 = alloca %"class.std::tuple"*, align 8
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %2, align 8
-  %3 = load %"class.std::tuple"*, %"class.std::tuple"** %2, align 8
-  ret %"class.std::tuple"* %3
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_ZNSt16allocator_traitsISaISt5tupleIJiiiiEEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_(%"class.std::allocator.20"* nonnull align 1 dereferenceable(1) %0, %"class.std::tuple"* %1, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %2) #7 comdat align 2 {
-  %4 = alloca %"class.std::allocator.20"*, align 8
-  %5 = alloca %"class.std::tuple"*, align 8
-  %6 = alloca %"class.std::tuple"*, align 8
-  store %"class.std::allocator.20"* %0, %"class.std::allocator.20"** %4, align 8
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %5, align 8
-  store %"class.std::tuple"* %2, %"class.std::tuple"** %6, align 8
-  %7 = load %"class.std::allocator.20"*, %"class.std::allocator.20"** %4, align 8
-  %8 = bitcast %"class.std::allocator.20"* %7 to %"class.__gnu_cxx::new_allocator.21"*
-  %9 = load %"class.std::tuple"*, %"class.std::tuple"** %5, align 8
-  %10 = load %"class.std::tuple"*, %"class.std::tuple"** %6, align 8
-  %11 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZSt7forwardISt5tupleIJiiiiEEEOT_RNSt16remove_referenceIS2_E4typeE(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %10) #3
-  call void @_ZN9__gnu_cxx13new_allocatorISt5tupleIJiiiiEEE9constructIS2_JS2_EEEvPT_DpOT0_(%"class.__gnu_cxx::new_allocator.21"* nonnull align 1 dereferenceable(1) %8, %"class.std::tuple"* %9, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %11)
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZSt7forwardISt5tupleIJiiiiEEEOT_RNSt16remove_referenceIS2_E4typeE(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %0) #6 comdat {
-  %2 = alloca %"class.std::tuple"*, align 8
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %2, align 8
-  %3 = load %"class.std::tuple"*, %"class.std::tuple"** %2, align 8
-  ret %"class.std::tuple"* %3
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_ZNSt6vectorISt5tupleIJiiiiEESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(%"class.std::vector.18"* nonnull align 8 dereferenceable(24) %0, %"class.std::tuple"* %1, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %2) #7 comdat align 2 personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
-  %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %5 = alloca %"class.std::vector.18"*, align 8
-  %6 = alloca %"class.std::tuple"*, align 8
-  %7 = alloca i64, align 8
-  %8 = alloca %"class.std::tuple"*, align 8
-  %9 = alloca %"class.std::tuple"*, align 8
-  %10 = alloca i64, align 8
-  %11 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %12 = alloca %"class.std::tuple"*, align 8
-  %13 = alloca %"class.std::tuple"*, align 8
-  %14 = alloca i8*, align 8
-  %15 = alloca i32, align 4
-  %16 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %4, i32 0, i32 0
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %16, align 8
-  store %"class.std::vector.18"* %0, %"class.std::vector.18"** %5, align 8
-  store %"class.std::tuple"* %2, %"class.std::tuple"** %6, align 8
-  %17 = load %"class.std::vector.18"*, %"class.std::vector.18"** %5, align 8
-  %18 = call i64 @_ZNKSt6vectorISt5tupleIJiiiiEESaIS1_EE12_M_check_lenEmPKc(%"class.std::vector.18"* nonnull align 8 dereferenceable(24) %17, i64 1, i8* getelementptr inbounds ([26 x i8], [26 x i8]* @.str.80, i64 0, i64 0))
-  store i64 %18, i64* %7, align 8
-  %19 = bitcast %"class.std::vector.18"* %17 to %"struct.std::_Vector_base.19"*
-  %20 = getelementptr inbounds %"struct.std::_Vector_base.19", %"struct.std::_Vector_base.19"* %19, i32 0, i32 0
-  %21 = getelementptr inbounds %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl", %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* %20, i32 0, i32 0
-  %22 = load %"class.std::tuple"*, %"class.std::tuple"** %21, align 8
-  store %"class.std::tuple"* %22, %"class.std::tuple"** %8, align 8
-  %23 = bitcast %"class.std::vector.18"* %17 to %"struct.std::_Vector_base.19"*
-  %24 = getelementptr inbounds %"struct.std::_Vector_base.19", %"struct.std::_Vector_base.19"* %23, i32 0, i32 0
-  %25 = getelementptr inbounds %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl", %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* %24, i32 0, i32 1
-  %26 = load %"class.std::tuple"*, %"class.std::tuple"** %25, align 8
-  store %"class.std::tuple"* %26, %"class.std::tuple"** %9, align 8
-  %27 = call %"class.std::tuple"* @_ZNSt6vectorISt5tupleIJiiiiEESaIS1_EE5beginEv(%"class.std::vector.18"* nonnull align 8 dereferenceable(24) %17) #3
-  %28 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %11, i32 0, i32 0
-  store %"class.std::tuple"* %27, %"class.std::tuple"** %28, align 8
-  %29 = call i64 @_ZN9__gnu_cxxmiIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSA_SD_(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %4, %"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %11) #3
-  store i64 %29, i64* %10, align 8
-  %30 = bitcast %"class.std::vector.18"* %17 to %"struct.std::_Vector_base.19"*
-  %31 = load i64, i64* %7, align 8
-  %32 = call %"class.std::tuple"* @_ZNSt12_Vector_baseISt5tupleIJiiiiEESaIS1_EE11_M_allocateEm(%"struct.std::_Vector_base.19"* nonnull align 8 dereferenceable(24) %30, i64 %31)
-  store %"class.std::tuple"* %32, %"class.std::tuple"** %12, align 8
-  %33 = load %"class.std::tuple"*, %"class.std::tuple"** %12, align 8
-  store %"class.std::tuple"* %33, %"class.std::tuple"** %13, align 8
-  %34 = bitcast %"class.std::vector.18"* %17 to %"struct.std::_Vector_base.19"*
-  %35 = getelementptr inbounds %"struct.std::_Vector_base.19", %"struct.std::_Vector_base.19"* %34, i32 0, i32 0
-  %36 = bitcast %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* %35 to %"class.std::allocator.20"*
-  %37 = load %"class.std::tuple"*, %"class.std::tuple"** %12, align 8
-  %38 = load i64, i64* %10, align 8
-  %39 = getelementptr inbounds %"class.std::tuple", %"class.std::tuple"* %37, i64 %38
-  %40 = load %"class.std::tuple"*, %"class.std::tuple"** %6, align 8
-  %41 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZSt7forwardISt5tupleIJiiiiEEEOT_RNSt16remove_referenceIS2_E4typeE(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %40) #3
-  invoke void @_ZNSt16allocator_traitsISaISt5tupleIJiiiiEEEE9constructIS1_JS1_EEEvRS2_PT_DpOT0_(%"class.std::allocator.20"* nonnull align 1 dereferenceable(1) %36, %"class.std::tuple"* %39, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %41)
-          to label %42 unwind label %61
-
-42:                                               ; preds = %3
-  store %"class.std::tuple"* null, %"class.std::tuple"** %13, align 8
-  %43 = load %"class.std::tuple"*, %"class.std::tuple"** %8, align 8
-  %44 = call nonnull align 8 dereferenceable(8) %"class.std::tuple"** @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEE4baseEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %4) #3
-  %45 = load %"class.std::tuple"*, %"class.std::tuple"** %44, align 8
-  %46 = load %"class.std::tuple"*, %"class.std::tuple"** %12, align 8
-  %47 = bitcast %"class.std::vector.18"* %17 to %"struct.std::_Vector_base.19"*
-  %48 = call nonnull align 1 dereferenceable(1) %"class.std::allocator.20"* @_ZNSt12_Vector_baseISt5tupleIJiiiiEESaIS1_EE19_M_get_Tp_allocatorEv(%"struct.std::_Vector_base.19"* nonnull align 8 dereferenceable(24) %47) #3
-  %49 = invoke %"class.std::tuple"* @_ZSt34__uninitialized_move_if_noexcept_aIPSt5tupleIJiiiiEES2_SaIS1_EET0_T_S5_S4_RT1_(%"class.std::tuple"* %43, %"class.std::tuple"* %45, %"class.std::tuple"* %46, %"class.std::allocator.20"* nonnull align 1 dereferenceable(1) %48)
-          to label %50 unwind label %61
-
-50:                                               ; preds = %42
-  store %"class.std::tuple"* %49, %"class.std::tuple"** %13, align 8
-  %51 = load %"class.std::tuple"*, %"class.std::tuple"** %13, align 8
-  %52 = getelementptr inbounds %"class.std::tuple", %"class.std::tuple"* %51, i32 1
-  store %"class.std::tuple"* %52, %"class.std::tuple"** %13, align 8
-  %53 = call nonnull align 8 dereferenceable(8) %"class.std::tuple"** @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEE4baseEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %4) #3
-  %54 = load %"class.std::tuple"*, %"class.std::tuple"** %53, align 8
-  %55 = load %"class.std::tuple"*, %"class.std::tuple"** %9, align 8
-  %56 = load %"class.std::tuple"*, %"class.std::tuple"** %13, align 8
-  %57 = bitcast %"class.std::vector.18"* %17 to %"struct.std::_Vector_base.19"*
-  %58 = call nonnull align 1 dereferenceable(1) %"class.std::allocator.20"* @_ZNSt12_Vector_baseISt5tupleIJiiiiEESaIS1_EE19_M_get_Tp_allocatorEv(%"struct.std::_Vector_base.19"* nonnull align 8 dereferenceable(24) %57) #3
-  %59 = invoke %"class.std::tuple"* @_ZSt34__uninitialized_move_if_noexcept_aIPSt5tupleIJiiiiEES2_SaIS1_EET0_T_S5_S4_RT1_(%"class.std::tuple"* %54, %"class.std::tuple"* %55, %"class.std::tuple"* %56, %"class.std::allocator.20"* nonnull align 1 dereferenceable(1) %58)
-          to label %60 unwind label %61
-
-60:                                               ; preds = %50
-  store %"class.std::tuple"* %59, %"class.std::tuple"** %13, align 8
-  br label %94
-
-61:                                               ; preds = %50, %42, %3
-  %62 = landingpad { i8*, i32 }
-          catch i8* null
-  %63 = extractvalue { i8*, i32 } %62, 0
-  store i8* %63, i8** %14, align 8
-  %64 = extractvalue { i8*, i32 } %62, 1
-  store i32 %64, i32* %15, align 4
-  br label %65
-
-65:                                               ; preds = %61
-  %66 = load i8*, i8** %14, align 8
-  %67 = call i8* @__cxa_begin_catch(i8* %66) #3
-  %68 = load %"class.std::tuple"*, %"class.std::tuple"** %13, align 8
-  %69 = icmp ne %"class.std::tuple"* %68, null
-  br i1 %69, label %82, label %70
-
-70:                                               ; preds = %65
-  %71 = bitcast %"class.std::vector.18"* %17 to %"struct.std::_Vector_base.19"*
-  %72 = getelementptr inbounds %"struct.std::_Vector_base.19", %"struct.std::_Vector_base.19"* %71, i32 0, i32 0
-  %73 = bitcast %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* %72 to %"class.std::allocator.20"*
-  %74 = load %"class.std::tuple"*, %"class.std::tuple"** %12, align 8
-  %75 = load i64, i64* %10, align 8
-  %76 = getelementptr inbounds %"class.std::tuple", %"class.std::tuple"* %74, i64 %75
-  invoke void @_ZNSt16allocator_traitsISaISt5tupleIJiiiiEEEE7destroyIS1_EEvRS2_PT_(%"class.std::allocator.20"* nonnull align 1 dereferenceable(1) %73, %"class.std::tuple"* %76)
-          to label %77 unwind label %78
-
-77:                                               ; preds = %70
-  br label %88
-
-78:                                               ; preds = %92, %88, %82, %70
-  %79 = landingpad { i8*, i32 }
-          cleanup
-  %80 = extractvalue { i8*, i32 } %79, 0
-  store i8* %80, i8** %14, align 8
-  %81 = extractvalue { i8*, i32 } %79, 1
-  store i32 %81, i32* %15, align 4
-  invoke void @__cxa_end_catch()
-          to label %93 unwind label %129
-
-82:                                               ; preds = %65
-  %83 = load %"class.std::tuple"*, %"class.std::tuple"** %12, align 8
-  %84 = load %"class.std::tuple"*, %"class.std::tuple"** %13, align 8
-  %85 = bitcast %"class.std::vector.18"* %17 to %"struct.std::_Vector_base.19"*
-  %86 = call nonnull align 1 dereferenceable(1) %"class.std::allocator.20"* @_ZNSt12_Vector_baseISt5tupleIJiiiiEESaIS1_EE19_M_get_Tp_allocatorEv(%"struct.std::_Vector_base.19"* nonnull align 8 dereferenceable(24) %85) #3
-  invoke void @_ZSt8_DestroyIPSt5tupleIJiiiiEES1_EvT_S3_RSaIT0_E(%"class.std::tuple"* %83, %"class.std::tuple"* %84, %"class.std::allocator.20"* nonnull align 1 dereferenceable(1) %86)
-          to label %87 unwind label %78
-
-87:                                               ; preds = %82
-  br label %88
-
-88:                                               ; preds = %87, %77
-  %89 = bitcast %"class.std::vector.18"* %17 to %"struct.std::_Vector_base.19"*
-  %90 = load %"class.std::tuple"*, %"class.std::tuple"** %12, align 8
-  %91 = load i64, i64* %7, align 8
-  invoke void @_ZNSt12_Vector_baseISt5tupleIJiiiiEESaIS1_EE13_M_deallocateEPS1_m(%"struct.std::_Vector_base.19"* nonnull align 8 dereferenceable(24) %89, %"class.std::tuple"* %90, i64 %91)
-          to label %92 unwind label %78
-
-92:                                               ; preds = %88
-  invoke void @__cxa_rethrow() #23
-          to label %132 unwind label %78
-
-93:                                               ; preds = %78
-  br label %124
-
-94:                                               ; preds = %60
-  %95 = load %"class.std::tuple"*, %"class.std::tuple"** %8, align 8
-  %96 = load %"class.std::tuple"*, %"class.std::tuple"** %9, align 8
-  %97 = bitcast %"class.std::vector.18"* %17 to %"struct.std::_Vector_base.19"*
-  %98 = call nonnull align 1 dereferenceable(1) %"class.std::allocator.20"* @_ZNSt12_Vector_baseISt5tupleIJiiiiEESaIS1_EE19_M_get_Tp_allocatorEv(%"struct.std::_Vector_base.19"* nonnull align 8 dereferenceable(24) %97) #3
-  call void @_ZSt8_DestroyIPSt5tupleIJiiiiEES1_EvT_S3_RSaIT0_E(%"class.std::tuple"* %95, %"class.std::tuple"* %96, %"class.std::allocator.20"* nonnull align 1 dereferenceable(1) %98)
-  %99 = bitcast %"class.std::vector.18"* %17 to %"struct.std::_Vector_base.19"*
-  %100 = load %"class.std::tuple"*, %"class.std::tuple"** %8, align 8
-  %101 = bitcast %"class.std::vector.18"* %17 to %"struct.std::_Vector_base.19"*
-  %102 = getelementptr inbounds %"struct.std::_Vector_base.19", %"struct.std::_Vector_base.19"* %101, i32 0, i32 0
-  %103 = getelementptr inbounds %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl", %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* %102, i32 0, i32 2
-  %104 = load %"class.std::tuple"*, %"class.std::tuple"** %103, align 8
-  %105 = load %"class.std::tuple"*, %"class.std::tuple"** %8, align 8
-  %106 = ptrtoint %"class.std::tuple"* %104 to i64
-  %107 = ptrtoint %"class.std::tuple"* %105 to i64
-  %108 = sub i64 %106, %107
-  %109 = sdiv exact i64 %108, 16
-  call void @_ZNSt12_Vector_baseISt5tupleIJiiiiEESaIS1_EE13_M_deallocateEPS1_m(%"struct.std::_Vector_base.19"* nonnull align 8 dereferenceable(24) %99, %"class.std::tuple"* %100, i64 %109)
-  %110 = load %"class.std::tuple"*, %"class.std::tuple"** %12, align 8
-  %111 = bitcast %"class.std::vector.18"* %17 to %"struct.std::_Vector_base.19"*
-  %112 = getelementptr inbounds %"struct.std::_Vector_base.19", %"struct.std::_Vector_base.19"* %111, i32 0, i32 0
-  %113 = getelementptr inbounds %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl", %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* %112, i32 0, i32 0
-  store %"class.std::tuple"* %110, %"class.std::tuple"** %113, align 8
-  %114 = load %"class.std::tuple"*, %"class.std::tuple"** %13, align 8
-  %115 = bitcast %"class.std::vector.18"* %17 to %"struct.std::_Vector_base.19"*
-  %116 = getelementptr inbounds %"struct.std::_Vector_base.19", %"struct.std::_Vector_base.19"* %115, i32 0, i32 0
-  %117 = getelementptr inbounds %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl", %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* %116, i32 0, i32 1
-  store %"class.std::tuple"* %114, %"class.std::tuple"** %117, align 8
-  %118 = load %"class.std::tuple"*, %"class.std::tuple"** %12, align 8
-  %119 = load i64, i64* %7, align 8
-  %120 = getelementptr inbounds %"class.std::tuple", %"class.std::tuple"* %118, i64 %119
-  %121 = bitcast %"class.std::vector.18"* %17 to %"struct.std::_Vector_base.19"*
-  %122 = getelementptr inbounds %"struct.std::_Vector_base.19", %"struct.std::_Vector_base.19"* %121, i32 0, i32 0
-  %123 = getelementptr inbounds %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl", %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* %122, i32 0, i32 2
-  store %"class.std::tuple"* %120, %"class.std::tuple"** %123, align 8
-  ret void
-
-124:                                              ; preds = %93
-  %125 = load i8*, i8** %14, align 8
-  %126 = load i32, i32* %15, align 4
-  %127 = insertvalue { i8*, i32 } undef, i8* %125, 0
-  %128 = insertvalue { i8*, i32 } %127, i32 %126, 1
-  resume { i8*, i32 } %128
-
-129:                                              ; preds = %78
-  %130 = landingpad { i8*, i32 }
-          catch i8* null
-  %131 = extractvalue { i8*, i32 } %130, 0
-  call void @__clang_call_terminate(i8* %131) #20
-  unreachable
-
-132:                                              ; preds = %92
-  unreachable
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZN9__gnu_cxx13new_allocatorISt5tupleIJiiiiEEE9constructIS2_JS2_EEEvPT_DpOT0_(%"class.__gnu_cxx::new_allocator.21"* nonnull align 1 dereferenceable(1) %0, %"class.std::tuple"* %1, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %2) #6 comdat align 2 {
-  %4 = alloca %"class.__gnu_cxx::new_allocator.21"*, align 8
-  %5 = alloca %"class.std::tuple"*, align 8
-  %6 = alloca %"class.std::tuple"*, align 8
-  store %"class.__gnu_cxx::new_allocator.21"* %0, %"class.__gnu_cxx::new_allocator.21"** %4, align 8
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %5, align 8
-  store %"class.std::tuple"* %2, %"class.std::tuple"** %6, align 8
-  %7 = load %"class.__gnu_cxx::new_allocator.21"*, %"class.__gnu_cxx::new_allocator.21"** %4, align 8
-  %8 = load %"class.std::tuple"*, %"class.std::tuple"** %5, align 8
-  %9 = bitcast %"class.std::tuple"* %8 to i8*
-  %10 = bitcast i8* %9 to %"class.std::tuple"*
-  %11 = load %"class.std::tuple"*, %"class.std::tuple"** %6, align 8
-  %12 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZSt7forwardISt5tupleIJiiiiEEEOT_RNSt16remove_referenceIS2_E4typeE(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %11) #3
-  call void @_ZNSt5tupleIJiiiiEEC2EOS0_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %10, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %12) #3
-  ret void
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt5tupleIJiiiiEEC2EOS0_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %0, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %1) unnamed_addr #9 comdat align 2 {
-  %3 = alloca %"class.std::tuple"*, align 8
-  %4 = alloca %"class.std::tuple"*, align 8
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %3, align 8
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %4, align 8
-  %5 = load %"class.std::tuple"*, %"class.std::tuple"** %3, align 8
-  %6 = bitcast %"class.std::tuple"* %5 to %"struct.std::_Tuple_impl"*
-  %7 = load %"class.std::tuple"*, %"class.std::tuple"** %4, align 8
-  %8 = bitcast %"class.std::tuple"* %7 to %"struct.std::_Tuple_impl"*
-  call void @_ZNSt11_Tuple_implILm0EJiiiiEEC2EOS0_(%"struct.std::_Tuple_impl"* nonnull align 4 dereferenceable(16) %6, %"struct.std::_Tuple_impl"* nonnull align 4 dereferenceable(16) %8) #3
-  ret void
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm0EJiiiiEEC2EOS0_(%"struct.std::_Tuple_impl"* nonnull align 4 dereferenceable(16) %0, %"struct.std::_Tuple_impl"* nonnull align 4 dereferenceable(16) %1) unnamed_addr #9 comdat align 2 personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
-  %3 = alloca %"struct.std::_Tuple_impl"*, align 8
-  %4 = alloca %"struct.std::_Tuple_impl"*, align 8
-  store %"struct.std::_Tuple_impl"* %0, %"struct.std::_Tuple_impl"** %3, align 8
-  store %"struct.std::_Tuple_impl"* %1, %"struct.std::_Tuple_impl"** %4, align 8
-  %5 = load %"struct.std::_Tuple_impl"*, %"struct.std::_Tuple_impl"** %3, align 8
-  %6 = bitcast %"struct.std::_Tuple_impl"* %5 to %"struct.std::_Tuple_impl.23"*
-  %7 = load %"struct.std::_Tuple_impl"*, %"struct.std::_Tuple_impl"** %4, align 8
-  %8 = call nonnull align 4 dereferenceable(12) %"struct.std::_Tuple_impl.23"* @_ZNSt11_Tuple_implILm0EJiiiiEE7_M_tailERS0_(%"struct.std::_Tuple_impl"* nonnull align 4 dereferenceable(16) %7) #3
-  %9 = call nonnull align 4 dereferenceable(12) %"struct.std::_Tuple_impl.23"* @_ZSt4moveIRSt11_Tuple_implILm1EJiiiEEEONSt16remove_referenceIT_E4typeEOS4_(%"struct.std::_Tuple_impl.23"* nonnull align 4 dereferenceable(12) %8) #3
-  call void @_ZNSt11_Tuple_implILm1EJiiiEEC2EOS0_(%"struct.std::_Tuple_impl.23"* nonnull align 4 dereferenceable(12) %6, %"struct.std::_Tuple_impl.23"* nonnull align 4 dereferenceable(12) %9) #3
-  %10 = bitcast %"struct.std::_Tuple_impl"* %5 to i8*
-  %11 = getelementptr inbounds i8, i8* %10, i64 12
-  %12 = bitcast i8* %11 to %"struct.std::_Head_base.28"*
-  %13 = load %"struct.std::_Tuple_impl"*, %"struct.std::_Tuple_impl"** %4, align 8
-  %14 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt11_Tuple_implILm0EJiiiiEE7_M_headERS0_(%"struct.std::_Tuple_impl"* nonnull align 4 dereferenceable(16) %13) #3
-  %15 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIiEOT_RNSt16remove_referenceIS0_E4typeE(i32* nonnull align 4 dereferenceable(4) %14) #3
-  invoke void @_ZNSt10_Head_baseILm0EiLb0EEC2IiEEOT_(%"struct.std::_Head_base.28"* nonnull align 4 dereferenceable(4) %12, i32* nonnull align 4 dereferenceable(4) %15)
-          to label %16 unwind label %17
-
-16:                                               ; preds = %2
-  ret void
-
-17:                                               ; preds = %2
-  %18 = landingpad { i8*, i32 }
-          catch i8* null
-  %19 = extractvalue { i8*, i32 } %18, 0
-  call void @__clang_call_terminate(i8* %19) #20
-  unreachable
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(12) %"struct.std::_Tuple_impl.23"* @_ZSt4moveIRSt11_Tuple_implILm1EJiiiEEEONSt16remove_referenceIT_E4typeEOS4_(%"struct.std::_Tuple_impl.23"* nonnull align 4 dereferenceable(12) %0) #6 comdat {
-  %2 = alloca %"struct.std::_Tuple_impl.23"*, align 8
-  store %"struct.std::_Tuple_impl.23"* %0, %"struct.std::_Tuple_impl.23"** %2, align 8
-  %3 = load %"struct.std::_Tuple_impl.23"*, %"struct.std::_Tuple_impl.23"** %2, align 8
-  ret %"struct.std::_Tuple_impl.23"* %3
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(12) %"struct.std::_Tuple_impl.23"* @_ZNSt11_Tuple_implILm0EJiiiiEE7_M_tailERS0_(%"struct.std::_Tuple_impl"* nonnull align 4 dereferenceable(16) %0) #6 comdat align 2 {
-  %2 = alloca %"struct.std::_Tuple_impl"*, align 8
-  store %"struct.std::_Tuple_impl"* %0, %"struct.std::_Tuple_impl"** %2, align 8
-  %3 = load %"struct.std::_Tuple_impl"*, %"struct.std::_Tuple_impl"** %2, align 8
-  %4 = bitcast %"struct.std::_Tuple_impl"* %3 to %"struct.std::_Tuple_impl.23"*
-  ret %"struct.std::_Tuple_impl.23"* %4
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm1EJiiiEEC2EOS0_(%"struct.std::_Tuple_impl.23"* nonnull align 4 dereferenceable(12) %0, %"struct.std::_Tuple_impl.23"* nonnull align 4 dereferenceable(12) %1) unnamed_addr #9 comdat align 2 personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
-  %3 = alloca %"struct.std::_Tuple_impl.23"*, align 8
-  %4 = alloca %"struct.std::_Tuple_impl.23"*, align 8
-  store %"struct.std::_Tuple_impl.23"* %0, %"struct.std::_Tuple_impl.23"** %3, align 8
-  store %"struct.std::_Tuple_impl.23"* %1, %"struct.std::_Tuple_impl.23"** %4, align 8
-  %5 = load %"struct.std::_Tuple_impl.23"*, %"struct.std::_Tuple_impl.23"** %3, align 8
-  %6 = bitcast %"struct.std::_Tuple_impl.23"* %5 to %"struct.std::_Tuple_impl.24"*
-  %7 = load %"struct.std::_Tuple_impl.23"*, %"struct.std::_Tuple_impl.23"** %4, align 8
-  %8 = call nonnull align 4 dereferenceable(8) %"struct.std::_Tuple_impl.24"* @_ZNSt11_Tuple_implILm1EJiiiEE7_M_tailERS0_(%"struct.std::_Tuple_impl.23"* nonnull align 4 dereferenceable(12) %7) #3
-  %9 = call nonnull align 4 dereferenceable(8) %"struct.std::_Tuple_impl.24"* @_ZSt4moveIRSt11_Tuple_implILm2EJiiEEEONSt16remove_referenceIT_E4typeEOS4_(%"struct.std::_Tuple_impl.24"* nonnull align 4 dereferenceable(8) %8) #3
-  call void @_ZNSt11_Tuple_implILm2EJiiEEC2EOS0_(%"struct.std::_Tuple_impl.24"* nonnull align 4 dereferenceable(8) %6, %"struct.std::_Tuple_impl.24"* nonnull align 4 dereferenceable(8) %9) #3
-  %10 = bitcast %"struct.std::_Tuple_impl.23"* %5 to i8*
-  %11 = getelementptr inbounds i8, i8* %10, i64 8
-  %12 = bitcast i8* %11 to %"struct.std::_Head_base.27"*
-  %13 = load %"struct.std::_Tuple_impl.23"*, %"struct.std::_Tuple_impl.23"** %4, align 8
-  %14 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt11_Tuple_implILm1EJiiiEE7_M_headERS0_(%"struct.std::_Tuple_impl.23"* nonnull align 4 dereferenceable(12) %13) #3
-  %15 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIiEOT_RNSt16remove_referenceIS0_E4typeE(i32* nonnull align 4 dereferenceable(4) %14) #3
-  invoke void @_ZNSt10_Head_baseILm1EiLb0EEC2IiEEOT_(%"struct.std::_Head_base.27"* nonnull align 4 dereferenceable(4) %12, i32* nonnull align 4 dereferenceable(4) %15)
-          to label %16 unwind label %17
-
-16:                                               ; preds = %2
-  ret void
-
-17:                                               ; preds = %2
-  %18 = landingpad { i8*, i32 }
-          catch i8* null
-  %19 = extractvalue { i8*, i32 } %18, 0
-  call void @__clang_call_terminate(i8* %19) #20
-  unreachable
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(4) i32* @_ZNSt11_Tuple_implILm0EJiiiiEE7_M_headERS0_(%"struct.std::_Tuple_impl"* nonnull align 4 dereferenceable(16) %0) #6 comdat align 2 {
-  %2 = alloca %"struct.std::_Tuple_impl"*, align 8
-  store %"struct.std::_Tuple_impl"* %0, %"struct.std::_Tuple_impl"** %2, align 8
-  %3 = load %"struct.std::_Tuple_impl"*, %"struct.std::_Tuple_impl"** %2, align 8
-  %4 = bitcast %"struct.std::_Tuple_impl"* %3 to i8*
-  %5 = getelementptr inbounds i8, i8* %4, i64 12
-  %6 = bitcast i8* %5 to %"struct.std::_Head_base.28"*
-  %7 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt10_Head_baseILm0EiLb0EE7_M_headERS0_(%"struct.std::_Head_base.28"* nonnull align 4 dereferenceable(4) %6) #3
-  ret i32* %7
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt10_Head_baseILm0EiLb0EEC2IiEEOT_(%"struct.std::_Head_base.28"* nonnull align 4 dereferenceable(4) %0, i32* nonnull align 4 dereferenceable(4) %1) unnamed_addr #9 comdat align 2 {
-  %3 = alloca %"struct.std::_Head_base.28"*, align 8
-  %4 = alloca i32*, align 8
-  store %"struct.std::_Head_base.28"* %0, %"struct.std::_Head_base.28"** %3, align 8
-  store i32* %1, i32** %4, align 8
-  %5 = load %"struct.std::_Head_base.28"*, %"struct.std::_Head_base.28"** %3, align 8
-  %6 = getelementptr inbounds %"struct.std::_Head_base.28", %"struct.std::_Head_base.28"* %5, i32 0, i32 0
-  %7 = load i32*, i32** %4, align 8
-  %8 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIiEOT_RNSt16remove_referenceIS0_E4typeE(i32* nonnull align 4 dereferenceable(4) %7) #3
-  %9 = load i32, i32* %8, align 4
-  store i32 %9, i32* %6, align 4
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(8) %"struct.std::_Tuple_impl.24"* @_ZSt4moveIRSt11_Tuple_implILm2EJiiEEEONSt16remove_referenceIT_E4typeEOS4_(%"struct.std::_Tuple_impl.24"* nonnull align 4 dereferenceable(8) %0) #6 comdat {
-  %2 = alloca %"struct.std::_Tuple_impl.24"*, align 8
-  store %"struct.std::_Tuple_impl.24"* %0, %"struct.std::_Tuple_impl.24"** %2, align 8
-  %3 = load %"struct.std::_Tuple_impl.24"*, %"struct.std::_Tuple_impl.24"** %2, align 8
-  ret %"struct.std::_Tuple_impl.24"* %3
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(8) %"struct.std::_Tuple_impl.24"* @_ZNSt11_Tuple_implILm1EJiiiEE7_M_tailERS0_(%"struct.std::_Tuple_impl.23"* nonnull align 4 dereferenceable(12) %0) #6 comdat align 2 {
-  %2 = alloca %"struct.std::_Tuple_impl.23"*, align 8
-  store %"struct.std::_Tuple_impl.23"* %0, %"struct.std::_Tuple_impl.23"** %2, align 8
-  %3 = load %"struct.std::_Tuple_impl.23"*, %"struct.std::_Tuple_impl.23"** %2, align 8
-  %4 = bitcast %"struct.std::_Tuple_impl.23"* %3 to %"struct.std::_Tuple_impl.24"*
-  ret %"struct.std::_Tuple_impl.24"* %4
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm2EJiiEEC2EOS0_(%"struct.std::_Tuple_impl.24"* nonnull align 4 dereferenceable(8) %0, %"struct.std::_Tuple_impl.24"* nonnull align 4 dereferenceable(8) %1) unnamed_addr #9 comdat align 2 personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
-  %3 = alloca %"struct.std::_Tuple_impl.24"*, align 8
-  %4 = alloca %"struct.std::_Tuple_impl.24"*, align 8
-  store %"struct.std::_Tuple_impl.24"* %0, %"struct.std::_Tuple_impl.24"** %3, align 8
-  store %"struct.std::_Tuple_impl.24"* %1, %"struct.std::_Tuple_impl.24"** %4, align 8
-  %5 = load %"struct.std::_Tuple_impl.24"*, %"struct.std::_Tuple_impl.24"** %3, align 8
-  %6 = bitcast %"struct.std::_Tuple_impl.24"* %5 to %"struct.std::_Tuple_impl.25"*
-  %7 = load %"struct.std::_Tuple_impl.24"*, %"struct.std::_Tuple_impl.24"** %4, align 8
-  %8 = call nonnull align 4 dereferenceable(4) %"struct.std::_Tuple_impl.25"* @_ZNSt11_Tuple_implILm2EJiiEE7_M_tailERS0_(%"struct.std::_Tuple_impl.24"* nonnull align 4 dereferenceable(8) %7) #3
-  %9 = call nonnull align 4 dereferenceable(4) %"struct.std::_Tuple_impl.25"* @_ZSt4moveIRSt11_Tuple_implILm3EJiEEEONSt16remove_referenceIT_E4typeEOS4_(%"struct.std::_Tuple_impl.25"* nonnull align 4 dereferenceable(4) %8) #3
-  call void @_ZNSt11_Tuple_implILm3EJiEEC2EOS0_(%"struct.std::_Tuple_impl.25"* nonnull align 4 dereferenceable(4) %6, %"struct.std::_Tuple_impl.25"* nonnull align 4 dereferenceable(4) %9) #3
-  %10 = bitcast %"struct.std::_Tuple_impl.24"* %5 to i8*
-  %11 = getelementptr inbounds i8, i8* %10, i64 4
-  %12 = bitcast i8* %11 to %"struct.std::_Head_base.26"*
-  %13 = load %"struct.std::_Tuple_impl.24"*, %"struct.std::_Tuple_impl.24"** %4, align 8
-  %14 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt11_Tuple_implILm2EJiiEE7_M_headERS0_(%"struct.std::_Tuple_impl.24"* nonnull align 4 dereferenceable(8) %13) #3
-  %15 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIiEOT_RNSt16remove_referenceIS0_E4typeE(i32* nonnull align 4 dereferenceable(4) %14) #3
-  invoke void @_ZNSt10_Head_baseILm2EiLb0EEC2IiEEOT_(%"struct.std::_Head_base.26"* nonnull align 4 dereferenceable(4) %12, i32* nonnull align 4 dereferenceable(4) %15)
-          to label %16 unwind label %17
-
-16:                                               ; preds = %2
-  ret void
-
-17:                                               ; preds = %2
-  %18 = landingpad { i8*, i32 }
-          catch i8* null
-  %19 = extractvalue { i8*, i32 } %18, 0
-  call void @__clang_call_terminate(i8* %19) #20
-  unreachable
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(4) i32* @_ZNSt11_Tuple_implILm1EJiiiEE7_M_headERS0_(%"struct.std::_Tuple_impl.23"* nonnull align 4 dereferenceable(12) %0) #6 comdat align 2 {
-  %2 = alloca %"struct.std::_Tuple_impl.23"*, align 8
-  store %"struct.std::_Tuple_impl.23"* %0, %"struct.std::_Tuple_impl.23"** %2, align 8
-  %3 = load %"struct.std::_Tuple_impl.23"*, %"struct.std::_Tuple_impl.23"** %2, align 8
-  %4 = bitcast %"struct.std::_Tuple_impl.23"* %3 to i8*
-  %5 = getelementptr inbounds i8, i8* %4, i64 8
-  %6 = bitcast i8* %5 to %"struct.std::_Head_base.27"*
-  %7 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt10_Head_baseILm1EiLb0EE7_M_headERS0_(%"struct.std::_Head_base.27"* nonnull align 4 dereferenceable(4) %6) #3
-  ret i32* %7
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt10_Head_baseILm1EiLb0EEC2IiEEOT_(%"struct.std::_Head_base.27"* nonnull align 4 dereferenceable(4) %0, i32* nonnull align 4 dereferenceable(4) %1) unnamed_addr #9 comdat align 2 {
-  %3 = alloca %"struct.std::_Head_base.27"*, align 8
-  %4 = alloca i32*, align 8
-  store %"struct.std::_Head_base.27"* %0, %"struct.std::_Head_base.27"** %3, align 8
-  store i32* %1, i32** %4, align 8
-  %5 = load %"struct.std::_Head_base.27"*, %"struct.std::_Head_base.27"** %3, align 8
-  %6 = getelementptr inbounds %"struct.std::_Head_base.27", %"struct.std::_Head_base.27"* %5, i32 0, i32 0
-  %7 = load i32*, i32** %4, align 8
-  %8 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIiEOT_RNSt16remove_referenceIS0_E4typeE(i32* nonnull align 4 dereferenceable(4) %7) #3
-  %9 = load i32, i32* %8, align 4
-  store i32 %9, i32* %6, align 4
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(4) %"struct.std::_Tuple_impl.25"* @_ZSt4moveIRSt11_Tuple_implILm3EJiEEEONSt16remove_referenceIT_E4typeEOS4_(%"struct.std::_Tuple_impl.25"* nonnull align 4 dereferenceable(4) %0) #6 comdat {
-  %2 = alloca %"struct.std::_Tuple_impl.25"*, align 8
-  store %"struct.std::_Tuple_impl.25"* %0, %"struct.std::_Tuple_impl.25"** %2, align 8
-  %3 = load %"struct.std::_Tuple_impl.25"*, %"struct.std::_Tuple_impl.25"** %2, align 8
-  ret %"struct.std::_Tuple_impl.25"* %3
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(4) %"struct.std::_Tuple_impl.25"* @_ZNSt11_Tuple_implILm2EJiiEE7_M_tailERS0_(%"struct.std::_Tuple_impl.24"* nonnull align 4 dereferenceable(8) %0) #6 comdat align 2 {
-  %2 = alloca %"struct.std::_Tuple_impl.24"*, align 8
-  store %"struct.std::_Tuple_impl.24"* %0, %"struct.std::_Tuple_impl.24"** %2, align 8
-  %3 = load %"struct.std::_Tuple_impl.24"*, %"struct.std::_Tuple_impl.24"** %2, align 8
-  %4 = bitcast %"struct.std::_Tuple_impl.24"* %3 to %"struct.std::_Tuple_impl.25"*
-  ret %"struct.std::_Tuple_impl.25"* %4
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm3EJiEEC2EOS0_(%"struct.std::_Tuple_impl.25"* nonnull align 4 dereferenceable(4) %0, %"struct.std::_Tuple_impl.25"* nonnull align 4 dereferenceable(4) %1) unnamed_addr #9 comdat align 2 personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
-  %3 = alloca %"struct.std::_Tuple_impl.25"*, align 8
-  %4 = alloca %"struct.std::_Tuple_impl.25"*, align 8
-  store %"struct.std::_Tuple_impl.25"* %0, %"struct.std::_Tuple_impl.25"** %3, align 8
-  store %"struct.std::_Tuple_impl.25"* %1, %"struct.std::_Tuple_impl.25"** %4, align 8
-  %5 = load %"struct.std::_Tuple_impl.25"*, %"struct.std::_Tuple_impl.25"** %3, align 8
-  %6 = bitcast %"struct.std::_Tuple_impl.25"* %5 to %"struct.std::_Head_base"*
-  %7 = load %"struct.std::_Tuple_impl.25"*, %"struct.std::_Tuple_impl.25"** %4, align 8
-  %8 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt11_Tuple_implILm3EJiEE7_M_headERS0_(%"struct.std::_Tuple_impl.25"* nonnull align 4 dereferenceable(4) %7) #3
-  %9 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIiEOT_RNSt16remove_referenceIS0_E4typeE(i32* nonnull align 4 dereferenceable(4) %8) #3
-  invoke void @_ZNSt10_Head_baseILm3EiLb0EEC2IiEEOT_(%"struct.std::_Head_base"* nonnull align 4 dereferenceable(4) %6, i32* nonnull align 4 dereferenceable(4) %9)
-          to label %10 unwind label %11
-
-10:                                               ; preds = %2
-  ret void
-
-11:                                               ; preds = %2
-  %12 = landingpad { i8*, i32 }
-          catch i8* null
-  %13 = extractvalue { i8*, i32 } %12, 0
-  call void @__clang_call_terminate(i8* %13) #20
-  unreachable
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(4) i32* @_ZNSt11_Tuple_implILm2EJiiEE7_M_headERS0_(%"struct.std::_Tuple_impl.24"* nonnull align 4 dereferenceable(8) %0) #6 comdat align 2 {
-  %2 = alloca %"struct.std::_Tuple_impl.24"*, align 8
-  store %"struct.std::_Tuple_impl.24"* %0, %"struct.std::_Tuple_impl.24"** %2, align 8
-  %3 = load %"struct.std::_Tuple_impl.24"*, %"struct.std::_Tuple_impl.24"** %2, align 8
-  %4 = bitcast %"struct.std::_Tuple_impl.24"* %3 to i8*
-  %5 = getelementptr inbounds i8, i8* %4, i64 4
-  %6 = bitcast i8* %5 to %"struct.std::_Head_base.26"*
-  %7 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt10_Head_baseILm2EiLb0EE7_M_headERS0_(%"struct.std::_Head_base.26"* nonnull align 4 dereferenceable(4) %6) #3
-  ret i32* %7
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt10_Head_baseILm2EiLb0EEC2IiEEOT_(%"struct.std::_Head_base.26"* nonnull align 4 dereferenceable(4) %0, i32* nonnull align 4 dereferenceable(4) %1) unnamed_addr #9 comdat align 2 {
-  %3 = alloca %"struct.std::_Head_base.26"*, align 8
-  %4 = alloca i32*, align 8
-  store %"struct.std::_Head_base.26"* %0, %"struct.std::_Head_base.26"** %3, align 8
-  store i32* %1, i32** %4, align 8
-  %5 = load %"struct.std::_Head_base.26"*, %"struct.std::_Head_base.26"** %3, align 8
-  %6 = getelementptr inbounds %"struct.std::_Head_base.26", %"struct.std::_Head_base.26"* %5, i32 0, i32 0
-  %7 = load i32*, i32** %4, align 8
-  %8 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIiEOT_RNSt16remove_referenceIS0_E4typeE(i32* nonnull align 4 dereferenceable(4) %7) #3
-  %9 = load i32, i32* %8, align 4
-  store i32 %9, i32* %6, align 4
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(4) i32* @_ZNSt11_Tuple_implILm3EJiEE7_M_headERS0_(%"struct.std::_Tuple_impl.25"* nonnull align 4 dereferenceable(4) %0) #6 comdat align 2 {
-  %2 = alloca %"struct.std::_Tuple_impl.25"*, align 8
-  store %"struct.std::_Tuple_impl.25"* %0, %"struct.std::_Tuple_impl.25"** %2, align 8
-  %3 = load %"struct.std::_Tuple_impl.25"*, %"struct.std::_Tuple_impl.25"** %2, align 8
-  %4 = bitcast %"struct.std::_Tuple_impl.25"* %3 to %"struct.std::_Head_base"*
-  %5 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt10_Head_baseILm3EiLb0EE7_M_headERS0_(%"struct.std::_Head_base"* nonnull align 4 dereferenceable(4) %4) #3
-  ret i32* %5
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt10_Head_baseILm3EiLb0EEC2IiEEOT_(%"struct.std::_Head_base"* nonnull align 4 dereferenceable(4) %0, i32* nonnull align 4 dereferenceable(4) %1) unnamed_addr #9 comdat align 2 {
-  %3 = alloca %"struct.std::_Head_base"*, align 8
-  %4 = alloca i32*, align 8
-  store %"struct.std::_Head_base"* %0, %"struct.std::_Head_base"** %3, align 8
-  store i32* %1, i32** %4, align 8
-  %5 = load %"struct.std::_Head_base"*, %"struct.std::_Head_base"** %3, align 8
-  %6 = getelementptr inbounds %"struct.std::_Head_base", %"struct.std::_Head_base"* %5, i32 0, i32 0
-  %7 = load i32*, i32** %4, align 8
-  %8 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIiEOT_RNSt16remove_referenceIS0_E4typeE(i32* nonnull align 4 dereferenceable(4) %7) #3
-  %9 = load i32, i32* %8, align 4
-  store i32 %9, i32* %6, align 4
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(4) i32* @_ZNSt10_Head_baseILm3EiLb0EE7_M_headERS0_(%"struct.std::_Head_base"* nonnull align 4 dereferenceable(4) %0) #6 comdat align 2 {
-  %2 = alloca %"struct.std::_Head_base"*, align 8
-  store %"struct.std::_Head_base"* %0, %"struct.std::_Head_base"** %2, align 8
-  %3 = load %"struct.std::_Head_base"*, %"struct.std::_Head_base"** %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Head_base", %"struct.std::_Head_base"* %3, i32 0, i32 0
-  ret i32* %4
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(4) i32* @_ZNSt10_Head_baseILm2EiLb0EE7_M_headERS0_(%"struct.std::_Head_base.26"* nonnull align 4 dereferenceable(4) %0) #6 comdat align 2 {
-  %2 = alloca %"struct.std::_Head_base.26"*, align 8
-  store %"struct.std::_Head_base.26"* %0, %"struct.std::_Head_base.26"** %2, align 8
-  %3 = load %"struct.std::_Head_base.26"*, %"struct.std::_Head_base.26"** %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Head_base.26", %"struct.std::_Head_base.26"* %3, i32 0, i32 0
-  ret i32* %4
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(4) i32* @_ZNSt10_Head_baseILm1EiLb0EE7_M_headERS0_(%"struct.std::_Head_base.27"* nonnull align 4 dereferenceable(4) %0) #6 comdat align 2 {
-  %2 = alloca %"struct.std::_Head_base.27"*, align 8
-  store %"struct.std::_Head_base.27"* %0, %"struct.std::_Head_base.27"** %2, align 8
-  %3 = load %"struct.std::_Head_base.27"*, %"struct.std::_Head_base.27"** %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Head_base.27", %"struct.std::_Head_base.27"* %3, i32 0, i32 0
-  ret i32* %4
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(4) i32* @_ZNSt10_Head_baseILm0EiLb0EE7_M_headERS0_(%"struct.std::_Head_base.28"* nonnull align 4 dereferenceable(4) %0) #6 comdat align 2 {
-  %2 = alloca %"struct.std::_Head_base.28"*, align 8
-  store %"struct.std::_Head_base.28"* %0, %"struct.std::_Head_base.28"** %2, align 8
-  %3 = load %"struct.std::_Head_base.28"*, %"struct.std::_Head_base.28"** %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Head_base.28", %"struct.std::_Head_base.28"* %3, i32 0, i32 0
-  ret i32* %4
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local i64 @_ZNKSt6vectorISt5tupleIJiiiiEESaIS1_EE12_M_check_lenEmPKc(%"class.std::vector.18"* nonnull align 8 dereferenceable(24) %0, i64 %1, i8* %2) #7 comdat align 2 {
-  %4 = alloca %"class.std::vector.18"*, align 8
-  %5 = alloca i64, align 8
-  %6 = alloca i8*, align 8
-  %7 = alloca i64, align 8
-  %8 = alloca i64, align 8
-  store %"class.std::vector.18"* %0, %"class.std::vector.18"** %4, align 8
-  store i64 %1, i64* %5, align 8
-  store i8* %2, i8** %6, align 8
-  %9 = load %"class.std::vector.18"*, %"class.std::vector.18"** %4, align 8
-  %10 = call i64 @_ZNKSt6vectorISt5tupleIJiiiiEESaIS1_EE8max_sizeEv(%"class.std::vector.18"* nonnull align 8 dereferenceable(24) %9) #3
-  %11 = call i64 @_ZNKSt6vectorISt5tupleIJiiiiEESaIS1_EE4sizeEv(%"class.std::vector.18"* nonnull align 8 dereferenceable(24) %9) #3
-  %12 = sub i64 %10, %11
-  %13 = load i64, i64* %5, align 8
-  %14 = icmp ult i64 %12, %13
-  br i1 %14, label %15, label %17
-
-15:                                               ; preds = %3
-  %16 = load i8*, i8** %6, align 8
-  call void @_ZSt20__throw_length_errorPKc(i8* %16) #23
-  unreachable
-
-17:                                               ; preds = %3
-  %18 = call i64 @_ZNKSt6vectorISt5tupleIJiiiiEESaIS1_EE4sizeEv(%"class.std::vector.18"* nonnull align 8 dereferenceable(24) %9) #3
-  %19 = call i64 @_ZNKSt6vectorISt5tupleIJiiiiEESaIS1_EE4sizeEv(%"class.std::vector.18"* nonnull align 8 dereferenceable(24) %9) #3
-  store i64 %19, i64* %8, align 8
-  %20 = call nonnull align 8 dereferenceable(8) i64* @_ZSt3maxImERKT_S2_S2_(i64* nonnull align 8 dereferenceable(8) %8, i64* nonnull align 8 dereferenceable(8) %5)
-  %21 = load i64, i64* %20, align 8
-  %22 = add i64 %18, %21
-  store i64 %22, i64* %7, align 8
-  %23 = load i64, i64* %7, align 8
-  %24 = call i64 @_ZNKSt6vectorISt5tupleIJiiiiEESaIS1_EE4sizeEv(%"class.std::vector.18"* nonnull align 8 dereferenceable(24) %9) #3
-  %25 = icmp ult i64 %23, %24
-  br i1 %25, label %30, label %26
-
-26:                                               ; preds = %17
-  %27 = load i64, i64* %7, align 8
-  %28 = call i64 @_ZNKSt6vectorISt5tupleIJiiiiEESaIS1_EE8max_sizeEv(%"class.std::vector.18"* nonnull align 8 dereferenceable(24) %9) #3
-  %29 = icmp ugt i64 %27, %28
-  br i1 %29, label %30, label %32
-
-30:                                               ; preds = %26, %17
-  %31 = call i64 @_ZNKSt6vectorISt5tupleIJiiiiEESaIS1_EE8max_sizeEv(%"class.std::vector.18"* nonnull align 8 dereferenceable(24) %9) #3
-  br label %34
-
-32:                                               ; preds = %26
-  %33 = load i64, i64* %7, align 8
-  br label %34
-
-34:                                               ; preds = %32, %30
-  %35 = phi i64 [ %31, %30 ], [ %33, %32 ]
-  ret i64 %35
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local i64 @_ZN9__gnu_cxxmiIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSA_SD_(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %0, %"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %1) #6 comdat {
-  %3 = alloca %"class.__gnu_cxx::__normal_iterator"*, align 8
-  %4 = alloca %"class.__gnu_cxx::__normal_iterator"*, align 8
-  store %"class.__gnu_cxx::__normal_iterator"* %0, %"class.__gnu_cxx::__normal_iterator"** %3, align 8
-  store %"class.__gnu_cxx::__normal_iterator"* %1, %"class.__gnu_cxx::__normal_iterator"** %4, align 8
-  %5 = load %"class.__gnu_cxx::__normal_iterator"*, %"class.__gnu_cxx::__normal_iterator"** %3, align 8
-  %6 = call nonnull align 8 dereferenceable(8) %"class.std::tuple"** @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEE4baseEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %5) #3
-  %7 = load %"class.std::tuple"*, %"class.std::tuple"** %6, align 8
-  %8 = load %"class.__gnu_cxx::__normal_iterator"*, %"class.__gnu_cxx::__normal_iterator"** %4, align 8
-  %9 = call nonnull align 8 dereferenceable(8) %"class.std::tuple"** @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEE4baseEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %8) #3
-  %10 = load %"class.std::tuple"*, %"class.std::tuple"** %9, align 8
-  %11 = ptrtoint %"class.std::tuple"* %7 to i64
-  %12 = ptrtoint %"class.std::tuple"* %10 to i64
-  %13 = sub i64 %11, %12
-  %14 = sdiv exact i64 %13, 16
-  ret i64 %14
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local %"class.std::tuple"* @_ZNSt12_Vector_baseISt5tupleIJiiiiEESaIS1_EE11_M_allocateEm(%"struct.std::_Vector_base.19"* nonnull align 8 dereferenceable(24) %0, i64 %1) #7 comdat align 2 {
-  %3 = alloca %"struct.std::_Vector_base.19"*, align 8
-  %4 = alloca i64, align 8
-  store %"struct.std::_Vector_base.19"* %0, %"struct.std::_Vector_base.19"** %3, align 8
-  store i64 %1, i64* %4, align 8
-  %5 = load %"struct.std::_Vector_base.19"*, %"struct.std::_Vector_base.19"** %3, align 8
-  %6 = load i64, i64* %4, align 8
-  %7 = icmp ne i64 %6, 0
-  br i1 %7, label %8, label %13
-
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds %"struct.std::_Vector_base.19", %"struct.std::_Vector_base.19"* %5, i32 0, i32 0
-  %10 = bitcast %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* %9 to %"class.std::allocator.20"*
-  %11 = load i64, i64* %4, align 8
-  %12 = call %"class.std::tuple"* @_ZNSt16allocator_traitsISaISt5tupleIJiiiiEEEE8allocateERS2_m(%"class.std::allocator.20"* nonnull align 1 dereferenceable(1) %10, i64 %11)
-  br label %14
-
-13:                                               ; preds = %2
-  br label %14
-
-14:                                               ; preds = %13, %8
-  %15 = phi %"class.std::tuple"* [ %12, %8 ], [ null, %13 ]
-  ret %"class.std::tuple"* %15
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local %"class.std::tuple"* @_ZSt34__uninitialized_move_if_noexcept_aIPSt5tupleIJiiiiEES2_SaIS1_EET0_T_S5_S4_RT1_(%"class.std::tuple"* %0, %"class.std::tuple"* %1, %"class.std::tuple"* %2, %"class.std::allocator.20"* nonnull align 1 dereferenceable(1) %3) #7 comdat {
-  %5 = alloca %"class.std::tuple"*, align 8
-  %6 = alloca %"class.std::tuple"*, align 8
-  %7 = alloca %"class.std::tuple"*, align 8
-  %8 = alloca %"class.std::allocator.20"*, align 8
-  %9 = alloca %"class.std::move_iterator", align 8
-  %10 = alloca %"class.std::move_iterator", align 8
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %5, align 8
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %6, align 8
-  store %"class.std::tuple"* %2, %"class.std::tuple"** %7, align 8
-  store %"class.std::allocator.20"* %3, %"class.std::allocator.20"** %8, align 8
-  %11 = load %"class.std::tuple"*, %"class.std::tuple"** %5, align 8
-  %12 = call %"class.std::tuple"* @_ZSt32__make_move_if_noexcept_iteratorISt5tupleIJiiiiEESt13move_iteratorIPS1_EET0_PT_(%"class.std::tuple"* %11)
-  %13 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %9, i32 0, i32 0
-  store %"class.std::tuple"* %12, %"class.std::tuple"** %13, align 8
-  %14 = load %"class.std::tuple"*, %"class.std::tuple"** %6, align 8
-  %15 = call %"class.std::tuple"* @_ZSt32__make_move_if_noexcept_iteratorISt5tupleIJiiiiEESt13move_iteratorIPS1_EET0_PT_(%"class.std::tuple"* %14)
-  %16 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %10, i32 0, i32 0
-  store %"class.std::tuple"* %15, %"class.std::tuple"** %16, align 8
-  %17 = load %"class.std::tuple"*, %"class.std::tuple"** %7, align 8
-  %18 = load %"class.std::allocator.20"*, %"class.std::allocator.20"** %8, align 8
-  %19 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %9, i32 0, i32 0
-  %20 = load %"class.std::tuple"*, %"class.std::tuple"** %19, align 8
-  %21 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %10, i32 0, i32 0
-  %22 = load %"class.std::tuple"*, %"class.std::tuple"** %21, align 8
-  %23 = call %"class.std::tuple"* @_ZSt22__uninitialized_copy_aISt13move_iteratorIPSt5tupleIJiiiiEEES3_S2_ET0_T_S6_S5_RSaIT1_E(%"class.std::tuple"* %20, %"class.std::tuple"* %22, %"class.std::tuple"* %17, %"class.std::allocator.20"* nonnull align 1 dereferenceable(1) %18)
-  ret %"class.std::tuple"* %23
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 8 dereferenceable(8) %"class.std::tuple"** @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEE4baseEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %0) #6 comdat align 2 {
-  %2 = alloca %"class.__gnu_cxx::__normal_iterator"*, align 8
-  store %"class.__gnu_cxx::__normal_iterator"* %0, %"class.__gnu_cxx::__normal_iterator"** %2, align 8
-  %3 = load %"class.__gnu_cxx::__normal_iterator"*, %"class.__gnu_cxx::__normal_iterator"** %2, align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %3, i32 0, i32 0
-  ret %"class.std::tuple"** %4
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 1 dereferenceable(1) %"class.std::allocator.20"* @_ZNSt12_Vector_baseISt5tupleIJiiiiEESaIS1_EE19_M_get_Tp_allocatorEv(%"struct.std::_Vector_base.19"* nonnull align 8 dereferenceable(24) %0) #6 comdat align 2 {
-  %2 = alloca %"struct.std::_Vector_base.19"*, align 8
-  store %"struct.std::_Vector_base.19"* %0, %"struct.std::_Vector_base.19"** %2, align 8
-  %3 = load %"struct.std::_Vector_base.19"*, %"struct.std::_Vector_base.19"** %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.19", %"struct.std::_Vector_base.19"* %3, i32 0, i32 0
-  %5 = bitcast %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* %4 to %"class.std::allocator.20"*
-  ret %"class.std::allocator.20"* %5
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_ZNSt16allocator_traitsISaISt5tupleIJiiiiEEEE7destroyIS1_EEvRS2_PT_(%"class.std::allocator.20"* nonnull align 1 dereferenceable(1) %0, %"class.std::tuple"* %1) #7 comdat align 2 {
-  %3 = alloca %"class.std::allocator.20"*, align 8
-  %4 = alloca %"class.std::tuple"*, align 8
-  store %"class.std::allocator.20"* %0, %"class.std::allocator.20"** %3, align 8
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %4, align 8
-  %5 = load %"class.std::allocator.20"*, %"class.std::allocator.20"** %3, align 8
-  %6 = bitcast %"class.std::allocator.20"* %5 to %"class.__gnu_cxx::new_allocator.21"*
-  %7 = load %"class.std::tuple"*, %"class.std::tuple"** %4, align 8
-  call void @_ZN9__gnu_cxx13new_allocatorISt5tupleIJiiiiEEE7destroyIS2_EEvPT_(%"class.__gnu_cxx::new_allocator.21"* nonnull align 1 dereferenceable(1) %6, %"class.std::tuple"* %7)
-  ret void
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_ZSt8_DestroyIPSt5tupleIJiiiiEES1_EvT_S3_RSaIT0_E(%"class.std::tuple"* %0, %"class.std::tuple"* %1, %"class.std::allocator.20"* nonnull align 1 dereferenceable(1) %2) #7 comdat {
-  %4 = alloca %"class.std::tuple"*, align 8
-  %5 = alloca %"class.std::tuple"*, align 8
-  %6 = alloca %"class.std::allocator.20"*, align 8
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %4, align 8
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %5, align 8
-  store %"class.std::allocator.20"* %2, %"class.std::allocator.20"** %6, align 8
-  %7 = load %"class.std::tuple"*, %"class.std::tuple"** %4, align 8
-  %8 = load %"class.std::tuple"*, %"class.std::tuple"** %5, align 8
-  call void @_ZSt8_DestroyIPSt5tupleIJiiiiEEEvT_S3_(%"class.std::tuple"* %7, %"class.std::tuple"* %8)
-  ret void
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt5tupleIJiiiiEESaIS1_EE13_M_deallocateEPS1_m(%"struct.std::_Vector_base.19"* nonnull align 8 dereferenceable(24) %0, %"class.std::tuple"* %1, i64 %2) #7 comdat align 2 {
-  %4 = alloca %"struct.std::_Vector_base.19"*, align 8
-  %5 = alloca %"class.std::tuple"*, align 8
-  %6 = alloca i64, align 8
-  store %"struct.std::_Vector_base.19"* %0, %"struct.std::_Vector_base.19"** %4, align 8
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %5, align 8
-  store i64 %2, i64* %6, align 8
-  %7 = load %"struct.std::_Vector_base.19"*, %"struct.std::_Vector_base.19"** %4, align 8
-  %8 = load %"class.std::tuple"*, %"class.std::tuple"** %5, align 8
-  %9 = icmp ne %"class.std::tuple"* %8, null
-  br i1 %9, label %10, label %15
-
-10:                                               ; preds = %3
-  %11 = getelementptr inbounds %"struct.std::_Vector_base.19", %"struct.std::_Vector_base.19"* %7, i32 0, i32 0
-  %12 = bitcast %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* %11 to %"class.std::allocator.20"*
-  %13 = load %"class.std::tuple"*, %"class.std::tuple"** %5, align 8
-  %14 = load i64, i64* %6, align 8
-  call void @_ZNSt16allocator_traitsISaISt5tupleIJiiiiEEEE10deallocateERS2_PS1_m(%"class.std::allocator.20"* nonnull align 1 dereferenceable(1) %12, %"class.std::tuple"* %13, i64 %14)
-  br label %15
-
-15:                                               ; preds = %10, %3
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local i64 @_ZNKSt6vectorISt5tupleIJiiiiEESaIS1_EE8max_sizeEv(%"class.std::vector.18"* nonnull align 8 dereferenceable(24) %0) #6 comdat align 2 {
-  %2 = alloca %"class.std::vector.18"*, align 8
-  store %"class.std::vector.18"* %0, %"class.std::vector.18"** %2, align 8
-  %3 = load %"class.std::vector.18"*, %"class.std::vector.18"** %2, align 8
-  %4 = bitcast %"class.std::vector.18"* %3 to %"struct.std::_Vector_base.19"*
-  %5 = call nonnull align 1 dereferenceable(1) %"class.std::allocator.20"* @_ZNKSt12_Vector_baseISt5tupleIJiiiiEESaIS1_EE19_M_get_Tp_allocatorEv(%"struct.std::_Vector_base.19"* nonnull align 8 dereferenceable(24) %4) #3
-  %6 = call i64 @_ZNSt16allocator_traitsISaISt5tupleIJiiiiEEEE8max_sizeERKS2_(%"class.std::allocator.20"* nonnull align 1 dereferenceable(1) %5) #3
-  ret i64 %6
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local i64 @_ZNKSt6vectorISt5tupleIJiiiiEESaIS1_EE4sizeEv(%"class.std::vector.18"* nonnull align 8 dereferenceable(24) %0) #6 comdat align 2 {
-  %2 = alloca %"class.std::vector.18"*, align 8
-  store %"class.std::vector.18"* %0, %"class.std::vector.18"** %2, align 8
-  %3 = load %"class.std::vector.18"*, %"class.std::vector.18"** %2, align 8
-  %4 = bitcast %"class.std::vector.18"* %3 to %"struct.std::_Vector_base.19"*
-  %5 = getelementptr inbounds %"struct.std::_Vector_base.19", %"struct.std::_Vector_base.19"* %4, i32 0, i32 0
-  %6 = getelementptr inbounds %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl", %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* %5, i32 0, i32 1
-  %7 = load %"class.std::tuple"*, %"class.std::tuple"** %6, align 8
-  %8 = bitcast %"class.std::vector.18"* %3 to %"struct.std::_Vector_base.19"*
-  %9 = getelementptr inbounds %"struct.std::_Vector_base.19", %"struct.std::_Vector_base.19"* %8, i32 0, i32 0
-  %10 = getelementptr inbounds %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl", %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* %9, i32 0, i32 0
-  %11 = load %"class.std::tuple"*, %"class.std::tuple"** %10, align 8
-  %12 = ptrtoint %"class.std::tuple"* %7 to i64
-  %13 = ptrtoint %"class.std::tuple"* %11 to i64
-  %14 = sub i64 %12, %13
-  %15 = sdiv exact i64 %14, 16
-  ret i64 %15
-}
-
-; Function Attrs: noreturn
-declare dso_local void @_ZSt20__throw_length_errorPKc(i8*) #14
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 8 dereferenceable(8) i64* @_ZSt3maxImERKT_S2_S2_(i64* nonnull align 8 dereferenceable(8) %0, i64* nonnull align 8 dereferenceable(8) %1) #6 comdat {
-  %3 = alloca i64*, align 8
-  %4 = alloca i64*, align 8
-  %5 = alloca i64*, align 8
-  store i64* %0, i64** %4, align 8
-  store i64* %1, i64** %5, align 8
-  %6 = load i64*, i64** %4, align 8
-  %7 = load i64, i64* %6, align 8
-  %8 = load i64*, i64** %5, align 8
-  %9 = load i64, i64* %8, align 8
-  %10 = icmp ult i64 %7, %9
-  br i1 %10, label %11, label %13
-
-11:                                               ; preds = %2
-  %12 = load i64*, i64** %5, align 8
-  store i64* %12, i64** %3, align 8
-  br label %15
-
-13:                                               ; preds = %2
-  %14 = load i64*, i64** %4, align 8
-  store i64* %14, i64** %3, align 8
-  br label %15
-
-15:                                               ; preds = %13, %11
-  %16 = load i64*, i64** %3, align 8
-  ret i64* %16
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local i64 @_ZNSt16allocator_traitsISaISt5tupleIJiiiiEEEE8max_sizeERKS2_(%"class.std::allocator.20"* nonnull align 1 dereferenceable(1) %0) #6 comdat align 2 {
-  %2 = alloca %"class.std::allocator.20"*, align 8
-  store %"class.std::allocator.20"* %0, %"class.std::allocator.20"** %2, align 8
-  %3 = load %"class.std::allocator.20"*, %"class.std::allocator.20"** %2, align 8
-  %4 = bitcast %"class.std::allocator.20"* %3 to %"class.__gnu_cxx::new_allocator.21"*
-  %5 = call i64 @_ZNK9__gnu_cxx13new_allocatorISt5tupleIJiiiiEEE8max_sizeEv(%"class.__gnu_cxx::new_allocator.21"* nonnull align 1 dereferenceable(1) %4) #3
-  ret i64 %5
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 1 dereferenceable(1) %"class.std::allocator.20"* @_ZNKSt12_Vector_baseISt5tupleIJiiiiEESaIS1_EE19_M_get_Tp_allocatorEv(%"struct.std::_Vector_base.19"* nonnull align 8 dereferenceable(24) %0) #6 comdat align 2 {
-  %2 = alloca %"struct.std::_Vector_base.19"*, align 8
-  store %"struct.std::_Vector_base.19"* %0, %"struct.std::_Vector_base.19"** %2, align 8
-  %3 = load %"struct.std::_Vector_base.19"*, %"struct.std::_Vector_base.19"** %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Vector_base.19", %"struct.std::_Vector_base.19"* %3, i32 0, i32 0
-  %5 = bitcast %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* %4 to %"class.std::allocator.20"*
-  ret %"class.std::allocator.20"* %5
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local i64 @_ZNK9__gnu_cxx13new_allocatorISt5tupleIJiiiiEEE8max_sizeEv(%"class.__gnu_cxx::new_allocator.21"* nonnull align 1 dereferenceable(1) %0) #6 comdat align 2 {
-  %2 = alloca %"class.__gnu_cxx::new_allocator.21"*, align 8
-  store %"class.__gnu_cxx::new_allocator.21"* %0, %"class.__gnu_cxx::new_allocator.21"** %2, align 8
-  %3 = load %"class.__gnu_cxx::new_allocator.21"*, %"class.__gnu_cxx::new_allocator.21"** %2, align 8
-  ret i64 1152921504606846975
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local %"class.std::tuple"* @_ZNSt16allocator_traitsISaISt5tupleIJiiiiEEEE8allocateERS2_m(%"class.std::allocator.20"* nonnull align 1 dereferenceable(1) %0, i64 %1) #7 comdat align 2 {
-  %3 = alloca %"class.std::allocator.20"*, align 8
-  %4 = alloca i64, align 8
-  store %"class.std::allocator.20"* %0, %"class.std::allocator.20"** %3, align 8
-  store i64 %1, i64* %4, align 8
-  %5 = load %"class.std::allocator.20"*, %"class.std::allocator.20"** %3, align 8
-  %6 = bitcast %"class.std::allocator.20"* %5 to %"class.__gnu_cxx::new_allocator.21"*
-  %7 = load i64, i64* %4, align 8
-  %8 = call %"class.std::tuple"* @_ZN9__gnu_cxx13new_allocatorISt5tupleIJiiiiEEE8allocateEmPKv(%"class.__gnu_cxx::new_allocator.21"* nonnull align 1 dereferenceable(1) %6, i64 %7, i8* null)
-  ret %"class.std::tuple"* %8
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local %"class.std::tuple"* @_ZN9__gnu_cxx13new_allocatorISt5tupleIJiiiiEEE8allocateEmPKv(%"class.__gnu_cxx::new_allocator.21"* nonnull align 1 dereferenceable(1) %0, i64 %1, i8* %2) #7 comdat align 2 {
-  %4 = alloca %"class.__gnu_cxx::new_allocator.21"*, align 8
-  %5 = alloca i64, align 8
-  %6 = alloca i8*, align 8
-  store %"class.__gnu_cxx::new_allocator.21"* %0, %"class.__gnu_cxx::new_allocator.21"** %4, align 8
-  store i64 %1, i64* %5, align 8
-  store i8* %2, i8** %6, align 8
-  %7 = load %"class.__gnu_cxx::new_allocator.21"*, %"class.__gnu_cxx::new_allocator.21"** %4, align 8
-  %8 = load i64, i64* %5, align 8
-  %9 = call i64 @_ZNK9__gnu_cxx13new_allocatorISt5tupleIJiiiiEEE8max_sizeEv(%"class.__gnu_cxx::new_allocator.21"* nonnull align 1 dereferenceable(1) %7) #3
-  %10 = icmp ugt i64 %8, %9
-  br i1 %10, label %11, label %12
-
-11:                                               ; preds = %3
-  call void @_ZSt17__throw_bad_allocv() #23
-  unreachable
-
-12:                                               ; preds = %3
-  %13 = load i64, i64* %5, align 8
-  %14 = mul i64 %13, 16
-  %15 = call noalias nonnull i8* @_Znwm(i64 %14) #24
-  %16 = bitcast i8* %15 to %"class.std::tuple"*
-  ret %"class.std::tuple"* %16
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local %"class.std::tuple"* @_ZSt22__uninitialized_copy_aISt13move_iteratorIPSt5tupleIJiiiiEEES3_S2_ET0_T_S6_S5_RSaIT1_E(%"class.std::tuple"* %0, %"class.std::tuple"* %1, %"class.std::tuple"* %2, %"class.std::allocator.20"* nonnull align 1 dereferenceable(1) %3) #7 comdat {
-  %5 = alloca %"class.std::move_iterator", align 8
-  %6 = alloca %"class.std::move_iterator", align 8
-  %7 = alloca %"class.std::tuple"*, align 8
-  %8 = alloca %"class.std::allocator.20"*, align 8
-  %9 = alloca %"class.std::move_iterator", align 8
-  %10 = alloca %"class.std::move_iterator", align 8
-  %11 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %5, i32 0, i32 0
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %11, align 8
-  %12 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %6, i32 0, i32 0
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %12, align 8
-  store %"class.std::tuple"* %2, %"class.std::tuple"** %7, align 8
-  store %"class.std::allocator.20"* %3, %"class.std::allocator.20"** %8, align 8
-  %13 = bitcast %"class.std::move_iterator"* %9 to i8*
-  %14 = bitcast %"class.std::move_iterator"* %5 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %13, i8* align 8 %14, i64 8, i1 false)
-  %15 = bitcast %"class.std::move_iterator"* %10 to i8*
-  %16 = bitcast %"class.std::move_iterator"* %6 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %15, i8* align 8 %16, i64 8, i1 false)
-  %17 = load %"class.std::tuple"*, %"class.std::tuple"** %7, align 8
-  %18 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %9, i32 0, i32 0
-  %19 = load %"class.std::tuple"*, %"class.std::tuple"** %18, align 8
-  %20 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %10, i32 0, i32 0
-  %21 = load %"class.std::tuple"*, %"class.std::tuple"** %20, align 8
-  %22 = call %"class.std::tuple"* @_ZSt18uninitialized_copyISt13move_iteratorIPSt5tupleIJiiiiEEES3_ET0_T_S6_S5_(%"class.std::tuple"* %19, %"class.std::tuple"* %21, %"class.std::tuple"* %17)
-  ret %"class.std::tuple"* %22
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local %"class.std::tuple"* @_ZSt32__make_move_if_noexcept_iteratorISt5tupleIJiiiiEESt13move_iteratorIPS1_EET0_PT_(%"class.std::tuple"* %0) #7 comdat {
-  %2 = alloca %"class.std::move_iterator", align 8
-  %3 = alloca %"class.std::tuple"*, align 8
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %3, align 8
-  %4 = load %"class.std::tuple"*, %"class.std::tuple"** %3, align 8
-  call void @_ZNSt13move_iteratorIPSt5tupleIJiiiiEEEC2ES2_(%"class.std::move_iterator"* nonnull align 8 dereferenceable(8) %2, %"class.std::tuple"* %4)
-  %5 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %2, i32 0, i32 0
-  %6 = load %"class.std::tuple"*, %"class.std::tuple"** %5, align 8
-  ret %"class.std::tuple"* %6
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local %"class.std::tuple"* @_ZSt18uninitialized_copyISt13move_iteratorIPSt5tupleIJiiiiEEES3_ET0_T_S6_S5_(%"class.std::tuple"* %0, %"class.std::tuple"* %1, %"class.std::tuple"* %2) #7 comdat {
-  %4 = alloca %"class.std::move_iterator", align 8
-  %5 = alloca %"class.std::move_iterator", align 8
-  %6 = alloca %"class.std::tuple"*, align 8
-  %7 = alloca i8, align 1
-  %8 = alloca %"class.std::move_iterator", align 8
-  %9 = alloca %"class.std::move_iterator", align 8
-  %10 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %4, i32 0, i32 0
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %10, align 8
-  %11 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %5, i32 0, i32 0
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %11, align 8
-  store %"class.std::tuple"* %2, %"class.std::tuple"** %6, align 8
-  store i8 1, i8* %7, align 1
-  %12 = bitcast %"class.std::move_iterator"* %8 to i8*
-  %13 = bitcast %"class.std::move_iterator"* %4 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %12, i8* align 8 %13, i64 8, i1 false)
-  %14 = bitcast %"class.std::move_iterator"* %9 to i8*
-  %15 = bitcast %"class.std::move_iterator"* %5 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %14, i8* align 8 %15, i64 8, i1 false)
-  %16 = load %"class.std::tuple"*, %"class.std::tuple"** %6, align 8
-  %17 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %8, i32 0, i32 0
-  %18 = load %"class.std::tuple"*, %"class.std::tuple"** %17, align 8
-  %19 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %9, i32 0, i32 0
-  %20 = load %"class.std::tuple"*, %"class.std::tuple"** %19, align 8
-  %21 = call %"class.std::tuple"* @_ZNSt20__uninitialized_copyILb0EE13__uninit_copyISt13move_iteratorIPSt5tupleIJiiiiEEES5_EET0_T_S8_S7_(%"class.std::tuple"* %18, %"class.std::tuple"* %20, %"class.std::tuple"* %16)
-  ret %"class.std::tuple"* %21
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local %"class.std::tuple"* @_ZNSt20__uninitialized_copyILb0EE13__uninit_copyISt13move_iteratorIPSt5tupleIJiiiiEEES5_EET0_T_S8_S7_(%"class.std::tuple"* %0, %"class.std::tuple"* %1, %"class.std::tuple"* %2) #7 comdat align 2 personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
-  %4 = alloca %"class.std::move_iterator", align 8
-  %5 = alloca %"class.std::move_iterator", align 8
-  %6 = alloca %"class.std::tuple"*, align 8
-  %7 = alloca %"class.std::tuple"*, align 8
-  %8 = alloca i8*, align 8
-  %9 = alloca i32, align 4
-  %10 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %4, i32 0, i32 0
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %10, align 8
-  %11 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %5, i32 0, i32 0
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %11, align 8
-  store %"class.std::tuple"* %2, %"class.std::tuple"** %6, align 8
-  %12 = load %"class.std::tuple"*, %"class.std::tuple"** %6, align 8
-  store %"class.std::tuple"* %12, %"class.std::tuple"** %7, align 8
-  br label %13
-
-13:                                               ; preds = %24, %3
-  %14 = invoke zeroext i1 @_ZStneIPSt5tupleIJiiiiEEEbRKSt13move_iteratorIT_ES7_(%"class.std::move_iterator"* nonnull align 8 dereferenceable(8) %4, %"class.std::move_iterator"* nonnull align 8 dereferenceable(8) %5)
-          to label %15 unwind label %27
-
-15:                                               ; preds = %13
-  br i1 %14, label %16, label %37
-
-16:                                               ; preds = %15
-  %17 = load %"class.std::tuple"*, %"class.std::tuple"** %7, align 8
-  %18 = call %"class.std::tuple"* @_ZSt11__addressofISt5tupleIJiiiiEEEPT_RS2_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %17) #3
-  %19 = invoke nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNKSt13move_iteratorIPSt5tupleIJiiiiEEEdeEv(%"class.std::move_iterator"* nonnull align 8 dereferenceable(8) %4)
-          to label %20 unwind label %27
-
-20:                                               ; preds = %16
-  invoke void @_ZSt10_ConstructISt5tupleIJiiiiEEJS1_EEvPT_DpOT0_(%"class.std::tuple"* %18, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %19)
-          to label %21 unwind label %27
-
-21:                                               ; preds = %20
-  br label %22
-
-22:                                               ; preds = %21
-  %23 = invoke nonnull align 8 dereferenceable(8) %"class.std::move_iterator"* @_ZNSt13move_iteratorIPSt5tupleIJiiiiEEEppEv(%"class.std::move_iterator"* nonnull align 8 dereferenceable(8) %4)
-          to label %24 unwind label %27
-
-24:                                               ; preds = %22
-  %25 = load %"class.std::tuple"*, %"class.std::tuple"** %7, align 8
-  %26 = getelementptr inbounds %"class.std::tuple", %"class.std::tuple"* %25, i32 1
-  store %"class.std::tuple"* %26, %"class.std::tuple"** %7, align 8
-  br label %13, !llvm.loop !30
-
-27:                                               ; preds = %22, %20, %16, %13
-  %28 = landingpad { i8*, i32 }
-          catch i8* null
-  %29 = extractvalue { i8*, i32 } %28, 0
-  store i8* %29, i8** %8, align 8
-  %30 = extractvalue { i8*, i32 } %28, 1
-  store i32 %30, i32* %9, align 4
-  br label %31
-
-31:                                               ; preds = %27
-  %32 = load i8*, i8** %8, align 8
-  %33 = call i8* @__cxa_begin_catch(i8* %32) #3
-  %34 = load %"class.std::tuple"*, %"class.std::tuple"** %6, align 8
-  %35 = load %"class.std::tuple"*, %"class.std::tuple"** %7, align 8
-  invoke void @_ZSt8_DestroyIPSt5tupleIJiiiiEEEvT_S3_(%"class.std::tuple"* %34, %"class.std::tuple"* %35)
-          to label %36 unwind label %39
-
-36:                                               ; preds = %31
-  invoke void @__cxa_rethrow() #23
-          to label %53 unwind label %39
-
-37:                                               ; preds = %15
-  %38 = load %"class.std::tuple"*, %"class.std::tuple"** %7, align 8
-  ret %"class.std::tuple"* %38
-
-39:                                               ; preds = %36, %31
-  %40 = landingpad { i8*, i32 }
-          cleanup
-  %41 = extractvalue { i8*, i32 } %40, 0
-  store i8* %41, i8** %8, align 8
-  %42 = extractvalue { i8*, i32 } %40, 1
-  store i32 %42, i32* %9, align 4
-  invoke void @__cxa_end_catch()
-          to label %43 unwind label %50
-
-43:                                               ; preds = %39
-  br label %45
-
-44:                                               ; No predecessors!
-  call void @llvm.trap()
-  unreachable
-
-45:                                               ; preds = %43
-  %46 = load i8*, i8** %8, align 8
-  %47 = load i32, i32* %9, align 4
-  %48 = insertvalue { i8*, i32 } undef, i8* %46, 0
-  %49 = insertvalue { i8*, i32 } %48, i32 %47, 1
-  resume { i8*, i32 } %49
-
-50:                                               ; preds = %39
-  %51 = landingpad { i8*, i32 }
-          catch i8* null
-  %52 = extractvalue { i8*, i32 } %51, 0
-  call void @__clang_call_terminate(i8* %52) #20
-  unreachable
-
-53:                                               ; preds = %36
-  unreachable
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local zeroext i1 @_ZStneIPSt5tupleIJiiiiEEEbRKSt13move_iteratorIT_ES7_(%"class.std::move_iterator"* nonnull align 8 dereferenceable(8) %0, %"class.std::move_iterator"* nonnull align 8 dereferenceable(8) %1) #7 comdat {
-  %3 = alloca %"class.std::move_iterator"*, align 8
-  %4 = alloca %"class.std::move_iterator"*, align 8
-  store %"class.std::move_iterator"* %0, %"class.std::move_iterator"** %3, align 8
-  store %"class.std::move_iterator"* %1, %"class.std::move_iterator"** %4, align 8
-  %5 = load %"class.std::move_iterator"*, %"class.std::move_iterator"** %3, align 8
-  %6 = load %"class.std::move_iterator"*, %"class.std::move_iterator"** %4, align 8
-  %7 = call zeroext i1 @_ZSteqIPSt5tupleIJiiiiEEEbRKSt13move_iteratorIT_ES7_(%"class.std::move_iterator"* nonnull align 8 dereferenceable(8) %5, %"class.std::move_iterator"* nonnull align 8 dereferenceable(8) %6)
-  %8 = xor i1 %7, true
-  ret i1 %8
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZSt10_ConstructISt5tupleIJiiiiEEJS1_EEvPT_DpOT0_(%"class.std::tuple"* %0, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %1) #6 comdat {
-  %3 = alloca %"class.std::tuple"*, align 8
-  %4 = alloca %"class.std::tuple"*, align 8
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %3, align 8
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %4, align 8
-  %5 = load %"class.std::tuple"*, %"class.std::tuple"** %3, align 8
-  %6 = bitcast %"class.std::tuple"* %5 to i8*
-  %7 = bitcast i8* %6 to %"class.std::tuple"*
-  %8 = load %"class.std::tuple"*, %"class.std::tuple"** %4, align 8
-  %9 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZSt7forwardISt5tupleIJiiiiEEEOT_RNSt16remove_referenceIS2_E4typeE(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %8) #3
-  call void @_ZNSt5tupleIJiiiiEEC2EOS0_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %7, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %9) #3
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local %"class.std::tuple"* @_ZSt11__addressofISt5tupleIJiiiiEEEPT_RS2_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %0) #6 comdat {
-  %2 = alloca %"class.std::tuple"*, align 8
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %2, align 8
-  %3 = load %"class.std::tuple"*, %"class.std::tuple"** %2, align 8
-  ret %"class.std::tuple"* %3
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNKSt13move_iteratorIPSt5tupleIJiiiiEEEdeEv(%"class.std::move_iterator"* nonnull align 8 dereferenceable(8) %0) #6 comdat align 2 {
-  %2 = alloca %"class.std::move_iterator"*, align 8
-  store %"class.std::move_iterator"* %0, %"class.std::move_iterator"** %2, align 8
-  %3 = load %"class.std::move_iterator"*, %"class.std::move_iterator"** %2, align 8
-  %4 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %3, i32 0, i32 0
-  %5 = load %"class.std::tuple"*, %"class.std::tuple"** %4, align 8
-  ret %"class.std::tuple"* %5
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 8 dereferenceable(8) %"class.std::move_iterator"* @_ZNSt13move_iteratorIPSt5tupleIJiiiiEEEppEv(%"class.std::move_iterator"* nonnull align 8 dereferenceable(8) %0) #6 comdat align 2 {
-  %2 = alloca %"class.std::move_iterator"*, align 8
-  store %"class.std::move_iterator"* %0, %"class.std::move_iterator"** %2, align 8
-  %3 = load %"class.std::move_iterator"*, %"class.std::move_iterator"** %2, align 8
-  %4 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %3, i32 0, i32 0
-  %5 = load %"class.std::tuple"*, %"class.std::tuple"** %4, align 8
-  %6 = getelementptr inbounds %"class.std::tuple", %"class.std::tuple"* %5, i32 1
-  store %"class.std::tuple"* %6, %"class.std::tuple"** %4, align 8
-  ret %"class.std::move_iterator"* %3
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_ZSt8_DestroyIPSt5tupleIJiiiiEEEvT_S3_(%"class.std::tuple"* %0, %"class.std::tuple"* %1) #7 comdat {
-  %3 = alloca %"class.std::tuple"*, align 8
-  %4 = alloca %"class.std::tuple"*, align 8
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %3, align 8
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %4, align 8
-  %5 = load %"class.std::tuple"*, %"class.std::tuple"** %3, align 8
-  %6 = load %"class.std::tuple"*, %"class.std::tuple"** %4, align 8
-  call void @_ZNSt12_Destroy_auxILb1EE9__destroyIPSt5tupleIJiiiiEEEEvT_S5_(%"class.std::tuple"* %5, %"class.std::tuple"* %6)
-  ret void
-}
-
-; Function Attrs: cold noreturn nounwind
-declare void @llvm.trap() #19
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local zeroext i1 @_ZSteqIPSt5tupleIJiiiiEEEbRKSt13move_iteratorIT_ES7_(%"class.std::move_iterator"* nonnull align 8 dereferenceable(8) %0, %"class.std::move_iterator"* nonnull align 8 dereferenceable(8) %1) #7 comdat {
-  %3 = alloca %"class.std::move_iterator"*, align 8
-  %4 = alloca %"class.std::move_iterator"*, align 8
-  store %"class.std::move_iterator"* %0, %"class.std::move_iterator"** %3, align 8
-  store %"class.std::move_iterator"* %1, %"class.std::move_iterator"** %4, align 8
-  %5 = load %"class.std::move_iterator"*, %"class.std::move_iterator"** %3, align 8
-  %6 = call %"class.std::tuple"* @_ZNKSt13move_iteratorIPSt5tupleIJiiiiEEE4baseEv(%"class.std::move_iterator"* nonnull align 8 dereferenceable(8) %5)
-  %7 = load %"class.std::move_iterator"*, %"class.std::move_iterator"** %4, align 8
-  %8 = call %"class.std::tuple"* @_ZNKSt13move_iteratorIPSt5tupleIJiiiiEEE4baseEv(%"class.std::move_iterator"* nonnull align 8 dereferenceable(8) %7)
-  %9 = icmp eq %"class.std::tuple"* %6, %8
-  ret i1 %9
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local %"class.std::tuple"* @_ZNKSt13move_iteratorIPSt5tupleIJiiiiEEE4baseEv(%"class.std::move_iterator"* nonnull align 8 dereferenceable(8) %0) #6 comdat align 2 {
-  %2 = alloca %"class.std::move_iterator"*, align 8
-  store %"class.std::move_iterator"* %0, %"class.std::move_iterator"** %2, align 8
-  %3 = load %"class.std::move_iterator"*, %"class.std::move_iterator"** %2, align 8
-  %4 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %3, i32 0, i32 0
-  %5 = load %"class.std::tuple"*, %"class.std::tuple"** %4, align 8
-  ret %"class.std::tuple"* %5
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt12_Destroy_auxILb1EE9__destroyIPSt5tupleIJiiiiEEEEvT_S5_(%"class.std::tuple"* %0, %"class.std::tuple"* %1) #6 comdat align 2 {
-  %3 = alloca %"class.std::tuple"*, align 8
-  %4 = alloca %"class.std::tuple"*, align 8
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %3, align 8
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %4, align 8
-  ret void
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt13move_iteratorIPSt5tupleIJiiiiEEEC2ES2_(%"class.std::move_iterator"* nonnull align 8 dereferenceable(8) %0, %"class.std::tuple"* %1) unnamed_addr #9 comdat align 2 {
-  %3 = alloca %"class.std::move_iterator"*, align 8
-  %4 = alloca %"class.std::tuple"*, align 8
-  store %"class.std::move_iterator"* %0, %"class.std::move_iterator"** %3, align 8
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %4, align 8
-  %5 = load %"class.std::move_iterator"*, %"class.std::move_iterator"** %3, align 8
-  %6 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %5, i32 0, i32 0
-  %7 = load %"class.std::tuple"*, %"class.std::tuple"** %4, align 8
-  store %"class.std::tuple"* %7, %"class.std::tuple"** %6, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZN9__gnu_cxx13new_allocatorISt5tupleIJiiiiEEE7destroyIS2_EEvPT_(%"class.__gnu_cxx::new_allocator.21"* nonnull align 1 dereferenceable(1) %0, %"class.std::tuple"* %1) #6 comdat align 2 {
-  %3 = alloca %"class.__gnu_cxx::new_allocator.21"*, align 8
-  %4 = alloca %"class.std::tuple"*, align 8
-  store %"class.__gnu_cxx::new_allocator.21"* %0, %"class.__gnu_cxx::new_allocator.21"** %3, align 8
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %4, align 8
-  %5 = load %"class.__gnu_cxx::new_allocator.21"*, %"class.__gnu_cxx::new_allocator.21"** %3, align 8
-  %6 = load %"class.std::tuple"*, %"class.std::tuple"** %4, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_ZNSt16allocator_traitsISaISt5tupleIJiiiiEEEE10deallocateERS2_PS1_m(%"class.std::allocator.20"* nonnull align 1 dereferenceable(1) %0, %"class.std::tuple"* %1, i64 %2) #7 comdat align 2 {
-  %4 = alloca %"class.std::allocator.20"*, align 8
-  %5 = alloca %"class.std::tuple"*, align 8
-  %6 = alloca i64, align 8
-  store %"class.std::allocator.20"* %0, %"class.std::allocator.20"** %4, align 8
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %5, align 8
-  store i64 %2, i64* %6, align 8
-  %7 = load %"class.std::allocator.20"*, %"class.std::allocator.20"** %4, align 8
-  %8 = bitcast %"class.std::allocator.20"* %7 to %"class.__gnu_cxx::new_allocator.21"*
-  %9 = load %"class.std::tuple"*, %"class.std::tuple"** %5, align 8
-  %10 = load i64, i64* %6, align 8
-  call void @_ZN9__gnu_cxx13new_allocatorISt5tupleIJiiiiEEE10deallocateEPS2_m(%"class.__gnu_cxx::new_allocator.21"* nonnull align 1 dereferenceable(1) %8, %"class.std::tuple"* %9, i64 %10)
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZN9__gnu_cxx13new_allocatorISt5tupleIJiiiiEEE10deallocateEPS2_m(%"class.__gnu_cxx::new_allocator.21"* nonnull align 1 dereferenceable(1) %0, %"class.std::tuple"* %1, i64 %2) #6 comdat align 2 {
-  %4 = alloca %"class.__gnu_cxx::new_allocator.21"*, align 8
-  %5 = alloca %"class.std::tuple"*, align 8
-  %6 = alloca i64, align 8
-  store %"class.__gnu_cxx::new_allocator.21"* %0, %"class.__gnu_cxx::new_allocator.21"** %4, align 8
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %5, align 8
-  store i64 %2, i64* %6, align 8
-  %7 = load %"class.__gnu_cxx::new_allocator.21"*, %"class.__gnu_cxx::new_allocator.21"** %4, align 8
-  %8 = load %"class.std::tuple"*, %"class.std::tuple"** %5, align 8
-  %9 = bitcast %"class.std::tuple"* %8 to i8*
-  call void @_ZdlPv(i8* %9) #3
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIRiEOT_RNSt16remove_referenceIS1_E4typeE(i32* nonnull align 4 dereferenceable(4) %0) #6 comdat {
-  %2 = alloca i32*, align 8
-  store i32* %0, i32** %2, align 8
-  %3 = load i32*, i32** %2, align 8
-  ret i32* %3
-}
-
-; Function Attrs: noinline optnone uwtable
-define linkonce_odr dso_local void @_ZNSt5tupleIJiiiiEEC2IJRiS2_S2_S2_ELb1EEEDpOT_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %0, i32* nonnull align 4 dereferenceable(4) %1, i32* nonnull align 4 dereferenceable(4) %2, i32* nonnull align 4 dereferenceable(4) %3, i32* nonnull align 4 dereferenceable(4) %4) unnamed_addr #18 comdat align 2 {
-  %6 = alloca %"class.std::tuple"*, align 8
-  %7 = alloca i32*, align 8
-  %8 = alloca i32*, align 8
-  %9 = alloca i32*, align 8
-  %10 = alloca i32*, align 8
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %6, align 8
-  store i32* %1, i32** %7, align 8
-  store i32* %2, i32** %8, align 8
-  store i32* %3, i32** %9, align 8
-  store i32* %4, i32** %10, align 8
-  %11 = load %"class.std::tuple"*, %"class.std::tuple"** %6, align 8
-  %12 = bitcast %"class.std::tuple"* %11 to %"struct.std::_Tuple_impl"*
-  %13 = load i32*, i32** %7, align 8
-  %14 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIRiEOT_RNSt16remove_referenceIS1_E4typeE(i32* nonnull align 4 dereferenceable(4) %13) #3
-  %15 = load i32*, i32** %8, align 8
-  %16 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIRiEOT_RNSt16remove_referenceIS1_E4typeE(i32* nonnull align 4 dereferenceable(4) %15) #3
-  %17 = load i32*, i32** %9, align 8
-  %18 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIRiEOT_RNSt16remove_referenceIS1_E4typeE(i32* nonnull align 4 dereferenceable(4) %17) #3
-  %19 = load i32*, i32** %10, align 8
-  %20 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIRiEOT_RNSt16remove_referenceIS1_E4typeE(i32* nonnull align 4 dereferenceable(4) %19) #3
-  call void @_ZNSt11_Tuple_implILm0EJiiiiEEC2IRiJS2_S2_S2_EvEEOT_DpOT0_(%"struct.std::_Tuple_impl"* nonnull align 4 dereferenceable(16) %12, i32* nonnull align 4 dereferenceable(4) %14, i32* nonnull align 4 dereferenceable(4) %16, i32* nonnull align 4 dereferenceable(4) %18, i32* nonnull align 4 dereferenceable(4) %20)
-  ret void
-}
-
-; Function Attrs: noinline optnone uwtable
-define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm0EJiiiiEEC2IRiJS2_S2_S2_EvEEOT_DpOT0_(%"struct.std::_Tuple_impl"* nonnull align 4 dereferenceable(16) %0, i32* nonnull align 4 dereferenceable(4) %1, i32* nonnull align 4 dereferenceable(4) %2, i32* nonnull align 4 dereferenceable(4) %3, i32* nonnull align 4 dereferenceable(4) %4) unnamed_addr #18 comdat align 2 {
-  %6 = alloca %"struct.std::_Tuple_impl"*, align 8
-  %7 = alloca i32*, align 8
-  %8 = alloca i32*, align 8
-  %9 = alloca i32*, align 8
-  %10 = alloca i32*, align 8
-  store %"struct.std::_Tuple_impl"* %0, %"struct.std::_Tuple_impl"** %6, align 8
-  store i32* %1, i32** %7, align 8
-  store i32* %2, i32** %8, align 8
-  store i32* %3, i32** %9, align 8
-  store i32* %4, i32** %10, align 8
-  %11 = load %"struct.std::_Tuple_impl"*, %"struct.std::_Tuple_impl"** %6, align 8
-  %12 = bitcast %"struct.std::_Tuple_impl"* %11 to %"struct.std::_Tuple_impl.23"*
-  %13 = load i32*, i32** %8, align 8
-  %14 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIRiEOT_RNSt16remove_referenceIS1_E4typeE(i32* nonnull align 4 dereferenceable(4) %13) #3
-  %15 = load i32*, i32** %9, align 8
-  %16 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIRiEOT_RNSt16remove_referenceIS1_E4typeE(i32* nonnull align 4 dereferenceable(4) %15) #3
-  %17 = load i32*, i32** %10, align 8
-  %18 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIRiEOT_RNSt16remove_referenceIS1_E4typeE(i32* nonnull align 4 dereferenceable(4) %17) #3
-  call void @_ZNSt11_Tuple_implILm1EJiiiEEC2IRiJS2_S2_EvEEOT_DpOT0_(%"struct.std::_Tuple_impl.23"* nonnull align 4 dereferenceable(12) %12, i32* nonnull align 4 dereferenceable(4) %14, i32* nonnull align 4 dereferenceable(4) %16, i32* nonnull align 4 dereferenceable(4) %18)
-  %19 = bitcast %"struct.std::_Tuple_impl"* %11 to i8*
-  %20 = getelementptr inbounds i8, i8* %19, i64 12
-  %21 = bitcast i8* %20 to %"struct.std::_Head_base.28"*
-  %22 = load i32*, i32** %7, align 8
-  %23 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIRiEOT_RNSt16remove_referenceIS1_E4typeE(i32* nonnull align 4 dereferenceable(4) %22) #3
-  call void @_ZNSt10_Head_baseILm0EiLb0EEC2IRiEEOT_(%"struct.std::_Head_base.28"* nonnull align 4 dereferenceable(4) %21, i32* nonnull align 4 dereferenceable(4) %23)
-  ret void
-}
-
-; Function Attrs: noinline optnone uwtable
-define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm1EJiiiEEC2IRiJS2_S2_EvEEOT_DpOT0_(%"struct.std::_Tuple_impl.23"* nonnull align 4 dereferenceable(12) %0, i32* nonnull align 4 dereferenceable(4) %1, i32* nonnull align 4 dereferenceable(4) %2, i32* nonnull align 4 dereferenceable(4) %3) unnamed_addr #18 comdat align 2 {
-  %5 = alloca %"struct.std::_Tuple_impl.23"*, align 8
-  %6 = alloca i32*, align 8
-  %7 = alloca i32*, align 8
-  %8 = alloca i32*, align 8
-  store %"struct.std::_Tuple_impl.23"* %0, %"struct.std::_Tuple_impl.23"** %5, align 8
-  store i32* %1, i32** %6, align 8
-  store i32* %2, i32** %7, align 8
-  store i32* %3, i32** %8, align 8
-  %9 = load %"struct.std::_Tuple_impl.23"*, %"struct.std::_Tuple_impl.23"** %5, align 8
-  %10 = bitcast %"struct.std::_Tuple_impl.23"* %9 to %"struct.std::_Tuple_impl.24"*
-  %11 = load i32*, i32** %7, align 8
-  %12 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIRiEOT_RNSt16remove_referenceIS1_E4typeE(i32* nonnull align 4 dereferenceable(4) %11) #3
-  %13 = load i32*, i32** %8, align 8
-  %14 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIRiEOT_RNSt16remove_referenceIS1_E4typeE(i32* nonnull align 4 dereferenceable(4) %13) #3
-  call void @_ZNSt11_Tuple_implILm2EJiiEEC2IRiJS2_EvEEOT_DpOT0_(%"struct.std::_Tuple_impl.24"* nonnull align 4 dereferenceable(8) %10, i32* nonnull align 4 dereferenceable(4) %12, i32* nonnull align 4 dereferenceable(4) %14)
-  %15 = bitcast %"struct.std::_Tuple_impl.23"* %9 to i8*
-  %16 = getelementptr inbounds i8, i8* %15, i64 8
-  %17 = bitcast i8* %16 to %"struct.std::_Head_base.27"*
-  %18 = load i32*, i32** %6, align 8
-  %19 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIRiEOT_RNSt16remove_referenceIS1_E4typeE(i32* nonnull align 4 dereferenceable(4) %18) #3
-  call void @_ZNSt10_Head_baseILm1EiLb0EEC2IRiEEOT_(%"struct.std::_Head_base.27"* nonnull align 4 dereferenceable(4) %17, i32* nonnull align 4 dereferenceable(4) %19)
-  ret void
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt10_Head_baseILm0EiLb0EEC2IRiEEOT_(%"struct.std::_Head_base.28"* nonnull align 4 dereferenceable(4) %0, i32* nonnull align 4 dereferenceable(4) %1) unnamed_addr #9 comdat align 2 {
-  %3 = alloca %"struct.std::_Head_base.28"*, align 8
-  %4 = alloca i32*, align 8
-  store %"struct.std::_Head_base.28"* %0, %"struct.std::_Head_base.28"** %3, align 8
-  store i32* %1, i32** %4, align 8
-  %5 = load %"struct.std::_Head_base.28"*, %"struct.std::_Head_base.28"** %3, align 8
-  %6 = getelementptr inbounds %"struct.std::_Head_base.28", %"struct.std::_Head_base.28"* %5, i32 0, i32 0
-  %7 = load i32*, i32** %4, align 8
-  %8 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIRiEOT_RNSt16remove_referenceIS1_E4typeE(i32* nonnull align 4 dereferenceable(4) %7) #3
-  %9 = load i32, i32* %8, align 4
-  store i32 %9, i32* %6, align 4
-  ret void
-}
-
-; Function Attrs: noinline optnone uwtable
-define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm2EJiiEEC2IRiJS2_EvEEOT_DpOT0_(%"struct.std::_Tuple_impl.24"* nonnull align 4 dereferenceable(8) %0, i32* nonnull align 4 dereferenceable(4) %1, i32* nonnull align 4 dereferenceable(4) %2) unnamed_addr #18 comdat align 2 {
-  %4 = alloca %"struct.std::_Tuple_impl.24"*, align 8
-  %5 = alloca i32*, align 8
-  %6 = alloca i32*, align 8
-  store %"struct.std::_Tuple_impl.24"* %0, %"struct.std::_Tuple_impl.24"** %4, align 8
-  store i32* %1, i32** %5, align 8
-  store i32* %2, i32** %6, align 8
-  %7 = load %"struct.std::_Tuple_impl.24"*, %"struct.std::_Tuple_impl.24"** %4, align 8
-  %8 = bitcast %"struct.std::_Tuple_impl.24"* %7 to %"struct.std::_Tuple_impl.25"*
-  %9 = load i32*, i32** %6, align 8
-  %10 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIRiEOT_RNSt16remove_referenceIS1_E4typeE(i32* nonnull align 4 dereferenceable(4) %9) #3
-  call void @_ZNSt11_Tuple_implILm3EJiEEC2IRiEEOT_(%"struct.std::_Tuple_impl.25"* nonnull align 4 dereferenceable(4) %8, i32* nonnull align 4 dereferenceable(4) %10)
-  %11 = bitcast %"struct.std::_Tuple_impl.24"* %7 to i8*
-  %12 = getelementptr inbounds i8, i8* %11, i64 4
-  %13 = bitcast i8* %12 to %"struct.std::_Head_base.26"*
-  %14 = load i32*, i32** %5, align 8
-  %15 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIRiEOT_RNSt16remove_referenceIS1_E4typeE(i32* nonnull align 4 dereferenceable(4) %14) #3
-  call void @_ZNSt10_Head_baseILm2EiLb0EEC2IRiEEOT_(%"struct.std::_Head_base.26"* nonnull align 4 dereferenceable(4) %13, i32* nonnull align 4 dereferenceable(4) %15)
-  ret void
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt10_Head_baseILm1EiLb0EEC2IRiEEOT_(%"struct.std::_Head_base.27"* nonnull align 4 dereferenceable(4) %0, i32* nonnull align 4 dereferenceable(4) %1) unnamed_addr #9 comdat align 2 {
-  %3 = alloca %"struct.std::_Head_base.27"*, align 8
-  %4 = alloca i32*, align 8
-  store %"struct.std::_Head_base.27"* %0, %"struct.std::_Head_base.27"** %3, align 8
-  store i32* %1, i32** %4, align 8
-  %5 = load %"struct.std::_Head_base.27"*, %"struct.std::_Head_base.27"** %3, align 8
-  %6 = getelementptr inbounds %"struct.std::_Head_base.27", %"struct.std::_Head_base.27"* %5, i32 0, i32 0
-  %7 = load i32*, i32** %4, align 8
-  %8 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIRiEOT_RNSt16remove_referenceIS1_E4typeE(i32* nonnull align 4 dereferenceable(4) %7) #3
-  %9 = load i32, i32* %8, align 4
-  store i32 %9, i32* %6, align 4
-  ret void
-}
-
-; Function Attrs: noinline optnone uwtable
-define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm3EJiEEC2IRiEEOT_(%"struct.std::_Tuple_impl.25"* nonnull align 4 dereferenceable(4) %0, i32* nonnull align 4 dereferenceable(4) %1) unnamed_addr #18 comdat align 2 {
-  %3 = alloca %"struct.std::_Tuple_impl.25"*, align 8
-  %4 = alloca i32*, align 8
-  store %"struct.std::_Tuple_impl.25"* %0, %"struct.std::_Tuple_impl.25"** %3, align 8
-  store i32* %1, i32** %4, align 8
-  %5 = load %"struct.std::_Tuple_impl.25"*, %"struct.std::_Tuple_impl.25"** %3, align 8
-  %6 = bitcast %"struct.std::_Tuple_impl.25"* %5 to %"struct.std::_Head_base"*
-  %7 = load i32*, i32** %4, align 8
-  %8 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIRiEOT_RNSt16remove_referenceIS1_E4typeE(i32* nonnull align 4 dereferenceable(4) %7) #3
-  call void @_ZNSt10_Head_baseILm3EiLb0EEC2IRiEEOT_(%"struct.std::_Head_base"* nonnull align 4 dereferenceable(4) %6, i32* nonnull align 4 dereferenceable(4) %8)
-  ret void
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt10_Head_baseILm2EiLb0EEC2IRiEEOT_(%"struct.std::_Head_base.26"* nonnull align 4 dereferenceable(4) %0, i32* nonnull align 4 dereferenceable(4) %1) unnamed_addr #9 comdat align 2 {
-  %3 = alloca %"struct.std::_Head_base.26"*, align 8
-  %4 = alloca i32*, align 8
-  store %"struct.std::_Head_base.26"* %0, %"struct.std::_Head_base.26"** %3, align 8
-  store i32* %1, i32** %4, align 8
-  %5 = load %"struct.std::_Head_base.26"*, %"struct.std::_Head_base.26"** %3, align 8
-  %6 = getelementptr inbounds %"struct.std::_Head_base.26", %"struct.std::_Head_base.26"* %5, i32 0, i32 0
-  %7 = load i32*, i32** %4, align 8
-  %8 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIRiEOT_RNSt16remove_referenceIS1_E4typeE(i32* nonnull align 4 dereferenceable(4) %7) #3
-  %9 = load i32, i32* %8, align 4
-  store i32 %9, i32* %6, align 4
-  ret void
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt10_Head_baseILm3EiLb0EEC2IRiEEOT_(%"struct.std::_Head_base"* nonnull align 4 dereferenceable(4) %0, i32* nonnull align 4 dereferenceable(4) %1) unnamed_addr #9 comdat align 2 {
-  %3 = alloca %"struct.std::_Head_base"*, align 8
-  %4 = alloca i32*, align 8
-  store %"struct.std::_Head_base"* %0, %"struct.std::_Head_base"** %3, align 8
-  store i32* %1, i32** %4, align 8
-  %5 = load %"struct.std::_Head_base"*, %"struct.std::_Head_base"** %3, align 8
-  %6 = getelementptr inbounds %"struct.std::_Head_base", %"struct.std::_Head_base"* %5, i32 0, i32 0
-  %7 = load i32*, i32** %4, align 8
-  %8 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIRiEOT_RNSt16remove_referenceIS1_E4typeE(i32* nonnull align 4 dereferenceable(4) %7) #3
-  %9 = load i32, i32* %8, align 4
-  store i32 %9, i32* %6, align 4
-  ret void
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_ZSt6__sortIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_(%"class.std::tuple"* %0, %"class.std::tuple"* %1, i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %2) #7 comdat {
-  %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %6 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
-  %7 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %8 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %9 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
-  %10 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %11 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %12 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
-  %13 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %4, i32 0, i32 0
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %13, align 8
-  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %5, i32 0, i32 0
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %14, align 8
-  %15 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Iter_comp_iter", %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %6, i32 0, i32 0
-  store i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %2, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %15, align 8
-  %16 = call zeroext i1 @_ZN9__gnu_cxxneIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %4, %"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %5) #3
-  br i1 %16, label %17, label %45
-
-17:                                               ; preds = %3
-  %18 = bitcast %"class.__gnu_cxx::__normal_iterator"* %7 to i8*
-  %19 = bitcast %"class.__gnu_cxx::__normal_iterator"* %4 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %18, i8* align 8 %19, i64 8, i1 false)
-  %20 = bitcast %"class.__gnu_cxx::__normal_iterator"* %8 to i8*
-  %21 = bitcast %"class.__gnu_cxx::__normal_iterator"* %5 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %20, i8* align 8 %21, i64 8, i1 false)
-  %22 = call i64 @_ZN9__gnu_cxxmiIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSA_SD_(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %5, %"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %4) #3
-  %23 = call i64 @_ZSt4__lgl(i64 %22)
-  %24 = mul nsw i64 %23, 2
-  %25 = bitcast %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %9 to i8*
-  %26 = bitcast %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %6 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %25, i8* align 8 %26, i64 8, i1 false)
-  %27 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %7, i32 0, i32 0
-  %28 = load %"class.std::tuple"*, %"class.std::tuple"** %27, align 8
-  %29 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %8, i32 0, i32 0
-  %30 = load %"class.std::tuple"*, %"class.std::tuple"** %29, align 8
-  %31 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Iter_comp_iter", %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %9, i32 0, i32 0
-  %32 = load i1 (%"class.std::tuple"*, %"class.std::tuple"*)*, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %31, align 8
-  call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(%"class.std::tuple"* %28, %"class.std::tuple"* %30, i64 %24, i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %32)
-  %33 = bitcast %"class.__gnu_cxx::__normal_iterator"* %10 to i8*
-  %34 = bitcast %"class.__gnu_cxx::__normal_iterator"* %4 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %33, i8* align 8 %34, i64 8, i1 false)
-  %35 = bitcast %"class.__gnu_cxx::__normal_iterator"* %11 to i8*
-  %36 = bitcast %"class.__gnu_cxx::__normal_iterator"* %5 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %35, i8* align 8 %36, i64 8, i1 false)
-  %37 = bitcast %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %12 to i8*
-  %38 = bitcast %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %6 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %37, i8* align 8 %38, i64 8, i1 false)
-  %39 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %10, i32 0, i32 0
-  %40 = load %"class.std::tuple"*, %"class.std::tuple"** %39, align 8
-  %41 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %11, i32 0, i32 0
-  %42 = load %"class.std::tuple"*, %"class.std::tuple"** %41, align 8
-  %43 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Iter_comp_iter", %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %12, i32 0, i32 0
-  %44 = load i1 (%"class.std::tuple"*, %"class.std::tuple"*)*, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %43, align 8
-  call void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_(%"class.std::tuple"* %40, %"class.std::tuple"* %42, i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %44)
-  br label %45
-
-45:                                               ; preds = %17, %3
-  ret void
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local i1 (%"class.std::tuple"*, %"class.std::tuple"*)* @_ZN9__gnu_cxx5__ops16__iter_comp_iterIPFbRKSt5tupleIJiiiiEES5_EEENS0_15_Iter_comp_iterIT_EES9_(i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %0) #7 comdat {
-  %2 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
-  %3 = alloca i1 (%"class.std::tuple"*, %"class.std::tuple"*)*, align 8
-  store i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %0, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %3, align 8
-  %4 = call nonnull align 8 dereferenceable(8) i1 (%"class.std::tuple"*, %"class.std::tuple"*)** @_ZSt4moveIRPFbRKSt5tupleIJiiiiEES3_EEONSt16remove_referenceIT_E4typeEOS8_(i1 (%"class.std::tuple"*, %"class.std::tuple"*)** nonnull align 8 dereferenceable(8) %3) #3
-  %5 = load i1 (%"class.std::tuple"*, %"class.std::tuple"*)*, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %4, align 8
-  call void @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKSt5tupleIJiiiiEES5_EEC2ES7_(%"struct.__gnu_cxx::__ops::_Iter_comp_iter"* nonnull align 8 dereferenceable(8) %2, i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %5)
-  %6 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Iter_comp_iter", %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %2, i32 0, i32 0
-  %7 = load i1 (%"class.std::tuple"*, %"class.std::tuple"*)*, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %6, align 8
-  ret i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %7
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local zeroext i1 @_ZN9__gnu_cxxneIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %0, %"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %1) #6 comdat {
-  %3 = alloca %"class.__gnu_cxx::__normal_iterator"*, align 8
-  %4 = alloca %"class.__gnu_cxx::__normal_iterator"*, align 8
-  store %"class.__gnu_cxx::__normal_iterator"* %0, %"class.__gnu_cxx::__normal_iterator"** %3, align 8
-  store %"class.__gnu_cxx::__normal_iterator"* %1, %"class.__gnu_cxx::__normal_iterator"** %4, align 8
-  %5 = load %"class.__gnu_cxx::__normal_iterator"*, %"class.__gnu_cxx::__normal_iterator"** %3, align 8
-  %6 = call nonnull align 8 dereferenceable(8) %"class.std::tuple"** @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEE4baseEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %5) #3
-  %7 = load %"class.std::tuple"*, %"class.std::tuple"** %6, align 8
-  %8 = load %"class.__gnu_cxx::__normal_iterator"*, %"class.__gnu_cxx::__normal_iterator"** %4, align 8
-  %9 = call nonnull align 8 dereferenceable(8) %"class.std::tuple"** @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEE4baseEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %8) #3
-  %10 = load %"class.std::tuple"*, %"class.std::tuple"** %9, align 8
-  %11 = icmp ne %"class.std::tuple"* %7, %10
-  ret i1 %11
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(%"class.std::tuple"* %0, %"class.std::tuple"* %1, i64 %2, i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %3) #7 comdat {
-  %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %6 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %7 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
-  %8 = alloca i64, align 8
-  %9 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %10 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %11 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %12 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
-  %13 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %14 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %15 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %16 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
-  %17 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %18 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %19 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
-  %20 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %5, i32 0, i32 0
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %20, align 8
-  %21 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %6, i32 0, i32 0
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %21, align 8
-  %22 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Iter_comp_iter", %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %7, i32 0, i32 0
-  store i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %3, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %22, align 8
-  store i64 %2, i64* %8, align 8
-  br label %23
-
-23:                                               ; preds = %46, %4
-  %24 = call i64 @_ZN9__gnu_cxxmiIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSA_SD_(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %6, %"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %5) #3
-  %25 = icmp sgt i64 %24, 16
-  br i1 %25, label %26, label %78
-
-26:                                               ; preds = %23
-  %27 = load i64, i64* %8, align 8
-  %28 = icmp eq i64 %27, 0
-  br i1 %28, label %29, label %46
-
-29:                                               ; preds = %26
-  %30 = bitcast %"class.__gnu_cxx::__normal_iterator"* %9 to i8*
-  %31 = bitcast %"class.__gnu_cxx::__normal_iterator"* %5 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %30, i8* align 8 %31, i64 8, i1 false)
-  %32 = bitcast %"class.__gnu_cxx::__normal_iterator"* %10 to i8*
-  %33 = bitcast %"class.__gnu_cxx::__normal_iterator"* %6 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %32, i8* align 8 %33, i64 8, i1 false)
-  %34 = bitcast %"class.__gnu_cxx::__normal_iterator"* %11 to i8*
-  %35 = bitcast %"class.__gnu_cxx::__normal_iterator"* %6 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %34, i8* align 8 %35, i64 8, i1 false)
-  %36 = bitcast %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %12 to i8*
-  %37 = bitcast %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %7 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %36, i8* align 8 %37, i64 8, i1 false)
-  %38 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %9, i32 0, i32 0
-  %39 = load %"class.std::tuple"*, %"class.std::tuple"** %38, align 8
-  %40 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %10, i32 0, i32 0
-  %41 = load %"class.std::tuple"*, %"class.std::tuple"** %40, align 8
-  %42 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %11, i32 0, i32 0
-  %43 = load %"class.std::tuple"*, %"class.std::tuple"** %42, align 8
-  %44 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Iter_comp_iter", %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %12, i32 0, i32 0
-  %45 = load i1 (%"class.std::tuple"*, %"class.std::tuple"*)*, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %44, align 8
-  call void @_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_T0_(%"class.std::tuple"* %39, %"class.std::tuple"* %41, %"class.std::tuple"* %43, i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %45)
-  br label %78
-
-46:                                               ; preds = %26
-  %47 = load i64, i64* %8, align 8
-  %48 = add nsw i64 %47, -1
-  store i64 %48, i64* %8, align 8
-  %49 = bitcast %"class.__gnu_cxx::__normal_iterator"* %14 to i8*
-  %50 = bitcast %"class.__gnu_cxx::__normal_iterator"* %5 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %49, i8* align 8 %50, i64 8, i1 false)
-  %51 = bitcast %"class.__gnu_cxx::__normal_iterator"* %15 to i8*
-  %52 = bitcast %"class.__gnu_cxx::__normal_iterator"* %6 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %51, i8* align 8 %52, i64 8, i1 false)
-  %53 = bitcast %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %16 to i8*
-  %54 = bitcast %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %7 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %53, i8* align 8 %54, i64 8, i1 false)
-  %55 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %14, i32 0, i32 0
-  %56 = load %"class.std::tuple"*, %"class.std::tuple"** %55, align 8
-  %57 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %15, i32 0, i32 0
-  %58 = load %"class.std::tuple"*, %"class.std::tuple"** %57, align 8
-  %59 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Iter_comp_iter", %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %16, i32 0, i32 0
-  %60 = load i1 (%"class.std::tuple"*, %"class.std::tuple"*)*, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %59, align 8
-  %61 = call %"class.std::tuple"* @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_(%"class.std::tuple"* %56, %"class.std::tuple"* %58, i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %60)
-  %62 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %13, i32 0, i32 0
-  store %"class.std::tuple"* %61, %"class.std::tuple"** %62, align 8
-  %63 = bitcast %"class.__gnu_cxx::__normal_iterator"* %17 to i8*
-  %64 = bitcast %"class.__gnu_cxx::__normal_iterator"* %13 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %63, i8* align 8 %64, i64 8, i1 false)
-  %65 = bitcast %"class.__gnu_cxx::__normal_iterator"* %18 to i8*
-  %66 = bitcast %"class.__gnu_cxx::__normal_iterator"* %6 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %65, i8* align 8 %66, i64 8, i1 false)
-  %67 = load i64, i64* %8, align 8
-  %68 = bitcast %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %19 to i8*
-  %69 = bitcast %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %7 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %68, i8* align 8 %69, i64 8, i1 false)
-  %70 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %17, i32 0, i32 0
-  %71 = load %"class.std::tuple"*, %"class.std::tuple"** %70, align 8
-  %72 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %18, i32 0, i32 0
-  %73 = load %"class.std::tuple"*, %"class.std::tuple"** %72, align 8
-  %74 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Iter_comp_iter", %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %19, i32 0, i32 0
-  %75 = load i1 (%"class.std::tuple"*, %"class.std::tuple"*)*, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %74, align 8
-  call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(%"class.std::tuple"* %71, %"class.std::tuple"* %73, i64 %67, i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %75)
-  %76 = bitcast %"class.__gnu_cxx::__normal_iterator"* %6 to i8*
-  %77 = bitcast %"class.__gnu_cxx::__normal_iterator"* %13 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %76, i8* align 8 %77, i64 8, i1 false)
-  br label %23, !llvm.loop !31
-
-78:                                               ; preds = %29, %23
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local i64 @_ZSt4__lgl(i64 %0) #6 comdat {
-  %2 = alloca i64, align 8
-  store i64 %0, i64* %2, align 8
-  %3 = load i64, i64* %2, align 8
-  %4 = call i64 @llvm.ctlz.i64(i64 %3, i1 true)
-  %5 = trunc i64 %4 to i32
-  %6 = sub nsw i32 63, %5
-  %7 = sext i32 %6 to i64
-  ret i64 %7
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_(%"class.std::tuple"* %0, %"class.std::tuple"* %1, i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %2) #7 comdat {
-  %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %6 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
-  %7 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %8 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %9 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
-  %10 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %11 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %12 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
-  %13 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %14 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %15 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
-  %16 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %4, i32 0, i32 0
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %16, align 8
-  %17 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %5, i32 0, i32 0
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %17, align 8
-  %18 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Iter_comp_iter", %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %6, i32 0, i32 0
-  store i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %2, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %18, align 8
-  %19 = call i64 @_ZN9__gnu_cxxmiIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSA_SD_(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %5, %"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %4) #3
-  %20 = icmp sgt i64 %19, 16
-  br i1 %20, label %21, label %46
-
-21:                                               ; preds = %3
-  %22 = bitcast %"class.__gnu_cxx::__normal_iterator"* %7 to i8*
-  %23 = bitcast %"class.__gnu_cxx::__normal_iterator"* %4 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %22, i8* align 8 %23, i64 8, i1 false)
-  %24 = call %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEplEl(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %4, i64 16) #3
-  %25 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %8, i32 0, i32 0
-  store %"class.std::tuple"* %24, %"class.std::tuple"** %25, align 8
-  %26 = bitcast %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %9 to i8*
-  %27 = bitcast %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %6 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %26, i8* align 8 %27, i64 8, i1 false)
-  %28 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %7, i32 0, i32 0
-  %29 = load %"class.std::tuple"*, %"class.std::tuple"** %28, align 8
-  %30 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %8, i32 0, i32 0
-  %31 = load %"class.std::tuple"*, %"class.std::tuple"** %30, align 8
-  %32 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Iter_comp_iter", %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %9, i32 0, i32 0
-  %33 = load i1 (%"class.std::tuple"*, %"class.std::tuple"*)*, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %32, align 8
-  call void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_(%"class.std::tuple"* %29, %"class.std::tuple"* %31, i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %33)
-  %34 = call %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEplEl(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %4, i64 16) #3
-  %35 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %10, i32 0, i32 0
-  store %"class.std::tuple"* %34, %"class.std::tuple"** %35, align 8
-  %36 = bitcast %"class.__gnu_cxx::__normal_iterator"* %11 to i8*
-  %37 = bitcast %"class.__gnu_cxx::__normal_iterator"* %5 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %36, i8* align 8 %37, i64 8, i1 false)
-  %38 = bitcast %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %12 to i8*
-  %39 = bitcast %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %6 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %38, i8* align 8 %39, i64 8, i1 false)
-  %40 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %10, i32 0, i32 0
-  %41 = load %"class.std::tuple"*, %"class.std::tuple"** %40, align 8
-  %42 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %11, i32 0, i32 0
-  %43 = load %"class.std::tuple"*, %"class.std::tuple"** %42, align 8
-  %44 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Iter_comp_iter", %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %12, i32 0, i32 0
-  %45 = load i1 (%"class.std::tuple"*, %"class.std::tuple"*)*, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %44, align 8
-  call void @_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_(%"class.std::tuple"* %41, %"class.std::tuple"* %43, i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %45)
-  br label %59
-
-46:                                               ; preds = %3
-  %47 = bitcast %"class.__gnu_cxx::__normal_iterator"* %13 to i8*
-  %48 = bitcast %"class.__gnu_cxx::__normal_iterator"* %4 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %47, i8* align 8 %48, i64 8, i1 false)
-  %49 = bitcast %"class.__gnu_cxx::__normal_iterator"* %14 to i8*
-  %50 = bitcast %"class.__gnu_cxx::__normal_iterator"* %5 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %49, i8* align 8 %50, i64 8, i1 false)
-  %51 = bitcast %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %15 to i8*
-  %52 = bitcast %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %6 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %51, i8* align 8 %52, i64 8, i1 false)
-  %53 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %13, i32 0, i32 0
-  %54 = load %"class.std::tuple"*, %"class.std::tuple"** %53, align 8
-  %55 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %14, i32 0, i32 0
-  %56 = load %"class.std::tuple"*, %"class.std::tuple"** %55, align 8
-  %57 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Iter_comp_iter", %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %15, i32 0, i32 0
-  %58 = load i1 (%"class.std::tuple"*, %"class.std::tuple"*)*, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %57, align 8
-  call void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_(%"class.std::tuple"* %54, %"class.std::tuple"* %56, i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %58)
-  br label %59
-
-59:                                               ; preds = %46, %21
-  ret void
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_T0_(%"class.std::tuple"* %0, %"class.std::tuple"* %1, %"class.std::tuple"* %2, i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %3) #7 comdat {
-  %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %6 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %7 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %8 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
-  %9 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %10 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %11 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %12 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
-  %13 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %14 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %15 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %5, i32 0, i32 0
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %15, align 8
-  %16 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %6, i32 0, i32 0
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %16, align 8
-  %17 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %7, i32 0, i32 0
-  store %"class.std::tuple"* %2, %"class.std::tuple"** %17, align 8
-  %18 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Iter_comp_iter", %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %8, i32 0, i32 0
-  store i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %3, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %18, align 8
-  %19 = bitcast %"class.__gnu_cxx::__normal_iterator"* %9 to i8*
-  %20 = bitcast %"class.__gnu_cxx::__normal_iterator"* %5 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %19, i8* align 8 %20, i64 8, i1 false)
-  %21 = bitcast %"class.__gnu_cxx::__normal_iterator"* %10 to i8*
-  %22 = bitcast %"class.__gnu_cxx::__normal_iterator"* %6 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %21, i8* align 8 %22, i64 8, i1 false)
-  %23 = bitcast %"class.__gnu_cxx::__normal_iterator"* %11 to i8*
-  %24 = bitcast %"class.__gnu_cxx::__normal_iterator"* %7 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %23, i8* align 8 %24, i64 8, i1 false)
-  %25 = bitcast %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %12 to i8*
-  %26 = bitcast %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %8 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %25, i8* align 8 %26, i64 8, i1 false)
-  %27 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %9, i32 0, i32 0
-  %28 = load %"class.std::tuple"*, %"class.std::tuple"** %27, align 8
-  %29 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %10, i32 0, i32 0
-  %30 = load %"class.std::tuple"*, %"class.std::tuple"** %29, align 8
-  %31 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %11, i32 0, i32 0
-  %32 = load %"class.std::tuple"*, %"class.std::tuple"** %31, align 8
-  %33 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Iter_comp_iter", %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %12, i32 0, i32 0
-  %34 = load i1 (%"class.std::tuple"*, %"class.std::tuple"*)*, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %33, align 8
-  call void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_T0_(%"class.std::tuple"* %28, %"class.std::tuple"* %30, %"class.std::tuple"* %32, i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %34)
-  %35 = bitcast %"class.__gnu_cxx::__normal_iterator"* %13 to i8*
-  %36 = bitcast %"class.__gnu_cxx::__normal_iterator"* %5 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %35, i8* align 8 %36, i64 8, i1 false)
-  %37 = bitcast %"class.__gnu_cxx::__normal_iterator"* %14 to i8*
-  %38 = bitcast %"class.__gnu_cxx::__normal_iterator"* %6 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %37, i8* align 8 %38, i64 8, i1 false)
-  %39 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %13, i32 0, i32 0
-  %40 = load %"class.std::tuple"*, %"class.std::tuple"** %39, align 8
-  %41 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %14, i32 0, i32 0
-  %42 = load %"class.std::tuple"*, %"class.std::tuple"** %41, align 8
-  call void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_(%"class.std::tuple"* %40, %"class.std::tuple"* %42, %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* nonnull align 8 dereferenceable(8) %8)
-  ret void
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local %"class.std::tuple"* @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_(%"class.std::tuple"* %0, %"class.std::tuple"* %1, i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %2) #7 comdat {
-  %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %6 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %7 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
-  %8 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %9 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %10 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %11 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %12 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %13 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
-  %14 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %15 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %16 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %17 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
-  %18 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %5, i32 0, i32 0
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %18, align 8
-  %19 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %6, i32 0, i32 0
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %19, align 8
-  %20 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Iter_comp_iter", %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %7, i32 0, i32 0
-  store i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %2, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %20, align 8
-  %21 = call i64 @_ZN9__gnu_cxxmiIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSA_SD_(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %6, %"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %5) #3
-  %22 = sdiv i64 %21, 2
-  %23 = call %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEplEl(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %5, i64 %22) #3
-  %24 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %8, i32 0, i32 0
-  store %"class.std::tuple"* %23, %"class.std::tuple"** %24, align 8
-  %25 = bitcast %"class.__gnu_cxx::__normal_iterator"* %9 to i8*
-  %26 = bitcast %"class.__gnu_cxx::__normal_iterator"* %5 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %25, i8* align 8 %26, i64 8, i1 false)
-  %27 = call %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEplEl(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %5, i64 1) #3
-  %28 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %10, i32 0, i32 0
-  store %"class.std::tuple"* %27, %"class.std::tuple"** %28, align 8
-  %29 = bitcast %"class.__gnu_cxx::__normal_iterator"* %11 to i8*
-  %30 = bitcast %"class.__gnu_cxx::__normal_iterator"* %8 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %29, i8* align 8 %30, i64 8, i1 false)
-  %31 = call %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEmiEl(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %6, i64 1) #3
-  %32 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %12, i32 0, i32 0
-  store %"class.std::tuple"* %31, %"class.std::tuple"** %32, align 8
-  %33 = bitcast %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %13 to i8*
-  %34 = bitcast %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %7 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %33, i8* align 8 %34, i64 8, i1 false)
-  %35 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %9, i32 0, i32 0
-  %36 = load %"class.std::tuple"*, %"class.std::tuple"** %35, align 8
-  %37 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %10, i32 0, i32 0
-  %38 = load %"class.std::tuple"*, %"class.std::tuple"** %37, align 8
-  %39 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %11, i32 0, i32 0
-  %40 = load %"class.std::tuple"*, %"class.std::tuple"** %39, align 8
-  %41 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %12, i32 0, i32 0
-  %42 = load %"class.std::tuple"*, %"class.std::tuple"** %41, align 8
-  %43 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Iter_comp_iter", %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %13, i32 0, i32 0
-  %44 = load i1 (%"class.std::tuple"*, %"class.std::tuple"*)*, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %43, align 8
-  call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_(%"class.std::tuple"* %36, %"class.std::tuple"* %38, %"class.std::tuple"* %40, %"class.std::tuple"* %42, i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %44)
-  %45 = call %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEplEl(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %5, i64 1) #3
-  %46 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %14, i32 0, i32 0
-  store %"class.std::tuple"* %45, %"class.std::tuple"** %46, align 8
-  %47 = bitcast %"class.__gnu_cxx::__normal_iterator"* %15 to i8*
-  %48 = bitcast %"class.__gnu_cxx::__normal_iterator"* %6 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %47, i8* align 8 %48, i64 8, i1 false)
-  %49 = bitcast %"class.__gnu_cxx::__normal_iterator"* %16 to i8*
-  %50 = bitcast %"class.__gnu_cxx::__normal_iterator"* %5 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %49, i8* align 8 %50, i64 8, i1 false)
-  %51 = bitcast %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %17 to i8*
-  %52 = bitcast %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %7 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %51, i8* align 8 %52, i64 8, i1 false)
-  %53 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %14, i32 0, i32 0
-  %54 = load %"class.std::tuple"*, %"class.std::tuple"** %53, align 8
-  %55 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %15, i32 0, i32 0
-  %56 = load %"class.std::tuple"*, %"class.std::tuple"** %55, align 8
-  %57 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %16, i32 0, i32 0
-  %58 = load %"class.std::tuple"*, %"class.std::tuple"** %57, align 8
-  %59 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Iter_comp_iter", %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %17, i32 0, i32 0
-  %60 = load i1 (%"class.std::tuple"*, %"class.std::tuple"*)*, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %59, align 8
-  %61 = call %"class.std::tuple"* @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_SG_T0_(%"class.std::tuple"* %54, %"class.std::tuple"* %56, %"class.std::tuple"* %58, i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %60)
-  %62 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %4, i32 0, i32 0
-  store %"class.std::tuple"* %61, %"class.std::tuple"** %62, align 8
-  %63 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %4, i32 0, i32 0
-  %64 = load %"class.std::tuple"*, %"class.std::tuple"** %63, align 8
-  ret %"class.std::tuple"* %64
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_T0_(%"class.std::tuple"* %0, %"class.std::tuple"* %1, %"class.std::tuple"* %2, i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %3) #7 comdat {
-  %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %6 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %7 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %8 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
-  %9 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %10 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %11 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %12 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %13 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %14 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %15 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %16 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %17 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %5, i32 0, i32 0
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %17, align 8
-  %18 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %6, i32 0, i32 0
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %18, align 8
-  %19 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %7, i32 0, i32 0
-  store %"class.std::tuple"* %2, %"class.std::tuple"** %19, align 8
-  %20 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Iter_comp_iter", %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %8, i32 0, i32 0
-  store i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %3, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %20, align 8
-  %21 = bitcast %"class.__gnu_cxx::__normal_iterator"* %9 to i8*
-  %22 = bitcast %"class.__gnu_cxx::__normal_iterator"* %5 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %21, i8* align 8 %22, i64 8, i1 false)
-  %23 = bitcast %"class.__gnu_cxx::__normal_iterator"* %10 to i8*
-  %24 = bitcast %"class.__gnu_cxx::__normal_iterator"* %6 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %23, i8* align 8 %24, i64 8, i1 false)
-  %25 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %9, i32 0, i32 0
-  %26 = load %"class.std::tuple"*, %"class.std::tuple"** %25, align 8
-  %27 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %10, i32 0, i32 0
-  %28 = load %"class.std::tuple"*, %"class.std::tuple"** %27, align 8
-  call void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_(%"class.std::tuple"* %26, %"class.std::tuple"* %28, %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* nonnull align 8 dereferenceable(8) %8)
-  %29 = bitcast %"class.__gnu_cxx::__normal_iterator"* %11 to i8*
-  %30 = bitcast %"class.__gnu_cxx::__normal_iterator"* %6 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %29, i8* align 8 %30, i64 8, i1 false)
-  br label %31
-
-31:                                               ; preds = %57, %4
-  %32 = call zeroext i1 @_ZN9__gnu_cxxltIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %11, %"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %7) #3
-  br i1 %32, label %33, label %59
-
-33:                                               ; preds = %31
-  %34 = bitcast %"class.__gnu_cxx::__normal_iterator"* %12 to i8*
-  %35 = bitcast %"class.__gnu_cxx::__normal_iterator"* %11 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %34, i8* align 8 %35, i64 8, i1 false)
-  %36 = bitcast %"class.__gnu_cxx::__normal_iterator"* %13 to i8*
-  %37 = bitcast %"class.__gnu_cxx::__normal_iterator"* %5 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %36, i8* align 8 %37, i64 8, i1 false)
-  %38 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %12, i32 0, i32 0
-  %39 = load %"class.std::tuple"*, %"class.std::tuple"** %38, align 8
-  %40 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %13, i32 0, i32 0
-  %41 = load %"class.std::tuple"*, %"class.std::tuple"** %40, align 8
-  %42 = call zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKSt5tupleIJiiiiEES5_EEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEESF_EEbT_T0_(%"struct.__gnu_cxx::__ops::_Iter_comp_iter"* nonnull align 8 dereferenceable(8) %8, %"class.std::tuple"* %39, %"class.std::tuple"* %41)
-  br i1 %42, label %43, label %56
-
-43:                                               ; preds = %33
-  %44 = bitcast %"class.__gnu_cxx::__normal_iterator"* %14 to i8*
-  %45 = bitcast %"class.__gnu_cxx::__normal_iterator"* %5 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %44, i8* align 8 %45, i64 8, i1 false)
-  %46 = bitcast %"class.__gnu_cxx::__normal_iterator"* %15 to i8*
-  %47 = bitcast %"class.__gnu_cxx::__normal_iterator"* %6 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %46, i8* align 8 %47, i64 8, i1 false)
-  %48 = bitcast %"class.__gnu_cxx::__normal_iterator"* %16 to i8*
-  %49 = bitcast %"class.__gnu_cxx::__normal_iterator"* %11 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %48, i8* align 8 %49, i64 8, i1 false)
-  %50 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %14, i32 0, i32 0
-  %51 = load %"class.std::tuple"*, %"class.std::tuple"** %50, align 8
-  %52 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %15, i32 0, i32 0
-  %53 = load %"class.std::tuple"*, %"class.std::tuple"** %52, align 8
-  %54 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %16, i32 0, i32 0
-  %55 = load %"class.std::tuple"*, %"class.std::tuple"** %54, align 8
-  call void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_(%"class.std::tuple"* %51, %"class.std::tuple"* %53, %"class.std::tuple"* %55, %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* nonnull align 8 dereferenceable(8) %8)
-  br label %56
-
-56:                                               ; preds = %43, %33
-  br label %57
-
-57:                                               ; preds = %56
-  %58 = call nonnull align 8 dereferenceable(8) %"class.__gnu_cxx::__normal_iterator"* @_ZN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEppEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %11) #3
-  br label %31, !llvm.loop !32
-
-59:                                               ; preds = %31
-  ret void
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_(%"class.std::tuple"* %0, %"class.std::tuple"* %1, %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* nonnull align 8 dereferenceable(8) %2) #7 comdat {
-  %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %6 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter"*, align 8
-  %7 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %8 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %9 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %10 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %4, i32 0, i32 0
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %10, align 8
-  %11 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %5, i32 0, i32 0
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %11, align 8
-  store %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %2, %"struct.__gnu_cxx::__ops::_Iter_comp_iter"** %6, align 8
-  br label %12
-
-12:                                               ; preds = %15, %3
-  %13 = call i64 @_ZN9__gnu_cxxmiIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSA_SD_(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %5, %"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %4) #3
-  %14 = icmp sgt i64 %13, 1
-  br i1 %14, label %15, label %30
-
-15:                                               ; preds = %12
-  %16 = call nonnull align 8 dereferenceable(8) %"class.__gnu_cxx::__normal_iterator"* @_ZN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEmmEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %5) #3
-  %17 = bitcast %"class.__gnu_cxx::__normal_iterator"* %7 to i8*
-  %18 = bitcast %"class.__gnu_cxx::__normal_iterator"* %4 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %17, i8* align 8 %18, i64 8, i1 false)
-  %19 = bitcast %"class.__gnu_cxx::__normal_iterator"* %8 to i8*
-  %20 = bitcast %"class.__gnu_cxx::__normal_iterator"* %5 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %19, i8* align 8 %20, i64 8, i1 false)
-  %21 = bitcast %"class.__gnu_cxx::__normal_iterator"* %9 to i8*
-  %22 = bitcast %"class.__gnu_cxx::__normal_iterator"* %5 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %21, i8* align 8 %22, i64 8, i1 false)
-  %23 = load %"struct.__gnu_cxx::__ops::_Iter_comp_iter"*, %"struct.__gnu_cxx::__ops::_Iter_comp_iter"** %6, align 8
-  %24 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %7, i32 0, i32 0
-  %25 = load %"class.std::tuple"*, %"class.std::tuple"** %24, align 8
-  %26 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %8, i32 0, i32 0
-  %27 = load %"class.std::tuple"*, %"class.std::tuple"** %26, align 8
-  %28 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %9, i32 0, i32 0
-  %29 = load %"class.std::tuple"*, %"class.std::tuple"** %28, align 8
-  call void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_(%"class.std::tuple"* %25, %"class.std::tuple"* %27, %"class.std::tuple"* %29, %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* nonnull align 8 dereferenceable(8) %23)
-  br label %12, !llvm.loop !33
-
-30:                                               ; preds = %12
-  ret void
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_RT0_(%"class.std::tuple"* %0, %"class.std::tuple"* %1, %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* nonnull align 8 dereferenceable(8) %2) #7 comdat {
-  %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %6 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter"*, align 8
-  %7 = alloca i64, align 8
-  %8 = alloca i64, align 8
-  %9 = alloca %"class.std::tuple", align 4
-  %10 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %11 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %12 = alloca %"class.std::tuple", align 4
-  %13 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
-  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %4, i32 0, i32 0
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %14, align 8
-  %15 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %5, i32 0, i32 0
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %15, align 8
-  store %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %2, %"struct.__gnu_cxx::__ops::_Iter_comp_iter"** %6, align 8
-  %16 = call i64 @_ZN9__gnu_cxxmiIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSA_SD_(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %5, %"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %4) #3
-  %17 = icmp slt i64 %16, 2
-  br i1 %17, label %18, label %19
-
-18:                                               ; preds = %3
-  br label %48
-
-19:                                               ; preds = %3
-  %20 = call i64 @_ZN9__gnu_cxxmiIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSA_SD_(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %5, %"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %4) #3
-  store i64 %20, i64* %7, align 8
-  %21 = load i64, i64* %7, align 8
-  %22 = sub nsw i64 %21, 2
-  %23 = sdiv i64 %22, 2
-  store i64 %23, i64* %8, align 8
-  br label %24
-
-24:                                               ; preds = %19, %45
-  %25 = load i64, i64* %8, align 8
-  %26 = call %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEplEl(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %4, i64 %25) #3
-  %27 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %10, i32 0, i32 0
-  store %"class.std::tuple"* %26, %"class.std::tuple"** %27, align 8
-  %28 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEdeEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %10) #3
-  %29 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZSt4moveIRSt5tupleIJiiiiEEEONSt16remove_referenceIT_E4typeEOS4_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %28) #3
-  call void @_ZNSt5tupleIJiiiiEEC2EOS0_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %9, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %29) #3
-  %30 = bitcast %"class.__gnu_cxx::__normal_iterator"* %11 to i8*
-  %31 = bitcast %"class.__gnu_cxx::__normal_iterator"* %4 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %30, i8* align 8 %31, i64 8, i1 false)
-  %32 = load i64, i64* %8, align 8
-  %33 = load i64, i64* %7, align 8
-  %34 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZSt4moveIRSt5tupleIJiiiiEEEONSt16remove_referenceIT_E4typeEOS4_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %9) #3
-  call void @_ZNSt5tupleIJiiiiEEC2EOS0_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %12, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %34) #3
-  %35 = load %"struct.__gnu_cxx::__ops::_Iter_comp_iter"*, %"struct.__gnu_cxx::__ops::_Iter_comp_iter"** %6, align 8
-  %36 = bitcast %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %13 to i8*
-  %37 = bitcast %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %35 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %36, i8* align 8 %37, i64 8, i1 false)
-  %38 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %11, i32 0, i32 0
-  %39 = load %"class.std::tuple"*, %"class.std::tuple"** %38, align 8
-  %40 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Iter_comp_iter", %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %13, i32 0, i32 0
-  %41 = load i1 (%"class.std::tuple"*, %"class.std::tuple"*)*, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %40, align 8
-  call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_(%"class.std::tuple"* %39, i64 %32, i64 %33, %"class.std::tuple"* %12, i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %41)
-  %42 = load i64, i64* %8, align 8
-  %43 = icmp eq i64 %42, 0
-  br i1 %43, label %44, label %45
-
-44:                                               ; preds = %24
-  br label %48
-
-45:                                               ; preds = %24
-  %46 = load i64, i64* %8, align 8
-  %47 = add nsw i64 %46, -1
-  store i64 %47, i64* %8, align 8
-  br label %24, !llvm.loop !34
-
-48:                                               ; preds = %44, %18
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local zeroext i1 @_ZN9__gnu_cxxltIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %0, %"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %1) #6 comdat {
-  %3 = alloca %"class.__gnu_cxx::__normal_iterator"*, align 8
-  %4 = alloca %"class.__gnu_cxx::__normal_iterator"*, align 8
-  store %"class.__gnu_cxx::__normal_iterator"* %0, %"class.__gnu_cxx::__normal_iterator"** %3, align 8
-  store %"class.__gnu_cxx::__normal_iterator"* %1, %"class.__gnu_cxx::__normal_iterator"** %4, align 8
-  %5 = load %"class.__gnu_cxx::__normal_iterator"*, %"class.__gnu_cxx::__normal_iterator"** %3, align 8
-  %6 = call nonnull align 8 dereferenceable(8) %"class.std::tuple"** @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEE4baseEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %5) #3
-  %7 = load %"class.std::tuple"*, %"class.std::tuple"** %6, align 8
-  %8 = load %"class.__gnu_cxx::__normal_iterator"*, %"class.__gnu_cxx::__normal_iterator"** %4, align 8
-  %9 = call nonnull align 8 dereferenceable(8) %"class.std::tuple"** @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEE4baseEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %8) #3
-  %10 = load %"class.std::tuple"*, %"class.std::tuple"** %9, align 8
-  %11 = icmp ult %"class.std::tuple"* %7, %10
-  ret i1 %11
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKSt5tupleIJiiiiEES5_EEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEESF_EEbT_T0_(%"struct.__gnu_cxx::__ops::_Iter_comp_iter"* nonnull align 8 dereferenceable(8) %0, %"class.std::tuple"* %1, %"class.std::tuple"* %2) #7 comdat align 2 {
-  %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %6 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter"*, align 8
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %4, i32 0, i32 0
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %7, align 8
-  %8 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %5, i32 0, i32 0
-  store %"class.std::tuple"* %2, %"class.std::tuple"** %8, align 8
-  store %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %0, %"struct.__gnu_cxx::__ops::_Iter_comp_iter"** %6, align 8
-  %9 = load %"struct.__gnu_cxx::__ops::_Iter_comp_iter"*, %"struct.__gnu_cxx::__ops::_Iter_comp_iter"** %6, align 8
-  %10 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Iter_comp_iter", %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %9, i32 0, i32 0
-  %11 = load i1 (%"class.std::tuple"*, %"class.std::tuple"*)*, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %10, align 8
-  %12 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEdeEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %4) #3
-  %13 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEdeEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %5) #3
-  %14 = call zeroext i1 %11(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %12, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %13)
-  ret i1 %14
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_(%"class.std::tuple"* %0, %"class.std::tuple"* %1, %"class.std::tuple"* %2, %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* nonnull align 8 dereferenceable(8) %3) #7 comdat {
-  %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %6 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %7 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %8 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter"*, align 8
-  %9 = alloca %"class.std::tuple", align 4
-  %10 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %11 = alloca %"class.std::tuple", align 4
-  %12 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
-  %13 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %5, i32 0, i32 0
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %13, align 8
-  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %6, i32 0, i32 0
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %14, align 8
-  %15 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %7, i32 0, i32 0
-  store %"class.std::tuple"* %2, %"class.std::tuple"** %15, align 8
-  store %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %3, %"struct.__gnu_cxx::__ops::_Iter_comp_iter"** %8, align 8
-  %16 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEdeEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %7) #3
-  %17 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZSt4moveIRSt5tupleIJiiiiEEEONSt16remove_referenceIT_E4typeEOS4_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %16) #3
-  call void @_ZNSt5tupleIJiiiiEEC2EOS0_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %9, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %17) #3
-  %18 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEdeEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %5) #3
-  %19 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZSt4moveIRSt5tupleIJiiiiEEEONSt16remove_referenceIT_E4typeEOS4_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %18) #3
-  %20 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEdeEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %7) #3
-  %21 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNSt5tupleIJiiiiEEaSEOS0_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %20, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %19) #3
-  %22 = bitcast %"class.__gnu_cxx::__normal_iterator"* %10 to i8*
-  %23 = bitcast %"class.__gnu_cxx::__normal_iterator"* %5 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %22, i8* align 8 %23, i64 8, i1 false)
-  %24 = call i64 @_ZN9__gnu_cxxmiIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSA_SD_(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %6, %"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %5) #3
-  %25 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZSt4moveIRSt5tupleIJiiiiEEEONSt16remove_referenceIT_E4typeEOS4_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %9) #3
-  call void @_ZNSt5tupleIJiiiiEEC2EOS0_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %11, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %25) #3
-  %26 = load %"struct.__gnu_cxx::__ops::_Iter_comp_iter"*, %"struct.__gnu_cxx::__ops::_Iter_comp_iter"** %8, align 8
-  %27 = bitcast %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %12 to i8*
-  %28 = bitcast %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %26 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %27, i8* align 8 %28, i64 8, i1 false)
-  %29 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %10, i32 0, i32 0
-  %30 = load %"class.std::tuple"*, %"class.std::tuple"** %29, align 8
-  %31 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Iter_comp_iter", %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %12, i32 0, i32 0
-  %32 = load i1 (%"class.std::tuple"*, %"class.std::tuple"*)*, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %31, align 8
-  call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_(%"class.std::tuple"* %30, i64 0, i64 %24, %"class.std::tuple"* %11, i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %32)
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 8 dereferenceable(8) %"class.__gnu_cxx::__normal_iterator"* @_ZN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEppEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %0) #6 comdat align 2 {
-  %2 = alloca %"class.__gnu_cxx::__normal_iterator"*, align 8
-  store %"class.__gnu_cxx::__normal_iterator"* %0, %"class.__gnu_cxx::__normal_iterator"** %2, align 8
-  %3 = load %"class.__gnu_cxx::__normal_iterator"*, %"class.__gnu_cxx::__normal_iterator"** %2, align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %3, i32 0, i32 0
-  %5 = load %"class.std::tuple"*, %"class.std::tuple"** %4, align 8
-  %6 = getelementptr inbounds %"class.std::tuple", %"class.std::tuple"* %5, i32 1
-  store %"class.std::tuple"* %6, %"class.std::tuple"** %4, align 8
-  ret %"class.__gnu_cxx::__normal_iterator"* %3
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEplEl(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %0, i64 %1) #6 comdat align 2 {
-  %3 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %4 = alloca %"class.__gnu_cxx::__normal_iterator"*, align 8
-  %5 = alloca i64, align 8
-  %6 = alloca %"class.std::tuple"*, align 8
-  store %"class.__gnu_cxx::__normal_iterator"* %0, %"class.__gnu_cxx::__normal_iterator"** %4, align 8
-  store i64 %1, i64* %5, align 8
-  %7 = load %"class.__gnu_cxx::__normal_iterator"*, %"class.__gnu_cxx::__normal_iterator"** %4, align 8
-  %8 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %7, i32 0, i32 0
-  %9 = load %"class.std::tuple"*, %"class.std::tuple"** %8, align 8
-  %10 = load i64, i64* %5, align 8
-  %11 = getelementptr inbounds %"class.std::tuple", %"class.std::tuple"* %9, i64 %10
-  store %"class.std::tuple"* %11, %"class.std::tuple"** %6, align 8
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEC2ERKS3_(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %3, %"class.std::tuple"** nonnull align 8 dereferenceable(8) %6) #3
-  %12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %3, i32 0, i32 0
-  %13 = load %"class.std::tuple"*, %"class.std::tuple"** %12, align 8
-  ret %"class.std::tuple"* %13
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEdeEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %0) #6 comdat align 2 {
-  %2 = alloca %"class.__gnu_cxx::__normal_iterator"*, align 8
-  store %"class.__gnu_cxx::__normal_iterator"* %0, %"class.__gnu_cxx::__normal_iterator"** %2, align 8
-  %3 = load %"class.__gnu_cxx::__normal_iterator"*, %"class.__gnu_cxx::__normal_iterator"** %2, align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %3, i32 0, i32 0
-  %5 = load %"class.std::tuple"*, %"class.std::tuple"** %4, align 8
-  ret %"class.std::tuple"* %5
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_(%"class.std::tuple"* %0, i64 %1, i64 %2, %"class.std::tuple"* %3, i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %4) #7 comdat {
-  %6 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %7 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
-  %8 = alloca i64, align 8
-  %9 = alloca i64, align 8
-  %10 = alloca i64, align 8
-  %11 = alloca i64, align 8
-  %12 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %13 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %14 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %15 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %16 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %17 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %18 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_val", align 8
-  %19 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %20 = alloca %"class.std::tuple", align 4
-  %21 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %6, i32 0, i32 0
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %21, align 8
-  %22 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Iter_comp_iter", %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %7, i32 0, i32 0
-  store i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %4, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %22, align 8
-  store i64 %1, i64* %8, align 8
-  store i64 %2, i64* %9, align 8
-  %23 = load i64, i64* %8, align 8
-  store i64 %23, i64* %10, align 8
-  %24 = load i64, i64* %8, align 8
-  store i64 %24, i64* %11, align 8
-  br label %25
-
-25:                                               ; preds = %50, %5
-  %26 = load i64, i64* %11, align 8
-  %27 = load i64, i64* %9, align 8
-  %28 = sub nsw i64 %27, 1
-  %29 = sdiv i64 %28, 2
-  %30 = icmp slt i64 %26, %29
-  br i1 %30, label %31, label %62
-
-31:                                               ; preds = %25
-  %32 = load i64, i64* %11, align 8
-  %33 = add nsw i64 %32, 1
-  %34 = mul nsw i64 2, %33
-  store i64 %34, i64* %11, align 8
-  %35 = load i64, i64* %11, align 8
-  %36 = call %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEplEl(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %6, i64 %35) #3
-  %37 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %12, i32 0, i32 0
-  store %"class.std::tuple"* %36, %"class.std::tuple"** %37, align 8
-  %38 = load i64, i64* %11, align 8
-  %39 = sub nsw i64 %38, 1
-  %40 = call %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEplEl(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %6, i64 %39) #3
-  %41 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %13, i32 0, i32 0
-  store %"class.std::tuple"* %40, %"class.std::tuple"** %41, align 8
-  %42 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %12, i32 0, i32 0
-  %43 = load %"class.std::tuple"*, %"class.std::tuple"** %42, align 8
-  %44 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %13, i32 0, i32 0
-  %45 = load %"class.std::tuple"*, %"class.std::tuple"** %44, align 8
-  %46 = call zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKSt5tupleIJiiiiEES5_EEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEESF_EEbT_T0_(%"struct.__gnu_cxx::__ops::_Iter_comp_iter"* nonnull align 8 dereferenceable(8) %7, %"class.std::tuple"* %43, %"class.std::tuple"* %45)
-  br i1 %46, label %47, label %50
-
-47:                                               ; preds = %31
-  %48 = load i64, i64* %11, align 8
-  %49 = add nsw i64 %48, -1
-  store i64 %49, i64* %11, align 8
-  br label %50
-
-50:                                               ; preds = %47, %31
-  %51 = load i64, i64* %11, align 8
-  %52 = call %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEplEl(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %6, i64 %51) #3
-  %53 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %14, i32 0, i32 0
-  store %"class.std::tuple"* %52, %"class.std::tuple"** %53, align 8
-  %54 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEdeEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %14) #3
-  %55 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZSt4moveIRSt5tupleIJiiiiEEEONSt16remove_referenceIT_E4typeEOS4_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %54) #3
-  %56 = load i64, i64* %8, align 8
-  %57 = call %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEplEl(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %6, i64 %56) #3
-  %58 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %15, i32 0, i32 0
-  store %"class.std::tuple"* %57, %"class.std::tuple"** %58, align 8
-  %59 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEdeEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %15) #3
-  %60 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNSt5tupleIJiiiiEEaSEOS0_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %59, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %55) #3
-  %61 = load i64, i64* %11, align 8
-  store i64 %61, i64* %8, align 8
-  br label %25, !llvm.loop !35
-
-62:                                               ; preds = %25
-  %63 = load i64, i64* %9, align 8
-  %64 = and i64 %63, 1
-  %65 = icmp eq i64 %64, 0
-  br i1 %65, label %66, label %89
-
-66:                                               ; preds = %62
-  %67 = load i64, i64* %11, align 8
-  %68 = load i64, i64* %9, align 8
-  %69 = sub nsw i64 %68, 2
-  %70 = sdiv i64 %69, 2
-  %71 = icmp eq i64 %67, %70
-  br i1 %71, label %72, label %89
-
-72:                                               ; preds = %66
-  %73 = load i64, i64* %11, align 8
-  %74 = add nsw i64 %73, 1
-  %75 = mul nsw i64 2, %74
-  store i64 %75, i64* %11, align 8
-  %76 = load i64, i64* %11, align 8
-  %77 = sub nsw i64 %76, 1
-  %78 = call %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEplEl(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %6, i64 %77) #3
-  %79 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %16, i32 0, i32 0
-  store %"class.std::tuple"* %78, %"class.std::tuple"** %79, align 8
-  %80 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEdeEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %16) #3
-  %81 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZSt4moveIRSt5tupleIJiiiiEEEONSt16remove_referenceIT_E4typeEOS4_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %80) #3
-  %82 = load i64, i64* %8, align 8
-  %83 = call %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEplEl(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %6, i64 %82) #3
-  %84 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %17, i32 0, i32 0
-  store %"class.std::tuple"* %83, %"class.std::tuple"** %84, align 8
-  %85 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEdeEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %17) #3
-  %86 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNSt5tupleIJiiiiEEaSEOS0_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %85, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %81) #3
-  %87 = load i64, i64* %11, align 8
-  %88 = sub nsw i64 %87, 1
-  store i64 %88, i64* %8, align 8
-  br label %89
-
-89:                                               ; preds = %72, %66, %62
-  %90 = call nonnull align 8 dereferenceable(8) %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* @_ZSt4moveIRN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKSt5tupleIJiiiiEES6_EEEEONSt16remove_referenceIT_E4typeEOSC_(%"struct.__gnu_cxx::__ops::_Iter_comp_iter"* nonnull align 8 dereferenceable(8) %7) #3
-  call void @_ZN9__gnu_cxx5__ops14_Iter_comp_valIPFbRKSt5tupleIJiiiiEES5_EEC2EONS0_15_Iter_comp_iterIS7_EE(%"struct.__gnu_cxx::__ops::_Iter_comp_val"* nonnull align 8 dereferenceable(8) %18, %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* nonnull align 8 dereferenceable(8) %90)
-  %91 = bitcast %"class.__gnu_cxx::__normal_iterator"* %19 to i8*
-  %92 = bitcast %"class.__gnu_cxx::__normal_iterator"* %6 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %91, i8* align 8 %92, i64 8, i1 false)
-  %93 = load i64, i64* %8, align 8
-  %94 = load i64, i64* %10, align 8
-  %95 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZSt4moveIRSt5tupleIJiiiiEEEONSt16remove_referenceIT_E4typeEOS4_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %3) #3
-  call void @_ZNSt5tupleIJiiiiEEC2EOS0_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %20, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %95) #3
-  %96 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %19, i32 0, i32 0
-  %97 = load %"class.std::tuple"*, %"class.std::tuple"** %96, align 8
-  call void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIPFbRKS3_SC_EEEEvT_T0_SH_T1_RT2_(%"class.std::tuple"* %97, i64 %93, i64 %94, %"class.std::tuple"* %20, %"struct.__gnu_cxx::__ops::_Iter_comp_val"* nonnull align 8 dereferenceable(8) %18)
-  ret void
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEC2ERKS3_(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %0, %"class.std::tuple"** nonnull align 8 dereferenceable(8) %1) unnamed_addr #9 comdat align 2 {
-  %3 = alloca %"class.__gnu_cxx::__normal_iterator"*, align 8
-  %4 = alloca %"class.std::tuple"**, align 8
-  store %"class.__gnu_cxx::__normal_iterator"* %0, %"class.__gnu_cxx::__normal_iterator"** %3, align 8
-  store %"class.std::tuple"** %1, %"class.std::tuple"*** %4, align 8
-  %5 = load %"class.__gnu_cxx::__normal_iterator"*, %"class.__gnu_cxx::__normal_iterator"** %3, align 8
-  %6 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %5, i32 0, i32 0
-  %7 = load %"class.std::tuple"**, %"class.std::tuple"*** %4, align 8
-  %8 = load %"class.std::tuple"*, %"class.std::tuple"** %7, align 8
-  store %"class.std::tuple"* %8, %"class.std::tuple"** %6, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNSt5tupleIJiiiiEEaSEOS0_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %0, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %1) #6 comdat align 2 {
-  %3 = alloca %"class.std::tuple"*, align 8
-  %4 = alloca %"class.std::tuple"*, align 8
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %3, align 8
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %4, align 8
-  %5 = load %"class.std::tuple"*, %"class.std::tuple"** %3, align 8
-  %6 = load %"class.std::tuple"*, %"class.std::tuple"** %4, align 8
-  %7 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZSt4moveIRSt5tupleIJiiiiEEEONSt16remove_referenceIT_E4typeEOS4_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %6) #3
-  %8 = bitcast %"class.std::tuple"* %7 to %"struct.std::_Tuple_impl"*
-  %9 = bitcast %"class.std::tuple"* %5 to %"struct.std::_Tuple_impl"*
-  %10 = call nonnull align 4 dereferenceable(16) %"struct.std::_Tuple_impl"* @_ZNSt11_Tuple_implILm0EJiiiiEEaSEOS0_(%"struct.std::_Tuple_impl"* nonnull align 4 dereferenceable(16) %9, %"struct.std::_Tuple_impl"* nonnull align 4 dereferenceable(16) %8) #3
-  ret %"class.std::tuple"* %5
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 8 dereferenceable(8) %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* @_ZSt4moveIRN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKSt5tupleIJiiiiEES6_EEEEONSt16remove_referenceIT_E4typeEOSC_(%"struct.__gnu_cxx::__ops::_Iter_comp_iter"* nonnull align 8 dereferenceable(8) %0) #6 comdat {
-  %2 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter"*, align 8
-  store %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %0, %"struct.__gnu_cxx::__ops::_Iter_comp_iter"** %2, align 8
-  %3 = load %"struct.__gnu_cxx::__ops::_Iter_comp_iter"*, %"struct.__gnu_cxx::__ops::_Iter_comp_iter"** %2, align 8
-  ret %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %3
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZN9__gnu_cxx5__ops14_Iter_comp_valIPFbRKSt5tupleIJiiiiEES5_EEC2EONS0_15_Iter_comp_iterIS7_EE(%"struct.__gnu_cxx::__ops::_Iter_comp_val"* nonnull align 8 dereferenceable(8) %0, %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* nonnull align 8 dereferenceable(8) %1) unnamed_addr #9 comdat align 2 {
-  %3 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_val"*, align 8
-  %4 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter"*, align 8
-  store %"struct.__gnu_cxx::__ops::_Iter_comp_val"* %0, %"struct.__gnu_cxx::__ops::_Iter_comp_val"** %3, align 8
-  store %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %1, %"struct.__gnu_cxx::__ops::_Iter_comp_iter"** %4, align 8
-  %5 = load %"struct.__gnu_cxx::__ops::_Iter_comp_val"*, %"struct.__gnu_cxx::__ops::_Iter_comp_val"** %3, align 8
-  %6 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Iter_comp_val", %"struct.__gnu_cxx::__ops::_Iter_comp_val"* %5, i32 0, i32 0
-  %7 = load %"struct.__gnu_cxx::__ops::_Iter_comp_iter"*, %"struct.__gnu_cxx::__ops::_Iter_comp_iter"** %4, align 8
-  %8 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Iter_comp_iter", %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %7, i32 0, i32 0
-  %9 = call nonnull align 8 dereferenceable(8) i1 (%"class.std::tuple"*, %"class.std::tuple"*)** @_ZSt4moveIRPFbRKSt5tupleIJiiiiEES3_EEONSt16remove_referenceIT_E4typeEOS8_(i1 (%"class.std::tuple"*, %"class.std::tuple"*)** nonnull align 8 dereferenceable(8) %8) #3
-  %10 = load i1 (%"class.std::tuple"*, %"class.std::tuple"*)*, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %9, align 8
-  store i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %10, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %6, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIPFbRKS3_SC_EEEEvT_T0_SH_T1_RT2_(%"class.std::tuple"* %0, i64 %1, i64 %2, %"class.std::tuple"* %3, %"struct.__gnu_cxx::__ops::_Iter_comp_val"* nonnull align 8 dereferenceable(8) %4) #7 comdat {
-  %6 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %7 = alloca i64, align 8
-  %8 = alloca i64, align 8
-  %9 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_val"*, align 8
-  %10 = alloca i64, align 8
-  %11 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %12 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %13 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %14 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %15 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %6, i32 0, i32 0
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %15, align 8
-  store i64 %1, i64* %7, align 8
-  store i64 %2, i64* %8, align 8
-  store %"struct.__gnu_cxx::__ops::_Iter_comp_val"* %4, %"struct.__gnu_cxx::__ops::_Iter_comp_val"** %9, align 8
-  %16 = load i64, i64* %7, align 8
-  %17 = sub nsw i64 %16, 1
-  %18 = sdiv i64 %17, 2
-  store i64 %18, i64* %10, align 8
-  br label %19
-
-19:                                               ; preds = %33, %5
-  %20 = load i64, i64* %7, align 8
-  %21 = load i64, i64* %8, align 8
-  %22 = icmp sgt i64 %20, %21
-  br i1 %22, label %23, label %31
-
-23:                                               ; preds = %19
-  %24 = load %"struct.__gnu_cxx::__ops::_Iter_comp_val"*, %"struct.__gnu_cxx::__ops::_Iter_comp_val"** %9, align 8
-  %25 = load i64, i64* %10, align 8
-  %26 = call %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEplEl(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %6, i64 %25) #3
-  %27 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %11, i32 0, i32 0
-  store %"class.std::tuple"* %26, %"class.std::tuple"** %27, align 8
-  %28 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %11, i32 0, i32 0
-  %29 = load %"class.std::tuple"*, %"class.std::tuple"** %28, align 8
-  %30 = call zeroext i1 @_ZN9__gnu_cxx5__ops14_Iter_comp_valIPFbRKSt5tupleIJiiiiEES5_EEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEES3_EEbT_RT0_(%"struct.__gnu_cxx::__ops::_Iter_comp_val"* nonnull align 8 dereferenceable(8) %24, %"class.std::tuple"* %29, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %3)
-  br label %31
-
-31:                                               ; preds = %23, %19
-  %32 = phi i1 [ false, %19 ], [ %30, %23 ]
-  br i1 %32, label %33, label %48
-
-33:                                               ; preds = %31
-  %34 = load i64, i64* %10, align 8
-  %35 = call %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEplEl(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %6, i64 %34) #3
-  %36 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %12, i32 0, i32 0
-  store %"class.std::tuple"* %35, %"class.std::tuple"** %36, align 8
-  %37 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEdeEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %12) #3
-  %38 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZSt4moveIRSt5tupleIJiiiiEEEONSt16remove_referenceIT_E4typeEOS4_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %37) #3
-  %39 = load i64, i64* %7, align 8
-  %40 = call %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEplEl(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %6, i64 %39) #3
-  %41 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %13, i32 0, i32 0
-  store %"class.std::tuple"* %40, %"class.std::tuple"** %41, align 8
-  %42 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEdeEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %13) #3
-  %43 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNSt5tupleIJiiiiEEaSEOS0_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %42, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %38) #3
-  %44 = load i64, i64* %10, align 8
-  store i64 %44, i64* %7, align 8
-  %45 = load i64, i64* %7, align 8
-  %46 = sub nsw i64 %45, 1
-  %47 = sdiv i64 %46, 2
-  store i64 %47, i64* %10, align 8
-  br label %19, !llvm.loop !36
-
-48:                                               ; preds = %31
-  %49 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZSt4moveIRSt5tupleIJiiiiEEEONSt16remove_referenceIT_E4typeEOS4_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %3) #3
-  %50 = load i64, i64* %7, align 8
-  %51 = call %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEplEl(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %6, i64 %50) #3
-  %52 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %14, i32 0, i32 0
-  store %"class.std::tuple"* %51, %"class.std::tuple"** %52, align 8
-  %53 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEdeEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %14) #3
-  %54 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNSt5tupleIJiiiiEEaSEOS0_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %53, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %49) #3
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(16) %"struct.std::_Tuple_impl"* @_ZNSt11_Tuple_implILm0EJiiiiEEaSEOS0_(%"struct.std::_Tuple_impl"* nonnull align 4 dereferenceable(16) %0, %"struct.std::_Tuple_impl"* nonnull align 4 dereferenceable(16) %1) #6 comdat align 2 {
-  %3 = alloca %"struct.std::_Tuple_impl"*, align 8
-  %4 = alloca %"struct.std::_Tuple_impl"*, align 8
-  store %"struct.std::_Tuple_impl"* %0, %"struct.std::_Tuple_impl"** %3, align 8
-  store %"struct.std::_Tuple_impl"* %1, %"struct.std::_Tuple_impl"** %4, align 8
-  %5 = load %"struct.std::_Tuple_impl"*, %"struct.std::_Tuple_impl"** %3, align 8
-  %6 = load %"struct.std::_Tuple_impl"*, %"struct.std::_Tuple_impl"** %4, align 8
-  %7 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt11_Tuple_implILm0EJiiiiEE7_M_headERS0_(%"struct.std::_Tuple_impl"* nonnull align 4 dereferenceable(16) %6) #3
-  %8 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIiEOT_RNSt16remove_referenceIS0_E4typeE(i32* nonnull align 4 dereferenceable(4) %7) #3
-  %9 = load i32, i32* %8, align 4
-  %10 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt11_Tuple_implILm0EJiiiiEE7_M_headERS0_(%"struct.std::_Tuple_impl"* nonnull align 4 dereferenceable(16) %5) #3
-  store i32 %9, i32* %10, align 4
-  %11 = load %"struct.std::_Tuple_impl"*, %"struct.std::_Tuple_impl"** %4, align 8
-  %12 = call nonnull align 4 dereferenceable(12) %"struct.std::_Tuple_impl.23"* @_ZNSt11_Tuple_implILm0EJiiiiEE7_M_tailERS0_(%"struct.std::_Tuple_impl"* nonnull align 4 dereferenceable(16) %11) #3
-  %13 = call nonnull align 4 dereferenceable(12) %"struct.std::_Tuple_impl.23"* @_ZSt4moveIRSt11_Tuple_implILm1EJiiiEEEONSt16remove_referenceIT_E4typeEOS4_(%"struct.std::_Tuple_impl.23"* nonnull align 4 dereferenceable(12) %12) #3
-  %14 = call nonnull align 4 dereferenceable(12) %"struct.std::_Tuple_impl.23"* @_ZNSt11_Tuple_implILm0EJiiiiEE7_M_tailERS0_(%"struct.std::_Tuple_impl"* nonnull align 4 dereferenceable(16) %5) #3
-  %15 = call nonnull align 4 dereferenceable(12) %"struct.std::_Tuple_impl.23"* @_ZNSt11_Tuple_implILm1EJiiiEEaSEOS0_(%"struct.std::_Tuple_impl.23"* nonnull align 4 dereferenceable(12) %14, %"struct.std::_Tuple_impl.23"* nonnull align 4 dereferenceable(12) %13) #3
-  ret %"struct.std::_Tuple_impl"* %5
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(12) %"struct.std::_Tuple_impl.23"* @_ZNSt11_Tuple_implILm1EJiiiEEaSEOS0_(%"struct.std::_Tuple_impl.23"* nonnull align 4 dereferenceable(12) %0, %"struct.std::_Tuple_impl.23"* nonnull align 4 dereferenceable(12) %1) #6 comdat align 2 {
-  %3 = alloca %"struct.std::_Tuple_impl.23"*, align 8
-  %4 = alloca %"struct.std::_Tuple_impl.23"*, align 8
-  store %"struct.std::_Tuple_impl.23"* %0, %"struct.std::_Tuple_impl.23"** %3, align 8
-  store %"struct.std::_Tuple_impl.23"* %1, %"struct.std::_Tuple_impl.23"** %4, align 8
-  %5 = load %"struct.std::_Tuple_impl.23"*, %"struct.std::_Tuple_impl.23"** %3, align 8
-  %6 = load %"struct.std::_Tuple_impl.23"*, %"struct.std::_Tuple_impl.23"** %4, align 8
-  %7 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt11_Tuple_implILm1EJiiiEE7_M_headERS0_(%"struct.std::_Tuple_impl.23"* nonnull align 4 dereferenceable(12) %6) #3
-  %8 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIiEOT_RNSt16remove_referenceIS0_E4typeE(i32* nonnull align 4 dereferenceable(4) %7) #3
-  %9 = load i32, i32* %8, align 4
-  %10 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt11_Tuple_implILm1EJiiiEE7_M_headERS0_(%"struct.std::_Tuple_impl.23"* nonnull align 4 dereferenceable(12) %5) #3
-  store i32 %9, i32* %10, align 4
-  %11 = load %"struct.std::_Tuple_impl.23"*, %"struct.std::_Tuple_impl.23"** %4, align 8
-  %12 = call nonnull align 4 dereferenceable(8) %"struct.std::_Tuple_impl.24"* @_ZNSt11_Tuple_implILm1EJiiiEE7_M_tailERS0_(%"struct.std::_Tuple_impl.23"* nonnull align 4 dereferenceable(12) %11) #3
-  %13 = call nonnull align 4 dereferenceable(8) %"struct.std::_Tuple_impl.24"* @_ZSt4moveIRSt11_Tuple_implILm2EJiiEEEONSt16remove_referenceIT_E4typeEOS4_(%"struct.std::_Tuple_impl.24"* nonnull align 4 dereferenceable(8) %12) #3
-  %14 = call nonnull align 4 dereferenceable(8) %"struct.std::_Tuple_impl.24"* @_ZNSt11_Tuple_implILm1EJiiiEE7_M_tailERS0_(%"struct.std::_Tuple_impl.23"* nonnull align 4 dereferenceable(12) %5) #3
-  %15 = call nonnull align 4 dereferenceable(8) %"struct.std::_Tuple_impl.24"* @_ZNSt11_Tuple_implILm2EJiiEEaSEOS0_(%"struct.std::_Tuple_impl.24"* nonnull align 4 dereferenceable(8) %14, %"struct.std::_Tuple_impl.24"* nonnull align 4 dereferenceable(8) %13) #3
-  ret %"struct.std::_Tuple_impl.23"* %5
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(8) %"struct.std::_Tuple_impl.24"* @_ZNSt11_Tuple_implILm2EJiiEEaSEOS0_(%"struct.std::_Tuple_impl.24"* nonnull align 4 dereferenceable(8) %0, %"struct.std::_Tuple_impl.24"* nonnull align 4 dereferenceable(8) %1) #6 comdat align 2 {
-  %3 = alloca %"struct.std::_Tuple_impl.24"*, align 8
-  %4 = alloca %"struct.std::_Tuple_impl.24"*, align 8
-  store %"struct.std::_Tuple_impl.24"* %0, %"struct.std::_Tuple_impl.24"** %3, align 8
-  store %"struct.std::_Tuple_impl.24"* %1, %"struct.std::_Tuple_impl.24"** %4, align 8
-  %5 = load %"struct.std::_Tuple_impl.24"*, %"struct.std::_Tuple_impl.24"** %3, align 8
-  %6 = load %"struct.std::_Tuple_impl.24"*, %"struct.std::_Tuple_impl.24"** %4, align 8
-  %7 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt11_Tuple_implILm2EJiiEE7_M_headERS0_(%"struct.std::_Tuple_impl.24"* nonnull align 4 dereferenceable(8) %6) #3
-  %8 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIiEOT_RNSt16remove_referenceIS0_E4typeE(i32* nonnull align 4 dereferenceable(4) %7) #3
-  %9 = load i32, i32* %8, align 4
-  %10 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt11_Tuple_implILm2EJiiEE7_M_headERS0_(%"struct.std::_Tuple_impl.24"* nonnull align 4 dereferenceable(8) %5) #3
-  store i32 %9, i32* %10, align 4
-  %11 = load %"struct.std::_Tuple_impl.24"*, %"struct.std::_Tuple_impl.24"** %4, align 8
-  %12 = call nonnull align 4 dereferenceable(4) %"struct.std::_Tuple_impl.25"* @_ZNSt11_Tuple_implILm2EJiiEE7_M_tailERS0_(%"struct.std::_Tuple_impl.24"* nonnull align 4 dereferenceable(8) %11) #3
-  %13 = call nonnull align 4 dereferenceable(4) %"struct.std::_Tuple_impl.25"* @_ZSt4moveIRSt11_Tuple_implILm3EJiEEEONSt16remove_referenceIT_E4typeEOS4_(%"struct.std::_Tuple_impl.25"* nonnull align 4 dereferenceable(4) %12) #3
-  %14 = call nonnull align 4 dereferenceable(4) %"struct.std::_Tuple_impl.25"* @_ZNSt11_Tuple_implILm2EJiiEE7_M_tailERS0_(%"struct.std::_Tuple_impl.24"* nonnull align 4 dereferenceable(8) %5) #3
-  %15 = call nonnull align 4 dereferenceable(4) %"struct.std::_Tuple_impl.25"* @_ZNSt11_Tuple_implILm3EJiEEaSEOS0_(%"struct.std::_Tuple_impl.25"* nonnull align 4 dereferenceable(4) %14, %"struct.std::_Tuple_impl.25"* nonnull align 4 dereferenceable(4) %13) #3
-  ret %"struct.std::_Tuple_impl.24"* %5
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(4) %"struct.std::_Tuple_impl.25"* @_ZNSt11_Tuple_implILm3EJiEEaSEOS0_(%"struct.std::_Tuple_impl.25"* nonnull align 4 dereferenceable(4) %0, %"struct.std::_Tuple_impl.25"* nonnull align 4 dereferenceable(4) %1) #6 comdat align 2 {
-  %3 = alloca %"struct.std::_Tuple_impl.25"*, align 8
-  %4 = alloca %"struct.std::_Tuple_impl.25"*, align 8
-  store %"struct.std::_Tuple_impl.25"* %0, %"struct.std::_Tuple_impl.25"** %3, align 8
-  store %"struct.std::_Tuple_impl.25"* %1, %"struct.std::_Tuple_impl.25"** %4, align 8
-  %5 = load %"struct.std::_Tuple_impl.25"*, %"struct.std::_Tuple_impl.25"** %3, align 8
-  %6 = load %"struct.std::_Tuple_impl.25"*, %"struct.std::_Tuple_impl.25"** %4, align 8
-  %7 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt11_Tuple_implILm3EJiEE7_M_headERS0_(%"struct.std::_Tuple_impl.25"* nonnull align 4 dereferenceable(4) %6) #3
-  %8 = call nonnull align 4 dereferenceable(4) i32* @_ZSt7forwardIiEOT_RNSt16remove_referenceIS0_E4typeE(i32* nonnull align 4 dereferenceable(4) %7) #3
-  %9 = load i32, i32* %8, align 4
-  %10 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt11_Tuple_implILm3EJiEE7_M_headERS0_(%"struct.std::_Tuple_impl.25"* nonnull align 4 dereferenceable(4) %5) #3
-  store i32 %9, i32* %10, align 4
-  ret %"struct.std::_Tuple_impl.25"* %5
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 8 dereferenceable(8) i1 (%"class.std::tuple"*, %"class.std::tuple"*)** @_ZSt4moveIRPFbRKSt5tupleIJiiiiEES3_EEONSt16remove_referenceIT_E4typeEOS8_(i1 (%"class.std::tuple"*, %"class.std::tuple"*)** nonnull align 8 dereferenceable(8) %0) #6 comdat {
-  %2 = alloca i1 (%"class.std::tuple"*, %"class.std::tuple"*)**, align 8
-  store i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %0, i1 (%"class.std::tuple"*, %"class.std::tuple"*)*** %2, align 8
-  %3 = load i1 (%"class.std::tuple"*, %"class.std::tuple"*)**, i1 (%"class.std::tuple"*, %"class.std::tuple"*)*** %2, align 8
-  ret i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %3
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local zeroext i1 @_ZN9__gnu_cxx5__ops14_Iter_comp_valIPFbRKSt5tupleIJiiiiEES5_EEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEES3_EEbT_RT0_(%"struct.__gnu_cxx::__ops::_Iter_comp_val"* nonnull align 8 dereferenceable(8) %0, %"class.std::tuple"* %1, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %2) #7 comdat align 2 {
-  %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %5 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_val"*, align 8
-  %6 = alloca %"class.std::tuple"*, align 8
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %4, i32 0, i32 0
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %7, align 8
-  store %"struct.__gnu_cxx::__ops::_Iter_comp_val"* %0, %"struct.__gnu_cxx::__ops::_Iter_comp_val"** %5, align 8
-  store %"class.std::tuple"* %2, %"class.std::tuple"** %6, align 8
-  %8 = load %"struct.__gnu_cxx::__ops::_Iter_comp_val"*, %"struct.__gnu_cxx::__ops::_Iter_comp_val"** %5, align 8
-  %9 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Iter_comp_val", %"struct.__gnu_cxx::__ops::_Iter_comp_val"* %8, i32 0, i32 0
-  %10 = load i1 (%"class.std::tuple"*, %"class.std::tuple"*)*, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %9, align 8
-  %11 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEdeEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %4) #3
-  %12 = load %"class.std::tuple"*, %"class.std::tuple"** %6, align 8
-  %13 = call zeroext i1 %10(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %11, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %12)
-  ret i1 %13
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 8 dereferenceable(8) %"class.__gnu_cxx::__normal_iterator"* @_ZN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEmmEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %0) #6 comdat align 2 {
-  %2 = alloca %"class.__gnu_cxx::__normal_iterator"*, align 8
-  store %"class.__gnu_cxx::__normal_iterator"* %0, %"class.__gnu_cxx::__normal_iterator"** %2, align 8
-  %3 = load %"class.__gnu_cxx::__normal_iterator"*, %"class.__gnu_cxx::__normal_iterator"** %2, align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %3, i32 0, i32 0
-  %5 = load %"class.std::tuple"*, %"class.std::tuple"** %4, align 8
-  %6 = getelementptr inbounds %"class.std::tuple", %"class.std::tuple"* %5, i32 -1
-  store %"class.std::tuple"* %6, %"class.std::tuple"** %4, align 8
-  ret %"class.__gnu_cxx::__normal_iterator"* %3
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_(%"class.std::tuple"* %0, %"class.std::tuple"* %1, %"class.std::tuple"* %2, %"class.std::tuple"* %3, i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %4) #7 comdat {
-  %6 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %7 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %8 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %9 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %10 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
-  %11 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %12 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %13 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %14 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %15 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %16 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %17 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %18 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %19 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %20 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %21 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %22 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %23 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %24 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %25 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %26 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %27 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %28 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %29 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %30 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %31 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %32 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %33 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %6, i32 0, i32 0
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %33, align 8
-  %34 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %7, i32 0, i32 0
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %34, align 8
-  %35 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %8, i32 0, i32 0
-  store %"class.std::tuple"* %2, %"class.std::tuple"** %35, align 8
-  %36 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %9, i32 0, i32 0
-  store %"class.std::tuple"* %3, %"class.std::tuple"** %36, align 8
-  %37 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Iter_comp_iter", %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %10, i32 0, i32 0
-  store i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %4, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %37, align 8
-  %38 = bitcast %"class.__gnu_cxx::__normal_iterator"* %11 to i8*
-  %39 = bitcast %"class.__gnu_cxx::__normal_iterator"* %7 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %38, i8* align 8 %39, i64 8, i1 false)
-  %40 = bitcast %"class.__gnu_cxx::__normal_iterator"* %12 to i8*
-  %41 = bitcast %"class.__gnu_cxx::__normal_iterator"* %8 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %40, i8* align 8 %41, i64 8, i1 false)
-  %42 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %11, i32 0, i32 0
-  %43 = load %"class.std::tuple"*, %"class.std::tuple"** %42, align 8
-  %44 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %12, i32 0, i32 0
-  %45 = load %"class.std::tuple"*, %"class.std::tuple"** %44, align 8
-  %46 = call zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKSt5tupleIJiiiiEES5_EEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEESF_EEbT_T0_(%"struct.__gnu_cxx::__ops::_Iter_comp_iter"* nonnull align 8 dereferenceable(8) %10, %"class.std::tuple"* %43, %"class.std::tuple"* %45)
-  br i1 %46, label %47, label %96
-
-47:                                               ; preds = %5
-  %48 = bitcast %"class.__gnu_cxx::__normal_iterator"* %13 to i8*
-  %49 = bitcast %"class.__gnu_cxx::__normal_iterator"* %8 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %48, i8* align 8 %49, i64 8, i1 false)
-  %50 = bitcast %"class.__gnu_cxx::__normal_iterator"* %14 to i8*
-  %51 = bitcast %"class.__gnu_cxx::__normal_iterator"* %9 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %50, i8* align 8 %51, i64 8, i1 false)
-  %52 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %13, i32 0, i32 0
-  %53 = load %"class.std::tuple"*, %"class.std::tuple"** %52, align 8
-  %54 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %14, i32 0, i32 0
-  %55 = load %"class.std::tuple"*, %"class.std::tuple"** %54, align 8
-  %56 = call zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKSt5tupleIJiiiiEES5_EEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEESF_EEbT_T0_(%"struct.__gnu_cxx::__ops::_Iter_comp_iter"* nonnull align 8 dereferenceable(8) %10, %"class.std::tuple"* %53, %"class.std::tuple"* %55)
-  br i1 %56, label %57, label %66
-
-57:                                               ; preds = %47
-  %58 = bitcast %"class.__gnu_cxx::__normal_iterator"* %15 to i8*
-  %59 = bitcast %"class.__gnu_cxx::__normal_iterator"* %6 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %58, i8* align 8 %59, i64 8, i1 false)
-  %60 = bitcast %"class.__gnu_cxx::__normal_iterator"* %16 to i8*
-  %61 = bitcast %"class.__gnu_cxx::__normal_iterator"* %8 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %60, i8* align 8 %61, i64 8, i1 false)
-  %62 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %15, i32 0, i32 0
-  %63 = load %"class.std::tuple"*, %"class.std::tuple"** %62, align 8
-  %64 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %16, i32 0, i32 0
-  %65 = load %"class.std::tuple"*, %"class.std::tuple"** %64, align 8
-  call void @_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEES8_EvT_T0_(%"class.std::tuple"* %63, %"class.std::tuple"* %65)
-  br label %95
-
-66:                                               ; preds = %47
-  %67 = bitcast %"class.__gnu_cxx::__normal_iterator"* %17 to i8*
-  %68 = bitcast %"class.__gnu_cxx::__normal_iterator"* %7 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %67, i8* align 8 %68, i64 8, i1 false)
-  %69 = bitcast %"class.__gnu_cxx::__normal_iterator"* %18 to i8*
-  %70 = bitcast %"class.__gnu_cxx::__normal_iterator"* %9 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %69, i8* align 8 %70, i64 8, i1 false)
-  %71 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %17, i32 0, i32 0
-  %72 = load %"class.std::tuple"*, %"class.std::tuple"** %71, align 8
-  %73 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %18, i32 0, i32 0
-  %74 = load %"class.std::tuple"*, %"class.std::tuple"** %73, align 8
-  %75 = call zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKSt5tupleIJiiiiEES5_EEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEESF_EEbT_T0_(%"struct.__gnu_cxx::__ops::_Iter_comp_iter"* nonnull align 8 dereferenceable(8) %10, %"class.std::tuple"* %72, %"class.std::tuple"* %74)
-  br i1 %75, label %76, label %85
-
-76:                                               ; preds = %66
-  %77 = bitcast %"class.__gnu_cxx::__normal_iterator"* %19 to i8*
-  %78 = bitcast %"class.__gnu_cxx::__normal_iterator"* %6 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %77, i8* align 8 %78, i64 8, i1 false)
-  %79 = bitcast %"class.__gnu_cxx::__normal_iterator"* %20 to i8*
-  %80 = bitcast %"class.__gnu_cxx::__normal_iterator"* %9 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %79, i8* align 8 %80, i64 8, i1 false)
-  %81 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %19, i32 0, i32 0
-  %82 = load %"class.std::tuple"*, %"class.std::tuple"** %81, align 8
-  %83 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %20, i32 0, i32 0
-  %84 = load %"class.std::tuple"*, %"class.std::tuple"** %83, align 8
-  call void @_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEES8_EvT_T0_(%"class.std::tuple"* %82, %"class.std::tuple"* %84)
-  br label %94
-
-85:                                               ; preds = %66
-  %86 = bitcast %"class.__gnu_cxx::__normal_iterator"* %21 to i8*
-  %87 = bitcast %"class.__gnu_cxx::__normal_iterator"* %6 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %86, i8* align 8 %87, i64 8, i1 false)
-  %88 = bitcast %"class.__gnu_cxx::__normal_iterator"* %22 to i8*
-  %89 = bitcast %"class.__gnu_cxx::__normal_iterator"* %7 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %88, i8* align 8 %89, i64 8, i1 false)
-  %90 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %21, i32 0, i32 0
-  %91 = load %"class.std::tuple"*, %"class.std::tuple"** %90, align 8
-  %92 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %22, i32 0, i32 0
-  %93 = load %"class.std::tuple"*, %"class.std::tuple"** %92, align 8
-  call void @_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEES8_EvT_T0_(%"class.std::tuple"* %91, %"class.std::tuple"* %93)
-  br label %94
-
-94:                                               ; preds = %85, %76
-  br label %95
-
-95:                                               ; preds = %94, %57
-  br label %145
-
-96:                                               ; preds = %5
-  %97 = bitcast %"class.__gnu_cxx::__normal_iterator"* %23 to i8*
-  %98 = bitcast %"class.__gnu_cxx::__normal_iterator"* %7 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %97, i8* align 8 %98, i64 8, i1 false)
-  %99 = bitcast %"class.__gnu_cxx::__normal_iterator"* %24 to i8*
-  %100 = bitcast %"class.__gnu_cxx::__normal_iterator"* %9 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %99, i8* align 8 %100, i64 8, i1 false)
-  %101 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %23, i32 0, i32 0
-  %102 = load %"class.std::tuple"*, %"class.std::tuple"** %101, align 8
-  %103 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %24, i32 0, i32 0
-  %104 = load %"class.std::tuple"*, %"class.std::tuple"** %103, align 8
-  %105 = call zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKSt5tupleIJiiiiEES5_EEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEESF_EEbT_T0_(%"struct.__gnu_cxx::__ops::_Iter_comp_iter"* nonnull align 8 dereferenceable(8) %10, %"class.std::tuple"* %102, %"class.std::tuple"* %104)
-  br i1 %105, label %106, label %115
-
-106:                                              ; preds = %96
-  %107 = bitcast %"class.__gnu_cxx::__normal_iterator"* %25 to i8*
-  %108 = bitcast %"class.__gnu_cxx::__normal_iterator"* %6 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %107, i8* align 8 %108, i64 8, i1 false)
-  %109 = bitcast %"class.__gnu_cxx::__normal_iterator"* %26 to i8*
-  %110 = bitcast %"class.__gnu_cxx::__normal_iterator"* %7 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %109, i8* align 8 %110, i64 8, i1 false)
-  %111 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %25, i32 0, i32 0
-  %112 = load %"class.std::tuple"*, %"class.std::tuple"** %111, align 8
-  %113 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %26, i32 0, i32 0
-  %114 = load %"class.std::tuple"*, %"class.std::tuple"** %113, align 8
-  call void @_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEES8_EvT_T0_(%"class.std::tuple"* %112, %"class.std::tuple"* %114)
-  br label %144
-
-115:                                              ; preds = %96
-  %116 = bitcast %"class.__gnu_cxx::__normal_iterator"* %27 to i8*
-  %117 = bitcast %"class.__gnu_cxx::__normal_iterator"* %8 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %116, i8* align 8 %117, i64 8, i1 false)
-  %118 = bitcast %"class.__gnu_cxx::__normal_iterator"* %28 to i8*
-  %119 = bitcast %"class.__gnu_cxx::__normal_iterator"* %9 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %118, i8* align 8 %119, i64 8, i1 false)
-  %120 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %27, i32 0, i32 0
-  %121 = load %"class.std::tuple"*, %"class.std::tuple"** %120, align 8
-  %122 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %28, i32 0, i32 0
-  %123 = load %"class.std::tuple"*, %"class.std::tuple"** %122, align 8
-  %124 = call zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKSt5tupleIJiiiiEES5_EEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEESF_EEbT_T0_(%"struct.__gnu_cxx::__ops::_Iter_comp_iter"* nonnull align 8 dereferenceable(8) %10, %"class.std::tuple"* %121, %"class.std::tuple"* %123)
-  br i1 %124, label %125, label %134
-
-125:                                              ; preds = %115
-  %126 = bitcast %"class.__gnu_cxx::__normal_iterator"* %29 to i8*
-  %127 = bitcast %"class.__gnu_cxx::__normal_iterator"* %6 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %126, i8* align 8 %127, i64 8, i1 false)
-  %128 = bitcast %"class.__gnu_cxx::__normal_iterator"* %30 to i8*
-  %129 = bitcast %"class.__gnu_cxx::__normal_iterator"* %9 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %128, i8* align 8 %129, i64 8, i1 false)
-  %130 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %29, i32 0, i32 0
-  %131 = load %"class.std::tuple"*, %"class.std::tuple"** %130, align 8
-  %132 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %30, i32 0, i32 0
-  %133 = load %"class.std::tuple"*, %"class.std::tuple"** %132, align 8
-  call void @_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEES8_EvT_T0_(%"class.std::tuple"* %131, %"class.std::tuple"* %133)
-  br label %143
-
-134:                                              ; preds = %115
-  %135 = bitcast %"class.__gnu_cxx::__normal_iterator"* %31 to i8*
-  %136 = bitcast %"class.__gnu_cxx::__normal_iterator"* %6 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %135, i8* align 8 %136, i64 8, i1 false)
-  %137 = bitcast %"class.__gnu_cxx::__normal_iterator"* %32 to i8*
-  %138 = bitcast %"class.__gnu_cxx::__normal_iterator"* %8 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %137, i8* align 8 %138, i64 8, i1 false)
-  %139 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %31, i32 0, i32 0
-  %140 = load %"class.std::tuple"*, %"class.std::tuple"** %139, align 8
-  %141 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %32, i32 0, i32 0
-  %142 = load %"class.std::tuple"*, %"class.std::tuple"** %141, align 8
-  call void @_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEES8_EvT_T0_(%"class.std::tuple"* %140, %"class.std::tuple"* %142)
-  br label %143
-
-143:                                              ; preds = %134, %125
-  br label %144
-
-144:                                              ; preds = %143, %106
-  br label %145
-
-145:                                              ; preds = %144, %95
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEmiEl(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %0, i64 %1) #6 comdat align 2 {
-  %3 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %4 = alloca %"class.__gnu_cxx::__normal_iterator"*, align 8
-  %5 = alloca i64, align 8
-  %6 = alloca %"class.std::tuple"*, align 8
-  store %"class.__gnu_cxx::__normal_iterator"* %0, %"class.__gnu_cxx::__normal_iterator"** %4, align 8
-  store i64 %1, i64* %5, align 8
-  %7 = load %"class.__gnu_cxx::__normal_iterator"*, %"class.__gnu_cxx::__normal_iterator"** %4, align 8
-  %8 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %7, i32 0, i32 0
-  %9 = load %"class.std::tuple"*, %"class.std::tuple"** %8, align 8
-  %10 = load i64, i64* %5, align 8
-  %11 = sub i64 0, %10
-  %12 = getelementptr inbounds %"class.std::tuple", %"class.std::tuple"* %9, i64 %11
-  store %"class.std::tuple"* %12, %"class.std::tuple"** %6, align 8
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEC2ERKS3_(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %3, %"class.std::tuple"** nonnull align 8 dereferenceable(8) %6) #3
-  %13 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %3, i32 0, i32 0
-  %14 = load %"class.std::tuple"*, %"class.std::tuple"** %13, align 8
-  ret %"class.std::tuple"* %14
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local %"class.std::tuple"* @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_SG_T0_(%"class.std::tuple"* %0, %"class.std::tuple"* %1, %"class.std::tuple"* %2, i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %3) #7 comdat {
-  %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %6 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %7 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %8 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %9 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
-  %10 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %11 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %12 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %13 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %14 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %15 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %16 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %6, i32 0, i32 0
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %16, align 8
-  %17 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %7, i32 0, i32 0
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %17, align 8
-  %18 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %8, i32 0, i32 0
-  store %"class.std::tuple"* %2, %"class.std::tuple"** %18, align 8
-  %19 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Iter_comp_iter", %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %9, i32 0, i32 0
-  store i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %3, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %19, align 8
-  br label %20
-
-20:                                               ; preds = %4, %54
-  br label %21
-
-21:                                               ; preds = %31, %20
-  %22 = bitcast %"class.__gnu_cxx::__normal_iterator"* %10 to i8*
-  %23 = bitcast %"class.__gnu_cxx::__normal_iterator"* %6 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %22, i8* align 8 %23, i64 8, i1 false)
-  %24 = bitcast %"class.__gnu_cxx::__normal_iterator"* %11 to i8*
-  %25 = bitcast %"class.__gnu_cxx::__normal_iterator"* %8 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %24, i8* align 8 %25, i64 8, i1 false)
-  %26 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %10, i32 0, i32 0
-  %27 = load %"class.std::tuple"*, %"class.std::tuple"** %26, align 8
-  %28 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %11, i32 0, i32 0
-  %29 = load %"class.std::tuple"*, %"class.std::tuple"** %28, align 8
-  %30 = call zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKSt5tupleIJiiiiEES5_EEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEESF_EEbT_T0_(%"struct.__gnu_cxx::__ops::_Iter_comp_iter"* nonnull align 8 dereferenceable(8) %9, %"class.std::tuple"* %27, %"class.std::tuple"* %29)
-  br i1 %30, label %31, label %33
-
-31:                                               ; preds = %21
-  %32 = call nonnull align 8 dereferenceable(8) %"class.__gnu_cxx::__normal_iterator"* @_ZN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEppEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %6) #3
-  br label %21, !llvm.loop !37
-
-33:                                               ; preds = %21
-  %34 = call nonnull align 8 dereferenceable(8) %"class.__gnu_cxx::__normal_iterator"* @_ZN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEmmEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %7) #3
-  br label %35
-
-35:                                               ; preds = %45, %33
-  %36 = bitcast %"class.__gnu_cxx::__normal_iterator"* %12 to i8*
-  %37 = bitcast %"class.__gnu_cxx::__normal_iterator"* %8 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %36, i8* align 8 %37, i64 8, i1 false)
-  %38 = bitcast %"class.__gnu_cxx::__normal_iterator"* %13 to i8*
-  %39 = bitcast %"class.__gnu_cxx::__normal_iterator"* %7 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %38, i8* align 8 %39, i64 8, i1 false)
-  %40 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %12, i32 0, i32 0
-  %41 = load %"class.std::tuple"*, %"class.std::tuple"** %40, align 8
-  %42 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %13, i32 0, i32 0
-  %43 = load %"class.std::tuple"*, %"class.std::tuple"** %42, align 8
-  %44 = call zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKSt5tupleIJiiiiEES5_EEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEESF_EEbT_T0_(%"struct.__gnu_cxx::__ops::_Iter_comp_iter"* nonnull align 8 dereferenceable(8) %9, %"class.std::tuple"* %41, %"class.std::tuple"* %43)
-  br i1 %44, label %45, label %47
-
-45:                                               ; preds = %35
-  %46 = call nonnull align 8 dereferenceable(8) %"class.__gnu_cxx::__normal_iterator"* @_ZN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEmmEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %7) #3
-  br label %35, !llvm.loop !38
-
-47:                                               ; preds = %35
-  %48 = call zeroext i1 @_ZN9__gnu_cxxltIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %6, %"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %7) #3
-  br i1 %48, label %54, label %49
-
-49:                                               ; preds = %47
-  %50 = bitcast %"class.__gnu_cxx::__normal_iterator"* %5 to i8*
-  %51 = bitcast %"class.__gnu_cxx::__normal_iterator"* %6 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %50, i8* align 8 %51, i64 8, i1 false)
-  %52 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %5, i32 0, i32 0
-  %53 = load %"class.std::tuple"*, %"class.std::tuple"** %52, align 8
-  ret %"class.std::tuple"* %53
-
-54:                                               ; preds = %47
-  %55 = bitcast %"class.__gnu_cxx::__normal_iterator"* %14 to i8*
-  %56 = bitcast %"class.__gnu_cxx::__normal_iterator"* %6 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %55, i8* align 8 %56, i64 8, i1 false)
-  %57 = bitcast %"class.__gnu_cxx::__normal_iterator"* %15 to i8*
-  %58 = bitcast %"class.__gnu_cxx::__normal_iterator"* %7 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %57, i8* align 8 %58, i64 8, i1 false)
-  %59 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %14, i32 0, i32 0
-  %60 = load %"class.std::tuple"*, %"class.std::tuple"** %59, align 8
-  %61 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %15, i32 0, i32 0
-  %62 = load %"class.std::tuple"*, %"class.std::tuple"** %61, align 8
-  call void @_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEES8_EvT_T0_(%"class.std::tuple"* %60, %"class.std::tuple"* %62)
-  %63 = call nonnull align 8 dereferenceable(8) %"class.__gnu_cxx::__normal_iterator"* @_ZN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEppEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %6) #3
-  br label %20, !llvm.loop !39
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEES8_EvT_T0_(%"class.std::tuple"* %0, %"class.std::tuple"* %1) #6 comdat {
-  %3 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %5 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %3, i32 0, i32 0
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %5, align 8
-  %6 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %4, i32 0, i32 0
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %6, align 8
-  %7 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEdeEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %3) #3
-  %8 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEdeEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %4) #3
-  call void @_ZSt4swapIJiiiiEEvRSt5tupleIJDpT_EES4_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %7, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %8) #3
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZSt4swapIJiiiiEEvRSt5tupleIJDpT_EES4_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %0, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %1) #6 comdat {
-  %3 = alloca %"class.std::tuple"*, align 8
-  %4 = alloca %"class.std::tuple"*, align 8
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %3, align 8
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %4, align 8
-  %5 = load %"class.std::tuple"*, %"class.std::tuple"** %3, align 8
-  %6 = load %"class.std::tuple"*, %"class.std::tuple"** %4, align 8
-  call void @_ZNSt5tupleIJiiiiEE4swapERS0_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %5, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %6) #3
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt5tupleIJiiiiEE4swapERS0_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %0, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %1) #6 comdat align 2 {
-  %3 = alloca %"class.std::tuple"*, align 8
-  %4 = alloca %"class.std::tuple"*, align 8
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %3, align 8
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %4, align 8
-  %5 = load %"class.std::tuple"*, %"class.std::tuple"** %3, align 8
-  %6 = bitcast %"class.std::tuple"* %5 to %"struct.std::_Tuple_impl"*
-  %7 = load %"class.std::tuple"*, %"class.std::tuple"** %4, align 8
-  %8 = bitcast %"class.std::tuple"* %7 to %"struct.std::_Tuple_impl"*
-  call void @_ZNSt11_Tuple_implILm0EJiiiiEE7_M_swapERS0_(%"struct.std::_Tuple_impl"* nonnull align 4 dereferenceable(16) %6, %"struct.std::_Tuple_impl"* nonnull align 4 dereferenceable(16) %8) #3
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm0EJiiiiEE7_M_swapERS0_(%"struct.std::_Tuple_impl"* nonnull align 4 dereferenceable(16) %0, %"struct.std::_Tuple_impl"* nonnull align 4 dereferenceable(16) %1) #6 comdat align 2 {
-  %3 = alloca %"struct.std::_Tuple_impl"*, align 8
-  %4 = alloca %"struct.std::_Tuple_impl"*, align 8
-  store %"struct.std::_Tuple_impl"* %0, %"struct.std::_Tuple_impl"** %3, align 8
-  store %"struct.std::_Tuple_impl"* %1, %"struct.std::_Tuple_impl"** %4, align 8
-  %5 = load %"struct.std::_Tuple_impl"*, %"struct.std::_Tuple_impl"** %3, align 8
-  %6 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt11_Tuple_implILm0EJiiiiEE7_M_headERS0_(%"struct.std::_Tuple_impl"* nonnull align 4 dereferenceable(16) %5) #3
-  %7 = load %"struct.std::_Tuple_impl"*, %"struct.std::_Tuple_impl"** %4, align 8
-  %8 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt11_Tuple_implILm0EJiiiiEE7_M_headERS0_(%"struct.std::_Tuple_impl"* nonnull align 4 dereferenceable(16) %7) #3
-  call void @_ZSt4swapIiENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(i32* nonnull align 4 dereferenceable(4) %6, i32* nonnull align 4 dereferenceable(4) %8) #3
-  %9 = bitcast %"struct.std::_Tuple_impl"* %5 to %"struct.std::_Tuple_impl.23"*
-  %10 = load %"struct.std::_Tuple_impl"*, %"struct.std::_Tuple_impl"** %4, align 8
-  %11 = call nonnull align 4 dereferenceable(12) %"struct.std::_Tuple_impl.23"* @_ZNSt11_Tuple_implILm0EJiiiiEE7_M_tailERS0_(%"struct.std::_Tuple_impl"* nonnull align 4 dereferenceable(16) %10) #3
-  call void @_ZNSt11_Tuple_implILm1EJiiiEE7_M_swapERS0_(%"struct.std::_Tuple_impl.23"* nonnull align 4 dereferenceable(12) %9, %"struct.std::_Tuple_impl.23"* nonnull align 4 dereferenceable(12) %11) #3
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZSt4swapIiENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(i32* nonnull align 4 dereferenceable(4) %0, i32* nonnull align 4 dereferenceable(4) %1) #6 comdat {
-  %3 = alloca i32*, align 8
-  %4 = alloca i32*, align 8
-  %5 = alloca i32, align 4
-  store i32* %0, i32** %3, align 8
-  store i32* %1, i32** %4, align 8
-  %6 = load i32*, i32** %3, align 8
-  %7 = call nonnull align 4 dereferenceable(4) i32* @_ZSt4moveIRiEONSt16remove_referenceIT_E4typeEOS2_(i32* nonnull align 4 dereferenceable(4) %6) #3
-  %8 = load i32, i32* %7, align 4
-  store i32 %8, i32* %5, align 4
-  %9 = load i32*, i32** %4, align 8
-  %10 = call nonnull align 4 dereferenceable(4) i32* @_ZSt4moveIRiEONSt16remove_referenceIT_E4typeEOS2_(i32* nonnull align 4 dereferenceable(4) %9) #3
-  %11 = load i32, i32* %10, align 4
-  %12 = load i32*, i32** %3, align 8
-  store i32 %11, i32* %12, align 4
-  %13 = call nonnull align 4 dereferenceable(4) i32* @_ZSt4moveIRiEONSt16remove_referenceIT_E4typeEOS2_(i32* nonnull align 4 dereferenceable(4) %5) #3
-  %14 = load i32, i32* %13, align 4
-  %15 = load i32*, i32** %4, align 8
-  store i32 %14, i32* %15, align 4
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm1EJiiiEE7_M_swapERS0_(%"struct.std::_Tuple_impl.23"* nonnull align 4 dereferenceable(12) %0, %"struct.std::_Tuple_impl.23"* nonnull align 4 dereferenceable(12) %1) #6 comdat align 2 {
-  %3 = alloca %"struct.std::_Tuple_impl.23"*, align 8
-  %4 = alloca %"struct.std::_Tuple_impl.23"*, align 8
-  store %"struct.std::_Tuple_impl.23"* %0, %"struct.std::_Tuple_impl.23"** %3, align 8
-  store %"struct.std::_Tuple_impl.23"* %1, %"struct.std::_Tuple_impl.23"** %4, align 8
-  %5 = load %"struct.std::_Tuple_impl.23"*, %"struct.std::_Tuple_impl.23"** %3, align 8
-  %6 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt11_Tuple_implILm1EJiiiEE7_M_headERS0_(%"struct.std::_Tuple_impl.23"* nonnull align 4 dereferenceable(12) %5) #3
-  %7 = load %"struct.std::_Tuple_impl.23"*, %"struct.std::_Tuple_impl.23"** %4, align 8
-  %8 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt11_Tuple_implILm1EJiiiEE7_M_headERS0_(%"struct.std::_Tuple_impl.23"* nonnull align 4 dereferenceable(12) %7) #3
-  call void @_ZSt4swapIiENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(i32* nonnull align 4 dereferenceable(4) %6, i32* nonnull align 4 dereferenceable(4) %8) #3
-  %9 = bitcast %"struct.std::_Tuple_impl.23"* %5 to %"struct.std::_Tuple_impl.24"*
-  %10 = load %"struct.std::_Tuple_impl.23"*, %"struct.std::_Tuple_impl.23"** %4, align 8
-  %11 = call nonnull align 4 dereferenceable(8) %"struct.std::_Tuple_impl.24"* @_ZNSt11_Tuple_implILm1EJiiiEE7_M_tailERS0_(%"struct.std::_Tuple_impl.23"* nonnull align 4 dereferenceable(12) %10) #3
-  call void @_ZNSt11_Tuple_implILm2EJiiEE7_M_swapERS0_(%"struct.std::_Tuple_impl.24"* nonnull align 4 dereferenceable(8) %9, %"struct.std::_Tuple_impl.24"* nonnull align 4 dereferenceable(8) %11) #3
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm2EJiiEE7_M_swapERS0_(%"struct.std::_Tuple_impl.24"* nonnull align 4 dereferenceable(8) %0, %"struct.std::_Tuple_impl.24"* nonnull align 4 dereferenceable(8) %1) #6 comdat align 2 {
-  %3 = alloca %"struct.std::_Tuple_impl.24"*, align 8
-  %4 = alloca %"struct.std::_Tuple_impl.24"*, align 8
-  store %"struct.std::_Tuple_impl.24"* %0, %"struct.std::_Tuple_impl.24"** %3, align 8
-  store %"struct.std::_Tuple_impl.24"* %1, %"struct.std::_Tuple_impl.24"** %4, align 8
-  %5 = load %"struct.std::_Tuple_impl.24"*, %"struct.std::_Tuple_impl.24"** %3, align 8
-  %6 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt11_Tuple_implILm2EJiiEE7_M_headERS0_(%"struct.std::_Tuple_impl.24"* nonnull align 4 dereferenceable(8) %5) #3
-  %7 = load %"struct.std::_Tuple_impl.24"*, %"struct.std::_Tuple_impl.24"** %4, align 8
-  %8 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt11_Tuple_implILm2EJiiEE7_M_headERS0_(%"struct.std::_Tuple_impl.24"* nonnull align 4 dereferenceable(8) %7) #3
-  call void @_ZSt4swapIiENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(i32* nonnull align 4 dereferenceable(4) %6, i32* nonnull align 4 dereferenceable(4) %8) #3
-  %9 = bitcast %"struct.std::_Tuple_impl.24"* %5 to %"struct.std::_Tuple_impl.25"*
-  %10 = load %"struct.std::_Tuple_impl.24"*, %"struct.std::_Tuple_impl.24"** %4, align 8
-  %11 = call nonnull align 4 dereferenceable(4) %"struct.std::_Tuple_impl.25"* @_ZNSt11_Tuple_implILm2EJiiEE7_M_tailERS0_(%"struct.std::_Tuple_impl.24"* nonnull align 4 dereferenceable(8) %10) #3
-  call void @_ZNSt11_Tuple_implILm3EJiEE7_M_swapERS0_(%"struct.std::_Tuple_impl.25"* nonnull align 4 dereferenceable(4) %9, %"struct.std::_Tuple_impl.25"* nonnull align 4 dereferenceable(4) %11) #3
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt11_Tuple_implILm3EJiEE7_M_swapERS0_(%"struct.std::_Tuple_impl.25"* nonnull align 4 dereferenceable(4) %0, %"struct.std::_Tuple_impl.25"* nonnull align 4 dereferenceable(4) %1) #6 comdat align 2 {
-  %3 = alloca %"struct.std::_Tuple_impl.25"*, align 8
-  %4 = alloca %"struct.std::_Tuple_impl.25"*, align 8
-  store %"struct.std::_Tuple_impl.25"* %0, %"struct.std::_Tuple_impl.25"** %3, align 8
-  store %"struct.std::_Tuple_impl.25"* %1, %"struct.std::_Tuple_impl.25"** %4, align 8
-  %5 = load %"struct.std::_Tuple_impl.25"*, %"struct.std::_Tuple_impl.25"** %3, align 8
-  %6 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt11_Tuple_implILm3EJiEE7_M_headERS0_(%"struct.std::_Tuple_impl.25"* nonnull align 4 dereferenceable(4) %5) #3
-  %7 = load %"struct.std::_Tuple_impl.25"*, %"struct.std::_Tuple_impl.25"** %4, align 8
-  %8 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt11_Tuple_implILm3EJiEE7_M_headERS0_(%"struct.std::_Tuple_impl.25"* nonnull align 4 dereferenceable(4) %7) #3
-  call void @_ZSt4swapIiENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS3_ESt18is_move_assignableIS3_EEE5valueEvE4typeERS3_SC_(i32* nonnull align 4 dereferenceable(4) %6, i32* nonnull align 4 dereferenceable(4) %8) #3
-  ret void
-}
-
-; Function Attrs: nofree nosync nounwind readnone speculatable willreturn
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #16
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_(%"class.std::tuple"* %0, %"class.std::tuple"* %1, i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %2) #7 comdat {
-  %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %6 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
-  %7 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %8 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %9 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %10 = alloca %"class.std::tuple", align 4
-  %11 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %12 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %13 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %14 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %15 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %16 = alloca %"struct.__gnu_cxx::__ops::_Val_comp_iter", align 8
-  %17 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
-  %18 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %4, i32 0, i32 0
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %18, align 8
-  %19 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %5, i32 0, i32 0
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %19, align 8
-  %20 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Iter_comp_iter", %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %6, i32 0, i32 0
-  store i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %2, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %20, align 8
-  %21 = call zeroext i1 @_ZN9__gnu_cxxeqIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %4, %"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %5) #3
-  br i1 %21, label %22, label %23
-
-22:                                               ; preds = %3
-  br label %74
-
-23:                                               ; preds = %3
-  %24 = call %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEplEl(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %4, i64 1) #3
-  %25 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %7, i32 0, i32 0
-  store %"class.std::tuple"* %24, %"class.std::tuple"** %25, align 8
-  br label %26
-
-26:                                               ; preds = %72, %23
-  %27 = call zeroext i1 @_ZN9__gnu_cxxneIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %7, %"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %5) #3
-  br i1 %27, label %28, label %74
-
-28:                                               ; preds = %26
-  %29 = bitcast %"class.__gnu_cxx::__normal_iterator"* %8 to i8*
-  %30 = bitcast %"class.__gnu_cxx::__normal_iterator"* %7 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %29, i8* align 8 %30, i64 8, i1 false)
-  %31 = bitcast %"class.__gnu_cxx::__normal_iterator"* %9 to i8*
-  %32 = bitcast %"class.__gnu_cxx::__normal_iterator"* %4 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %31, i8* align 8 %32, i64 8, i1 false)
-  %33 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %8, i32 0, i32 0
-  %34 = load %"class.std::tuple"*, %"class.std::tuple"** %33, align 8
-  %35 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %9, i32 0, i32 0
-  %36 = load %"class.std::tuple"*, %"class.std::tuple"** %35, align 8
-  %37 = call zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKSt5tupleIJiiiiEES5_EEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEESF_EEbT_T0_(%"struct.__gnu_cxx::__ops::_Iter_comp_iter"* nonnull align 8 dereferenceable(8) %6, %"class.std::tuple"* %34, %"class.std::tuple"* %36)
-  br i1 %37, label %38, label %58
-
-38:                                               ; preds = %28
-  %39 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEdeEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %7) #3
-  %40 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZSt4moveIRSt5tupleIJiiiiEEEONSt16remove_referenceIT_E4typeEOS4_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %39) #3
-  call void @_ZNSt5tupleIJiiiiEEC2EOS0_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %10, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %40) #3
-  %41 = bitcast %"class.__gnu_cxx::__normal_iterator"* %11 to i8*
-  %42 = bitcast %"class.__gnu_cxx::__normal_iterator"* %4 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %41, i8* align 8 %42, i64 8, i1 false)
-  %43 = bitcast %"class.__gnu_cxx::__normal_iterator"* %12 to i8*
-  %44 = bitcast %"class.__gnu_cxx::__normal_iterator"* %7 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %43, i8* align 8 %44, i64 8, i1 false)
-  %45 = call %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEplEl(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %7, i64 1) #3
-  %46 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %13, i32 0, i32 0
-  store %"class.std::tuple"* %45, %"class.std::tuple"** %46, align 8
-  %47 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %11, i32 0, i32 0
-  %48 = load %"class.std::tuple"*, %"class.std::tuple"** %47, align 8
-  %49 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %12, i32 0, i32 0
-  %50 = load %"class.std::tuple"*, %"class.std::tuple"** %49, align 8
-  %51 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %13, i32 0, i32 0
-  %52 = load %"class.std::tuple"*, %"class.std::tuple"** %51, align 8
-  %53 = call %"class.std::tuple"* @_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_(%"class.std::tuple"* %48, %"class.std::tuple"* %50, %"class.std::tuple"* %52)
-  %54 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %14, i32 0, i32 0
-  store %"class.std::tuple"* %53, %"class.std::tuple"** %54, align 8
-  %55 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZSt4moveIRSt5tupleIJiiiiEEEONSt16remove_referenceIT_E4typeEOS4_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %10) #3
-  %56 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEdeEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %4) #3
-  %57 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNSt5tupleIJiiiiEEaSEOS0_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %56, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %55) #3
-  br label %71
-
-58:                                               ; preds = %28
-  %59 = bitcast %"class.__gnu_cxx::__normal_iterator"* %15 to i8*
-  %60 = bitcast %"class.__gnu_cxx::__normal_iterator"* %7 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %59, i8* align 8 %60, i64 8, i1 false)
-  %61 = bitcast %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %17 to i8*
-  %62 = bitcast %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %6 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %61, i8* align 8 %62, i64 8, i1 false)
-  %63 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Iter_comp_iter", %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %17, i32 0, i32 0
-  %64 = load i1 (%"class.std::tuple"*, %"class.std::tuple"*)*, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %63, align 8
-  %65 = call i1 (%"class.std::tuple"*, %"class.std::tuple"*)* @_ZN9__gnu_cxx5__ops15__val_comp_iterIPFbRKSt5tupleIJiiiiEES5_EEENS0_14_Val_comp_iterIT_EENS0_15_Iter_comp_iterIS9_EE(i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %64)
-  %66 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Val_comp_iter", %"struct.__gnu_cxx::__ops::_Val_comp_iter"* %16, i32 0, i32 0
-  store i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %65, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %66, align 8
-  %67 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %15, i32 0, i32 0
-  %68 = load %"class.std::tuple"*, %"class.std::tuple"** %67, align 8
-  %69 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Val_comp_iter", %"struct.__gnu_cxx::__ops::_Val_comp_iter"* %16, i32 0, i32 0
-  %70 = load i1 (%"class.std::tuple"*, %"class.std::tuple"*)*, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %69, align 8
-  call void @_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_(%"class.std::tuple"* %68, i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %70)
-  br label %71
-
-71:                                               ; preds = %58, %38
-  br label %72
-
-72:                                               ; preds = %71
-  %73 = call nonnull align 8 dereferenceable(8) %"class.__gnu_cxx::__normal_iterator"* @_ZN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEppEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %7) #3
-  br label %26, !llvm.loop !40
-
-74:                                               ; preds = %22, %26
-  ret void
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_ZSt26__unguarded_insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_(%"class.std::tuple"* %0, %"class.std::tuple"* %1, i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %2) #7 comdat {
-  %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %6 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
-  %7 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %8 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %9 = alloca %"struct.__gnu_cxx::__ops::_Val_comp_iter", align 8
-  %10 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
-  %11 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %4, i32 0, i32 0
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %11, align 8
-  %12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %5, i32 0, i32 0
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %12, align 8
-  %13 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Iter_comp_iter", %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %6, i32 0, i32 0
-  store i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %2, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %13, align 8
-  %14 = bitcast %"class.__gnu_cxx::__normal_iterator"* %7 to i8*
-  %15 = bitcast %"class.__gnu_cxx::__normal_iterator"* %4 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %14, i8* align 8 %15, i64 8, i1 false)
-  br label %16
-
-16:                                               ; preds = %31, %3
-  %17 = call zeroext i1 @_ZN9__gnu_cxxneIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %7, %"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %5) #3
-  br i1 %17, label %18, label %33
-
-18:                                               ; preds = %16
-  %19 = bitcast %"class.__gnu_cxx::__normal_iterator"* %8 to i8*
-  %20 = bitcast %"class.__gnu_cxx::__normal_iterator"* %7 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %19, i8* align 8 %20, i64 8, i1 false)
-  %21 = bitcast %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %10 to i8*
-  %22 = bitcast %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %6 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %21, i8* align 8 %22, i64 8, i1 false)
-  %23 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Iter_comp_iter", %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %10, i32 0, i32 0
-  %24 = load i1 (%"class.std::tuple"*, %"class.std::tuple"*)*, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %23, align 8
-  %25 = call i1 (%"class.std::tuple"*, %"class.std::tuple"*)* @_ZN9__gnu_cxx5__ops15__val_comp_iterIPFbRKSt5tupleIJiiiiEES5_EEENS0_14_Val_comp_iterIT_EENS0_15_Iter_comp_iterIS9_EE(i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %24)
-  %26 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Val_comp_iter", %"struct.__gnu_cxx::__ops::_Val_comp_iter"* %9, i32 0, i32 0
-  store i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %25, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %26, align 8
-  %27 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %8, i32 0, i32 0
-  %28 = load %"class.std::tuple"*, %"class.std::tuple"** %27, align 8
-  %29 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Val_comp_iter", %"struct.__gnu_cxx::__ops::_Val_comp_iter"* %9, i32 0, i32 0
-  %30 = load i1 (%"class.std::tuple"*, %"class.std::tuple"*)*, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %29, align 8
-  call void @_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_(%"class.std::tuple"* %28, i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %30)
-  br label %31
-
-31:                                               ; preds = %18
-  %32 = call nonnull align 8 dereferenceable(8) %"class.__gnu_cxx::__normal_iterator"* @_ZN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEppEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %7) #3
-  br label %16, !llvm.loop !41
-
-33:                                               ; preds = %16
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local zeroext i1 @_ZN9__gnu_cxxeqIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEEbRKNS_17__normal_iteratorIT_T0_EESC_(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %0, %"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %1) #6 comdat {
-  %3 = alloca %"class.__gnu_cxx::__normal_iterator"*, align 8
-  %4 = alloca %"class.__gnu_cxx::__normal_iterator"*, align 8
-  store %"class.__gnu_cxx::__normal_iterator"* %0, %"class.__gnu_cxx::__normal_iterator"** %3, align 8
-  store %"class.__gnu_cxx::__normal_iterator"* %1, %"class.__gnu_cxx::__normal_iterator"** %4, align 8
-  %5 = load %"class.__gnu_cxx::__normal_iterator"*, %"class.__gnu_cxx::__normal_iterator"** %3, align 8
-  %6 = call nonnull align 8 dereferenceable(8) %"class.std::tuple"** @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEE4baseEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %5) #3
-  %7 = load %"class.std::tuple"*, %"class.std::tuple"** %6, align 8
-  %8 = load %"class.__gnu_cxx::__normal_iterator"*, %"class.__gnu_cxx::__normal_iterator"** %4, align 8
-  %9 = call nonnull align 8 dereferenceable(8) %"class.std::tuple"** @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEE4baseEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %8) #3
-  %10 = load %"class.std::tuple"*, %"class.std::tuple"** %9, align 8
-  %11 = icmp eq %"class.std::tuple"* %7, %10
-  ret i1 %11
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local %"class.std::tuple"* @_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_(%"class.std::tuple"* %0, %"class.std::tuple"* %1, %"class.std::tuple"* %2) #7 comdat {
-  %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %6 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %7 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %8 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %9 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %10 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %11 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %12 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %13 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %5, i32 0, i32 0
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %13, align 8
-  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %6, i32 0, i32 0
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %14, align 8
-  %15 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %7, i32 0, i32 0
-  store %"class.std::tuple"* %2, %"class.std::tuple"** %15, align 8
-  %16 = bitcast %"class.__gnu_cxx::__normal_iterator"* %9 to i8*
-  %17 = bitcast %"class.__gnu_cxx::__normal_iterator"* %5 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %16, i8* align 8 %17, i64 8, i1 false)
-  %18 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %9, i32 0, i32 0
-  %19 = load %"class.std::tuple"*, %"class.std::tuple"** %18, align 8
-  %20 = call %"class.std::tuple"* @_ZSt12__miter_baseIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEEET_S9_(%"class.std::tuple"* %19)
-  %21 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %8, i32 0, i32 0
-  store %"class.std::tuple"* %20, %"class.std::tuple"** %21, align 8
-  %22 = bitcast %"class.__gnu_cxx::__normal_iterator"* %11 to i8*
-  %23 = bitcast %"class.__gnu_cxx::__normal_iterator"* %6 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %22, i8* align 8 %23, i64 8, i1 false)
-  %24 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %11, i32 0, i32 0
-  %25 = load %"class.std::tuple"*, %"class.std::tuple"** %24, align 8
-  %26 = call %"class.std::tuple"* @_ZSt12__miter_baseIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEEET_S9_(%"class.std::tuple"* %25)
-  %27 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %10, i32 0, i32 0
-  store %"class.std::tuple"* %26, %"class.std::tuple"** %27, align 8
-  %28 = bitcast %"class.__gnu_cxx::__normal_iterator"* %12 to i8*
-  %29 = bitcast %"class.__gnu_cxx::__normal_iterator"* %7 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %28, i8* align 8 %29, i64 8, i1 false)
-  %30 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %8, i32 0, i32 0
-  %31 = load %"class.std::tuple"*, %"class.std::tuple"** %30, align 8
-  %32 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %10, i32 0, i32 0
-  %33 = load %"class.std::tuple"*, %"class.std::tuple"** %32, align 8
-  %34 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %12, i32 0, i32 0
-  %35 = load %"class.std::tuple"*, %"class.std::tuple"** %34, align 8
-  %36 = call %"class.std::tuple"* @_ZSt23__copy_move_backward_a2ILb1EN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEES8_ET1_T0_SA_S9_(%"class.std::tuple"* %31, %"class.std::tuple"* %33, %"class.std::tuple"* %35)
-  %37 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %4, i32 0, i32 0
-  store %"class.std::tuple"* %36, %"class.std::tuple"** %37, align 8
-  %38 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %4, i32 0, i32 0
-  %39 = load %"class.std::tuple"*, %"class.std::tuple"** %38, align 8
-  ret %"class.std::tuple"* %39
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_(%"class.std::tuple"* %0, i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %1) #7 comdat {
-  %3 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %4 = alloca %"struct.__gnu_cxx::__ops::_Val_comp_iter", align 8
-  %5 = alloca %"class.std::tuple", align 4
-  %6 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %7 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %8 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %3, i32 0, i32 0
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %8, align 8
-  %9 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Val_comp_iter", %"struct.__gnu_cxx::__ops::_Val_comp_iter"* %4, i32 0, i32 0
-  store i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %1, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %9, align 8
-  %10 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEdeEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %3) #3
-  %11 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZSt4moveIRSt5tupleIJiiiiEEEONSt16remove_referenceIT_E4typeEOS4_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %10) #3
-  call void @_ZNSt5tupleIJiiiiEEC2EOS0_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %5, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %11) #3
-  %12 = bitcast %"class.__gnu_cxx::__normal_iterator"* %6 to i8*
-  %13 = bitcast %"class.__gnu_cxx::__normal_iterator"* %3 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %12, i8* align 8 %13, i64 8, i1 false)
-  %14 = call nonnull align 8 dereferenceable(8) %"class.__gnu_cxx::__normal_iterator"* @_ZN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEmmEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %6) #3
-  br label %15
-
-15:                                               ; preds = %21, %2
-  %16 = bitcast %"class.__gnu_cxx::__normal_iterator"* %7 to i8*
-  %17 = bitcast %"class.__gnu_cxx::__normal_iterator"* %6 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %16, i8* align 8 %17, i64 8, i1 false)
-  %18 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %7, i32 0, i32 0
-  %19 = load %"class.std::tuple"*, %"class.std::tuple"** %18, align 8
-  %20 = call zeroext i1 @_ZN9__gnu_cxx5__ops14_Val_comp_iterIPFbRKSt5tupleIJiiiiEES5_EEclIS3_NS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbRT_T0_(%"struct.__gnu_cxx::__ops::_Val_comp_iter"* nonnull align 8 dereferenceable(8) %4, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %5, %"class.std::tuple"* %19)
-  br i1 %20, label %21, label %29
-
-21:                                               ; preds = %15
-  %22 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEdeEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %6) #3
-  %23 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZSt4moveIRSt5tupleIJiiiiEEEONSt16remove_referenceIT_E4typeEOS4_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %22) #3
-  %24 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEdeEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %3) #3
-  %25 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNSt5tupleIJiiiiEEaSEOS0_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %24, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %23) #3
-  %26 = bitcast %"class.__gnu_cxx::__normal_iterator"* %3 to i8*
-  %27 = bitcast %"class.__gnu_cxx::__normal_iterator"* %6 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %26, i8* align 8 %27, i64 8, i1 false)
-  %28 = call nonnull align 8 dereferenceable(8) %"class.__gnu_cxx::__normal_iterator"* @_ZN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEmmEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %6) #3
-  br label %15, !llvm.loop !42
-
-29:                                               ; preds = %15
-  %30 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZSt4moveIRSt5tupleIJiiiiEEEONSt16remove_referenceIT_E4typeEOS4_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %5) #3
-  %31 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEdeEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %3) #3
-  %32 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNSt5tupleIJiiiiEEaSEOS0_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %31, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %30) #3
-  ret void
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local i1 (%"class.std::tuple"*, %"class.std::tuple"*)* @_ZN9__gnu_cxx5__ops15__val_comp_iterIPFbRKSt5tupleIJiiiiEES5_EEENS0_14_Val_comp_iterIT_EENS0_15_Iter_comp_iterIS9_EE(i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %0) #7 comdat {
-  %2 = alloca %"struct.__gnu_cxx::__ops::_Val_comp_iter", align 8
-  %3 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
-  %4 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Iter_comp_iter", %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %3, i32 0, i32 0
-  store i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %0, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %4, align 8
-  %5 = call nonnull align 8 dereferenceable(8) %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* @_ZSt4moveIRN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKSt5tupleIJiiiiEES6_EEEEONSt16remove_referenceIT_E4typeEOSC_(%"struct.__gnu_cxx::__ops::_Iter_comp_iter"* nonnull align 8 dereferenceable(8) %3) #3
-  call void @_ZN9__gnu_cxx5__ops14_Val_comp_iterIPFbRKSt5tupleIJiiiiEES5_EEC2EONS0_15_Iter_comp_iterIS7_EE(%"struct.__gnu_cxx::__ops::_Val_comp_iter"* nonnull align 8 dereferenceable(8) %2, %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* nonnull align 8 dereferenceable(8) %5)
-  %6 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Val_comp_iter", %"struct.__gnu_cxx::__ops::_Val_comp_iter"* %2, i32 0, i32 0
-  %7 = load i1 (%"class.std::tuple"*, %"class.std::tuple"*)*, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %6, align 8
-  ret i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %7
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local %"class.std::tuple"* @_ZSt23__copy_move_backward_a2ILb1EN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEES8_ET1_T0_SA_S9_(%"class.std::tuple"* %0, %"class.std::tuple"* %1, %"class.std::tuple"* %2) #7 comdat {
-  %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %6 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %7 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %8 = alloca %"class.std::tuple"*, align 8
-  %9 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %10 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %11 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %5, i32 0, i32 0
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %12, align 8
-  %13 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %6, i32 0, i32 0
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %13, align 8
-  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %7, i32 0, i32 0
-  store %"class.std::tuple"* %2, %"class.std::tuple"** %14, align 8
-  %15 = bitcast %"class.__gnu_cxx::__normal_iterator"* %9 to i8*
-  %16 = bitcast %"class.__gnu_cxx::__normal_iterator"* %5 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %15, i8* align 8 %16, i64 8, i1 false)
-  %17 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %9, i32 0, i32 0
-  %18 = load %"class.std::tuple"*, %"class.std::tuple"** %17, align 8
-  %19 = call %"class.std::tuple"* @_ZSt12__niter_baseIPSt5tupleIJiiiiEESt6vectorIS1_SaIS1_EEET_N9__gnu_cxx17__normal_iteratorIS6_T0_EE(%"class.std::tuple"* %18)
-  %20 = bitcast %"class.__gnu_cxx::__normal_iterator"* %10 to i8*
-  %21 = bitcast %"class.__gnu_cxx::__normal_iterator"* %6 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %20, i8* align 8 %21, i64 8, i1 false)
-  %22 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %10, i32 0, i32 0
-  %23 = load %"class.std::tuple"*, %"class.std::tuple"** %22, align 8
-  %24 = call %"class.std::tuple"* @_ZSt12__niter_baseIPSt5tupleIJiiiiEESt6vectorIS1_SaIS1_EEET_N9__gnu_cxx17__normal_iteratorIS6_T0_EE(%"class.std::tuple"* %23)
-  %25 = bitcast %"class.__gnu_cxx::__normal_iterator"* %11 to i8*
-  %26 = bitcast %"class.__gnu_cxx::__normal_iterator"* %7 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %25, i8* align 8 %26, i64 8, i1 false)
-  %27 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %11, i32 0, i32 0
-  %28 = load %"class.std::tuple"*, %"class.std::tuple"** %27, align 8
-  %29 = call %"class.std::tuple"* @_ZSt12__niter_baseIPSt5tupleIJiiiiEESt6vectorIS1_SaIS1_EEET_N9__gnu_cxx17__normal_iteratorIS6_T0_EE(%"class.std::tuple"* %28)
-  %30 = call %"class.std::tuple"* @_ZSt22__copy_move_backward_aILb1EPSt5tupleIJiiiiEES2_ET1_T0_S4_S3_(%"class.std::tuple"* %19, %"class.std::tuple"* %24, %"class.std::tuple"* %29)
-  store %"class.std::tuple"* %30, %"class.std::tuple"** %8, align 8
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEC2ERKS3_(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %4, %"class.std::tuple"** nonnull align 8 dereferenceable(8) %8) #3
-  %31 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %4, i32 0, i32 0
-  %32 = load %"class.std::tuple"*, %"class.std::tuple"** %31, align 8
-  ret %"class.std::tuple"* %32
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local %"class.std::tuple"* @_ZSt12__miter_baseIN9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS3_SaIS3_EEEEET_S9_(%"class.std::tuple"* %0) #6 comdat {
-  %2 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %3 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %3, i32 0, i32 0
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %4, align 8
-  %5 = bitcast %"class.__gnu_cxx::__normal_iterator"* %2 to i8*
-  %6 = bitcast %"class.__gnu_cxx::__normal_iterator"* %3 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %5, i8* align 8 %6, i64 8, i1 false)
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %2, i32 0, i32 0
-  %8 = load %"class.std::tuple"*, %"class.std::tuple"** %7, align 8
-  ret %"class.std::tuple"* %8
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local %"class.std::tuple"* @_ZSt22__copy_move_backward_aILb1EPSt5tupleIJiiiiEES2_ET1_T0_S4_S3_(%"class.std::tuple"* %0, %"class.std::tuple"* %1, %"class.std::tuple"* %2) #7 comdat {
-  %4 = alloca %"class.std::tuple"*, align 8
-  %5 = alloca %"class.std::tuple"*, align 8
-  %6 = alloca %"class.std::tuple"*, align 8
-  %7 = alloca i8, align 1
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %4, align 8
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %5, align 8
-  store %"class.std::tuple"* %2, %"class.std::tuple"** %6, align 8
-  store i8 0, i8* %7, align 1
-  %8 = load %"class.std::tuple"*, %"class.std::tuple"** %4, align 8
-  %9 = load %"class.std::tuple"*, %"class.std::tuple"** %5, align 8
-  %10 = load %"class.std::tuple"*, %"class.std::tuple"** %6, align 8
-  %11 = call %"class.std::tuple"* @_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIPSt5tupleIJiiiiEES5_EET0_T_S7_S6_(%"class.std::tuple"* %8, %"class.std::tuple"* %9, %"class.std::tuple"* %10)
-  ret %"class.std::tuple"* %11
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local %"class.std::tuple"* @_ZSt12__niter_baseIPSt5tupleIJiiiiEESt6vectorIS1_SaIS1_EEET_N9__gnu_cxx17__normal_iteratorIS6_T0_EE(%"class.std::tuple"* %0) #6 comdat {
-  %2 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %3 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %2, i32 0, i32 0
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %3, align 8
-  %4 = call nonnull align 8 dereferenceable(8) %"class.std::tuple"** @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEE4baseEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %2) #3
-  %5 = load %"class.std::tuple"*, %"class.std::tuple"** %4, align 8
-  ret %"class.std::tuple"* %5
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local %"class.std::tuple"* @_ZNSt20__copy_move_backwardILb1ELb0ESt26random_access_iterator_tagE13__copy_move_bIPSt5tupleIJiiiiEES5_EET0_T_S7_S6_(%"class.std::tuple"* %0, %"class.std::tuple"* %1, %"class.std::tuple"* %2) #6 comdat align 2 {
-  %4 = alloca %"class.std::tuple"*, align 8
-  %5 = alloca %"class.std::tuple"*, align 8
-  %6 = alloca %"class.std::tuple"*, align 8
-  %7 = alloca i64, align 8
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %4, align 8
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %5, align 8
-  store %"class.std::tuple"* %2, %"class.std::tuple"** %6, align 8
-  %8 = load %"class.std::tuple"*, %"class.std::tuple"** %5, align 8
-  %9 = load %"class.std::tuple"*, %"class.std::tuple"** %4, align 8
-  %10 = ptrtoint %"class.std::tuple"* %8 to i64
-  %11 = ptrtoint %"class.std::tuple"* %9 to i64
-  %12 = sub i64 %10, %11
-  %13 = sdiv exact i64 %12, 16
-  store i64 %13, i64* %7, align 8
-  br label %14
-
-14:                                               ; preds = %24, %3
-  %15 = load i64, i64* %7, align 8
-  %16 = icmp sgt i64 %15, 0
-  br i1 %16, label %17, label %27
-
-17:                                               ; preds = %14
-  %18 = load %"class.std::tuple"*, %"class.std::tuple"** %5, align 8
-  %19 = getelementptr inbounds %"class.std::tuple", %"class.std::tuple"* %18, i32 -1
-  store %"class.std::tuple"* %19, %"class.std::tuple"** %5, align 8
-  %20 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZSt4moveIRSt5tupleIJiiiiEEEONSt16remove_referenceIT_E4typeEOS4_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %19) #3
-  %21 = load %"class.std::tuple"*, %"class.std::tuple"** %6, align 8
-  %22 = getelementptr inbounds %"class.std::tuple", %"class.std::tuple"* %21, i32 -1
-  store %"class.std::tuple"* %22, %"class.std::tuple"** %6, align 8
-  %23 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNSt5tupleIJiiiiEEaSEOS0_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %22, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %20) #3
-  br label %24
-
-24:                                               ; preds = %17
-  %25 = load i64, i64* %7, align 8
-  %26 = add nsw i64 %25, -1
-  store i64 %26, i64* %7, align 8
-  br label %14, !llvm.loop !43
-
-27:                                               ; preds = %14
-  %28 = load %"class.std::tuple"*, %"class.std::tuple"** %6, align 8
-  ret %"class.std::tuple"* %28
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local zeroext i1 @_ZN9__gnu_cxx5__ops14_Val_comp_iterIPFbRKSt5tupleIJiiiiEES5_EEclIS3_NS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbRT_T0_(%"struct.__gnu_cxx::__ops::_Val_comp_iter"* nonnull align 8 dereferenceable(8) %0, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %1, %"class.std::tuple"* %2) #7 comdat align 2 {
-  %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
-  %5 = alloca %"struct.__gnu_cxx::__ops::_Val_comp_iter"*, align 8
-  %6 = alloca %"class.std::tuple"*, align 8
-  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %4, i32 0, i32 0
-  store %"class.std::tuple"* %2, %"class.std::tuple"** %7, align 8
-  store %"struct.__gnu_cxx::__ops::_Val_comp_iter"* %0, %"struct.__gnu_cxx::__ops::_Val_comp_iter"** %5, align 8
-  store %"class.std::tuple"* %1, %"class.std::tuple"** %6, align 8
-  %8 = load %"struct.__gnu_cxx::__ops::_Val_comp_iter"*, %"struct.__gnu_cxx::__ops::_Val_comp_iter"** %5, align 8
-  %9 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Val_comp_iter", %"struct.__gnu_cxx::__ops::_Val_comp_iter"* %8, i32 0, i32 0
-  %10 = load i1 (%"class.std::tuple"*, %"class.std::tuple"*)*, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %9, align 8
-  %11 = load %"class.std::tuple"*, %"class.std::tuple"** %6, align 8
-  %12 = call nonnull align 4 dereferenceable(16) %"class.std::tuple"* @_ZNK9__gnu_cxx17__normal_iteratorIPSt5tupleIJiiiiEESt6vectorIS2_SaIS2_EEEdeEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %4) #3
-  %13 = call zeroext i1 %10(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %11, %"class.std::tuple"* nonnull align 4 dereferenceable(16) %12)
-  ret i1 %13
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZN9__gnu_cxx5__ops14_Val_comp_iterIPFbRKSt5tupleIJiiiiEES5_EEC2EONS0_15_Iter_comp_iterIS7_EE(%"struct.__gnu_cxx::__ops::_Val_comp_iter"* nonnull align 8 dereferenceable(8) %0, %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* nonnull align 8 dereferenceable(8) %1) unnamed_addr #9 comdat align 2 {
-  %3 = alloca %"struct.__gnu_cxx::__ops::_Val_comp_iter"*, align 8
-  %4 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter"*, align 8
-  store %"struct.__gnu_cxx::__ops::_Val_comp_iter"* %0, %"struct.__gnu_cxx::__ops::_Val_comp_iter"** %3, align 8
-  store %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %1, %"struct.__gnu_cxx::__ops::_Iter_comp_iter"** %4, align 8
-  %5 = load %"struct.__gnu_cxx::__ops::_Val_comp_iter"*, %"struct.__gnu_cxx::__ops::_Val_comp_iter"** %3, align 8
-  %6 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Val_comp_iter", %"struct.__gnu_cxx::__ops::_Val_comp_iter"* %5, i32 0, i32 0
-  %7 = load %"struct.__gnu_cxx::__ops::_Iter_comp_iter"*, %"struct.__gnu_cxx::__ops::_Iter_comp_iter"** %4, align 8
-  %8 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Iter_comp_iter", %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %7, i32 0, i32 0
-  %9 = call nonnull align 8 dereferenceable(8) i1 (%"class.std::tuple"*, %"class.std::tuple"*)** @_ZSt4moveIRPFbRKSt5tupleIJiiiiEES3_EEONSt16remove_referenceIT_E4typeEOS8_(i1 (%"class.std::tuple"*, %"class.std::tuple"*)** nonnull align 8 dereferenceable(8) %8) #3
-  %10 = load i1 (%"class.std::tuple"*, %"class.std::tuple"*)*, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %9, align 8
-  store i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %10, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %6, align 8
-  ret void
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKSt5tupleIJiiiiEES5_EEC2ES7_(%"struct.__gnu_cxx::__ops::_Iter_comp_iter"* nonnull align 8 dereferenceable(8) %0, i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %1) unnamed_addr #9 comdat align 2 {
-  %3 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter"*, align 8
-  %4 = alloca i1 (%"class.std::tuple"*, %"class.std::tuple"*)*, align 8
-  store %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %0, %"struct.__gnu_cxx::__ops::_Iter_comp_iter"** %3, align 8
-  store i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %1, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %4, align 8
-  %5 = load %"struct.__gnu_cxx::__ops::_Iter_comp_iter"*, %"struct.__gnu_cxx::__ops::_Iter_comp_iter"** %3, align 8
-  %6 = getelementptr inbounds %"struct.__gnu_cxx::__ops::_Iter_comp_iter", %"struct.__gnu_cxx::__ops::_Iter_comp_iter"* %5, i32 0, i32 0
-  %7 = call nonnull align 8 dereferenceable(8) i1 (%"class.std::tuple"*, %"class.std::tuple"*)** @_ZSt4moveIRPFbRKSt5tupleIJiiiiEES3_EEONSt16remove_referenceIT_E4typeEOS8_(i1 (%"class.std::tuple"*, %"class.std::tuple"*)** nonnull align 8 dereferenceable(8) %4) #3
-  %8 = load i1 (%"class.std::tuple"*, %"class.std::tuple"*)*, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %7, align 8
-  store i1 (%"class.std::tuple"*, %"class.std::tuple"*)* %8, i1 (%"class.std::tuple"*, %"class.std::tuple"*)** %6, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(4) i32* @_ZSt3getILm0EJiiiiEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS4_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %0) #6 comdat {
-  %2 = alloca %"class.std::tuple"*, align 8
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %2, align 8
-  %3 = load %"class.std::tuple"*, %"class.std::tuple"** %2, align 8
-  %4 = bitcast %"class.std::tuple"* %3 to %"struct.std::_Tuple_impl"*
-  %5 = call nonnull align 4 dereferenceable(4) i32* @_ZSt12__get_helperILm0EiJiiiEERKT0_RKSt11_Tuple_implIXT_EJS0_DpT1_EE(%"struct.std::_Tuple_impl"* nonnull align 4 dereferenceable(16) %4) #3
-  ret i32* %5
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(4) i32* @_ZSt3getILm1EJiiiiEERKNSt13tuple_elementIXT_ESt5tupleIJDpT0_EEE4typeERKS4_(%"class.std::tuple"* nonnull align 4 dereferenceable(16) %0) #6 comdat {
-  %2 = alloca %"class.std::tuple"*, align 8
-  store %"class.std::tuple"* %0, %"class.std::tuple"** %2, align 8
-  %3 = load %"class.std::tuple"*, %"class.std::tuple"** %2, align 8
-  %4 = bitcast %"class.std::tuple"* %3 to %"struct.std::_Tuple_impl.23"*
-  %5 = call nonnull align 4 dereferenceable(4) i32* @_ZSt12__get_helperILm1EiJiiEERKT0_RKSt11_Tuple_implIXT_EJS0_DpT1_EE(%"struct.std::_Tuple_impl.23"* nonnull align 4 dereferenceable(12) %4) #3
-  ret i32* %5
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(4) i32* @_ZSt12__get_helperILm0EiJiiiEERKT0_RKSt11_Tuple_implIXT_EJS0_DpT1_EE(%"struct.std::_Tuple_impl"* nonnull align 4 dereferenceable(16) %0) #6 comdat {
-  %2 = alloca %"struct.std::_Tuple_impl"*, align 8
-  store %"struct.std::_Tuple_impl"* %0, %"struct.std::_Tuple_impl"** %2, align 8
-  %3 = load %"struct.std::_Tuple_impl"*, %"struct.std::_Tuple_impl"** %2, align 8
-  %4 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt11_Tuple_implILm0EJiiiiEE7_M_headERKS0_(%"struct.std::_Tuple_impl"* nonnull align 4 dereferenceable(16) %3) #3
-  ret i32* %4
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(4) i32* @_ZNSt11_Tuple_implILm0EJiiiiEE7_M_headERKS0_(%"struct.std::_Tuple_impl"* nonnull align 4 dereferenceable(16) %0) #6 comdat align 2 {
-  %2 = alloca %"struct.std::_Tuple_impl"*, align 8
-  store %"struct.std::_Tuple_impl"* %0, %"struct.std::_Tuple_impl"** %2, align 8
-  %3 = load %"struct.std::_Tuple_impl"*, %"struct.std::_Tuple_impl"** %2, align 8
-  %4 = bitcast %"struct.std::_Tuple_impl"* %3 to i8*
-  %5 = getelementptr inbounds i8, i8* %4, i64 12
-  %6 = bitcast i8* %5 to %"struct.std::_Head_base.28"*
-  %7 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt10_Head_baseILm0EiLb0EE7_M_headERKS0_(%"struct.std::_Head_base.28"* nonnull align 4 dereferenceable(4) %6) #3
-  ret i32* %7
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(4) i32* @_ZNSt10_Head_baseILm0EiLb0EE7_M_headERKS0_(%"struct.std::_Head_base.28"* nonnull align 4 dereferenceable(4) %0) #6 comdat align 2 {
-  %2 = alloca %"struct.std::_Head_base.28"*, align 8
-  store %"struct.std::_Head_base.28"* %0, %"struct.std::_Head_base.28"** %2, align 8
-  %3 = load %"struct.std::_Head_base.28"*, %"struct.std::_Head_base.28"** %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Head_base.28", %"struct.std::_Head_base.28"* %3, i32 0, i32 0
-  ret i32* %4
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(4) i32* @_ZSt12__get_helperILm1EiJiiEERKT0_RKSt11_Tuple_implIXT_EJS0_DpT1_EE(%"struct.std::_Tuple_impl.23"* nonnull align 4 dereferenceable(12) %0) #6 comdat {
-  %2 = alloca %"struct.std::_Tuple_impl.23"*, align 8
-  store %"struct.std::_Tuple_impl.23"* %0, %"struct.std::_Tuple_impl.23"** %2, align 8
-  %3 = load %"struct.std::_Tuple_impl.23"*, %"struct.std::_Tuple_impl.23"** %2, align 8
-  %4 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt11_Tuple_implILm1EJiiiEE7_M_headERKS0_(%"struct.std::_Tuple_impl.23"* nonnull align 4 dereferenceable(12) %3) #3
-  ret i32* %4
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(4) i32* @_ZNSt11_Tuple_implILm1EJiiiEE7_M_headERKS0_(%"struct.std::_Tuple_impl.23"* nonnull align 4 dereferenceable(12) %0) #6 comdat align 2 {
-  %2 = alloca %"struct.std::_Tuple_impl.23"*, align 8
-  store %"struct.std::_Tuple_impl.23"* %0, %"struct.std::_Tuple_impl.23"** %2, align 8
-  %3 = load %"struct.std::_Tuple_impl.23"*, %"struct.std::_Tuple_impl.23"** %2, align 8
-  %4 = bitcast %"struct.std::_Tuple_impl.23"* %3 to i8*
-  %5 = getelementptr inbounds i8, i8* %4, i64 8
-  %6 = bitcast i8* %5 to %"struct.std::_Head_base.27"*
-  %7 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt10_Head_baseILm1EiLb0EE7_M_headERKS0_(%"struct.std::_Head_base.27"* nonnull align 4 dereferenceable(4) %6) #3
-  ret i32* %7
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(4) i32* @_ZNSt10_Head_baseILm1EiLb0EE7_M_headERKS0_(%"struct.std::_Head_base.27"* nonnull align 4 dereferenceable(4) %0) #6 comdat align 2 {
-  %2 = alloca %"struct.std::_Head_base.27"*, align 8
-  store %"struct.std::_Head_base.27"* %0, %"struct.std::_Head_base.27"** %2, align 8
-  %3 = load %"struct.std::_Head_base.27"*, %"struct.std::_Head_base.27"** %2, align 8
-  %4 = getelementptr inbounds %"struct.std::_Head_base.27", %"struct.std::_Head_base.27"* %3, i32 0, i32 0
-  ret i32* %4
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(4) i32* @_ZSt12__get_helperILm0EiJiiiEERT0_RSt11_Tuple_implIXT_EJS0_DpT1_EE(%"struct.std::_Tuple_impl"* nonnull align 4 dereferenceable(16) %0) #6 comdat {
-  %2 = alloca %"struct.std::_Tuple_impl"*, align 8
-  store %"struct.std::_Tuple_impl"* %0, %"struct.std::_Tuple_impl"** %2, align 8
-  %3 = load %"struct.std::_Tuple_impl"*, %"struct.std::_Tuple_impl"** %2, align 8
-  %4 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt11_Tuple_implILm0EJiiiiEE7_M_headERS0_(%"struct.std::_Tuple_impl"* nonnull align 4 dereferenceable(16) %3) #3
-  ret i32* %4
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(4) i32* @_ZSt12__get_helperILm1EiJiiEERT0_RSt11_Tuple_implIXT_EJS0_DpT1_EE(%"struct.std::_Tuple_impl.23"* nonnull align 4 dereferenceable(12) %0) #6 comdat {
-  %2 = alloca %"struct.std::_Tuple_impl.23"*, align 8
-  store %"struct.std::_Tuple_impl.23"* %0, %"struct.std::_Tuple_impl.23"** %2, align 8
-  %3 = load %"struct.std::_Tuple_impl.23"*, %"struct.std::_Tuple_impl.23"** %2, align 8
-  %4 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt11_Tuple_implILm1EJiiiEE7_M_headERS0_(%"struct.std::_Tuple_impl.23"* nonnull align 4 dereferenceable(12) %3) #3
-  ret i32* %4
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 4 dereferenceable(4) i32* @_ZSt12__get_helperILm2EiJiEERT0_RSt11_Tuple_implIXT_EJS0_DpT1_EE(%"struct.std::_Tuple_impl.24"* nonnull align 4 dereferenceable(8) %0) #6 comdat {
-  %2 = alloca %"struct.std::_Tuple_impl.24"*, align 8
-  store %"struct.std::_Tuple_impl.24"* %0, %"struct.std::_Tuple_impl.24"** %2, align 8
-  %3 = load %"struct.std::_Tuple_impl.24"*, %"struct.std::_Tuple_impl.24"** %2, align 8
-  %4 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt11_Tuple_implILm2EJiiEE7_M_headERS0_(%"struct.std::_Tuple_impl.24"* nonnull align 4 dereferenceable(8) %3) #3
-  ret i32* %4
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt5tupleIJiiiiEESaIS1_EED2Ev(%"struct.std::_Vector_base.19"* nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
-  %2 = alloca %"struct.std::_Vector_base.19"*, align 8
-  %3 = alloca i8*, align 8
-  %4 = alloca i32, align 4
-  store %"struct.std::_Vector_base.19"* %0, %"struct.std::_Vector_base.19"** %2, align 8
-  %5 = load %"struct.std::_Vector_base.19"*, %"struct.std::_Vector_base.19"** %2, align 8
-  %6 = getelementptr inbounds %"struct.std::_Vector_base.19", %"struct.std::_Vector_base.19"* %5, i32 0, i32 0
-  %7 = getelementptr inbounds %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl", %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* %6, i32 0, i32 0
-  %8 = load %"class.std::tuple"*, %"class.std::tuple"** %7, align 8
-  %9 = getelementptr inbounds %"struct.std::_Vector_base.19", %"struct.std::_Vector_base.19"* %5, i32 0, i32 0
-  %10 = getelementptr inbounds %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl", %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* %9, i32 0, i32 2
-  %11 = load %"class.std::tuple"*, %"class.std::tuple"** %10, align 8
-  %12 = getelementptr inbounds %"struct.std::_Vector_base.19", %"struct.std::_Vector_base.19"* %5, i32 0, i32 0
-  %13 = getelementptr inbounds %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl", %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* %12, i32 0, i32 0
-  %14 = load %"class.std::tuple"*, %"class.std::tuple"** %13, align 8
-  %15 = ptrtoint %"class.std::tuple"* %11 to i64
-  %16 = ptrtoint %"class.std::tuple"* %14 to i64
-  %17 = sub i64 %15, %16
-  %18 = sdiv exact i64 %17, 16
-  invoke void @_ZNSt12_Vector_baseISt5tupleIJiiiiEESaIS1_EE13_M_deallocateEPS1_m(%"struct.std::_Vector_base.19"* nonnull align 8 dereferenceable(24) %5, %"class.std::tuple"* %8, i64 %18)
-          to label %19 unwind label %21
-
-19:                                               ; preds = %1
-  %20 = getelementptr inbounds %"struct.std::_Vector_base.19", %"struct.std::_Vector_base.19"* %5, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseISt5tupleIJiiiiEESaIS1_EE12_Vector_implD2Ev(%"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* nonnull align 8 dereferenceable(24) %20) #3
-  ret void
-
-21:                                               ; preds = %1
-  %22 = landingpad { i8*, i32 }
-          catch i8* null
-  %23 = extractvalue { i8*, i32 } %22, 0
-  store i8* %23, i8** %3, align 8
-  %24 = extractvalue { i8*, i32 } %22, 1
-  store i32 %24, i32* %4, align 4
-  %25 = getelementptr inbounds %"struct.std::_Vector_base.19", %"struct.std::_Vector_base.19"* %5, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseISt5tupleIJiiiiEESaIS1_EE12_Vector_implD2Ev(%"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* nonnull align 8 dereferenceable(24) %25) #3
-  br label %26
-
-26:                                               ; preds = %21
-  %27 = load i8*, i8** %3, align 8
-  call void @__clang_call_terminate(i8* %27) #20
-  unreachable
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt12_Vector_baseISt5tupleIJiiiiEESaIS1_EE12_Vector_implD2Ev(%"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 {
-  %2 = alloca %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"*, align 8
-  store %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* %0, %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"** %2, align 8
-  %3 = load %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"*, %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"** %2, align 8
-  %4 = bitcast %"struct.std::_Vector_base<std::tuple<int, int, int, int>, std::allocator<std::tuple<int, int, int, int>>>::_Vector_impl"* %3 to %"class.std::allocator.20"*
-  call void @_ZNSaISt5tupleIJiiiiEEED2Ev(%"class.std::allocator.20"* nonnull align 1 dereferenceable(1) %4) #3
-  ret void
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSaISt5tupleIJiiiiEEED2Ev(%"class.std::allocator.20"* nonnull align 1 dereferenceable(1) %0) unnamed_addr #9 comdat align 2 {
-  %2 = alloca %"class.std::allocator.20"*, align 8
-  store %"class.std::allocator.20"* %0, %"class.std::allocator.20"** %2, align 8
-  %3 = load %"class.std::allocator.20"*, %"class.std::allocator.20"** %2, align 8
-  %4 = bitcast %"class.std::allocator.20"* %3 to %"class.__gnu_cxx::new_allocator.21"*
-  call void @_ZN9__gnu_cxx13new_allocatorISt5tupleIJiiiiEEED2Ev(%"class.__gnu_cxx::new_allocator.21"* nonnull align 1 dereferenceable(1) %4) #3
-  ret void
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZN9__gnu_cxx13new_allocatorISt5tupleIJiiiiEEED2Ev(%"class.__gnu_cxx::new_allocator.21"* nonnull align 1 dereferenceable(1) %0) unnamed_addr #9 comdat align 2 {
-  %2 = alloca %"class.__gnu_cxx::new_allocator.21"*, align 8
-  store %"class.__gnu_cxx::new_allocator.21"* %0, %"class.__gnu_cxx::new_allocator.21"** %2, align 8
-  %3 = load %"class.__gnu_cxx::new_allocator.21"*, %"class.__gnu_cxx::new_allocator.21"** %2, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local i32* @_ZNKSt6vectorIiSaIiEE11_M_data_ptrIiEEPT_S4_(%"class.std::vector.13"* nonnull align 8 dereferenceable(24) %0, i32* %1) #6 comdat align 2 {
-  %3 = alloca %"class.std::vector.13"*, align 8
-  %4 = alloca i32*, align 8
-  store %"class.std::vector.13"* %0, %"class.std::vector.13"** %3, align 8
-  store i32* %1, i32** %4, align 8
-  %5 = load %"class.std::vector.13"*, %"class.std::vector.13"** %3, align 8
-  %6 = load i32*, i32** %4, align 8
-  ret i32* %6
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_ZSt8_DestroyIPiiEvT_S1_RSaIT0_E(i32* %0, i32* %1, %"class.std::allocator.15"* nonnull align 1 dereferenceable(1) %2) #7 comdat {
-  %4 = alloca i32*, align 8
-  %5 = alloca i32*, align 8
-  %6 = alloca %"class.std::allocator.15"*, align 8
-  store i32* %0, i32** %4, align 8
-  store i32* %1, i32** %5, align 8
-  store %"class.std::allocator.15"* %2, %"class.std::allocator.15"** %6, align 8
-  %7 = load i32*, i32** %4, align 8
-  %8 = load i32*, i32** %5, align 8
-  call void @_ZSt8_DestroyIPiEvT_S1_(i32* %7, i32* %8)
-  ret void
-}
-
-; Function Attrs: mustprogress noinline optnone uwtable
-define linkonce_odr dso_local void @_ZSt8_DestroyIPiEvT_S1_(i32* %0, i32* %1) #7 comdat {
-  %3 = alloca i32*, align 8
-  %4 = alloca i32*, align 8
-  store i32* %0, i32** %3, align 8
-  store i32* %1, i32** %4, align 8
-  %5 = load i32*, i32** %3, align 8
-  %6 = load i32*, i32** %4, align 8
-  call void @_ZNSt12_Destroy_auxILb1EE9__destroyIPiEEvT_S3_(i32* %5, i32* %6)
-  ret void
-}
-
-; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt12_Destroy_auxILb1EE9__destroyIPiEEvT_S3_(i32* %0, i32* %1) #6 comdat align 2 {
-  %3 = alloca i32*, align 8
-  %4 = alloca i32*, align 8
-  store i32* %0, i32** %3, align 8
-  store i32* %1, i32** %4, align 8
-  ret void
-}
 
 ; Function Attrs: mustprogress noinline optnone uwtable
 define linkonce_odr dso_local void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_(%"class.std::__cxx11::basic_string"* noalias sret(%"class.std::__cxx11::basic_string") align 8 %0, %"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %1, %"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32) %2) #7 comdat {
@@ -14111,7 +6653,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx119to_stringEi(%"class.std::__cxx
   store i8* %5, i8** %3, align 8
   store i32 %1, i32* %4, align 4
   %6 = load i32, i32* %4, align 4
-  call void (%"class.std::__cxx11::basic_string"*, i32 (i8*, i64, i8*, %struct.__va_list_tag*)*, i64, i8*, ...) @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEET_PFiPT0_mPKS8_P13__va_list_tagEmSB_z(%"class.std::__cxx11::basic_string"* sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 (i8*, i64, i8*, %struct.__va_list_tag*)* @vsnprintf, i64 16, i8* getelementptr inbounds ([3 x i8], [3 x i8]* @.str.86, i64 0, i64 0), i32 %6)
+  call void (%"class.std::__cxx11::basic_string"*, i32 (i8*, i64, i8*, %struct.__va_list_tag*)*, i64, i8*, ...) @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEET_PFiPT0_mPKS8_P13__va_list_tagEmSB_z(%"class.std::__cxx11::basic_string"* sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 (i8*, i64, i8*, %struct.__va_list_tag*)* @vsnprintf, i64 16, i8* getelementptr inbounds ([3 x i8], [3 x i8]* @.str.83, i64 0, i64 0), i32 %6)
   ret void
 }
 
@@ -14119,9 +6661,13 @@ declare dso_local void @_ZNSt13basic_fstreamIcSt11char_traitsIcEEC1ERKNSt7__cxx1
 
 declare dso_local zeroext i1 @_ZNSt13basic_fstreamIcSt11char_traitsIcEE7is_openEv(%"class.std::basic_fstream"* nonnull align 8 dereferenceable(264)) #1
 
+declare dso_local nonnull align 8 dereferenceable(16) %"class.std::basic_istream"* @_ZNSirsERi(%"class.std::basic_istream"* nonnull align 8 dereferenceable(16), i32* nonnull align 4 dereferenceable(4)) #1
+
 declare dso_local void @_ZNSt13basic_fstreamIcSt11char_traitsIcEE5closeEv(%"class.std::basic_fstream"* nonnull align 8 dereferenceable(264)) #1
 
 declare dso_local nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8), %"class.std::__cxx11::basic_string"* nonnull align 8 dereferenceable(32)) #1
+
+declare dso_local nonnull align 8 dereferenceable(8) %"class.std::basic_ostream"* @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(%"class.std::basic_ostream"* nonnull align 8 dereferenceable(8), i8*) #1
 
 ; Function Attrs: nounwind
 declare dso_local void @_ZNSt13basic_fstreamIcSt11char_traitsIcEED1Ev(%"class.std::basic_fstream"* nonnull align 8 dereferenceable(264)) unnamed_addr #2
@@ -14197,7 +6743,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIP14CUgraphNode_stSaIS1_EE15_M_e
   %33 = landingpad { i8*, i32 }
           catch i8* null
   %34 = extractvalue { i8*, i32 } %33, 0
-  call void @__clang_call_terminate(i8* %34) #20
+  call void @__clang_call_terminate(i8* %34) #18
   unreachable
 }
 
@@ -14220,24 +6766,24 @@ define linkonce_odr dso_local void @_ZNSt16allocator_traitsISaIP14CUgraphNode_st
 
 ; Function Attrs: mustprogress noinline optnone uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIP14CUgraphNode_stSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(%"class.std::vector"* nonnull align 8 dereferenceable(24) %0, %struct.CUgraphNode_st** %1, %struct.CUgraphNode_st** nonnull align 8 dereferenceable(8) %2) #7 comdat align 2 personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
-  %4 = alloca %"class.__gnu_cxx::__normal_iterator.30", align 8
+  %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %5 = alloca %"class.std::vector"*, align 8
   %6 = alloca %struct.CUgraphNode_st**, align 8
   %7 = alloca i64, align 8
   %8 = alloca %struct.CUgraphNode_st**, align 8
   %9 = alloca %struct.CUgraphNode_st**, align 8
   %10 = alloca i64, align 8
-  %11 = alloca %"class.__gnu_cxx::__normal_iterator.30", align 8
+  %11 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %12 = alloca %struct.CUgraphNode_st**, align 8
   %13 = alloca %struct.CUgraphNode_st**, align 8
   %14 = alloca i8*, align 8
   %15 = alloca i32, align 4
-  %16 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.30", %"class.__gnu_cxx::__normal_iterator.30"* %4, i32 0, i32 0
+  %16 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %4, i32 0, i32 0
   store %struct.CUgraphNode_st** %1, %struct.CUgraphNode_st*** %16, align 8
   store %"class.std::vector"* %0, %"class.std::vector"** %5, align 8
   store %struct.CUgraphNode_st** %2, %struct.CUgraphNode_st*** %6, align 8
   %17 = load %"class.std::vector"*, %"class.std::vector"** %5, align 8
-  %18 = call i64 @_ZNKSt6vectorIP14CUgraphNode_stSaIS1_EE12_M_check_lenEmPKc(%"class.std::vector"* nonnull align 8 dereferenceable(24) %17, i64 1, i8* getelementptr inbounds ([26 x i8], [26 x i8]* @.str.80, i64 0, i64 0))
+  %18 = call i64 @_ZNKSt6vectorIP14CUgraphNode_stSaIS1_EE12_M_check_lenEmPKc(%"class.std::vector"* nonnull align 8 dereferenceable(24) %17, i64 1, i8* getelementptr inbounds ([26 x i8], [26 x i8]* @.str.84, i64 0, i64 0))
   store i64 %18, i64* %7, align 8
   %19 = bitcast %"class.std::vector"* %17 to %"struct.std::_Vector_base"*
   %20 = getelementptr inbounds %"struct.std::_Vector_base", %"struct.std::_Vector_base"* %19, i32 0, i32 0
@@ -14250,9 +6796,9 @@ define linkonce_odr dso_local void @_ZNSt6vectorIP14CUgraphNode_stSaIS1_EE17_M_r
   %26 = load %struct.CUgraphNode_st**, %struct.CUgraphNode_st*** %25, align 8
   store %struct.CUgraphNode_st** %26, %struct.CUgraphNode_st*** %9, align 8
   %27 = call %struct.CUgraphNode_st** @_ZNSt6vectorIP14CUgraphNode_stSaIS1_EE5beginEv(%"class.std::vector"* nonnull align 8 dereferenceable(24) %17) #3
-  %28 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.30", %"class.__gnu_cxx::__normal_iterator.30"* %11, i32 0, i32 0
+  %28 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %11, i32 0, i32 0
   store %struct.CUgraphNode_st** %27, %struct.CUgraphNode_st*** %28, align 8
-  %29 = call i64 @_ZN9__gnu_cxxmiIPP14CUgraphNode_stSt6vectorIS2_SaIS2_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSA_SD_(%"class.__gnu_cxx::__normal_iterator.30"* nonnull align 8 dereferenceable(8) %4, %"class.__gnu_cxx::__normal_iterator.30"* nonnull align 8 dereferenceable(8) %11) #3
+  %29 = call i64 @_ZN9__gnu_cxxmiIPP14CUgraphNode_stSt6vectorIS2_SaIS2_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSA_SD_(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %4, %"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %11) #3
   store i64 %29, i64* %10, align 8
   %30 = bitcast %"class.std::vector"* %17 to %"struct.std::_Vector_base"*
   %31 = load i64, i64* %7, align 8
@@ -14274,7 +6820,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIP14CUgraphNode_stSaIS1_EE17_M_r
 42:                                               ; preds = %3
   store %struct.CUgraphNode_st** null, %struct.CUgraphNode_st*** %13, align 8
   %43 = load %struct.CUgraphNode_st**, %struct.CUgraphNode_st*** %8, align 8
-  %44 = call nonnull align 8 dereferenceable(8) %struct.CUgraphNode_st*** @_ZNK9__gnu_cxx17__normal_iteratorIPP14CUgraphNode_stSt6vectorIS2_SaIS2_EEE4baseEv(%"class.__gnu_cxx::__normal_iterator.30"* nonnull align 8 dereferenceable(8) %4) #3
+  %44 = call nonnull align 8 dereferenceable(8) %struct.CUgraphNode_st*** @_ZNK9__gnu_cxx17__normal_iteratorIPP14CUgraphNode_stSt6vectorIS2_SaIS2_EEE4baseEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %4) #3
   %45 = load %struct.CUgraphNode_st**, %struct.CUgraphNode_st*** %44, align 8
   %46 = load %struct.CUgraphNode_st**, %struct.CUgraphNode_st*** %12, align 8
   %47 = bitcast %"class.std::vector"* %17 to %"struct.std::_Vector_base"*
@@ -14287,7 +6833,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIP14CUgraphNode_stSaIS1_EE17_M_r
   %51 = load %struct.CUgraphNode_st**, %struct.CUgraphNode_st*** %13, align 8
   %52 = getelementptr inbounds %struct.CUgraphNode_st*, %struct.CUgraphNode_st** %51, i32 1
   store %struct.CUgraphNode_st** %52, %struct.CUgraphNode_st*** %13, align 8
-  %53 = call nonnull align 8 dereferenceable(8) %struct.CUgraphNode_st*** @_ZNK9__gnu_cxx17__normal_iteratorIPP14CUgraphNode_stSt6vectorIS2_SaIS2_EEE4baseEv(%"class.__gnu_cxx::__normal_iterator.30"* nonnull align 8 dereferenceable(8) %4) #3
+  %53 = call nonnull align 8 dereferenceable(8) %struct.CUgraphNode_st*** @_ZNK9__gnu_cxx17__normal_iteratorIPP14CUgraphNode_stSt6vectorIS2_SaIS2_EEE4baseEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %4) #3
   %54 = load %struct.CUgraphNode_st**, %struct.CUgraphNode_st*** %53, align 8
   %55 = load %struct.CUgraphNode_st**, %struct.CUgraphNode_st*** %9, align 8
   %56 = load %struct.CUgraphNode_st**, %struct.CUgraphNode_st*** %13, align 8
@@ -14358,7 +6904,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIP14CUgraphNode_stSaIS1_EE17_M_r
           to label %92 unwind label %78
 
 92:                                               ; preds = %88
-  invoke void @__cxa_rethrow() #23
+  invoke void @__cxa_rethrow() #20
           to label %132 unwind label %78
 
 93:                                               ; preds = %78
@@ -14412,7 +6958,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIP14CUgraphNode_stSaIS1_EE17_M_r
   %130 = landingpad { i8*, i32 }
           catch i8* null
   %131 = extractvalue { i8*, i32 } %130, 0
-  call void @__clang_call_terminate(i8* %131) #20
+  call void @__clang_call_terminate(i8* %131) #18
   unreachable
 
 132:                                              ; preds = %92
@@ -14421,15 +6967,15 @@ define linkonce_odr dso_local void @_ZNSt6vectorIP14CUgraphNode_stSaIS1_EE17_M_r
 
 ; Function Attrs: mustprogress noinline nounwind optnone uwtable
 define linkonce_odr dso_local %struct.CUgraphNode_st** @_ZNSt6vectorIP14CUgraphNode_stSaIS1_EE3endEv(%"class.std::vector"* nonnull align 8 dereferenceable(24) %0) #6 comdat align 2 {
-  %2 = alloca %"class.__gnu_cxx::__normal_iterator.30", align 8
+  %2 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %3 = alloca %"class.std::vector"*, align 8
   store %"class.std::vector"* %0, %"class.std::vector"** %3, align 8
   %4 = load %"class.std::vector"*, %"class.std::vector"** %3, align 8
   %5 = bitcast %"class.std::vector"* %4 to %"struct.std::_Vector_base"*
   %6 = getelementptr inbounds %"struct.std::_Vector_base", %"struct.std::_Vector_base"* %5, i32 0, i32 0
   %7 = getelementptr inbounds %"struct.std::_Vector_base<CUgraphNode_st *, std::allocator<CUgraphNode_st *>>::_Vector_impl", %"struct.std::_Vector_base<CUgraphNode_st *, std::allocator<CUgraphNode_st *>>::_Vector_impl"* %6, i32 0, i32 1
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPP14CUgraphNode_stSt6vectorIS2_SaIS2_EEEC2ERKS3_(%"class.__gnu_cxx::__normal_iterator.30"* nonnull align 8 dereferenceable(8) %2, %struct.CUgraphNode_st*** nonnull align 8 dereferenceable(8) %7) #3
-  %8 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.30", %"class.__gnu_cxx::__normal_iterator.30"* %2, i32 0, i32 0
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPP14CUgraphNode_stSt6vectorIS2_SaIS2_EEEC2ERKS3_(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %2, %struct.CUgraphNode_st*** nonnull align 8 dereferenceable(8) %7) #3
+  %8 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %2, i32 0, i32 0
   %9 = load %struct.CUgraphNode_st**, %struct.CUgraphNode_st*** %8, align 8
   ret %struct.CUgraphNode_st** %9
 }
@@ -14481,7 +7027,7 @@ define linkonce_odr dso_local i64 @_ZNKSt6vectorIP14CUgraphNode_stSaIS1_EE12_M_c
 
 15:                                               ; preds = %3
   %16 = load i8*, i8** %6, align 8
-  call void @_ZSt20__throw_length_errorPKc(i8* %16) #23
+  call void @_ZSt20__throw_length_errorPKc(i8* %16) #20
   unreachable
 
 17:                                               ; preds = %3
@@ -14517,16 +7063,16 @@ define linkonce_odr dso_local i64 @_ZNKSt6vectorIP14CUgraphNode_stSaIS1_EE12_M_c
 }
 
 ; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local i64 @_ZN9__gnu_cxxmiIPP14CUgraphNode_stSt6vectorIS2_SaIS2_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSA_SD_(%"class.__gnu_cxx::__normal_iterator.30"* nonnull align 8 dereferenceable(8) %0, %"class.__gnu_cxx::__normal_iterator.30"* nonnull align 8 dereferenceable(8) %1) #6 comdat {
-  %3 = alloca %"class.__gnu_cxx::__normal_iterator.30"*, align 8
-  %4 = alloca %"class.__gnu_cxx::__normal_iterator.30"*, align 8
-  store %"class.__gnu_cxx::__normal_iterator.30"* %0, %"class.__gnu_cxx::__normal_iterator.30"** %3, align 8
-  store %"class.__gnu_cxx::__normal_iterator.30"* %1, %"class.__gnu_cxx::__normal_iterator.30"** %4, align 8
-  %5 = load %"class.__gnu_cxx::__normal_iterator.30"*, %"class.__gnu_cxx::__normal_iterator.30"** %3, align 8
-  %6 = call nonnull align 8 dereferenceable(8) %struct.CUgraphNode_st*** @_ZNK9__gnu_cxx17__normal_iteratorIPP14CUgraphNode_stSt6vectorIS2_SaIS2_EEE4baseEv(%"class.__gnu_cxx::__normal_iterator.30"* nonnull align 8 dereferenceable(8) %5) #3
+define linkonce_odr dso_local i64 @_ZN9__gnu_cxxmiIPP14CUgraphNode_stSt6vectorIS2_SaIS2_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSA_SD_(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %0, %"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %1) #6 comdat {
+  %3 = alloca %"class.__gnu_cxx::__normal_iterator"*, align 8
+  %4 = alloca %"class.__gnu_cxx::__normal_iterator"*, align 8
+  store %"class.__gnu_cxx::__normal_iterator"* %0, %"class.__gnu_cxx::__normal_iterator"** %3, align 8
+  store %"class.__gnu_cxx::__normal_iterator"* %1, %"class.__gnu_cxx::__normal_iterator"** %4, align 8
+  %5 = load %"class.__gnu_cxx::__normal_iterator"*, %"class.__gnu_cxx::__normal_iterator"** %3, align 8
+  %6 = call nonnull align 8 dereferenceable(8) %struct.CUgraphNode_st*** @_ZNK9__gnu_cxx17__normal_iteratorIPP14CUgraphNode_stSt6vectorIS2_SaIS2_EEE4baseEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %5) #3
   %7 = load %struct.CUgraphNode_st**, %struct.CUgraphNode_st*** %6, align 8
-  %8 = load %"class.__gnu_cxx::__normal_iterator.30"*, %"class.__gnu_cxx::__normal_iterator.30"** %4, align 8
-  %9 = call nonnull align 8 dereferenceable(8) %struct.CUgraphNode_st*** @_ZNK9__gnu_cxx17__normal_iteratorIPP14CUgraphNode_stSt6vectorIS2_SaIS2_EEE4baseEv(%"class.__gnu_cxx::__normal_iterator.30"* nonnull align 8 dereferenceable(8) %8) #3
+  %8 = load %"class.__gnu_cxx::__normal_iterator"*, %"class.__gnu_cxx::__normal_iterator"** %4, align 8
+  %9 = call nonnull align 8 dereferenceable(8) %struct.CUgraphNode_st*** @_ZNK9__gnu_cxx17__normal_iteratorIPP14CUgraphNode_stSt6vectorIS2_SaIS2_EEE4baseEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %8) #3
   %10 = load %struct.CUgraphNode_st**, %struct.CUgraphNode_st*** %9, align 8
   %11 = ptrtoint %struct.CUgraphNode_st** %7 to i64
   %12 = ptrtoint %struct.CUgraphNode_st** %10 to i64
@@ -14537,15 +7083,15 @@ define linkonce_odr dso_local i64 @_ZN9__gnu_cxxmiIPP14CUgraphNode_stSt6vectorIS
 
 ; Function Attrs: mustprogress noinline nounwind optnone uwtable
 define linkonce_odr dso_local %struct.CUgraphNode_st** @_ZNSt6vectorIP14CUgraphNode_stSaIS1_EE5beginEv(%"class.std::vector"* nonnull align 8 dereferenceable(24) %0) #6 comdat align 2 {
-  %2 = alloca %"class.__gnu_cxx::__normal_iterator.30", align 8
+  %2 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   %3 = alloca %"class.std::vector"*, align 8
   store %"class.std::vector"* %0, %"class.std::vector"** %3, align 8
   %4 = load %"class.std::vector"*, %"class.std::vector"** %3, align 8
   %5 = bitcast %"class.std::vector"* %4 to %"struct.std::_Vector_base"*
   %6 = getelementptr inbounds %"struct.std::_Vector_base", %"struct.std::_Vector_base"* %5, i32 0, i32 0
   %7 = getelementptr inbounds %"struct.std::_Vector_base<CUgraphNode_st *, std::allocator<CUgraphNode_st *>>::_Vector_impl", %"struct.std::_Vector_base<CUgraphNode_st *, std::allocator<CUgraphNode_st *>>::_Vector_impl"* %6, i32 0, i32 0
-  call void @_ZN9__gnu_cxx17__normal_iteratorIPP14CUgraphNode_stSt6vectorIS2_SaIS2_EEEC2ERKS3_(%"class.__gnu_cxx::__normal_iterator.30"* nonnull align 8 dereferenceable(8) %2, %struct.CUgraphNode_st*** nonnull align 8 dereferenceable(8) %7) #3
-  %8 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.30", %"class.__gnu_cxx::__normal_iterator.30"* %2, i32 0, i32 0
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPP14CUgraphNode_stSt6vectorIS2_SaIS2_EEEC2ERKS3_(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %2, %struct.CUgraphNode_st*** nonnull align 8 dereferenceable(8) %7) #3
+  %8 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %2, i32 0, i32 0
   %9 = load %struct.CUgraphNode_st**, %struct.CUgraphNode_st*** %8, align 8
   ret %struct.CUgraphNode_st** %9
 }
@@ -14582,36 +7128,36 @@ define linkonce_odr dso_local %struct.CUgraphNode_st** @_ZSt34__uninitialized_mo
   %6 = alloca %struct.CUgraphNode_st**, align 8
   %7 = alloca %struct.CUgraphNode_st**, align 8
   %8 = alloca %"class.std::allocator"*, align 8
-  %9 = alloca %"class.std::move_iterator.31", align 8
-  %10 = alloca %"class.std::move_iterator.31", align 8
+  %9 = alloca %"class.std::move_iterator", align 8
+  %10 = alloca %"class.std::move_iterator", align 8
   store %struct.CUgraphNode_st** %0, %struct.CUgraphNode_st*** %5, align 8
   store %struct.CUgraphNode_st** %1, %struct.CUgraphNode_st*** %6, align 8
   store %struct.CUgraphNode_st** %2, %struct.CUgraphNode_st*** %7, align 8
   store %"class.std::allocator"* %3, %"class.std::allocator"** %8, align 8
   %11 = load %struct.CUgraphNode_st**, %struct.CUgraphNode_st*** %5, align 8
   %12 = call %struct.CUgraphNode_st** @_ZSt32__make_move_if_noexcept_iteratorIP14CUgraphNode_stSt13move_iteratorIPS1_EET0_PT_(%struct.CUgraphNode_st** %11)
-  %13 = getelementptr inbounds %"class.std::move_iterator.31", %"class.std::move_iterator.31"* %9, i32 0, i32 0
+  %13 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %9, i32 0, i32 0
   store %struct.CUgraphNode_st** %12, %struct.CUgraphNode_st*** %13, align 8
   %14 = load %struct.CUgraphNode_st**, %struct.CUgraphNode_st*** %6, align 8
   %15 = call %struct.CUgraphNode_st** @_ZSt32__make_move_if_noexcept_iteratorIP14CUgraphNode_stSt13move_iteratorIPS1_EET0_PT_(%struct.CUgraphNode_st** %14)
-  %16 = getelementptr inbounds %"class.std::move_iterator.31", %"class.std::move_iterator.31"* %10, i32 0, i32 0
+  %16 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %10, i32 0, i32 0
   store %struct.CUgraphNode_st** %15, %struct.CUgraphNode_st*** %16, align 8
   %17 = load %struct.CUgraphNode_st**, %struct.CUgraphNode_st*** %7, align 8
   %18 = load %"class.std::allocator"*, %"class.std::allocator"** %8, align 8
-  %19 = getelementptr inbounds %"class.std::move_iterator.31", %"class.std::move_iterator.31"* %9, i32 0, i32 0
+  %19 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %9, i32 0, i32 0
   %20 = load %struct.CUgraphNode_st**, %struct.CUgraphNode_st*** %19, align 8
-  %21 = getelementptr inbounds %"class.std::move_iterator.31", %"class.std::move_iterator.31"* %10, i32 0, i32 0
+  %21 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %10, i32 0, i32 0
   %22 = load %struct.CUgraphNode_st**, %struct.CUgraphNode_st*** %21, align 8
   %23 = call %struct.CUgraphNode_st** @_ZSt22__uninitialized_copy_aISt13move_iteratorIPP14CUgraphNode_stES3_S2_ET0_T_S6_S5_RSaIT1_E(%struct.CUgraphNode_st** %20, %struct.CUgraphNode_st** %22, %struct.CUgraphNode_st** %17, %"class.std::allocator"* nonnull align 1 dereferenceable(1) %18)
   ret %struct.CUgraphNode_st** %23
 }
 
 ; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local nonnull align 8 dereferenceable(8) %struct.CUgraphNode_st*** @_ZNK9__gnu_cxx17__normal_iteratorIPP14CUgraphNode_stSt6vectorIS2_SaIS2_EEE4baseEv(%"class.__gnu_cxx::__normal_iterator.30"* nonnull align 8 dereferenceable(8) %0) #6 comdat align 2 {
-  %2 = alloca %"class.__gnu_cxx::__normal_iterator.30"*, align 8
-  store %"class.__gnu_cxx::__normal_iterator.30"* %0, %"class.__gnu_cxx::__normal_iterator.30"** %2, align 8
-  %3 = load %"class.__gnu_cxx::__normal_iterator.30"*, %"class.__gnu_cxx::__normal_iterator.30"** %2, align 8
-  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.30", %"class.__gnu_cxx::__normal_iterator.30"* %3, i32 0, i32 0
+define linkonce_odr dso_local nonnull align 8 dereferenceable(8) %struct.CUgraphNode_st*** @_ZNK9__gnu_cxx17__normal_iteratorIPP14CUgraphNode_stSt6vectorIS2_SaIS2_EEE4baseEv(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %0) #6 comdat align 2 {
+  %2 = alloca %"class.__gnu_cxx::__normal_iterator"*, align 8
+  store %"class.__gnu_cxx::__normal_iterator"* %0, %"class.__gnu_cxx::__normal_iterator"** %2, align 8
+  %3 = load %"class.__gnu_cxx::__normal_iterator"*, %"class.__gnu_cxx::__normal_iterator"** %2, align 8
+  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %3, i32 0, i32 0
   ret %struct.CUgraphNode_st*** %4
 }
 
@@ -14637,6 +7183,38 @@ define linkonce_odr dso_local i64 @_ZNKSt6vectorIP14CUgraphNode_stSaIS1_EE8max_s
   %5 = call nonnull align 1 dereferenceable(1) %"class.std::allocator"* @_ZNKSt12_Vector_baseIP14CUgraphNode_stSaIS1_EE19_M_get_Tp_allocatorEv(%"struct.std::_Vector_base"* nonnull align 8 dereferenceable(24) %4) #3
   %6 = call i64 @_ZNSt16allocator_traitsISaIP14CUgraphNode_stEE8max_sizeERKS2_(%"class.std::allocator"* nonnull align 1 dereferenceable(1) %5) #3
   ret i64 %6
+}
+
+; Function Attrs: noreturn
+declare dso_local void @_ZSt20__throw_length_errorPKc(i8*) #16
+
+; Function Attrs: mustprogress noinline nounwind optnone uwtable
+define linkonce_odr dso_local nonnull align 8 dereferenceable(8) i64* @_ZSt3maxImERKT_S2_S2_(i64* nonnull align 8 dereferenceable(8) %0, i64* nonnull align 8 dereferenceable(8) %1) #6 comdat {
+  %3 = alloca i64*, align 8
+  %4 = alloca i64*, align 8
+  %5 = alloca i64*, align 8
+  store i64* %0, i64** %4, align 8
+  store i64* %1, i64** %5, align 8
+  %6 = load i64*, i64** %4, align 8
+  %7 = load i64, i64* %6, align 8
+  %8 = load i64*, i64** %5, align 8
+  %9 = load i64, i64* %8, align 8
+  %10 = icmp ult i64 %7, %9
+  br i1 %10, label %11, label %13
+
+11:                                               ; preds = %2
+  %12 = load i64*, i64** %5, align 8
+  store i64* %12, i64** %3, align 8
+  br label %15
+
+13:                                               ; preds = %2
+  %14 = load i64*, i64** %4, align 8
+  store i64* %14, i64** %3, align 8
+  br label %15
+
+15:                                               ; preds = %13, %11
+  %16 = load i64*, i64** %3, align 8
+  ret i64* %16
 }
 
 ; Function Attrs: mustprogress noinline nounwind optnone uwtable
@@ -14668,13 +7246,13 @@ define linkonce_odr dso_local i64 @_ZNK9__gnu_cxx13new_allocatorIP14CUgraphNode_
 }
 
 ; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZN9__gnu_cxx17__normal_iteratorIPP14CUgraphNode_stSt6vectorIS2_SaIS2_EEEC2ERKS3_(%"class.__gnu_cxx::__normal_iterator.30"* nonnull align 8 dereferenceable(8) %0, %struct.CUgraphNode_st*** nonnull align 8 dereferenceable(8) %1) unnamed_addr #9 comdat align 2 {
-  %3 = alloca %"class.__gnu_cxx::__normal_iterator.30"*, align 8
+define linkonce_odr dso_local void @_ZN9__gnu_cxx17__normal_iteratorIPP14CUgraphNode_stSt6vectorIS2_SaIS2_EEEC2ERKS3_(%"class.__gnu_cxx::__normal_iterator"* nonnull align 8 dereferenceable(8) %0, %struct.CUgraphNode_st*** nonnull align 8 dereferenceable(8) %1) unnamed_addr #8 comdat align 2 {
+  %3 = alloca %"class.__gnu_cxx::__normal_iterator"*, align 8
   %4 = alloca %struct.CUgraphNode_st***, align 8
-  store %"class.__gnu_cxx::__normal_iterator.30"* %0, %"class.__gnu_cxx::__normal_iterator.30"** %3, align 8
+  store %"class.__gnu_cxx::__normal_iterator"* %0, %"class.__gnu_cxx::__normal_iterator"** %3, align 8
   store %struct.CUgraphNode_st*** %1, %struct.CUgraphNode_st**** %4, align 8
-  %5 = load %"class.__gnu_cxx::__normal_iterator.30"*, %"class.__gnu_cxx::__normal_iterator.30"** %3, align 8
-  %6 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.30", %"class.__gnu_cxx::__normal_iterator.30"* %5, i32 0, i32 0
+  %5 = load %"class.__gnu_cxx::__normal_iterator"*, %"class.__gnu_cxx::__normal_iterator"** %3, align 8
+  %6 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", %"class.__gnu_cxx::__normal_iterator"* %5, i32 0, i32 0
   %7 = load %struct.CUgraphNode_st***, %struct.CUgraphNode_st**** %4, align 8
   %8 = load %struct.CUgraphNode_st**, %struct.CUgraphNode_st*** %7, align 8
   store %struct.CUgraphNode_st** %8, %struct.CUgraphNode_st*** %6, align 8
@@ -14709,41 +7287,47 @@ define linkonce_odr dso_local %struct.CUgraphNode_st** @_ZN9__gnu_cxx13new_alloc
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %3
-  call void @_ZSt17__throw_bad_allocv() #23
+  call void @_ZSt17__throw_bad_allocv() #20
   unreachable
 
 12:                                               ; preds = %3
   %13 = load i64, i64* %5, align 8
   %14 = mul i64 %13, 8
-  %15 = call noalias nonnull i8* @_Znwm(i64 %14) #24
+  %15 = call noalias nonnull i8* @_Znwm(i64 %14) #21
   %16 = bitcast i8* %15 to %struct.CUgraphNode_st**
   ret %struct.CUgraphNode_st** %16
 }
 
+; Function Attrs: noreturn
+declare dso_local void @_ZSt17__throw_bad_allocv() #16
+
+; Function Attrs: nobuiltin allocsize(0)
+declare dso_local nonnull i8* @_Znwm(i64) #17
+
 ; Function Attrs: mustprogress noinline optnone uwtable
 define linkonce_odr dso_local %struct.CUgraphNode_st** @_ZSt22__uninitialized_copy_aISt13move_iteratorIPP14CUgraphNode_stES3_S2_ET0_T_S6_S5_RSaIT1_E(%struct.CUgraphNode_st** %0, %struct.CUgraphNode_st** %1, %struct.CUgraphNode_st** %2, %"class.std::allocator"* nonnull align 1 dereferenceable(1) %3) #7 comdat {
-  %5 = alloca %"class.std::move_iterator.31", align 8
-  %6 = alloca %"class.std::move_iterator.31", align 8
+  %5 = alloca %"class.std::move_iterator", align 8
+  %6 = alloca %"class.std::move_iterator", align 8
   %7 = alloca %struct.CUgraphNode_st**, align 8
   %8 = alloca %"class.std::allocator"*, align 8
-  %9 = alloca %"class.std::move_iterator.31", align 8
-  %10 = alloca %"class.std::move_iterator.31", align 8
-  %11 = getelementptr inbounds %"class.std::move_iterator.31", %"class.std::move_iterator.31"* %5, i32 0, i32 0
+  %9 = alloca %"class.std::move_iterator", align 8
+  %10 = alloca %"class.std::move_iterator", align 8
+  %11 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %5, i32 0, i32 0
   store %struct.CUgraphNode_st** %0, %struct.CUgraphNode_st*** %11, align 8
-  %12 = getelementptr inbounds %"class.std::move_iterator.31", %"class.std::move_iterator.31"* %6, i32 0, i32 0
+  %12 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %6, i32 0, i32 0
   store %struct.CUgraphNode_st** %1, %struct.CUgraphNode_st*** %12, align 8
   store %struct.CUgraphNode_st** %2, %struct.CUgraphNode_st*** %7, align 8
   store %"class.std::allocator"* %3, %"class.std::allocator"** %8, align 8
-  %13 = bitcast %"class.std::move_iterator.31"* %9 to i8*
-  %14 = bitcast %"class.std::move_iterator.31"* %5 to i8*
+  %13 = bitcast %"class.std::move_iterator"* %9 to i8*
+  %14 = bitcast %"class.std::move_iterator"* %5 to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %13, i8* align 8 %14, i64 8, i1 false)
-  %15 = bitcast %"class.std::move_iterator.31"* %10 to i8*
-  %16 = bitcast %"class.std::move_iterator.31"* %6 to i8*
+  %15 = bitcast %"class.std::move_iterator"* %10 to i8*
+  %16 = bitcast %"class.std::move_iterator"* %6 to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %15, i8* align 8 %16, i64 8, i1 false)
   %17 = load %struct.CUgraphNode_st**, %struct.CUgraphNode_st*** %7, align 8
-  %18 = getelementptr inbounds %"class.std::move_iterator.31", %"class.std::move_iterator.31"* %9, i32 0, i32 0
+  %18 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %9, i32 0, i32 0
   %19 = load %struct.CUgraphNode_st**, %struct.CUgraphNode_st*** %18, align 8
-  %20 = getelementptr inbounds %"class.std::move_iterator.31", %"class.std::move_iterator.31"* %10, i32 0, i32 0
+  %20 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %10, i32 0, i32 0
   %21 = load %struct.CUgraphNode_st**, %struct.CUgraphNode_st*** %20, align 8
   %22 = call %struct.CUgraphNode_st** @_ZSt18uninitialized_copyISt13move_iteratorIPP14CUgraphNode_stES3_ET0_T_S6_S5_(%struct.CUgraphNode_st** %19, %struct.CUgraphNode_st** %21, %struct.CUgraphNode_st** %17)
   ret %struct.CUgraphNode_st** %22
@@ -14751,40 +7335,40 @@ define linkonce_odr dso_local %struct.CUgraphNode_st** @_ZSt22__uninitialized_co
 
 ; Function Attrs: mustprogress noinline optnone uwtable
 define linkonce_odr dso_local %struct.CUgraphNode_st** @_ZSt32__make_move_if_noexcept_iteratorIP14CUgraphNode_stSt13move_iteratorIPS1_EET0_PT_(%struct.CUgraphNode_st** %0) #7 comdat {
-  %2 = alloca %"class.std::move_iterator.31", align 8
+  %2 = alloca %"class.std::move_iterator", align 8
   %3 = alloca %struct.CUgraphNode_st**, align 8
   store %struct.CUgraphNode_st** %0, %struct.CUgraphNode_st*** %3, align 8
   %4 = load %struct.CUgraphNode_st**, %struct.CUgraphNode_st*** %3, align 8
-  call void @_ZNSt13move_iteratorIPP14CUgraphNode_stEC2ES2_(%"class.std::move_iterator.31"* nonnull align 8 dereferenceable(8) %2, %struct.CUgraphNode_st** %4)
-  %5 = getelementptr inbounds %"class.std::move_iterator.31", %"class.std::move_iterator.31"* %2, i32 0, i32 0
+  call void @_ZNSt13move_iteratorIPP14CUgraphNode_stEC2ES2_(%"class.std::move_iterator"* nonnull align 8 dereferenceable(8) %2, %struct.CUgraphNode_st** %4)
+  %5 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %2, i32 0, i32 0
   %6 = load %struct.CUgraphNode_st**, %struct.CUgraphNode_st*** %5, align 8
   ret %struct.CUgraphNode_st** %6
 }
 
 ; Function Attrs: mustprogress noinline optnone uwtable
 define linkonce_odr dso_local %struct.CUgraphNode_st** @_ZSt18uninitialized_copyISt13move_iteratorIPP14CUgraphNode_stES3_ET0_T_S6_S5_(%struct.CUgraphNode_st** %0, %struct.CUgraphNode_st** %1, %struct.CUgraphNode_st** %2) #7 comdat {
-  %4 = alloca %"class.std::move_iterator.31", align 8
-  %5 = alloca %"class.std::move_iterator.31", align 8
+  %4 = alloca %"class.std::move_iterator", align 8
+  %5 = alloca %"class.std::move_iterator", align 8
   %6 = alloca %struct.CUgraphNode_st**, align 8
   %7 = alloca i8, align 1
-  %8 = alloca %"class.std::move_iterator.31", align 8
-  %9 = alloca %"class.std::move_iterator.31", align 8
-  %10 = getelementptr inbounds %"class.std::move_iterator.31", %"class.std::move_iterator.31"* %4, i32 0, i32 0
+  %8 = alloca %"class.std::move_iterator", align 8
+  %9 = alloca %"class.std::move_iterator", align 8
+  %10 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %4, i32 0, i32 0
   store %struct.CUgraphNode_st** %0, %struct.CUgraphNode_st*** %10, align 8
-  %11 = getelementptr inbounds %"class.std::move_iterator.31", %"class.std::move_iterator.31"* %5, i32 0, i32 0
+  %11 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %5, i32 0, i32 0
   store %struct.CUgraphNode_st** %1, %struct.CUgraphNode_st*** %11, align 8
   store %struct.CUgraphNode_st** %2, %struct.CUgraphNode_st*** %6, align 8
   store i8 1, i8* %7, align 1
-  %12 = bitcast %"class.std::move_iterator.31"* %8 to i8*
-  %13 = bitcast %"class.std::move_iterator.31"* %4 to i8*
+  %12 = bitcast %"class.std::move_iterator"* %8 to i8*
+  %13 = bitcast %"class.std::move_iterator"* %4 to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %12, i8* align 8 %13, i64 8, i1 false)
-  %14 = bitcast %"class.std::move_iterator.31"* %9 to i8*
-  %15 = bitcast %"class.std::move_iterator.31"* %5 to i8*
+  %14 = bitcast %"class.std::move_iterator"* %9 to i8*
+  %15 = bitcast %"class.std::move_iterator"* %5 to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %14, i8* align 8 %15, i64 8, i1 false)
   %16 = load %struct.CUgraphNode_st**, %struct.CUgraphNode_st*** %6, align 8
-  %17 = getelementptr inbounds %"class.std::move_iterator.31", %"class.std::move_iterator.31"* %8, i32 0, i32 0
+  %17 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %8, i32 0, i32 0
   %18 = load %struct.CUgraphNode_st**, %struct.CUgraphNode_st*** %17, align 8
-  %19 = getelementptr inbounds %"class.std::move_iterator.31", %"class.std::move_iterator.31"* %9, i32 0, i32 0
+  %19 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %9, i32 0, i32 0
   %20 = load %struct.CUgraphNode_st**, %struct.CUgraphNode_st*** %19, align 8
   %21 = call %struct.CUgraphNode_st** @_ZNSt20__uninitialized_copyILb1EE13__uninit_copyISt13move_iteratorIPP14CUgraphNode_stES5_EET0_T_S8_S7_(%struct.CUgraphNode_st** %18, %struct.CUgraphNode_st** %20, %struct.CUgraphNode_st** %16)
   ret %struct.CUgraphNode_st** %21
@@ -14792,26 +7376,26 @@ define linkonce_odr dso_local %struct.CUgraphNode_st** @_ZSt18uninitialized_copy
 
 ; Function Attrs: mustprogress noinline optnone uwtable
 define linkonce_odr dso_local %struct.CUgraphNode_st** @_ZNSt20__uninitialized_copyILb1EE13__uninit_copyISt13move_iteratorIPP14CUgraphNode_stES5_EET0_T_S8_S7_(%struct.CUgraphNode_st** %0, %struct.CUgraphNode_st** %1, %struct.CUgraphNode_st** %2) #7 comdat align 2 {
-  %4 = alloca %"class.std::move_iterator.31", align 8
-  %5 = alloca %"class.std::move_iterator.31", align 8
+  %4 = alloca %"class.std::move_iterator", align 8
+  %5 = alloca %"class.std::move_iterator", align 8
   %6 = alloca %struct.CUgraphNode_st**, align 8
-  %7 = alloca %"class.std::move_iterator.31", align 8
-  %8 = alloca %"class.std::move_iterator.31", align 8
-  %9 = getelementptr inbounds %"class.std::move_iterator.31", %"class.std::move_iterator.31"* %4, i32 0, i32 0
+  %7 = alloca %"class.std::move_iterator", align 8
+  %8 = alloca %"class.std::move_iterator", align 8
+  %9 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %4, i32 0, i32 0
   store %struct.CUgraphNode_st** %0, %struct.CUgraphNode_st*** %9, align 8
-  %10 = getelementptr inbounds %"class.std::move_iterator.31", %"class.std::move_iterator.31"* %5, i32 0, i32 0
+  %10 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %5, i32 0, i32 0
   store %struct.CUgraphNode_st** %1, %struct.CUgraphNode_st*** %10, align 8
   store %struct.CUgraphNode_st** %2, %struct.CUgraphNode_st*** %6, align 8
-  %11 = bitcast %"class.std::move_iterator.31"* %7 to i8*
-  %12 = bitcast %"class.std::move_iterator.31"* %4 to i8*
+  %11 = bitcast %"class.std::move_iterator"* %7 to i8*
+  %12 = bitcast %"class.std::move_iterator"* %4 to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %11, i8* align 8 %12, i64 8, i1 false)
-  %13 = bitcast %"class.std::move_iterator.31"* %8 to i8*
-  %14 = bitcast %"class.std::move_iterator.31"* %5 to i8*
+  %13 = bitcast %"class.std::move_iterator"* %8 to i8*
+  %14 = bitcast %"class.std::move_iterator"* %5 to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %13, i8* align 8 %14, i64 8, i1 false)
   %15 = load %struct.CUgraphNode_st**, %struct.CUgraphNode_st*** %6, align 8
-  %16 = getelementptr inbounds %"class.std::move_iterator.31", %"class.std::move_iterator.31"* %7, i32 0, i32 0
+  %16 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %7, i32 0, i32 0
   %17 = load %struct.CUgraphNode_st**, %struct.CUgraphNode_st*** %16, align 8
-  %18 = getelementptr inbounds %"class.std::move_iterator.31", %"class.std::move_iterator.31"* %8, i32 0, i32 0
+  %18 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %8, i32 0, i32 0
   %19 = load %struct.CUgraphNode_st**, %struct.CUgraphNode_st*** %18, align 8
   %20 = call %struct.CUgraphNode_st** @_ZSt4copyISt13move_iteratorIPP14CUgraphNode_stES3_ET0_T_S6_S5_(%struct.CUgraphNode_st** %17, %struct.CUgraphNode_st** %19, %struct.CUgraphNode_st** %15)
   ret %struct.CUgraphNode_st** %20
@@ -14819,26 +7403,26 @@ define linkonce_odr dso_local %struct.CUgraphNode_st** @_ZNSt20__uninitialized_c
 
 ; Function Attrs: mustprogress noinline optnone uwtable
 define linkonce_odr dso_local %struct.CUgraphNode_st** @_ZSt4copyISt13move_iteratorIPP14CUgraphNode_stES3_ET0_T_S6_S5_(%struct.CUgraphNode_st** %0, %struct.CUgraphNode_st** %1, %struct.CUgraphNode_st** %2) #7 comdat {
-  %4 = alloca %"class.std::move_iterator.31", align 8
-  %5 = alloca %"class.std::move_iterator.31", align 8
+  %4 = alloca %"class.std::move_iterator", align 8
+  %5 = alloca %"class.std::move_iterator", align 8
   %6 = alloca %struct.CUgraphNode_st**, align 8
-  %7 = alloca %"class.std::move_iterator.31", align 8
-  %8 = alloca %"class.std::move_iterator.31", align 8
-  %9 = getelementptr inbounds %"class.std::move_iterator.31", %"class.std::move_iterator.31"* %4, i32 0, i32 0
+  %7 = alloca %"class.std::move_iterator", align 8
+  %8 = alloca %"class.std::move_iterator", align 8
+  %9 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %4, i32 0, i32 0
   store %struct.CUgraphNode_st** %0, %struct.CUgraphNode_st*** %9, align 8
-  %10 = getelementptr inbounds %"class.std::move_iterator.31", %"class.std::move_iterator.31"* %5, i32 0, i32 0
+  %10 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %5, i32 0, i32 0
   store %struct.CUgraphNode_st** %1, %struct.CUgraphNode_st*** %10, align 8
   store %struct.CUgraphNode_st** %2, %struct.CUgraphNode_st*** %6, align 8
-  %11 = bitcast %"class.std::move_iterator.31"* %7 to i8*
-  %12 = bitcast %"class.std::move_iterator.31"* %4 to i8*
+  %11 = bitcast %"class.std::move_iterator"* %7 to i8*
+  %12 = bitcast %"class.std::move_iterator"* %4 to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %11, i8* align 8 %12, i64 8, i1 false)
-  %13 = getelementptr inbounds %"class.std::move_iterator.31", %"class.std::move_iterator.31"* %7, i32 0, i32 0
+  %13 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %7, i32 0, i32 0
   %14 = load %struct.CUgraphNode_st**, %struct.CUgraphNode_st*** %13, align 8
   %15 = call %struct.CUgraphNode_st** @_ZSt12__miter_baseIPP14CUgraphNode_stEDTcl12__miter_basecldtfp_4baseEEESt13move_iteratorIT_E(%struct.CUgraphNode_st** %14)
-  %16 = bitcast %"class.std::move_iterator.31"* %8 to i8*
-  %17 = bitcast %"class.std::move_iterator.31"* %5 to i8*
+  %16 = bitcast %"class.std::move_iterator"* %8 to i8*
+  %17 = bitcast %"class.std::move_iterator"* %5 to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 8 %16, i8* align 8 %17, i64 8, i1 false)
-  %18 = getelementptr inbounds %"class.std::move_iterator.31", %"class.std::move_iterator.31"* %8, i32 0, i32 0
+  %18 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %8, i32 0, i32 0
   %19 = load %struct.CUgraphNode_st**, %struct.CUgraphNode_st*** %18, align 8
   %20 = call %struct.CUgraphNode_st** @_ZSt12__miter_baseIPP14CUgraphNode_stEDTcl12__miter_basecldtfp_4baseEEESt13move_iteratorIT_E(%struct.CUgraphNode_st** %19)
   %21 = load %struct.CUgraphNode_st**, %struct.CUgraphNode_st*** %6, align 8
@@ -14866,10 +7450,10 @@ define linkonce_odr dso_local %struct.CUgraphNode_st** @_ZSt14__copy_move_a2ILb1
 
 ; Function Attrs: mustprogress noinline optnone uwtable
 define linkonce_odr dso_local %struct.CUgraphNode_st** @_ZSt12__miter_baseIPP14CUgraphNode_stEDTcl12__miter_basecldtfp_4baseEEESt13move_iteratorIT_E(%struct.CUgraphNode_st** %0) #7 comdat {
-  %2 = alloca %"class.std::move_iterator.31", align 8
-  %3 = getelementptr inbounds %"class.std::move_iterator.31", %"class.std::move_iterator.31"* %2, i32 0, i32 0
+  %2 = alloca %"class.std::move_iterator", align 8
+  %3 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %2, i32 0, i32 0
   store %struct.CUgraphNode_st** %0, %struct.CUgraphNode_st*** %3, align 8
-  %4 = call %struct.CUgraphNode_st** @_ZNKSt13move_iteratorIPP14CUgraphNode_stE4baseEv(%"class.std::move_iterator.31"* nonnull align 8 dereferenceable(8) %2)
+  %4 = call %struct.CUgraphNode_st** @_ZNKSt13move_iteratorIPP14CUgraphNode_stE4baseEv(%"class.std::move_iterator"* nonnull align 8 dereferenceable(8) %2)
   %5 = call %struct.CUgraphNode_st** @_ZSt12__miter_baseIPP14CUgraphNode_stET_S3_(%struct.CUgraphNode_st** %4)
   ret %struct.CUgraphNode_st** %5
 }
@@ -14936,6 +7520,9 @@ define linkonce_odr dso_local %struct.CUgraphNode_st** @_ZNSt11__copy_moveILb1EL
   ret %struct.CUgraphNode_st** %26
 }
 
+; Function Attrs: argmemonly nofree nounwind willreturn
+declare void @llvm.memmove.p0i8.p0i8.i64(i8* nocapture writeonly, i8* nocapture readonly, i64, i1 immarg) #5
+
 ; Function Attrs: mustprogress noinline nounwind optnone uwtable
 define linkonce_odr dso_local %struct.CUgraphNode_st** @_ZSt12__miter_baseIPP14CUgraphNode_stET_S3_(%struct.CUgraphNode_st** %0) #6 comdat {
   %2 = alloca %struct.CUgraphNode_st**, align 8
@@ -14945,23 +7532,23 @@ define linkonce_odr dso_local %struct.CUgraphNode_st** @_ZSt12__miter_baseIPP14C
 }
 
 ; Function Attrs: mustprogress noinline nounwind optnone uwtable
-define linkonce_odr dso_local %struct.CUgraphNode_st** @_ZNKSt13move_iteratorIPP14CUgraphNode_stE4baseEv(%"class.std::move_iterator.31"* nonnull align 8 dereferenceable(8) %0) #6 comdat align 2 {
-  %2 = alloca %"class.std::move_iterator.31"*, align 8
-  store %"class.std::move_iterator.31"* %0, %"class.std::move_iterator.31"** %2, align 8
-  %3 = load %"class.std::move_iterator.31"*, %"class.std::move_iterator.31"** %2, align 8
-  %4 = getelementptr inbounds %"class.std::move_iterator.31", %"class.std::move_iterator.31"* %3, i32 0, i32 0
+define linkonce_odr dso_local %struct.CUgraphNode_st** @_ZNKSt13move_iteratorIPP14CUgraphNode_stE4baseEv(%"class.std::move_iterator"* nonnull align 8 dereferenceable(8) %0) #6 comdat align 2 {
+  %2 = alloca %"class.std::move_iterator"*, align 8
+  store %"class.std::move_iterator"* %0, %"class.std::move_iterator"** %2, align 8
+  %3 = load %"class.std::move_iterator"*, %"class.std::move_iterator"** %2, align 8
+  %4 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %3, i32 0, i32 0
   %5 = load %struct.CUgraphNode_st**, %struct.CUgraphNode_st*** %4, align 8
   ret %struct.CUgraphNode_st** %5
 }
 
 ; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr dso_local void @_ZNSt13move_iteratorIPP14CUgraphNode_stEC2ES2_(%"class.std::move_iterator.31"* nonnull align 8 dereferenceable(8) %0, %struct.CUgraphNode_st** %1) unnamed_addr #9 comdat align 2 {
-  %3 = alloca %"class.std::move_iterator.31"*, align 8
+define linkonce_odr dso_local void @_ZNSt13move_iteratorIPP14CUgraphNode_stEC2ES2_(%"class.std::move_iterator"* nonnull align 8 dereferenceable(8) %0, %struct.CUgraphNode_st** %1) unnamed_addr #8 comdat align 2 {
+  %3 = alloca %"class.std::move_iterator"*, align 8
   %4 = alloca %struct.CUgraphNode_st**, align 8
-  store %"class.std::move_iterator.31"* %0, %"class.std::move_iterator.31"** %3, align 8
+  store %"class.std::move_iterator"* %0, %"class.std::move_iterator"** %3, align 8
   store %struct.CUgraphNode_st** %1, %struct.CUgraphNode_st*** %4, align 8
-  %5 = load %"class.std::move_iterator.31"*, %"class.std::move_iterator.31"** %3, align 8
-  %6 = getelementptr inbounds %"class.std::move_iterator.31", %"class.std::move_iterator.31"* %5, i32 0, i32 0
+  %5 = load %"class.std::move_iterator"*, %"class.std::move_iterator"** %3, align 8
+  %6 = getelementptr inbounds %"class.std::move_iterator", %"class.std::move_iterator"* %5, i32 0, i32 0
   %7 = load %struct.CUgraphNode_st**, %struct.CUgraphNode_st*** %4, align 8
   store %struct.CUgraphNode_st** %7, %struct.CUgraphNode_st*** %6, align 8
   ret void
@@ -15046,23 +7633,20 @@ attributes #4 = { noinline norecurse optnone uwtable "frame-pointer"="all" "min-
 attributes #5 = { argmemonly nofree nounwind willreturn }
 attributes #6 = { mustprogress noinline nounwind optnone uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress noinline optnone uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noinline nounwind optnone uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { argmemonly nofree nounwind willreturn writeonly }
-attributes #11 = { noinline noreturn nounwind }
-attributes #12 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nounwind readonly willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree nosync nounwind readnone speculatable willreturn }
-attributes #17 = { nofree nosync nounwind willreturn }
-attributes #18 = { noinline optnone uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { cold noreturn nounwind }
-attributes #20 = { noreturn nounwind }
-attributes #21 = { builtin nounwind }
-attributes #22 = { nounwind readonly willreturn }
-attributes #23 = { noreturn }
-attributes #24 = { allocsize(0) }
+attributes #8 = { noinline nounwind optnone uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { argmemonly nofree nounwind willreturn writeonly }
+attributes #10 = { noinline noreturn nounwind }
+attributes #11 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nosync nounwind readnone speculatable willreturn }
+attributes #13 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree nosync nounwind willreturn }
+attributes #15 = { noinline optnone uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { noreturn nounwind }
+attributes #19 = { builtin nounwind }
+attributes #20 = { noreturn }
+attributes #21 = { allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 !llvm.ident = !{!4}
@@ -15085,29 +7669,3 @@ attributes #24 = { allocsize(0) }
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
 !17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}
-!26 = distinct !{!26, !6}
-!27 = distinct !{!27, !6}
-!28 = distinct !{!28, !6}
-!29 = distinct !{!29, !6}
-!30 = distinct !{!30, !6}
-!31 = distinct !{!31, !6}
-!32 = distinct !{!32, !6}
-!33 = distinct !{!33, !6}
-!34 = distinct !{!34, !6}
-!35 = distinct !{!35, !6}
-!36 = distinct !{!36, !6}
-!37 = distinct !{!37, !6}
-!38 = distinct !{!38, !6}
-!39 = distinct !{!39, !6}
-!40 = distinct !{!40, !6}
-!41 = distinct !{!41, !6}
-!42 = distinct !{!42, !6}
-!43 = distinct !{!43, !6}

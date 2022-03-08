@@ -247,31 +247,31 @@ void Benchmark7::alloc() {
 
 void Benchmark7::init() {
 
-    random_coo(x, y, v, N, degree);
-    // Create a CSR;
-    coo2csr(ptr_tmp, idx_tmp, val_tmp, x, y, v, N, N, nnz);
-    coo2csr(ptr2_tmp, idx2_tmp, val2_tmp, y, x, v, N, N, nnz);
+    // random_coo(x, y, v, N, degree);
+    // // Create a CSR;
+    // coo2csr(ptr_tmp, idx_tmp, val_tmp, x, y, v, N, N, nnz);
+    // coo2csr(ptr2_tmp, idx2_tmp, val2_tmp, y, x, v, N, N, nnz);
 
-    write_to_file(ptr_tmp,(N + 1),"b7",N,"ptr_tmp");
-    write_to_file(ptr2_tmp,(N + 1),"b7",N,"ptr2_tmp");
-    write_to_file(idx_tmp,nnz,"b7",N,"idx_tmp");
-    write_to_file(idx2_tmp,nnz,"b7",N,"idx2_tmp");
-    write_to_file(val_tmp,nnz,"b7",N,"val_tmp");
-    write_to_file(val2_tmp,nnz,"b7",N,"val2_tmp");
-    write_to_file(x,nnz,"b7",N,"x");
-    write_to_file(y,nnz,"b7",N,"y");
-    write_to_file(v,nnz,"b7",N,"v");
-    exit(1);
+    // write_to_file(ptr_tmp,(N + 1),"b7",N,"ptr_tmp");
+    // write_to_file(ptr2_tmp,(N + 1),"b7",N,"ptr2_tmp");
+    // write_to_file(idx_tmp,nnz,"b7",N,"idx_tmp");
+    // write_to_file(idx2_tmp,nnz,"b7",N,"idx2_tmp");
+    // write_to_file(val_tmp,nnz,"b7",N,"val_tmp");
+    // write_to_file(val2_tmp,nnz,"b7",N,"val2_tmp");
+    // write_to_file(x,nnz,"b7",N,"x");
+    // write_to_file(y,nnz,"b7",N,"y");
+    // write_to_file(v,nnz,"b7",N,"v");
+    // exit(1);
 
-    // read_file(ptr_tmp,(N + 1),"b7",N,"ptr_tmp");
-    // read_file(ptr2_tmp,(N + 1),"b7",N,"ptr2_tmp");
-    // read_file(idx_tmp,nnz,"b7",N,"idx_tmp");
-    // read_file(idx2_tmp,nnz,"b7",N,"idx2_tmp");
-    // read_file(val_tmp,nnz,"b7",N,"val_tmp");
-    // read_file(val2_tmp,nnz,"b7",N,"val2_tmp");
-    // read_file(x,nnz,"b7",N,"x");
-    // read_file(y,nnz,"b7",N,"y");
-    // read_file(v,nnz,"b7",N,"v");
+    read_file(ptr_tmp,(N + 1),"b7",N,"ptr_tmp");
+    read_file(ptr2_tmp,(N + 1),"b7",N,"ptr2_tmp");
+    read_file(idx_tmp,nnz,"b7",N,"idx_tmp");
+    read_file(idx2_tmp,nnz,"b7",N,"idx2_tmp");
+    read_file(val_tmp,nnz,"b7",N,"val_tmp");
+    read_file(val2_tmp,nnz,"b7",N,"val2_tmp");
+    read_file(x,nnz,"b7",N,"x");
+    read_file(y,nnz,"b7",N,"y");
+    read_file(v,nnz,"b7",N,"v");
 
 }
 
@@ -345,7 +345,7 @@ void Benchmark7::execute_sync(int iter) {
         // rowCounter1[0] = 0;
         // rowCounter2[0] = 0;
 
-        reset_kernel<<<1, 1>>>(4, auth_norm, hub_norm, rowCounter1, rowCounter2);
+        reset_kernel<<<num_blocks, block_size_1d>>>(4, auth_norm, hub_norm, rowCounter1, rowCounter2);
         err = cudaDeviceSynchronize();
 
         if (debug && err) std::cout << err << std::endl;
@@ -368,7 +368,7 @@ void FUNCb7(int * rowCounter1, float * auth2, int * ptr2, int * idx2, int * val2
 
         divide<<<num_blocks, block_size_1d>>>(1, hub1, hub2, hub_norm, N);
 
-        reset_kernel<<<1, 1>>>(4, auth_norm, hub_norm, rowCounter1, rowCounter2);
+        reset_kernel<<<num_blocks, block_size_1d>>>(4, auth_norm, hub_norm, rowCounter1, rowCounter2);
 }
 
 void Benchmark7::execute_AssOfKFC(int iter)
@@ -468,15 +468,15 @@ void Benchmark7::execute_async(int iter) {
         cudaEventRecord(e3, s2);
         checkCudaErrors(cudaStreamWaitEvent(s1, e3, 0));
         // reset_kernel<<<1, 1, 0, s1>>>(auth_norm, hub_norm, rowCounter1, rowCounter2);
-        reset_kernel<<<1, 1, 0, s1>>>(4, auth_norm, hub_norm, rowCounter1, rowCounter2);
+        reset_kernel<<<num_blocks, block_size_1d, 0, s1>>>(4, auth_norm, hub_norm, rowCounter1, rowCounter2);
 
         err = cudaStreamSynchronize(s1);
         err = cudaStreamSynchronize(s2);
         //Reset
-        auth_norm[0] = 0;
-        hub_norm[0] = 0;
-        rowCounter1[0] = 0;
-        rowCounter2[0] = 0;
+        // auth_norm[0] = 0;
+        // hub_norm[0] = 0;
+        // rowCounter1[0] = 0;
+        // rowCounter2[0] = 0;
 
         if (debug && err) std::cout << err << std::endl;
     }
@@ -537,7 +537,7 @@ void Benchmark7::execute_cudagraph(int iter) {
             // checkCudaErrors(cudaLaunchHostFunc(s1, fn, &hostFnData));
 
             // reset_kernel<<<1, 1, 0, s1>>>(auth_norm, hub_norm, rowCounter1, rowCounter2);
-            reset_kernel<<<1, 1, 0, s1>>>(4, auth_norm, hub_norm, rowCounter1, rowCounter2);
+            reset_kernel<<<num_blocks, block_size_1d, 0, s1>>>(4, auth_norm, hub_norm, rowCounter1, rowCounter2);
             cudaEvent_t e4;
             cudaEventCreate(&e4);
             cudaEventRecord(e4, s1);
@@ -685,7 +685,7 @@ void Benchmark7::execute_cudagraph_single(int iter) {
             divide<<<num_blocks, block_size_1d, 0, s1>>>(1, hub1, hub2, hub_norm, N);
 
             // reset_kernel<<<1, 1, 0, s1>>>(auth_norm, hub_norm, rowCounter1, rowCounter2);
-            reset_kernel<<<1, 1, 0, s1>>>(4, auth_norm, hub_norm, rowCounter1, rowCounter2);
+            reset_kernel<<<num_blocks, block_size_1d, 0, s1>>>(4, auth_norm, hub_norm, rowCounter1, rowCounter2);
         }
 
         checkCudaErrors(cudaStreamEndCapture(s1, &graph));

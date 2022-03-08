@@ -3,6 +3,8 @@
 CUR_PATH=$(pwd)
 SCRIPT_PATH="/home/mozw/llvm_cuda_command/"
 GPU_id=0
+DATE="Mar8_second"
+debug="no_debug"
 
 bash ${SCRIPT_PATH}opt_pass_witharg.sh -n profiling -s Profiling_10 -l ${CUR_PATH}/suite.bc -t ${CUR_PATH}/new_suite.bc > work2_op.log 2>&1
 
@@ -13,8 +15,8 @@ bash ${SCRIPT_PATH}bc2exe_witharg.sh -p ${CUR_PATH}/ -n new_suite.bc -f new_suit
 
 #b1
 
-# benchmark_list='b1 b5 b6 b7 b8 b10'
-benchmark_list='b7'
+benchmark_list='b1 b5 b6 b7 b8 b10'
+# benchmark_list='b7 b8 b10'
 policy_list='sync async assofkfc cudagraph cudagraphmanual cudagraphsingle'
 b1_N_list='120000000 200000000 500000000 600000000 700000000'
 b5_N_list='12000000 20000000 50000000 60000000 70000000'
@@ -35,9 +37,9 @@ b8_N_list='4800 8000 10000 12000 16000'
 
 #For b1, bs_1d cannot be larger than 64, or performance degrades.
 
-bs_1d_list='64'
+bs_1d_list='128 512 1024'
 bs_2d_list='8'
-nb_list='256'
+nb_list='128 256'
 
 echo "GOGOGO"
 
@@ -54,20 +56,34 @@ echo "GOGOGO"
 for benchmark in ${benchmark_list}; do
     benchmark_N_list=${benchmark}_N_list
     for N in ${!benchmark_N_list}; do
-        # for policy in ${policy_list}; do
+        for policy in ${policy_list}; do
             for bs_1d in ${bs_1d_list}; do
                 for bs_2d in ${bs_2d_list}; do
                     for nb in ${nb_list}; do
-                        ./new_suite -d -t 30 -n ${N} -b ${bs_1d} -c ${bs_2d} -g ${nb} -s 5 -k ${benchmark} -p ${policy} -i ${GPU_id} #> ${CUR_PATH}/../data/${benchmark}_${N}_${policy}_${bs_1d}_${bs_2d}_${nb}.log 2>&1
-                        # sleep 30s
+                        ./new_suite -t 30 -n ${N} -b ${bs_1d} -c ${bs_2d} -g ${nb} -s 5 -k ${benchmark} -p ${policy} -i ${GPU_id} > ${CUR_PATH}/../data/no_prefetch/${benchmark}_${N}_${policy}_${bs_1d}_${bs_2d}_${nb}.log 2>&1
                     done
                 done
             done
-        # done
+        done
     done
+    sleep 5s
 done
 
-
+# for benchmark in ${benchmark_list}; do
+#     benchmark_N_list=${benchmark}_N_list
+#     for N in ${!benchmark_N_list}; do
+#         for policy in ${policy_list}; do
+#             for bs_1d in ${bs_1d_list}; do
+#                 for bs_2d in ${bs_2d_list}; do
+#                     for nb in ${nb_list}; do
+#                         ./new_suite -r -t 30 -n ${N} -b ${bs_1d} -c ${bs_2d} -g ${nb} -s 5 -k ${benchmark} -p ${policy} -i ${GPU_id} > ${CUR_PATH}/../data/with_prefetch/${benchmark}_${N}_${policy}_${bs_1d}_${bs_2d}_${nb}.log 2>&1
+#                     done
+#                 done
+#             done
+#         done
+#     done
+#     sleep 5s
+# done
 
 
 # ./new_suite -t 30 -n 500000000 -b 64 -c 8 -g 256 -s 5 -k b1 -p async -i 3 > ${CUR_PATH}/data/b1_50000000_async_64_8_256.log 2>&1
@@ -105,3 +121,7 @@ done
 # ./new_suite -t 30 -n 6000000 -b 64 -c 8 -g 256 -s 5 -k b6 -p sync -i ${GPU_id} > ${CUR_PATH}/data/b6_6000000_64_8_256_sync.log 2>&1
 # sleep 30
 # ./new_suite -t 30 -n 4000000 -b 64 -c 8 -g 256 -s 5 -k b6 -p sync -i ${GPU_id} > ${CUR_PATH}/data/b6_4000000_64_8_256_sync.log 2>&1
+
+mkdir ${CUR_PATH}/../data/no_prefetch/${DATE}_${DEBUG}
+mv ${CUR_PATH}/../data/no_prefetch/*.log ${CUR_PATH}/../data/no_prefetch/${DATE}_${DEBUG}/
+python3 run_time_collect.py ${CUR_PATH}/../data no_prefetch ${DATE} ${DEBUG} 

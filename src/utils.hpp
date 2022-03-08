@@ -209,7 +209,9 @@ void read_file(T * data, size_t size, std::string benchmark_name, int N, std::st
 	{
 		for(size_t i = 0; i < size; i++)
 		{
-			fs>>data[i];
+			T num;
+			fs>>num;
+			data[i] = num;
 		}
 		fs.close();
 	}
