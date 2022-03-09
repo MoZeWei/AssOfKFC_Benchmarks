@@ -381,12 +381,12 @@ void FUNCb7_prefetch(int * rowCounter1, float * auth2, int * ptr2, int * idx2, i
             int nb, int num_blocks, int block_size_1d, size_t memsize,
             int prefetch_size1, int prefetch_size2, int device_id)
 {
-                cudaMemPrefetchAsync(auth1, N * sizeof(float), device_id, 0);
-            cudaMemPrefetchAsync(auth2, N * sizeof(float), device_id, 0);
-            cudaMemPrefetchAsync(hub1, N * sizeof(float), device_id, 0);
-            cudaMemPrefetchAsync(hub2, N * sizeof(float), device_id, 0);
-            cudaMemPrefetchAsync(auth_norm, sizeof(float), device_id, 0);
-            cudaMemPrefetchAsync(hub_norm, sizeof(float), device_id, 0);
+            cudaMemPrefetchAsync(auth1, prefetch_size1, device_id, 0);
+            cudaMemPrefetchAsync(auth2, prefetch_size1, device_id, 0);
+            cudaMemPrefetchAsync(hub1, prefetch_size1, device_id, 0);
+            cudaMemPrefetchAsync(hub2, prefetch_size1, device_id, 0);
+            cudaMemPrefetchAsync(auth_norm, prefetch_size2, device_id, 0);
+            cudaMemPrefetchAsync(hub_norm, prefetch_size2, device_id, 0);
 
         spmv3<<<nb, block_size_1d, memsize>>>(2, rowCounter1, auth2, ptr2, idx2, val2, hub1, N);
 
