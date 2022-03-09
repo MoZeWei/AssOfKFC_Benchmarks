@@ -37,9 +37,9 @@ b8_N_list='4800 8000 10000 12000 16000'
 
 #For b1, bs_1d cannot be larger than 64, or performance degrades.
 
-bs_1d_list='128 512 1024'
+bs_1d_list='32 64 128 256'
 bs_2d_list='8'
-nb_list='128 256'
+nb_list='128 256 512'
 
 echo "GOGOGO"
 

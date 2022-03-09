@@ -235,7 +235,9 @@ void Benchmark10::execute_sync(int iter) {
 
     if (do_prefetch && pascalGpu) {
         cudaMemPrefetchAsync(x, sizeof(float) * x_len, device_id, 0);
+        cudaDeviceSynchronize();
         cudaMemPrefetchAsync(y, sizeof(float) * x_len, device_id, 0);
+        cudaDeviceSynchronize();
     }
 
     // conv2d<<<grid_size_2, block_size_2d_dim, K * K * kn1 * channels * sizeof(float)>>>(x1, x, kernel_1, N, N, channels, K, kn1, stride);
@@ -281,6 +283,46 @@ void Benchmark10::execute_sync(int iter) {
 void FUNCb10(float * x1, float * x, float * kernel_1, int N, int channels, int K, int kn1, int stride, float * y1, float * y, float * kernel_3, float * x11, int pooling_diameter, float * y11, 
             float * x2, float * kernel_2, int kn2, float * y2, float * kernel_4, float * z, int x2_len, float * res, float * dense_weights, int block_size_2d, int num_blocks, int block_size_1d, int num_blocks_div2)
 {
+
+    dim3 grid_size_2_1(num_blocks_div2, num_blocks_div2);
+    dim3 block_size_2d_dim_1(block_size_2d, block_size_2d);
+    conv2d<<<grid_size_2_1, block_size_2d_dim_1, K * K * kn1 * channels * sizeof(float)>>>(1, x1, x, kernel_1, N, N, channels, K, kn1, stride);
+
+    dim3 grid_size_2_2(num_blocks_div2, num_blocks_div2);
+    dim3 block_size_2d_dim_2(block_size_2d, block_size_2d);
+    conv2d<<<grid_size_2_2, block_size_2d_dim_2, K * K * kn1 * channels * sizeof(float)>>>(1, y1, y, kernel_3, N, N, channels, K, kn1, stride);
+
+
+    dim3 grid_size_3_1(num_blocks_div2, num_blocks_div2, num_blocks_div2);
+    dim3 block_size_3d_dim_1(block_size_2d / 2, block_size_2d / 2, block_size_2d / 2);
+    mean_pooling<<<grid_size_3_1, block_size_3d_dim_1>>>(1, x11, x1, N / stride, N / stride, kn1, pooling_diameter, pooling_diameter);
+
+    dim3 grid_size_3_2(num_blocks_div2, num_blocks_div2, num_blocks_div2);
+    dim3 block_size_3d_dim_2(block_size_2d / 2, block_size_2d / 2, block_size_2d / 2);
+    mean_pooling<<<grid_size_3_2, block_size_3d_dim_2>>>(1, y11, y1, N / stride, N / stride, kn1, pooling_diameter, pooling_diameter);
+
+
+    dim3 grid_size_2_3(num_blocks_div2, num_blocks_div2);
+    dim3 block_size_2d_dim_3(block_size_2d, block_size_2d);
+    conv2d<<<grid_size_2_3, block_size_2d_dim_3, K * K * kn1 * kn2 * sizeof(float)>>>(1, x2, x11, kernel_2, N / stride / pooling_diameter, N / stride / pooling_diameter, kn1, K, kn2, stride);
+
+    dim3 grid_size_2_4(num_blocks_div2, num_blocks_div2);
+    dim3 block_size_2d_dim_4(block_size_2d, block_size_2d);
+    conv2d<<<grid_size_2_4, block_size_2d_dim_4, K * K * kn1 * kn2 * sizeof(float)>>>(1, y2, y11, kernel_4, N / stride / pooling_diameter, N / stride / pooling_diameter, kn1, K, kn2, stride);
+
+    concat<<<num_blocks, block_size_1d>>>(1, z, x2, y2, x2_len);
+
+    dot_product<<<num_blocks, block_size_1d>>>(1, res, z, dense_weights, x2_len);
+
+}
+
+void FUNCb10_prefetch(float * x1, float * x, float * kernel_1, int N, int channels, int K, int kn1, int stride, float * y1, float * y, float * kernel_3, float * x11, int pooling_diameter, float * y11, 
+            float * x2, float * kernel_2, int kn2, float * y2, float * kernel_4, float * z, int x2_len, float * res, float * dense_weights, int block_size_2d, int num_blocks, int block_size_1d, int num_blocks_div2,
+            int prefetch_size, int device_id)
+{
+    cudaMemPrefetchAsync(x, prefetch_size, device_id, 0);
+    cudaMemPrefetchAsync(y, prefetch_size, device_id, 0);
+
     dim3 grid_size_2_1(num_blocks_div2, num_blocks_div2);
     dim3 block_size_2d_dim_1(block_size_2d, block_size_2d);
     conv2d<<<grid_size_2_1, block_size_2d_dim_1, K * K * kn1 * channels * sizeof(float)>>>(1, x1, x, kernel_1, N, N, channels, K, kn1, stride);
@@ -315,12 +357,13 @@ void FUNCb10(float * x1, float * x, float * kernel_1, int N, int channels, int K
 
 void Benchmark10::execute_AssOfKFC(int iter)
 {
-    if (do_prefetch && pascalGpu) {
-        cudaMemPrefetchAsync(x, sizeof(float) * x_len, device_id, 0);
-        cudaMemPrefetchAsync(y, sizeof(float) * x_len, device_id, 0);
-    }
-
-    FUNCb10(x1, x, kernel_1, N, channels, K, kn1, stride, y1, y, kernel_3, x11, pooling_diameter, y11, x2, kernel_2, kn2, y2, kernel_4,
+    // if (do_prefetch && pascalGpu) {
+    //     cudaMemPrefetchAsync(x, sizeof(float) * x_len, device_id, 0);
+    //     cudaMemPrefetchAsync(y, sizeof(float) * x_len, device_id, 0);
+    // }
+    if (do_prefetch && pascalGpu) FUNCb10_prefetch(x1, x, kernel_1, N, channels, K, kn1, stride, y1, y, kernel_3, x11, pooling_diameter, y11, x2, kernel_2, kn2, y2, kernel_4,
+                                            z, x2_len, res, dense_weights, block_size_2d, num_blocks, block_size_1d, num_blocks/2, sizeof(float)*x_len,device_id);
+    else FUNCb10(x1, x, kernel_1, N, channels, K, kn1, stride, y1, y, kernel_3, x11, pooling_diameter, y11, x2, kernel_2, kn2, y2, kernel_4,
             z, x2_len, res, dense_weights, block_size_2d, num_blocks, block_size_1d, num_blocks/2);
 
 }

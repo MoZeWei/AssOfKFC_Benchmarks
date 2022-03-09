@@ -113,10 +113,15 @@ void Benchmark1::reset() {
 void Benchmark1::execute_sync(int iter) {
     if (do_prefetch && pascalGpu) {
         cudaMemPrefetchAsync(x, sizeof(float) * N, device_id, 0);
+        cudaDeviceSynchronize();
         cudaMemPrefetchAsync(x1, sizeof(float) * N, device_id, 0);
+        cudaDeviceSynchronize();
         cudaMemPrefetchAsync(y, sizeof(float) * N, device_id, 0);
+        cudaDeviceSynchronize();
         cudaMemPrefetchAsync(y1, sizeof(float) * N, device_id, 0);
+        cudaDeviceSynchronize();
         cudaMemPrefetchAsync(res, sizeof(float), device_id, 0);
+        cudaDeviceSynchronize();
     }
 
     square<<<num_blocks, block_size_1d>>>(1, x1, x, N);
@@ -134,17 +139,30 @@ void FUNCb1(float * x, float * x1, float * y, float * y1, float * res, int N, in
     reduce<<<num_blocks, block_size_1d>>>(1, res, x1, y1, N);
 }
 
+void FUNCb1_prefetch(float * x, float * x1, float * y, float * y1, float * res, int N, int num_blocks, int block_size_1d,
+                    int prefetch_size1, int prefetch_size2, int device_id)
+{
+        cudaMemPrefetchAsync(x, prefetch_size1, device_id, 0);
+        cudaMemPrefetchAsync(x1, prefetch_size1, device_id, 0);
+        cudaMemPrefetchAsync(y, prefetch_size1, device_id, 0);
+        cudaMemPrefetchAsync(y1, prefetch_size1, device_id, 0);
+        cudaMemPrefetchAsync(res, prefetch_size2, device_id, 0);
+    square<<<num_blocks, block_size_1d>>>(1, x1, x, N);
+    square<<<num_blocks, block_size_1d>>>(1, y1, y, N);
+    reduce<<<num_blocks, block_size_1d>>>(1, res, x1, y1, N);
+}
+
 void Benchmark1::execute_AssOfKFC(int iter) {
-    if (do_prefetch && pascalGpu) {
-        cudaMemPrefetchAsync(x, sizeof(float) * N, device_id, 0);
-        cudaMemPrefetchAsync(x1, sizeof(float) * N, device_id, 0);
-        cudaMemPrefetchAsync(y, sizeof(float) * N, device_id, 0);
-        cudaMemPrefetchAsync(y1, sizeof(float) * N, device_id, 0);
-        cudaMemPrefetchAsync(res, sizeof(float), device_id, 0);
-        cudaDeviceSynchronize();
-    }
+    // if (do_prefetch && pascalGpu) {
+    //     cudaMemPrefetchAsync(x, sizeof(float) * N, device_id, 0);
+    //     cudaMemPrefetchAsync(x1, sizeof(float) * N, device_id, 0);
+    //     cudaMemPrefetchAsync(y, sizeof(float) * N, device_id, 0);
+    //     cudaMemPrefetchAsync(y1, sizeof(float) * N, device_id, 0);
+    //     cudaMemPrefetchAsync(res, sizeof(float), device_id, 0);
+    // }
     
-    FUNCb1(x,x1,y,y1,res,N,num_blocks,block_size_1d);
+    if (do_prefetch && pascalGpu) FUNCb1_prefetch(x,x1,y,y1,res,N,num_blocks,block_size_1d, sizeof(float)*N, sizeof(float),device_id);
+    else FUNCb1(x,x1,y,y1,res,N,num_blocks,block_size_1d);
     err = cudaGetLastError();
     if (debug && err) std::cout << err << std::endl;
     // square<<<num_blocks, block_size_1d>>>(x, x1, N);

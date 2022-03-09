@@ -303,10 +303,15 @@ void Benchmark7::execute_sync(int iter) {
     for (int iter = 0; iter < iterations; iter++) {
         if (pascalGpu && do_prefetch) {
             cudaMemPrefetchAsync(auth1, N * sizeof(float), device_id, 0);
+            cudaDeviceSynchronize();
             cudaMemPrefetchAsync(auth2, N * sizeof(float), device_id, 0);
+            cudaDeviceSynchronize();
             cudaMemPrefetchAsync(hub1, N * sizeof(float), device_id, 0);
+            cudaDeviceSynchronize();
             cudaMemPrefetchAsync(hub2, N * sizeof(float), device_id, 0);
+            cudaDeviceSynchronize();
             cudaMemPrefetchAsync(auth_norm, sizeof(float), device_id, 0);
+            cudaDeviceSynchronize();
             cudaMemPrefetchAsync(hub_norm, sizeof(float), device_id, 0);
             cudaDeviceSynchronize();
         }
@@ -371,23 +376,53 @@ void FUNCb7(int * rowCounter1, float * auth2, int * ptr2, int * idx2, int * val2
         reset_kernel<<<num_blocks, block_size_1d>>>(4, auth_norm, hub_norm, rowCounter1, rowCounter2);
 }
 
-void Benchmark7::execute_AssOfKFC(int iter)
+void FUNCb7_prefetch(int * rowCounter1, float * auth2, int * ptr2, int * idx2, int * val2, float * hub1, int N, int * rowCounter2, float * hub2, 
+            int * ptr, int * idx, int * val, float * auth1, float * auth_norm, float * hub_norm,
+            int nb, int num_blocks, int block_size_1d, size_t memsize,
+            int prefetch_size1, int prefetch_size2, int device_id)
 {
-    for(int iter = 0; iter < iterations; iter++)
-    {
-        if (pascalGpu && do_prefetch) {
-            cudaMemPrefetchAsync(auth1, N * sizeof(float), device_id, 0);
+                cudaMemPrefetchAsync(auth1, N * sizeof(float), device_id, 0);
             cudaMemPrefetchAsync(auth2, N * sizeof(float), device_id, 0);
             cudaMemPrefetchAsync(hub1, N * sizeof(float), device_id, 0);
             cudaMemPrefetchAsync(hub2, N * sizeof(float), device_id, 0);
             cudaMemPrefetchAsync(auth_norm, sizeof(float), device_id, 0);
             cudaMemPrefetchAsync(hub_norm, sizeof(float), device_id, 0);
-            cudaDeviceSynchronize();
-        }
+
+        spmv3<<<nb, block_size_1d, memsize>>>(2, rowCounter1, auth2, ptr2, idx2, val2, hub1, N);
+
+        spmv3<<<nb, block_size_1d, memsize>>>(2, rowCounter2, hub2, ptr, idx, val, auth1, N);
+
+        sum<<<num_blocks, block_size_1d>>>(1, auth_norm, auth2, N);
+
+        sum<<<num_blocks, block_size_1d>>>(1, hub_norm, hub2, N);
+
+        divide<<<num_blocks, block_size_1d>>>(1, auth1, auth2, auth_norm, N);
+
+        divide<<<num_blocks, block_size_1d>>>(1, hub1, hub2, hub_norm, N);
+
+        reset_kernel<<<num_blocks, block_size_1d>>>(4, auth_norm, hub_norm, rowCounter1, rowCounter2);
+}
+
+void Benchmark7::execute_AssOfKFC(int iter)
+{
+    for(int iter = 0; iter < iterations; iter++)
+    {
+        // if (pascalGpu && do_prefetch) {
+        //     cudaMemPrefetchAsync(auth1, N * sizeof(float), device_id, 0);
+        //     cudaMemPrefetchAsync(auth2, N * sizeof(float), device_id, 0);
+        //     cudaMemPrefetchAsync(hub1, N * sizeof(float), device_id, 0);
+        //     cudaMemPrefetchAsync(hub2, N * sizeof(float), device_id, 0);
+        //     cudaMemPrefetchAsync(auth_norm, sizeof(float), device_id, 0);
+        //     cudaMemPrefetchAsync(hub_norm, sizeof(float), device_id, 0);
+        //     cudaDeviceSynchronize();
+        // }
 
         int nb = ceil(N / ((float)block_size_1d));
 
-        FUNCb7(rowCounter1, auth2, ptr2, idx2, val2, hub1, N, rowCounter2, hub2, ptr, idx, val, auth1, auth_norm, hub_norm,
+        if (pascalGpu && do_prefetch) FUNCb7_prefetch(rowCounter1, auth2, ptr2, idx2, val2, hub1, N, rowCounter2, hub2, ptr, idx, val, auth1, auth_norm, hub_norm,
+                nb, num_blocks, block_size_1d, block_size_1d * sizeof(float), N*sizeof(float), sizeof(float),device_id);
+        
+        else FUNCb7(rowCounter1, auth2, ptr2, idx2, val2, hub1, N, rowCounter2, hub2, ptr, idx, val, auth1, auth_norm, hub_norm,
                 nb, num_blocks, block_size_1d, block_size_1d * sizeof(float));
 
         //Reset

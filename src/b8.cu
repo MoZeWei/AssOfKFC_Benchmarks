@@ -262,6 +262,7 @@ void Benchmark8::execute_sync(int iter) {
     if (pascalGpu && do_prefetch) {
         // cudaMemPrefetchAsync(image3, N * N * sizeof(float), 0, 0);
         cudaMemPrefetchAsync(image3, N * N * sizeof(float), device_id, 0);
+        cudaDeviceSynchronize();
     }
 
     // gaussian_blur<<<grid_size_2, block_size_2d_dim, kernel_small_diameter * kernel_small_diameter * sizeof(float)>>>(image, blurred_small, N, N, kernel_small, kernel_small_diameter);
@@ -351,14 +352,57 @@ void FUNCb8(float * blurred_small, float * image, int N, float * kernel_small, i
     combine<<<num_blocks, block_size_1d>>>(1, image3, image2, blurred_small, mask_small, N * N);
 }
 
+void FUNCb8_prefetch(float * blurred_small, float * image, int N, float * kernel_small, int kernel_small_diameter, float * blurred_large, float * kernel_large, int kernel_large_diameter,
+            float * blurred_unsharpen, float * kernel_unsharpen, int kernel_unsharpen_diameter,float *  mask_small, float * mask_large, float * maximum, float * minimum, float * image_unsharpen,
+            float * image2, float * image3, int block_size_2d, int num_blocks, int block_size_1d, int num_blocks_div2,
+            int prefetch_size, int device_id)
+{
+    cudaMemPrefetchAsync(image3, prefetch_size, device_id, 0);
+
+    dim3 grid_size_2_1(num_blocks_div2, num_blocks_div2);
+    dim3 block_size_2d_dim_1(block_size_2d, block_size_2d);
+    gaussian_blur<<<grid_size_2_1, block_size_2d_dim_1, kernel_small_diameter * kernel_small_diameter * sizeof(float)>>>(1, blurred_small, image, N, N, kernel_small, kernel_small_diameter);
+
+    dim3 grid_size_2_2(num_blocks_div2, num_blocks_div2);
+    dim3 block_size_2d_dim_2(block_size_2d, block_size_2d);
+    gaussian_blur<<<grid_size_2_2, block_size_2d_dim_2, kernel_large_diameter * kernel_large_diameter * sizeof(float)>>>(1, blurred_large, image, N, N, kernel_large, kernel_large_diameter);
+
+    dim3 grid_size_2_3(num_blocks_div2, num_blocks_div2);
+    dim3 block_size_2d_dim_3(block_size_2d, block_size_2d);
+    gaussian_blur<<<grid_size_2_3, block_size_2d_dim_3, kernel_unsharpen_diameter * kernel_unsharpen_diameter * sizeof(float)>>>(1, blurred_unsharpen, image, N, N, kernel_unsharpen, kernel_unsharpen_diameter);
+
+    dim3 grid_size_2_4(num_blocks_div2, num_blocks_div2);
+    dim3 block_size_2d_dim_4(block_size_2d, block_size_2d);
+    sobel<<<grid_size_2_4, block_size_2d_dim_4>>>(1, mask_small, blurred_small, N, N);
+
+    dim3 grid_size_2_5(num_blocks_div2, num_blocks_div2);
+    dim3 block_size_2d_dim_5(block_size_2d, block_size_2d);
+    sobel<<<grid_size_2_5, block_size_2d_dim_5>>>(1, mask_large, blurred_large, N, N);
+
+    maximum_kernel<<<num_blocks, block_size_1d>>>(1, maximum, mask_large, N * N);
+
+    minimum_kernel<<<num_blocks, block_size_1d>>>(1, minimum, mask_large, N * N);
+
+    extend<<<num_blocks, block_size_1d>>>(1, mask_large, minimum, maximum, N * N);
+
+    unsharpen<<<num_blocks, block_size_1d>>>(1, image_unsharpen, image, blurred_unsharpen, 0.5, N * N);
+
+    combine<<<num_blocks, block_size_1d>>>(1, image2, image_unsharpen, blurred_large, mask_large, N * N);
+
+    combine<<<num_blocks, block_size_1d>>>(1, image3, image2, blurred_small, mask_small, N * N);
+}
+
 void Benchmark8::execute_AssOfKFC(int iter)
 {
-    if (pascalGpu && do_prefetch) {
-        // cudaMemPrefetchAsync(image3, N * N * sizeof(float), 0, 0);
-        cudaMemPrefetchAsync(image3, N * N * sizeof(float), device_id, 0);
-    }
+    // if (pascalGpu && do_prefetch) {
+    //     // cudaMemPrefetchAsync(image3, N * N * sizeof(float), 0, 0);
+    //     cudaMemPrefetchAsync(image3, N * N * sizeof(float), device_id, 0);
+    // }
 
-    FUNCb8(blurred_small, image, N, kernel_small, kernel_small_diameter, blurred_large, kernel_large, kernel_large_diameter,
+    if(pascalGpu && do_prefetch) FUNCb8_prefetch(blurred_small, image, N, kernel_small, kernel_small_diameter, blurred_large, kernel_large, kernel_large_diameter,
+            blurred_unsharpen, kernel_unsharpen, kernel_unsharpen_diameter, mask_small, mask_large, maximum, minimum, image_unsharpen,
+            image2, image3, block_size_2d, num_blocks, block_size_1d, num_blocks/2, N*N*sizeof(float), device_id);
+    else FUNCb8(blurred_small, image, N, kernel_small, kernel_small_diameter, blurred_large, kernel_large, kernel_large_diameter,
             blurred_unsharpen, kernel_unsharpen, kernel_unsharpen_diameter, mask_small, mask_large, maximum, minimum, image_unsharpen,
             image2, image3, block_size_2d, num_blocks, block_size_1d, num_blocks/2);
 }

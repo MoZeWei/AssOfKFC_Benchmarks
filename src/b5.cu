@@ -134,7 +134,9 @@ void Benchmark5::execute_sync(int iter) {
     for (int j = 0; j < M; j++) {
         if (pascalGpu && do_prefetch) {
             cudaMemPrefetchAsync(x[j], sizeof(double) * N, device_id, 0);
+            cudaDeviceSynchronize();
             cudaMemPrefetchAsync(y[j], sizeof(double) * N, device_id, 0);
+            cudaDeviceSynchronize();
         }
         bs<<<num_blocks, block_size_1d>>>(1, y[j], x[j], N, R, V, T, K);                               //Make it unroll?
         err = cudaDeviceSynchronize();
@@ -157,35 +159,74 @@ void FUNCb5(double * x0, double * y0, double * x1, double * y1, double * x2, dou
     bs<<<num_blocks, block_size_1d>>>(1, y9, x9, N, R, V, T, K);
 }
 
+void FUNCb5_prefetch(double * x0, double * y0, double * x1, double * y1, double * x2, double * y2, double * x3, double * y3, double * x4, double * y4,
+            double * x5, double * y5,double * x6, double * y6,double * x7, double * y7,double * x8, double * y8,double * x9, double * y9,
+            int num_blocks, int block_size_1d, int N,int R,int V,int T,int K, int prefetch_size, int device_id)
+{
+            cudaMemPrefetchAsync(x0,prefetch_size,device_id,0);
+        cudaMemPrefetchAsync(y0,prefetch_size,device_id,0);
+        cudaMemPrefetchAsync(x1,prefetch_size,device_id,0);
+        cudaMemPrefetchAsync(y1,prefetch_size,device_id,0);
+        cudaMemPrefetchAsync(x2,prefetch_size,device_id,0);
+        cudaMemPrefetchAsync(y2,prefetch_size,device_id,0);
+        cudaMemPrefetchAsync(x3,prefetch_size,device_id,0);
+        cudaMemPrefetchAsync(y3,prefetch_size,device_id,0);
+        cudaMemPrefetchAsync(x4,prefetch_size,device_id,0);
+        cudaMemPrefetchAsync(y4,prefetch_size,device_id,0);
+        cudaMemPrefetchAsync(x5,prefetch_size,device_id,0);
+        cudaMemPrefetchAsync(y5,prefetch_size,device_id,0);
+        cudaMemPrefetchAsync(x6,prefetch_size,device_id,0);
+        cudaMemPrefetchAsync(y6,prefetch_size,device_id,0);
+        cudaMemPrefetchAsync(x7,prefetch_size,device_id,0);
+        cudaMemPrefetchAsync(y7,prefetch_size,device_id,0);
+        cudaMemPrefetchAsync(x8,prefetch_size,device_id,0);
+        cudaMemPrefetchAsync(y8,prefetch_size,device_id,0);
+        cudaMemPrefetchAsync(x9,prefetch_size,device_id,0);
+        cudaMemPrefetchAsync(y9,prefetch_size,device_id,0);
+    bs<<<num_blocks, block_size_1d>>>(1, y0, x0, N, R, V, T, K);
+    bs<<<num_blocks, block_size_1d>>>(1, y1, x1, N, R, V, T, K);
+    bs<<<num_blocks, block_size_1d>>>(1, y2, x2, N, R, V, T, K);
+    bs<<<num_blocks, block_size_1d>>>(1, y3, x3, N, R, V, T, K);
+    bs<<<num_blocks, block_size_1d>>>(1, y4, x4, N, R, V, T, K);
+    bs<<<num_blocks, block_size_1d>>>(1, y5, x5, N, R, V, T, K);
+    bs<<<num_blocks, block_size_1d>>>(1, y6, x6, N, R, V, T, K);
+    bs<<<num_blocks, block_size_1d>>>(1, y7, x7, N, R, V, T, K);
+    bs<<<num_blocks, block_size_1d>>>(1, y8, x8, N, R, V, T, K);
+    bs<<<num_blocks, block_size_1d>>>(1, y9, x9, N, R, V, T, K);
+}
+
 void Benchmark5::execute_AssOfKFC(int iter) {
     //M = 10
-    if (pascalGpu && do_prefetch) {
-        cudaMemPrefetchAsync(x[0],sizeof(double)*N,device_id,0);
-        cudaMemPrefetchAsync(y[0],sizeof(double)*N,device_id,0);
-        cudaMemPrefetchAsync(x[1],sizeof(double)*N,device_id,0);
-        cudaMemPrefetchAsync(y[1],sizeof(double)*N,device_id,0);
-        cudaMemPrefetchAsync(x[2],sizeof(double)*N,device_id,0);
-        cudaMemPrefetchAsync(y[2],sizeof(double)*N,device_id,0);
-        cudaMemPrefetchAsync(x[3],sizeof(double)*N,device_id,0);
-        cudaMemPrefetchAsync(y[3],sizeof(double)*N,device_id,0);
-        cudaMemPrefetchAsync(x[4],sizeof(double)*N,device_id,0);
-        cudaMemPrefetchAsync(y[4],sizeof(double)*N,device_id,0);
-        cudaMemPrefetchAsync(x[5],sizeof(double)*N,device_id,0);
-        cudaMemPrefetchAsync(y[5],sizeof(double)*N,device_id,0);
-        cudaMemPrefetchAsync(x[6],sizeof(double)*N,device_id,0);
-        cudaMemPrefetchAsync(y[6],sizeof(double)*N,device_id,0);
-        cudaMemPrefetchAsync(x[7],sizeof(double)*N,device_id,0);
-        cudaMemPrefetchAsync(y[7],sizeof(double)*N,device_id,0);
-        cudaMemPrefetchAsync(x[8],sizeof(double)*N,device_id,0);
-        cudaMemPrefetchAsync(y[8],sizeof(double)*N,device_id,0);
-        cudaMemPrefetchAsync(x[9],sizeof(double)*N,device_id,0);
-        cudaMemPrefetchAsync(y[9],sizeof(double)*N,device_id,0);
-        cudaDeviceSynchronize();
-    }
+    // if (pascalGpu && do_prefetch) {
+    //     cudaMemPrefetchAsync(x[0],sizeof(double)*N,device_id,0);
+    //     cudaMemPrefetchAsync(y[0],sizeof(double)*N,device_id,0);
+    //     cudaMemPrefetchAsync(x[1],sizeof(double)*N,device_id,0);
+    //     cudaMemPrefetchAsync(y[1],sizeof(double)*N,device_id,0);
+    //     cudaMemPrefetchAsync(x[2],sizeof(double)*N,device_id,0);
+    //     cudaMemPrefetchAsync(y[2],sizeof(double)*N,device_id,0);
+    //     cudaMemPrefetchAsync(x[3],sizeof(double)*N,device_id,0);
+    //     cudaMemPrefetchAsync(y[3],sizeof(double)*N,device_id,0);
+    //     cudaMemPrefetchAsync(x[4],sizeof(double)*N,device_id,0);
+    //     cudaMemPrefetchAsync(y[4],sizeof(double)*N,device_id,0);
+    //     cudaMemPrefetchAsync(x[5],sizeof(double)*N,device_id,0);
+    //     cudaMemPrefetchAsync(y[5],sizeof(double)*N,device_id,0);
+    //     cudaMemPrefetchAsync(x[6],sizeof(double)*N,device_id,0);
+    //     cudaMemPrefetchAsync(y[6],sizeof(double)*N,device_id,0);
+    //     cudaMemPrefetchAsync(x[7],sizeof(double)*N,device_id,0);
+    //     cudaMemPrefetchAsync(y[7],sizeof(double)*N,device_id,0);
+    //     cudaMemPrefetchAsync(x[8],sizeof(double)*N,device_id,0);
+    //     cudaMemPrefetchAsync(y[8],sizeof(double)*N,device_id,0);
+    //     cudaMemPrefetchAsync(x[9],sizeof(double)*N,device_id,0);
+    //     cudaMemPrefetchAsync(y[9],sizeof(double)*N,device_id,0);
+    //     cudaDeviceSynchronize();
+    // }
 
-    FUNCb5(x[0],y[0],x[1],y[1],x[2],y[2],x[3],y[3],x[4],y[4],
+    if(!do_prefetch || !pascalGpu) FUNCb5(x[0],y[0],x[1],y[1],x[2],y[2],x[3],y[3],x[4],y[4],
             x[5],y[5],x[6],y[6],x[7],y[7],x[8],y[8],x[9],y[9],
             num_blocks, block_size_1d, N,R,V,T,K);
+    if(do_prefetch && pascalGpu) FUNCb5_prefetch(x[0],y[0],x[1],y[1],x[2],y[2],x[3],y[3],x[4],y[4],
+            x[5],y[5],x[6],y[6],x[7],y[7],x[8],y[8],x[9],y[9],
+            num_blocks, block_size_1d, N,R,V,T,K, sizeof(double)*N, device_id);
     
     err = cudaGetLastError();
     if (debug && err) std::cout << err << std::endl;

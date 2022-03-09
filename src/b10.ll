@@ -1203,14 +1203,14 @@ define dso_local void @_ZN11Benchmark1012execute_syncEi(%class.Benchmark10* nonn
   %88 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %87, i32 0, i32 8
   %89 = load i8, i8* %88, align 4
   %90 = trunc i8 %89 to i1
-  br i1 %90, label %91, label %119
+  br i1 %90, label %91, label %121
 
 91:                                               ; preds = %2
   %92 = bitcast %class.Benchmark10* %42 to %struct.Benchmark*
   %93 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %92, i32 0, i32 11
   %94 = load i32, i32* %93, align 8
   %95 = icmp ne i32 %94, 0
-  br i1 %95, label %96, label %119
+  br i1 %95, label %96, label %121
 
 96:                                               ; preds = %91
   %97 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 7
@@ -1224,480 +1224,482 @@ define dso_local void @_ZN11Benchmark1012execute_syncEi(%class.Benchmark10* nonn
   %105 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %104, i32 0, i32 15
   %106 = load i32, i32* %105, align 8
   %107 = call i32 @cudaMemPrefetchAsync(i8* %99, i64 %103, i32 %106, %struct.CUstream_st* null)
-  %108 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 11
-  %109 = load float*, float** %108, align 8
-  %110 = bitcast float* %109 to i8*
-  %111 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 26
-  %112 = load i32, i32* %111, align 8
-  %113 = sext i32 %112 to i64
-  %114 = mul i64 4, %113
-  %115 = bitcast %class.Benchmark10* %42 to %struct.Benchmark*
-  %116 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %115, i32 0, i32 15
-  %117 = load i32, i32* %116, align 8
-  %118 = call i32 @cudaMemPrefetchAsync(i8* %110, i64 %114, i32 %117, %struct.CUstream_st* null)
-  br label %119
+  %108 = call i32 @cudaDeviceSynchronize()
+  %109 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 11
+  %110 = load float*, float** %109, align 8
+  %111 = bitcast float* %110 to i8*
+  %112 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 26
+  %113 = load i32, i32* %112, align 8
+  %114 = sext i32 %113 to i64
+  %115 = mul i64 4, %114
+  %116 = bitcast %class.Benchmark10* %42 to %struct.Benchmark*
+  %117 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %116, i32 0, i32 15
+  %118 = load i32, i32* %117, align 8
+  %119 = call i32 @cudaMemPrefetchAsync(i8* %111, i64 %115, i32 %118, %struct.CUstream_st* null)
+  %120 = call i32 @cudaDeviceSynchronize()
+  br label %121
 
-119:                                              ; preds = %96, %91, %2
-  %120 = bitcast %struct.dim3* %10 to i8*
-  %121 = bitcast %struct.dim3* %7 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %120, i8* align 4 %121, i64 12, i1 false)
-  %122 = bitcast %struct.dim3* %11 to i8*
-  %123 = bitcast %struct.dim3* %5 to i8*
+121:                                              ; preds = %96, %91, %2
+  %122 = bitcast %struct.dim3* %10 to i8*
+  %123 = bitcast %struct.dim3* %7 to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %122, i8* align 4 %123, i64 12, i1 false)
-  %124 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 1
-  %125 = load i32, i32* %124, align 4
+  %124 = bitcast %struct.dim3* %11 to i8*
+  %125 = bitcast %struct.dim3* %5 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %124, i8* align 4 %125, i64 12, i1 false)
   %126 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 1
   %127 = load i32, i32* %126, align 4
-  %128 = mul nsw i32 %125, %127
-  %129 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 4
-  %130 = load i32, i32* %129, align 8
-  %131 = mul nsw i32 %128, %130
-  %132 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 2
-  %133 = load i32, i32* %132, align 8
-  %134 = mul nsw i32 %131, %133
-  %135 = sext i32 %134 to i64
-  %136 = mul i64 %135, 4
-  %137 = bitcast { i64, i32 }* %12 to i8*
-  %138 = bitcast %struct.dim3* %10 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %137, i8* align 4 %138, i64 12, i1 false)
-  %139 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %12, i32 0, i32 0
-  %140 = load i64, i64* %139, align 4
-  %141 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %12, i32 0, i32 1
-  %142 = load i32, i32* %141, align 4
-  %143 = bitcast { i64, i32 }* %13 to i8*
-  %144 = bitcast %struct.dim3* %11 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %143, i8* align 4 %144, i64 12, i1 false)
-  %145 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %13, i32 0, i32 0
-  %146 = load i64, i64* %145, align 4
-  %147 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %13, i32 0, i32 1
-  %148 = load i32, i32* %147, align 4
-  %149 = call i32 @__cudaPushCallConfiguration(i64 %140, i32 %142, i64 %146, i32 %148, i64 %136, i8* null)
-  %150 = icmp ne i32 %149, 0
-  br i1 %150, label %172, label %151
+  %128 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 1
+  %129 = load i32, i32* %128, align 4
+  %130 = mul nsw i32 %127, %129
+  %131 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 4
+  %132 = load i32, i32* %131, align 8
+  %133 = mul nsw i32 %130, %132
+  %134 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 2
+  %135 = load i32, i32* %134, align 8
+  %136 = mul nsw i32 %133, %135
+  %137 = sext i32 %136 to i64
+  %138 = mul i64 %137, 4
+  %139 = bitcast { i64, i32 }* %12 to i8*
+  %140 = bitcast %struct.dim3* %10 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %139, i8* align 4 %140, i64 12, i1 false)
+  %141 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %12, i32 0, i32 0
+  %142 = load i64, i64* %141, align 4
+  %143 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %12, i32 0, i32 1
+  %144 = load i32, i32* %143, align 4
+  %145 = bitcast { i64, i32 }* %13 to i8*
+  %146 = bitcast %struct.dim3* %11 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %145, i8* align 4 %146, i64 12, i1 false)
+  %147 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %13, i32 0, i32 0
+  %148 = load i64, i64* %147, align 4
+  %149 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %13, i32 0, i32 1
+  %150 = load i32, i32* %149, align 4
+  %151 = call i32 @__cudaPushCallConfiguration(i64 %142, i32 %144, i64 %148, i32 %150, i64 %138, i8* null)
+  %152 = icmp ne i32 %151, 0
+  br i1 %152, label %174, label %153
 
-151:                                              ; preds = %119
-  %152 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 8
-  %153 = load float*, float** %152, align 8
-  %154 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 7
+153:                                              ; preds = %121
+  %154 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 8
   %155 = load float*, float** %154, align 8
-  %156 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 15
+  %156 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 7
   %157 = load float*, float** %156, align 8
-  %158 = bitcast %class.Benchmark10* %42 to %struct.Benchmark*
-  %159 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %158, i32 0, i32 3
-  %160 = load i32, i32* %159, align 8
-  %161 = bitcast %class.Benchmark10* %42 to %struct.Benchmark*
-  %162 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %161, i32 0, i32 3
-  %163 = load i32, i32* %162, align 8
-  %164 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 2
+  %158 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 15
+  %159 = load float*, float** %158, align 8
+  %160 = bitcast %class.Benchmark10* %42 to %struct.Benchmark*
+  %161 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %160, i32 0, i32 3
+  %162 = load i32, i32* %161, align 8
+  %163 = bitcast %class.Benchmark10* %42 to %struct.Benchmark*
+  %164 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %163, i32 0, i32 3
   %165 = load i32, i32* %164, align 8
-  %166 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 1
-  %167 = load i32, i32* %166, align 4
-  %168 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 4
-  %169 = load i32, i32* %168, align 8
-  %170 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 3
-  %171 = load i32, i32* %170, align 4
-  call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %153, float* %155, float* %157, i32 %160, i32 %163, i32 %165, i32 %167, i32 %169, i32 %171)
-  br label %172
+  %166 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 2
+  %167 = load i32, i32* %166, align 8
+  %168 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 1
+  %169 = load i32, i32* %168, align 4
+  %170 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 4
+  %171 = load i32, i32* %170, align 8
+  %172 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 3
+  %173 = load i32, i32* %172, align 4
+  call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %155, float* %157, float* %159, i32 %162, i32 %165, i32 %167, i32 %169, i32 %171, i32 %173)
+  br label %174
 
-172:                                              ; preds = %151, %119
-  %173 = call i32 @cudaDeviceSynchronize()
-  %174 = bitcast %struct.dim3* %14 to i8*
-  %175 = bitcast %struct.dim3* %7 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %174, i8* align 4 %175, i64 12, i1 false)
-  %176 = bitcast %struct.dim3* %15 to i8*
-  %177 = bitcast %struct.dim3* %5 to i8*
+174:                                              ; preds = %153, %121
+  %175 = call i32 @cudaDeviceSynchronize()
+  %176 = bitcast %struct.dim3* %14 to i8*
+  %177 = bitcast %struct.dim3* %7 to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %176, i8* align 4 %177, i64 12, i1 false)
-  %178 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 1
-  %179 = load i32, i32* %178, align 4
+  %178 = bitcast %struct.dim3* %15 to i8*
+  %179 = bitcast %struct.dim3* %5 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %178, i8* align 4 %179, i64 12, i1 false)
   %180 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 1
   %181 = load i32, i32* %180, align 4
-  %182 = mul nsw i32 %179, %181
-  %183 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 4
-  %184 = load i32, i32* %183, align 8
-  %185 = mul nsw i32 %182, %184
-  %186 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 2
-  %187 = load i32, i32* %186, align 8
-  %188 = mul nsw i32 %185, %187
-  %189 = sext i32 %188 to i64
-  %190 = mul i64 %189, 4
-  %191 = bitcast { i64, i32 }* %16 to i8*
-  %192 = bitcast %struct.dim3* %14 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %191, i8* align 4 %192, i64 12, i1 false)
-  %193 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %16, i32 0, i32 0
-  %194 = load i64, i64* %193, align 4
-  %195 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %16, i32 0, i32 1
-  %196 = load i32, i32* %195, align 4
-  %197 = bitcast { i64, i32 }* %17 to i8*
-  %198 = bitcast %struct.dim3* %15 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %197, i8* align 4 %198, i64 12, i1 false)
-  %199 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %17, i32 0, i32 0
-  %200 = load i64, i64* %199, align 4
-  %201 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %17, i32 0, i32 1
-  %202 = load i32, i32* %201, align 4
-  %203 = call i32 @__cudaPushCallConfiguration(i64 %194, i32 %196, i64 %200, i32 %202, i64 %190, i8* null)
-  %204 = icmp ne i32 %203, 0
-  br i1 %204, label %226, label %205
+  %182 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 1
+  %183 = load i32, i32* %182, align 4
+  %184 = mul nsw i32 %181, %183
+  %185 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 4
+  %186 = load i32, i32* %185, align 8
+  %187 = mul nsw i32 %184, %186
+  %188 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 2
+  %189 = load i32, i32* %188, align 8
+  %190 = mul nsw i32 %187, %189
+  %191 = sext i32 %190 to i64
+  %192 = mul i64 %191, 4
+  %193 = bitcast { i64, i32 }* %16 to i8*
+  %194 = bitcast %struct.dim3* %14 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %193, i8* align 4 %194, i64 12, i1 false)
+  %195 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %16, i32 0, i32 0
+  %196 = load i64, i64* %195, align 4
+  %197 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %16, i32 0, i32 1
+  %198 = load i32, i32* %197, align 4
+  %199 = bitcast { i64, i32 }* %17 to i8*
+  %200 = bitcast %struct.dim3* %15 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %199, i8* align 4 %200, i64 12, i1 false)
+  %201 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %17, i32 0, i32 0
+  %202 = load i64, i64* %201, align 4
+  %203 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %17, i32 0, i32 1
+  %204 = load i32, i32* %203, align 4
+  %205 = call i32 @__cudaPushCallConfiguration(i64 %196, i32 %198, i64 %202, i32 %204, i64 %192, i8* null)
+  %206 = icmp ne i32 %205, 0
+  br i1 %206, label %228, label %207
 
-205:                                              ; preds = %172
-  %206 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 12
-  %207 = load float*, float** %206, align 8
-  %208 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 11
+207:                                              ; preds = %174
+  %208 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 12
   %209 = load float*, float** %208, align 8
-  %210 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 17
+  %210 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 11
   %211 = load float*, float** %210, align 8
-  %212 = bitcast %class.Benchmark10* %42 to %struct.Benchmark*
-  %213 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %212, i32 0, i32 3
-  %214 = load i32, i32* %213, align 8
-  %215 = bitcast %class.Benchmark10* %42 to %struct.Benchmark*
-  %216 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %215, i32 0, i32 3
-  %217 = load i32, i32* %216, align 8
-  %218 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 2
+  %212 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 17
+  %213 = load float*, float** %212, align 8
+  %214 = bitcast %class.Benchmark10* %42 to %struct.Benchmark*
+  %215 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %214, i32 0, i32 3
+  %216 = load i32, i32* %215, align 8
+  %217 = bitcast %class.Benchmark10* %42 to %struct.Benchmark*
+  %218 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %217, i32 0, i32 3
   %219 = load i32, i32* %218, align 8
-  %220 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 1
-  %221 = load i32, i32* %220, align 4
-  %222 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 4
-  %223 = load i32, i32* %222, align 8
-  %224 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 3
-  %225 = load i32, i32* %224, align 4
-  call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %207, float* %209, float* %211, i32 %214, i32 %217, i32 %219, i32 %221, i32 %223, i32 %225)
-  br label %226
+  %220 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 2
+  %221 = load i32, i32* %220, align 8
+  %222 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 1
+  %223 = load i32, i32* %222, align 4
+  %224 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 4
+  %225 = load i32, i32* %224, align 8
+  %226 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 3
+  %227 = load i32, i32* %226, align 4
+  call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %209, float* %211, float* %213, i32 %216, i32 %219, i32 %221, i32 %223, i32 %225, i32 %227)
+  br label %228
 
-226:                                              ; preds = %205, %172
-  %227 = call i32 @cudaDeviceSynchronize()
-  %228 = bitcast %struct.dim3* %18 to i8*
-  %229 = bitcast %struct.dim3* %9 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %228, i8* align 4 %229, i64 12, i1 false)
-  %230 = bitcast %struct.dim3* %19 to i8*
-  %231 = bitcast %struct.dim3* %8 to i8*
+228:                                              ; preds = %207, %174
+  %229 = call i32 @cudaDeviceSynchronize()
+  %230 = bitcast %struct.dim3* %18 to i8*
+  %231 = bitcast %struct.dim3* %9 to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %230, i8* align 4 %231, i64 12, i1 false)
-  %232 = bitcast { i64, i32 }* %20 to i8*
-  %233 = bitcast %struct.dim3* %18 to i8*
+  %232 = bitcast %struct.dim3* %19 to i8*
+  %233 = bitcast %struct.dim3* %8 to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %232, i8* align 4 %233, i64 12, i1 false)
-  %234 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %20, i32 0, i32 0
-  %235 = load i64, i64* %234, align 4
-  %236 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %20, i32 0, i32 1
-  %237 = load i32, i32* %236, align 4
-  %238 = bitcast { i64, i32 }* %21 to i8*
-  %239 = bitcast %struct.dim3* %19 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %238, i8* align 4 %239, i64 12, i1 false)
-  %240 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %21, i32 0, i32 0
-  %241 = load i64, i64* %240, align 4
-  %242 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %21, i32 0, i32 1
-  %243 = load i32, i32* %242, align 4
-  %244 = call i32 @__cudaPushCallConfiguration(i64 %235, i32 %237, i64 %241, i32 %243, i64 0, i8* null)
-  %245 = icmp ne i32 %244, 0
-  br i1 %245, label %269, label %246
+  %234 = bitcast { i64, i32 }* %20 to i8*
+  %235 = bitcast %struct.dim3* %18 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %234, i8* align 4 %235, i64 12, i1 false)
+  %236 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %20, i32 0, i32 0
+  %237 = load i64, i64* %236, align 4
+  %238 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %20, i32 0, i32 1
+  %239 = load i32, i32* %238, align 4
+  %240 = bitcast { i64, i32 }* %21 to i8*
+  %241 = bitcast %struct.dim3* %19 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %240, i8* align 4 %241, i64 12, i1 false)
+  %242 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %21, i32 0, i32 0
+  %243 = load i64, i64* %242, align 4
+  %244 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %21, i32 0, i32 1
+  %245 = load i32, i32* %244, align 4
+  %246 = call i32 @__cudaPushCallConfiguration(i64 %237, i32 %239, i64 %243, i32 %245, i64 0, i8* null)
+  %247 = icmp ne i32 %246, 0
+  br i1 %247, label %271, label %248
 
-246:                                              ; preds = %226
-  %247 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 22
-  %248 = load float*, float** %247, align 8
-  %249 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 8
+248:                                              ; preds = %228
+  %249 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 22
   %250 = load float*, float** %249, align 8
-  %251 = bitcast %class.Benchmark10* %42 to %struct.Benchmark*
-  %252 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %251, i32 0, i32 3
-  %253 = load i32, i32* %252, align 8
-  %254 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 3
-  %255 = load i32, i32* %254, align 4
-  %256 = sdiv i32 %253, %255
-  %257 = bitcast %class.Benchmark10* %42 to %struct.Benchmark*
-  %258 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %257, i32 0, i32 3
-  %259 = load i32, i32* %258, align 8
-  %260 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 3
-  %261 = load i32, i32* %260, align 4
-  %262 = sdiv i32 %259, %261
-  %263 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 4
-  %264 = load i32, i32* %263, align 8
-  %265 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 6
+  %251 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 8
+  %252 = load float*, float** %251, align 8
+  %253 = bitcast %class.Benchmark10* %42 to %struct.Benchmark*
+  %254 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %253, i32 0, i32 3
+  %255 = load i32, i32* %254, align 8
+  %256 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 3
+  %257 = load i32, i32* %256, align 4
+  %258 = sdiv i32 %255, %257
+  %259 = bitcast %class.Benchmark10* %42 to %struct.Benchmark*
+  %260 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %259, i32 0, i32 3
+  %261 = load i32, i32* %260, align 8
+  %262 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 3
+  %263 = load i32, i32* %262, align 4
+  %264 = sdiv i32 %261, %263
+  %265 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 4
   %266 = load i32, i32* %265, align 8
   %267 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 6
   %268 = load i32, i32* %267, align 8
-  call void @_Z27__device_stub__mean_poolingiPfS_iiiii(i32 1, float* %248, float* %250, i32 %256, i32 %262, i32 %264, i32 %266, i32 %268)
-  br label %269
+  %269 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 6
+  %270 = load i32, i32* %269, align 8
+  call void @_Z27__device_stub__mean_poolingiPfS_iiiii(i32 1, float* %250, float* %252, i32 %258, i32 %264, i32 %266, i32 %268, i32 %270)
+  br label %271
 
-269:                                              ; preds = %246, %226
-  %270 = call i32 @cudaDeviceSynchronize()
-  %271 = bitcast %struct.dim3* %22 to i8*
-  %272 = bitcast %struct.dim3* %9 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %271, i8* align 4 %272, i64 12, i1 false)
-  %273 = bitcast %struct.dim3* %23 to i8*
-  %274 = bitcast %struct.dim3* %8 to i8*
+271:                                              ; preds = %248, %228
+  %272 = call i32 @cudaDeviceSynchronize()
+  %273 = bitcast %struct.dim3* %22 to i8*
+  %274 = bitcast %struct.dim3* %9 to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %273, i8* align 4 %274, i64 12, i1 false)
-  %275 = bitcast { i64, i32 }* %24 to i8*
-  %276 = bitcast %struct.dim3* %22 to i8*
+  %275 = bitcast %struct.dim3* %23 to i8*
+  %276 = bitcast %struct.dim3* %8 to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %275, i8* align 4 %276, i64 12, i1 false)
-  %277 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %24, i32 0, i32 0
-  %278 = load i64, i64* %277, align 4
-  %279 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %24, i32 0, i32 1
-  %280 = load i32, i32* %279, align 4
-  %281 = bitcast { i64, i32 }* %25 to i8*
-  %282 = bitcast %struct.dim3* %23 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %281, i8* align 4 %282, i64 12, i1 false)
-  %283 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %25, i32 0, i32 0
-  %284 = load i64, i64* %283, align 4
-  %285 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %25, i32 0, i32 1
-  %286 = load i32, i32* %285, align 4
-  %287 = call i32 @__cudaPushCallConfiguration(i64 %278, i32 %280, i64 %284, i32 %286, i64 0, i8* null)
-  %288 = icmp ne i32 %287, 0
-  br i1 %288, label %312, label %289
+  %277 = bitcast { i64, i32 }* %24 to i8*
+  %278 = bitcast %struct.dim3* %22 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %277, i8* align 4 %278, i64 12, i1 false)
+  %279 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %24, i32 0, i32 0
+  %280 = load i64, i64* %279, align 4
+  %281 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %24, i32 0, i32 1
+  %282 = load i32, i32* %281, align 4
+  %283 = bitcast { i64, i32 }* %25 to i8*
+  %284 = bitcast %struct.dim3* %23 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %283, i8* align 4 %284, i64 12, i1 false)
+  %285 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %25, i32 0, i32 0
+  %286 = load i64, i64* %285, align 4
+  %287 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %25, i32 0, i32 1
+  %288 = load i32, i32* %287, align 4
+  %289 = call i32 @__cudaPushCallConfiguration(i64 %280, i32 %282, i64 %286, i32 %288, i64 0, i8* null)
+  %290 = icmp ne i32 %289, 0
+  br i1 %290, label %314, label %291
 
-289:                                              ; preds = %269
-  %290 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 23
-  %291 = load float*, float** %290, align 8
-  %292 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 12
+291:                                              ; preds = %271
+  %292 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 23
   %293 = load float*, float** %292, align 8
-  %294 = bitcast %class.Benchmark10* %42 to %struct.Benchmark*
-  %295 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %294, i32 0, i32 3
-  %296 = load i32, i32* %295, align 8
-  %297 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 3
-  %298 = load i32, i32* %297, align 4
-  %299 = sdiv i32 %296, %298
-  %300 = bitcast %class.Benchmark10* %42 to %struct.Benchmark*
-  %301 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %300, i32 0, i32 3
-  %302 = load i32, i32* %301, align 8
-  %303 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 3
-  %304 = load i32, i32* %303, align 4
-  %305 = sdiv i32 %302, %304
-  %306 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 4
-  %307 = load i32, i32* %306, align 8
-  %308 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 6
+  %294 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 12
+  %295 = load float*, float** %294, align 8
+  %296 = bitcast %class.Benchmark10* %42 to %struct.Benchmark*
+  %297 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %296, i32 0, i32 3
+  %298 = load i32, i32* %297, align 8
+  %299 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 3
+  %300 = load i32, i32* %299, align 4
+  %301 = sdiv i32 %298, %300
+  %302 = bitcast %class.Benchmark10* %42 to %struct.Benchmark*
+  %303 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %302, i32 0, i32 3
+  %304 = load i32, i32* %303, align 8
+  %305 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 3
+  %306 = load i32, i32* %305, align 4
+  %307 = sdiv i32 %304, %306
+  %308 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 4
   %309 = load i32, i32* %308, align 8
   %310 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 6
   %311 = load i32, i32* %310, align 8
-  call void @_Z27__device_stub__mean_poolingiPfS_iiiii(i32 1, float* %291, float* %293, i32 %299, i32 %305, i32 %307, i32 %309, i32 %311)
-  br label %312
+  %312 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 6
+  %313 = load i32, i32* %312, align 8
+  call void @_Z27__device_stub__mean_poolingiPfS_iiiii(i32 1, float* %293, float* %295, i32 %301, i32 %307, i32 %309, i32 %311, i32 %313)
+  br label %314
 
-312:                                              ; preds = %289, %269
-  %313 = call i32 @cudaDeviceSynchronize()
-  %314 = bitcast %struct.dim3* %26 to i8*
-  %315 = bitcast %struct.dim3* %7 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %314, i8* align 4 %315, i64 12, i1 false)
-  %316 = bitcast %struct.dim3* %27 to i8*
-  %317 = bitcast %struct.dim3* %5 to i8*
+314:                                              ; preds = %291, %271
+  %315 = call i32 @cudaDeviceSynchronize()
+  %316 = bitcast %struct.dim3* %26 to i8*
+  %317 = bitcast %struct.dim3* %7 to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %316, i8* align 4 %317, i64 12, i1 false)
-  %318 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 1
-  %319 = load i32, i32* %318, align 4
+  %318 = bitcast %struct.dim3* %27 to i8*
+  %319 = bitcast %struct.dim3* %5 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %318, i8* align 4 %319, i64 12, i1 false)
   %320 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 1
   %321 = load i32, i32* %320, align 4
-  %322 = mul nsw i32 %319, %321
-  %323 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 4
-  %324 = load i32, i32* %323, align 8
-  %325 = mul nsw i32 %322, %324
-  %326 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 5
-  %327 = load i32, i32* %326, align 4
-  %328 = mul nsw i32 %325, %327
-  %329 = sext i32 %328 to i64
-  %330 = mul i64 %329, 4
-  %331 = bitcast { i64, i32 }* %28 to i8*
-  %332 = bitcast %struct.dim3* %26 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %331, i8* align 4 %332, i64 12, i1 false)
-  %333 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %28, i32 0, i32 0
-  %334 = load i64, i64* %333, align 4
-  %335 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %28, i32 0, i32 1
-  %336 = load i32, i32* %335, align 4
-  %337 = bitcast { i64, i32 }* %29 to i8*
-  %338 = bitcast %struct.dim3* %27 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %337, i8* align 4 %338, i64 12, i1 false)
-  %339 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %29, i32 0, i32 0
-  %340 = load i64, i64* %339, align 4
-  %341 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %29, i32 0, i32 1
-  %342 = load i32, i32* %341, align 4
-  %343 = call i32 @__cudaPushCallConfiguration(i64 %334, i32 %336, i64 %340, i32 %342, i64 %330, i8* null)
-  %344 = icmp ne i32 %343, 0
-  br i1 %344, label %378, label %345
+  %322 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 1
+  %323 = load i32, i32* %322, align 4
+  %324 = mul nsw i32 %321, %323
+  %325 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 4
+  %326 = load i32, i32* %325, align 8
+  %327 = mul nsw i32 %324, %326
+  %328 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 5
+  %329 = load i32, i32* %328, align 4
+  %330 = mul nsw i32 %327, %329
+  %331 = sext i32 %330 to i64
+  %332 = mul i64 %331, 4
+  %333 = bitcast { i64, i32 }* %28 to i8*
+  %334 = bitcast %struct.dim3* %26 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %333, i8* align 4 %334, i64 12, i1 false)
+  %335 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %28, i32 0, i32 0
+  %336 = load i64, i64* %335, align 4
+  %337 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %28, i32 0, i32 1
+  %338 = load i32, i32* %337, align 4
+  %339 = bitcast { i64, i32 }* %29 to i8*
+  %340 = bitcast %struct.dim3* %27 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %339, i8* align 4 %340, i64 12, i1 false)
+  %341 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %29, i32 0, i32 0
+  %342 = load i64, i64* %341, align 4
+  %343 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %29, i32 0, i32 1
+  %344 = load i32, i32* %343, align 4
+  %345 = call i32 @__cudaPushCallConfiguration(i64 %336, i32 %338, i64 %342, i32 %344, i64 %332, i8* null)
+  %346 = icmp ne i32 %345, 0
+  br i1 %346, label %380, label %347
 
-345:                                              ; preds = %312
-  %346 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 9
-  %347 = load float*, float** %346, align 8
-  %348 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 22
+347:                                              ; preds = %314
+  %348 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 9
   %349 = load float*, float** %348, align 8
-  %350 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 16
+  %350 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 22
   %351 = load float*, float** %350, align 8
-  %352 = bitcast %class.Benchmark10* %42 to %struct.Benchmark*
-  %353 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %352, i32 0, i32 3
-  %354 = load i32, i32* %353, align 8
-  %355 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 3
-  %356 = load i32, i32* %355, align 4
-  %357 = sdiv i32 %354, %356
-  %358 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 6
-  %359 = load i32, i32* %358, align 8
-  %360 = sdiv i32 %357, %359
-  %361 = bitcast %class.Benchmark10* %42 to %struct.Benchmark*
-  %362 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %361, i32 0, i32 3
-  %363 = load i32, i32* %362, align 8
-  %364 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 3
-  %365 = load i32, i32* %364, align 4
-  %366 = sdiv i32 %363, %365
-  %367 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 6
-  %368 = load i32, i32* %367, align 8
-  %369 = sdiv i32 %366, %368
-  %370 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 4
-  %371 = load i32, i32* %370, align 8
-  %372 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 1
-  %373 = load i32, i32* %372, align 4
-  %374 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 5
+  %352 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 16
+  %353 = load float*, float** %352, align 8
+  %354 = bitcast %class.Benchmark10* %42 to %struct.Benchmark*
+  %355 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %354, i32 0, i32 3
+  %356 = load i32, i32* %355, align 8
+  %357 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 3
+  %358 = load i32, i32* %357, align 4
+  %359 = sdiv i32 %356, %358
+  %360 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 6
+  %361 = load i32, i32* %360, align 8
+  %362 = sdiv i32 %359, %361
+  %363 = bitcast %class.Benchmark10* %42 to %struct.Benchmark*
+  %364 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %363, i32 0, i32 3
+  %365 = load i32, i32* %364, align 8
+  %366 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 3
+  %367 = load i32, i32* %366, align 4
+  %368 = sdiv i32 %365, %367
+  %369 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 6
+  %370 = load i32, i32* %369, align 8
+  %371 = sdiv i32 %368, %370
+  %372 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 4
+  %373 = load i32, i32* %372, align 8
+  %374 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 1
   %375 = load i32, i32* %374, align 4
-  %376 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 3
+  %376 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 5
   %377 = load i32, i32* %376, align 4
-  call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %347, float* %349, float* %351, i32 %360, i32 %369, i32 %371, i32 %373, i32 %375, i32 %377)
-  br label %378
+  %378 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 3
+  %379 = load i32, i32* %378, align 4
+  call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %349, float* %351, float* %353, i32 %362, i32 %371, i32 %373, i32 %375, i32 %377, i32 %379)
+  br label %380
 
-378:                                              ; preds = %345, %312
-  %379 = call i32 @cudaDeviceSynchronize()
-  %380 = bitcast %struct.dim3* %30 to i8*
-  %381 = bitcast %struct.dim3* %7 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %380, i8* align 4 %381, i64 12, i1 false)
-  %382 = bitcast %struct.dim3* %31 to i8*
-  %383 = bitcast %struct.dim3* %5 to i8*
+380:                                              ; preds = %347, %314
+  %381 = call i32 @cudaDeviceSynchronize()
+  %382 = bitcast %struct.dim3* %30 to i8*
+  %383 = bitcast %struct.dim3* %7 to i8*
   call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %382, i8* align 4 %383, i64 12, i1 false)
-  %384 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 1
-  %385 = load i32, i32* %384, align 4
+  %384 = bitcast %struct.dim3* %31 to i8*
+  %385 = bitcast %struct.dim3* %5 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %384, i8* align 4 %385, i64 12, i1 false)
   %386 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 1
   %387 = load i32, i32* %386, align 4
-  %388 = mul nsw i32 %385, %387
-  %389 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 4
-  %390 = load i32, i32* %389, align 8
-  %391 = mul nsw i32 %388, %390
-  %392 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 5
-  %393 = load i32, i32* %392, align 4
-  %394 = mul nsw i32 %391, %393
-  %395 = sext i32 %394 to i64
-  %396 = mul i64 %395, 4
-  %397 = bitcast { i64, i32 }* %32 to i8*
-  %398 = bitcast %struct.dim3* %30 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %397, i8* align 4 %398, i64 12, i1 false)
-  %399 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %32, i32 0, i32 0
-  %400 = load i64, i64* %399, align 4
-  %401 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %32, i32 0, i32 1
-  %402 = load i32, i32* %401, align 4
-  %403 = bitcast { i64, i32 }* %33 to i8*
-  %404 = bitcast %struct.dim3* %31 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %403, i8* align 4 %404, i64 12, i1 false)
-  %405 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %33, i32 0, i32 0
-  %406 = load i64, i64* %405, align 4
-  %407 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %33, i32 0, i32 1
-  %408 = load i32, i32* %407, align 4
-  %409 = call i32 @__cudaPushCallConfiguration(i64 %400, i32 %402, i64 %406, i32 %408, i64 %396, i8* null)
-  %410 = icmp ne i32 %409, 0
-  br i1 %410, label %444, label %411
+  %388 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 1
+  %389 = load i32, i32* %388, align 4
+  %390 = mul nsw i32 %387, %389
+  %391 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 4
+  %392 = load i32, i32* %391, align 8
+  %393 = mul nsw i32 %390, %392
+  %394 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 5
+  %395 = load i32, i32* %394, align 4
+  %396 = mul nsw i32 %393, %395
+  %397 = sext i32 %396 to i64
+  %398 = mul i64 %397, 4
+  %399 = bitcast { i64, i32 }* %32 to i8*
+  %400 = bitcast %struct.dim3* %30 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %399, i8* align 4 %400, i64 12, i1 false)
+  %401 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %32, i32 0, i32 0
+  %402 = load i64, i64* %401, align 4
+  %403 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %32, i32 0, i32 1
+  %404 = load i32, i32* %403, align 4
+  %405 = bitcast { i64, i32 }* %33 to i8*
+  %406 = bitcast %struct.dim3* %31 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %405, i8* align 4 %406, i64 12, i1 false)
+  %407 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %33, i32 0, i32 0
+  %408 = load i64, i64* %407, align 4
+  %409 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %33, i32 0, i32 1
+  %410 = load i32, i32* %409, align 4
+  %411 = call i32 @__cudaPushCallConfiguration(i64 %402, i32 %404, i64 %408, i32 %410, i64 %398, i8* null)
+  %412 = icmp ne i32 %411, 0
+  br i1 %412, label %446, label %413
 
-411:                                              ; preds = %378
-  %412 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 13
-  %413 = load float*, float** %412, align 8
-  %414 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 23
+413:                                              ; preds = %380
+  %414 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 13
   %415 = load float*, float** %414, align 8
-  %416 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 18
+  %416 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 23
   %417 = load float*, float** %416, align 8
-  %418 = bitcast %class.Benchmark10* %42 to %struct.Benchmark*
-  %419 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %418, i32 0, i32 3
-  %420 = load i32, i32* %419, align 8
-  %421 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 3
-  %422 = load i32, i32* %421, align 4
-  %423 = sdiv i32 %420, %422
-  %424 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 6
-  %425 = load i32, i32* %424, align 8
-  %426 = sdiv i32 %423, %425
-  %427 = bitcast %class.Benchmark10* %42 to %struct.Benchmark*
-  %428 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %427, i32 0, i32 3
-  %429 = load i32, i32* %428, align 8
-  %430 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 3
-  %431 = load i32, i32* %430, align 4
-  %432 = sdiv i32 %429, %431
-  %433 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 6
-  %434 = load i32, i32* %433, align 8
-  %435 = sdiv i32 %432, %434
-  %436 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 4
-  %437 = load i32, i32* %436, align 8
-  %438 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 1
-  %439 = load i32, i32* %438, align 4
-  %440 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 5
+  %418 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 18
+  %419 = load float*, float** %418, align 8
+  %420 = bitcast %class.Benchmark10* %42 to %struct.Benchmark*
+  %421 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %420, i32 0, i32 3
+  %422 = load i32, i32* %421, align 8
+  %423 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 3
+  %424 = load i32, i32* %423, align 4
+  %425 = sdiv i32 %422, %424
+  %426 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 6
+  %427 = load i32, i32* %426, align 8
+  %428 = sdiv i32 %425, %427
+  %429 = bitcast %class.Benchmark10* %42 to %struct.Benchmark*
+  %430 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %429, i32 0, i32 3
+  %431 = load i32, i32* %430, align 8
+  %432 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 3
+  %433 = load i32, i32* %432, align 4
+  %434 = sdiv i32 %431, %433
+  %435 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 6
+  %436 = load i32, i32* %435, align 8
+  %437 = sdiv i32 %434, %436
+  %438 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 4
+  %439 = load i32, i32* %438, align 8
+  %440 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 1
   %441 = load i32, i32* %440, align 4
-  %442 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 3
+  %442 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 5
   %443 = load i32, i32* %442, align 4
-  call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %413, float* %415, float* %417, i32 %426, i32 %435, i32 %437, i32 %439, i32 %441, i32 %443)
-  br label %444
+  %444 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 3
+  %445 = load i32, i32* %444, align 4
+  call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %415, float* %417, float* %419, i32 %428, i32 %437, i32 %439, i32 %441, i32 %443, i32 %445)
+  br label %446
 
-444:                                              ; preds = %411, %378
-  %445 = call i32 @cudaDeviceSynchronize()
-  %446 = bitcast %class.Benchmark10* %42 to %struct.Benchmark*
-  %447 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %446, i32 0, i32 6
-  %448 = load i32, i32* %447, align 4
-  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %34, i32 %448, i32 1, i32 1)
-  %449 = bitcast %class.Benchmark10* %42 to %struct.Benchmark*
-  %450 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %449, i32 0, i32 4
-  %451 = load i32, i32* %450, align 4
-  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %35, i32 %451, i32 1, i32 1)
-  %452 = bitcast { i64, i32 }* %36 to i8*
-  %453 = bitcast %struct.dim3* %34 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %452, i8* align 4 %453, i64 12, i1 false)
-  %454 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %36, i32 0, i32 0
-  %455 = load i64, i64* %454, align 4
-  %456 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %36, i32 0, i32 1
-  %457 = load i32, i32* %456, align 4
-  %458 = bitcast { i64, i32 }* %37 to i8*
-  %459 = bitcast %struct.dim3* %35 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %458, i8* align 4 %459, i64 12, i1 false)
-  %460 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %37, i32 0, i32 0
-  %461 = load i64, i64* %460, align 4
-  %462 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %37, i32 0, i32 1
-  %463 = load i32, i32* %462, align 4
-  %464 = call i32 @__cudaPushCallConfiguration(i64 %455, i32 %457, i64 %461, i32 %463, i64 0, i8* null)
-  %465 = icmp ne i32 %464, 0
-  br i1 %465, label %475, label %466
+446:                                              ; preds = %413, %380
+  %447 = call i32 @cudaDeviceSynchronize()
+  %448 = bitcast %class.Benchmark10* %42 to %struct.Benchmark*
+  %449 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %448, i32 0, i32 6
+  %450 = load i32, i32* %449, align 4
+  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %34, i32 %450, i32 1, i32 1)
+  %451 = bitcast %class.Benchmark10* %42 to %struct.Benchmark*
+  %452 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %451, i32 0, i32 4
+  %453 = load i32, i32* %452, align 4
+  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %35, i32 %453, i32 1, i32 1)
+  %454 = bitcast { i64, i32 }* %36 to i8*
+  %455 = bitcast %struct.dim3* %34 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %454, i8* align 4 %455, i64 12, i1 false)
+  %456 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %36, i32 0, i32 0
+  %457 = load i64, i64* %456, align 4
+  %458 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %36, i32 0, i32 1
+  %459 = load i32, i32* %458, align 4
+  %460 = bitcast { i64, i32 }* %37 to i8*
+  %461 = bitcast %struct.dim3* %35 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %460, i8* align 4 %461, i64 12, i1 false)
+  %462 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %37, i32 0, i32 0
+  %463 = load i64, i64* %462, align 4
+  %464 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %37, i32 0, i32 1
+  %465 = load i32, i32* %464, align 4
+  %466 = call i32 @__cudaPushCallConfiguration(i64 %457, i32 %459, i64 %463, i32 %465, i64 0, i8* null)
+  %467 = icmp ne i32 %466, 0
+  br i1 %467, label %477, label %468
 
-466:                                              ; preds = %444
-  %467 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 19
-  %468 = load float*, float** %467, align 8
-  %469 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 9
+468:                                              ; preds = %446
+  %469 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 19
   %470 = load float*, float** %469, align 8
-  %471 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 13
+  %471 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 9
   %472 = load float*, float** %471, align 8
-  %473 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 29
-  %474 = load i32, i32* %473, align 4
-  call void @_Z21__device_stub__concatiPfS_S_i(i32 1, float* %468, float* %470, float* %472, i32 %474)
-  br label %475
+  %473 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 13
+  %474 = load float*, float** %473, align 8
+  %475 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 29
+  %476 = load i32, i32* %475, align 4
+  call void @_Z21__device_stub__concatiPfS_S_i(i32 1, float* %470, float* %472, float* %474, i32 %476)
+  br label %477
 
-475:                                              ; preds = %466, %444
-  %476 = call i32 @cudaDeviceSynchronize()
-  %477 = bitcast %class.Benchmark10* %42 to %struct.Benchmark*
-  %478 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %477, i32 0, i32 6
-  %479 = load i32, i32* %478, align 4
-  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %38, i32 %479, i32 1, i32 1)
-  %480 = bitcast %class.Benchmark10* %42 to %struct.Benchmark*
-  %481 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %480, i32 0, i32 4
-  %482 = load i32, i32* %481, align 4
-  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %39, i32 %482, i32 1, i32 1)
-  %483 = bitcast { i64, i32 }* %40 to i8*
-  %484 = bitcast %struct.dim3* %38 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %483, i8* align 4 %484, i64 12, i1 false)
-  %485 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %40, i32 0, i32 0
-  %486 = load i64, i64* %485, align 4
-  %487 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %40, i32 0, i32 1
-  %488 = load i32, i32* %487, align 4
-  %489 = bitcast { i64, i32 }* %41 to i8*
-  %490 = bitcast %struct.dim3* %39 to i8*
-  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %489, i8* align 4 %490, i64 12, i1 false)
-  %491 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %41, i32 0, i32 0
-  %492 = load i64, i64* %491, align 4
-  %493 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %41, i32 0, i32 1
-  %494 = load i32, i32* %493, align 4
-  %495 = call i32 @__cudaPushCallConfiguration(i64 %486, i32 %488, i64 %492, i32 %494, i64 0, i8* null)
-  %496 = icmp ne i32 %495, 0
-  br i1 %496, label %506, label %497
+477:                                              ; preds = %468, %446
+  %478 = call i32 @cudaDeviceSynchronize()
+  %479 = bitcast %class.Benchmark10* %42 to %struct.Benchmark*
+  %480 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %479, i32 0, i32 6
+  %481 = load i32, i32* %480, align 4
+  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %38, i32 %481, i32 1, i32 1)
+  %482 = bitcast %class.Benchmark10* %42 to %struct.Benchmark*
+  %483 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %482, i32 0, i32 4
+  %484 = load i32, i32* %483, align 4
+  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %39, i32 %484, i32 1, i32 1)
+  %485 = bitcast { i64, i32 }* %40 to i8*
+  %486 = bitcast %struct.dim3* %38 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %485, i8* align 4 %486, i64 12, i1 false)
+  %487 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %40, i32 0, i32 0
+  %488 = load i64, i64* %487, align 4
+  %489 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %40, i32 0, i32 1
+  %490 = load i32, i32* %489, align 4
+  %491 = bitcast { i64, i32 }* %41 to i8*
+  %492 = bitcast %struct.dim3* %39 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %491, i8* align 4 %492, i64 12, i1 false)
+  %493 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %41, i32 0, i32 0
+  %494 = load i64, i64* %493, align 4
+  %495 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %41, i32 0, i32 1
+  %496 = load i32, i32* %495, align 4
+  %497 = call i32 @__cudaPushCallConfiguration(i64 %488, i32 %490, i64 %494, i32 %496, i64 0, i8* null)
+  %498 = icmp ne i32 %497, 0
+  br i1 %498, label %508, label %499
 
-497:                                              ; preds = %475
-  %498 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 21
-  %499 = load float*, float** %498, align 8
-  %500 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 19
+499:                                              ; preds = %477
+  %500 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 21
   %501 = load float*, float** %500, align 8
-  %502 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 20
+  %502 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 19
   %503 = load float*, float** %502, align 8
-  %504 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 29
-  %505 = load i32, i32* %504, align 4
-  call void @_Z26__device_stub__dot_productiPfS_S_i(i32 1, float* %499, float* %501, float* %503, i32 %505)
-  br label %506
+  %504 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 20
+  %505 = load float*, float** %504, align 8
+  %506 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %42, i32 0, i32 29
+  %507 = load i32, i32* %506, align 4
+  call void @_Z26__device_stub__dot_productiPfS_S_i(i32 1, float* %501, float* %503, float* %505, i32 %507)
+  br label %508
 
-506:                                              ; preds = %497, %475
-  %507 = call i32 @cudaDeviceSynchronize()
+508:                                              ; preds = %499, %477
+  %509 = call i32 @cudaDeviceSynchronize()
   ret void
 }
 
@@ -1726,9 +1728,9 @@ define linkonce_odr dso_local void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4
 
 declare dso_local i32 @cudaMemPrefetchAsync(i8*, i64, i32, %struct.CUstream_st*) #1
 
-declare dso_local i32 @__cudaPushCallConfiguration(i64, i32, i64, i32, i64, i8*) #1
-
 declare dso_local i32 @cudaDeviceSynchronize() #1
+
+declare dso_local i32 @__cudaPushCallConfiguration(i64, i32, i64, i32, i64, i8*) #1
 
 ; Function Attrs: mustprogress noinline optnone uwtable
 define dso_local void @_Z7FUNCb10PfS_S_iiiiiS_S_S_S_iS_S_S_iS_S_S_iS_S_iiii(float* %0, float* %1, float* %2, i32 %3, i32 %4, i32 %5, i32 %6, i32 %7, float* %8, float* %9, float* %10, float* %11, i32 %12, float* %13, float* %14, float* %15, i32 %16, float* %17, float* %18, float* %19, i32 %20, float* %21, float* %22, i32 %23, i32 %24, i32 %25, i32 %26) #6 {
@@ -2226,6 +2228,517 @@ define dso_local void @_Z7FUNCb10PfS_S_iiiiiS_S_S_S_iS_S_S_iS_S_S_iS_S_iiii(floa
 }
 
 ; Function Attrs: mustprogress noinline optnone uwtable
+define dso_local void @_Z16FUNCb10_prefetchPfS_S_iiiiiS_S_S_S_iS_S_S_iS_S_S_iS_S_iiiiii(float* %0, float* %1, float* %2, i32 %3, i32 %4, i32 %5, i32 %6, i32 %7, float* %8, float* %9, float* %10, float* %11, i32 %12, float* %13, float* %14, float* %15, i32 %16, float* %17, float* %18, float* %19, i32 %20, float* %21, float* %22, i32 %23, i32 %24, i32 %25, i32 %26, i32 %27, i32 %28) #6 {
+  %30 = alloca float*, align 8
+  %31 = alloca float*, align 8
+  %32 = alloca float*, align 8
+  %33 = alloca i32, align 4
+  %34 = alloca i32, align 4
+  %35 = alloca i32, align 4
+  %36 = alloca i32, align 4
+  %37 = alloca i32, align 4
+  %38 = alloca float*, align 8
+  %39 = alloca float*, align 8
+  %40 = alloca float*, align 8
+  %41 = alloca float*, align 8
+  %42 = alloca i32, align 4
+  %43 = alloca float*, align 8
+  %44 = alloca float*, align 8
+  %45 = alloca float*, align 8
+  %46 = alloca i32, align 4
+  %47 = alloca float*, align 8
+  %48 = alloca float*, align 8
+  %49 = alloca float*, align 8
+  %50 = alloca i32, align 4
+  %51 = alloca float*, align 8
+  %52 = alloca float*, align 8
+  %53 = alloca i32, align 4
+  %54 = alloca i32, align 4
+  %55 = alloca i32, align 4
+  %56 = alloca i32, align 4
+  %57 = alloca i32, align 4
+  %58 = alloca i32, align 4
+  %59 = alloca %struct.dim3, align 4
+  %60 = alloca %struct.dim3, align 4
+  %61 = alloca %struct.dim3, align 4
+  %62 = alloca %struct.dim3, align 4
+  %63 = alloca { i64, i32 }, align 4
+  %64 = alloca { i64, i32 }, align 4
+  %65 = alloca %struct.dim3, align 4
+  %66 = alloca %struct.dim3, align 4
+  %67 = alloca %struct.dim3, align 4
+  %68 = alloca %struct.dim3, align 4
+  %69 = alloca { i64, i32 }, align 4
+  %70 = alloca { i64, i32 }, align 4
+  %71 = alloca %struct.dim3, align 4
+  %72 = alloca %struct.dim3, align 4
+  %73 = alloca %struct.dim3, align 4
+  %74 = alloca %struct.dim3, align 4
+  %75 = alloca { i64, i32 }, align 4
+  %76 = alloca { i64, i32 }, align 4
+  %77 = alloca %struct.dim3, align 4
+  %78 = alloca %struct.dim3, align 4
+  %79 = alloca %struct.dim3, align 4
+  %80 = alloca %struct.dim3, align 4
+  %81 = alloca { i64, i32 }, align 4
+  %82 = alloca { i64, i32 }, align 4
+  %83 = alloca %struct.dim3, align 4
+  %84 = alloca %struct.dim3, align 4
+  %85 = alloca %struct.dim3, align 4
+  %86 = alloca %struct.dim3, align 4
+  %87 = alloca { i64, i32 }, align 4
+  %88 = alloca { i64, i32 }, align 4
+  %89 = alloca %struct.dim3, align 4
+  %90 = alloca %struct.dim3, align 4
+  %91 = alloca %struct.dim3, align 4
+  %92 = alloca %struct.dim3, align 4
+  %93 = alloca { i64, i32 }, align 4
+  %94 = alloca { i64, i32 }, align 4
+  %95 = alloca %struct.dim3, align 4
+  %96 = alloca %struct.dim3, align 4
+  %97 = alloca { i64, i32 }, align 4
+  %98 = alloca { i64, i32 }, align 4
+  %99 = alloca %struct.dim3, align 4
+  %100 = alloca %struct.dim3, align 4
+  %101 = alloca { i64, i32 }, align 4
+  %102 = alloca { i64, i32 }, align 4
+  store float* %0, float** %30, align 8
+  store float* %1, float** %31, align 8
+  store float* %2, float** %32, align 8
+  store i32 %3, i32* %33, align 4
+  store i32 %4, i32* %34, align 4
+  store i32 %5, i32* %35, align 4
+  store i32 %6, i32* %36, align 4
+  store i32 %7, i32* %37, align 4
+  store float* %8, float** %38, align 8
+  store float* %9, float** %39, align 8
+  store float* %10, float** %40, align 8
+  store float* %11, float** %41, align 8
+  store i32 %12, i32* %42, align 4
+  store float* %13, float** %43, align 8
+  store float* %14, float** %44, align 8
+  store float* %15, float** %45, align 8
+  store i32 %16, i32* %46, align 4
+  store float* %17, float** %47, align 8
+  store float* %18, float** %48, align 8
+  store float* %19, float** %49, align 8
+  store i32 %20, i32* %50, align 4
+  store float* %21, float** %51, align 8
+  store float* %22, float** %52, align 8
+  store i32 %23, i32* %53, align 4
+  store i32 %24, i32* %54, align 4
+  store i32 %25, i32* %55, align 4
+  store i32 %26, i32* %56, align 4
+  store i32 %27, i32* %57, align 4
+  store i32 %28, i32* %58, align 4
+  %103 = load float*, float** %31, align 8
+  %104 = bitcast float* %103 to i8*
+  %105 = load i32, i32* %57, align 4
+  %106 = sext i32 %105 to i64
+  %107 = load i32, i32* %58, align 4
+  %108 = call i32 @cudaMemPrefetchAsync(i8* %104, i64 %106, i32 %107, %struct.CUstream_st* null)
+  %109 = load float*, float** %39, align 8
+  %110 = bitcast float* %109 to i8*
+  %111 = load i32, i32* %57, align 4
+  %112 = sext i32 %111 to i64
+  %113 = load i32, i32* %58, align 4
+  %114 = call i32 @cudaMemPrefetchAsync(i8* %110, i64 %112, i32 %113, %struct.CUstream_st* null)
+  %115 = load i32, i32* %56, align 4
+  %116 = load i32, i32* %56, align 4
+  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %59, i32 %115, i32 %116, i32 1)
+  %117 = load i32, i32* %53, align 4
+  %118 = load i32, i32* %53, align 4
+  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %60, i32 %117, i32 %118, i32 1)
+  %119 = bitcast %struct.dim3* %61 to i8*
+  %120 = bitcast %struct.dim3* %59 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %119, i8* align 4 %120, i64 12, i1 false)
+  %121 = bitcast %struct.dim3* %62 to i8*
+  %122 = bitcast %struct.dim3* %60 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %121, i8* align 4 %122, i64 12, i1 false)
+  %123 = load i32, i32* %35, align 4
+  %124 = load i32, i32* %35, align 4
+  %125 = mul nsw i32 %123, %124
+  %126 = load i32, i32* %36, align 4
+  %127 = mul nsw i32 %125, %126
+  %128 = load i32, i32* %34, align 4
+  %129 = mul nsw i32 %127, %128
+  %130 = sext i32 %129 to i64
+  %131 = mul i64 %130, 4
+  %132 = bitcast { i64, i32 }* %63 to i8*
+  %133 = bitcast %struct.dim3* %61 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %132, i8* align 4 %133, i64 12, i1 false)
+  %134 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %63, i32 0, i32 0
+  %135 = load i64, i64* %134, align 4
+  %136 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %63, i32 0, i32 1
+  %137 = load i32, i32* %136, align 4
+  %138 = bitcast { i64, i32 }* %64 to i8*
+  %139 = bitcast %struct.dim3* %62 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %138, i8* align 4 %139, i64 12, i1 false)
+  %140 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %64, i32 0, i32 0
+  %141 = load i64, i64* %140, align 4
+  %142 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %64, i32 0, i32 1
+  %143 = load i32, i32* %142, align 4
+  %144 = call i32 @__cudaPushCallConfiguration(i64 %135, i32 %137, i64 %141, i32 %143, i64 %131, i8* null)
+  %145 = icmp ne i32 %144, 0
+  br i1 %145, label %156, label %146
+
+146:                                              ; preds = %29
+  %147 = load float*, float** %30, align 8
+  %148 = load float*, float** %31, align 8
+  %149 = load float*, float** %32, align 8
+  %150 = load i32, i32* %33, align 4
+  %151 = load i32, i32* %33, align 4
+  %152 = load i32, i32* %34, align 4
+  %153 = load i32, i32* %35, align 4
+  %154 = load i32, i32* %36, align 4
+  %155 = load i32, i32* %37, align 4
+  call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %147, float* %148, float* %149, i32 %150, i32 %151, i32 %152, i32 %153, i32 %154, i32 %155)
+  br label %156
+
+156:                                              ; preds = %146, %29
+  %157 = load i32, i32* %56, align 4
+  %158 = load i32, i32* %56, align 4
+  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %65, i32 %157, i32 %158, i32 1)
+  %159 = load i32, i32* %53, align 4
+  %160 = load i32, i32* %53, align 4
+  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %66, i32 %159, i32 %160, i32 1)
+  %161 = bitcast %struct.dim3* %67 to i8*
+  %162 = bitcast %struct.dim3* %65 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %161, i8* align 4 %162, i64 12, i1 false)
+  %163 = bitcast %struct.dim3* %68 to i8*
+  %164 = bitcast %struct.dim3* %66 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %163, i8* align 4 %164, i64 12, i1 false)
+  %165 = load i32, i32* %35, align 4
+  %166 = load i32, i32* %35, align 4
+  %167 = mul nsw i32 %165, %166
+  %168 = load i32, i32* %36, align 4
+  %169 = mul nsw i32 %167, %168
+  %170 = load i32, i32* %34, align 4
+  %171 = mul nsw i32 %169, %170
+  %172 = sext i32 %171 to i64
+  %173 = mul i64 %172, 4
+  %174 = bitcast { i64, i32 }* %69 to i8*
+  %175 = bitcast %struct.dim3* %67 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %174, i8* align 4 %175, i64 12, i1 false)
+  %176 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %69, i32 0, i32 0
+  %177 = load i64, i64* %176, align 4
+  %178 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %69, i32 0, i32 1
+  %179 = load i32, i32* %178, align 4
+  %180 = bitcast { i64, i32 }* %70 to i8*
+  %181 = bitcast %struct.dim3* %68 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %180, i8* align 4 %181, i64 12, i1 false)
+  %182 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %70, i32 0, i32 0
+  %183 = load i64, i64* %182, align 4
+  %184 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %70, i32 0, i32 1
+  %185 = load i32, i32* %184, align 4
+  %186 = call i32 @__cudaPushCallConfiguration(i64 %177, i32 %179, i64 %183, i32 %185, i64 %173, i8* null)
+  %187 = icmp ne i32 %186, 0
+  br i1 %187, label %198, label %188
+
+188:                                              ; preds = %156
+  %189 = load float*, float** %38, align 8
+  %190 = load float*, float** %39, align 8
+  %191 = load float*, float** %40, align 8
+  %192 = load i32, i32* %33, align 4
+  %193 = load i32, i32* %33, align 4
+  %194 = load i32, i32* %34, align 4
+  %195 = load i32, i32* %35, align 4
+  %196 = load i32, i32* %36, align 4
+  %197 = load i32, i32* %37, align 4
+  call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %189, float* %190, float* %191, i32 %192, i32 %193, i32 %194, i32 %195, i32 %196, i32 %197)
+  br label %198
+
+198:                                              ; preds = %188, %156
+  %199 = load i32, i32* %56, align 4
+  %200 = load i32, i32* %56, align 4
+  %201 = load i32, i32* %56, align 4
+  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %71, i32 %199, i32 %200, i32 %201)
+  %202 = load i32, i32* %53, align 4
+  %203 = sdiv i32 %202, 2
+  %204 = load i32, i32* %53, align 4
+  %205 = sdiv i32 %204, 2
+  %206 = load i32, i32* %53, align 4
+  %207 = sdiv i32 %206, 2
+  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %72, i32 %203, i32 %205, i32 %207)
+  %208 = bitcast %struct.dim3* %73 to i8*
+  %209 = bitcast %struct.dim3* %71 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %208, i8* align 4 %209, i64 12, i1 false)
+  %210 = bitcast %struct.dim3* %74 to i8*
+  %211 = bitcast %struct.dim3* %72 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %210, i8* align 4 %211, i64 12, i1 false)
+  %212 = bitcast { i64, i32 }* %75 to i8*
+  %213 = bitcast %struct.dim3* %73 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %212, i8* align 4 %213, i64 12, i1 false)
+  %214 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %75, i32 0, i32 0
+  %215 = load i64, i64* %214, align 4
+  %216 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %75, i32 0, i32 1
+  %217 = load i32, i32* %216, align 4
+  %218 = bitcast { i64, i32 }* %76 to i8*
+  %219 = bitcast %struct.dim3* %74 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %218, i8* align 4 %219, i64 12, i1 false)
+  %220 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %76, i32 0, i32 0
+  %221 = load i64, i64* %220, align 4
+  %222 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %76, i32 0, i32 1
+  %223 = load i32, i32* %222, align 4
+  %224 = call i32 @__cudaPushCallConfiguration(i64 %215, i32 %217, i64 %221, i32 %223, i64 0, i8* null)
+  %225 = icmp ne i32 %224, 0
+  br i1 %225, label %238, label %226
+
+226:                                              ; preds = %198
+  %227 = load float*, float** %41, align 8
+  %228 = load float*, float** %30, align 8
+  %229 = load i32, i32* %33, align 4
+  %230 = load i32, i32* %37, align 4
+  %231 = sdiv i32 %229, %230
+  %232 = load i32, i32* %33, align 4
+  %233 = load i32, i32* %37, align 4
+  %234 = sdiv i32 %232, %233
+  %235 = load i32, i32* %36, align 4
+  %236 = load i32, i32* %42, align 4
+  %237 = load i32, i32* %42, align 4
+  call void @_Z27__device_stub__mean_poolingiPfS_iiiii(i32 1, float* %227, float* %228, i32 %231, i32 %234, i32 %235, i32 %236, i32 %237)
+  br label %238
+
+238:                                              ; preds = %226, %198
+  %239 = load i32, i32* %56, align 4
+  %240 = load i32, i32* %56, align 4
+  %241 = load i32, i32* %56, align 4
+  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %77, i32 %239, i32 %240, i32 %241)
+  %242 = load i32, i32* %53, align 4
+  %243 = sdiv i32 %242, 2
+  %244 = load i32, i32* %53, align 4
+  %245 = sdiv i32 %244, 2
+  %246 = load i32, i32* %53, align 4
+  %247 = sdiv i32 %246, 2
+  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %78, i32 %243, i32 %245, i32 %247)
+  %248 = bitcast %struct.dim3* %79 to i8*
+  %249 = bitcast %struct.dim3* %77 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %248, i8* align 4 %249, i64 12, i1 false)
+  %250 = bitcast %struct.dim3* %80 to i8*
+  %251 = bitcast %struct.dim3* %78 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %250, i8* align 4 %251, i64 12, i1 false)
+  %252 = bitcast { i64, i32 }* %81 to i8*
+  %253 = bitcast %struct.dim3* %79 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %252, i8* align 4 %253, i64 12, i1 false)
+  %254 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %81, i32 0, i32 0
+  %255 = load i64, i64* %254, align 4
+  %256 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %81, i32 0, i32 1
+  %257 = load i32, i32* %256, align 4
+  %258 = bitcast { i64, i32 }* %82 to i8*
+  %259 = bitcast %struct.dim3* %80 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %258, i8* align 4 %259, i64 12, i1 false)
+  %260 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %82, i32 0, i32 0
+  %261 = load i64, i64* %260, align 4
+  %262 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %82, i32 0, i32 1
+  %263 = load i32, i32* %262, align 4
+  %264 = call i32 @__cudaPushCallConfiguration(i64 %255, i32 %257, i64 %261, i32 %263, i64 0, i8* null)
+  %265 = icmp ne i32 %264, 0
+  br i1 %265, label %278, label %266
+
+266:                                              ; preds = %238
+  %267 = load float*, float** %43, align 8
+  %268 = load float*, float** %38, align 8
+  %269 = load i32, i32* %33, align 4
+  %270 = load i32, i32* %37, align 4
+  %271 = sdiv i32 %269, %270
+  %272 = load i32, i32* %33, align 4
+  %273 = load i32, i32* %37, align 4
+  %274 = sdiv i32 %272, %273
+  %275 = load i32, i32* %36, align 4
+  %276 = load i32, i32* %42, align 4
+  %277 = load i32, i32* %42, align 4
+  call void @_Z27__device_stub__mean_poolingiPfS_iiiii(i32 1, float* %267, float* %268, i32 %271, i32 %274, i32 %275, i32 %276, i32 %277)
+  br label %278
+
+278:                                              ; preds = %266, %238
+  %279 = load i32, i32* %56, align 4
+  %280 = load i32, i32* %56, align 4
+  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %83, i32 %279, i32 %280, i32 1)
+  %281 = load i32, i32* %53, align 4
+  %282 = load i32, i32* %53, align 4
+  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %84, i32 %281, i32 %282, i32 1)
+  %283 = bitcast %struct.dim3* %85 to i8*
+  %284 = bitcast %struct.dim3* %83 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %283, i8* align 4 %284, i64 12, i1 false)
+  %285 = bitcast %struct.dim3* %86 to i8*
+  %286 = bitcast %struct.dim3* %84 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %285, i8* align 4 %286, i64 12, i1 false)
+  %287 = load i32, i32* %35, align 4
+  %288 = load i32, i32* %35, align 4
+  %289 = mul nsw i32 %287, %288
+  %290 = load i32, i32* %36, align 4
+  %291 = mul nsw i32 %289, %290
+  %292 = load i32, i32* %46, align 4
+  %293 = mul nsw i32 %291, %292
+  %294 = sext i32 %293 to i64
+  %295 = mul i64 %294, 4
+  %296 = bitcast { i64, i32 }* %87 to i8*
+  %297 = bitcast %struct.dim3* %85 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %296, i8* align 4 %297, i64 12, i1 false)
+  %298 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %87, i32 0, i32 0
+  %299 = load i64, i64* %298, align 4
+  %300 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %87, i32 0, i32 1
+  %301 = load i32, i32* %300, align 4
+  %302 = bitcast { i64, i32 }* %88 to i8*
+  %303 = bitcast %struct.dim3* %86 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %302, i8* align 4 %303, i64 12, i1 false)
+  %304 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %88, i32 0, i32 0
+  %305 = load i64, i64* %304, align 4
+  %306 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %88, i32 0, i32 1
+  %307 = load i32, i32* %306, align 4
+  %308 = call i32 @__cudaPushCallConfiguration(i64 %299, i32 %301, i64 %305, i32 %307, i64 %295, i8* null)
+  %309 = icmp ne i32 %308, 0
+  br i1 %309, label %328, label %310
+
+310:                                              ; preds = %278
+  %311 = load float*, float** %44, align 8
+  %312 = load float*, float** %41, align 8
+  %313 = load float*, float** %45, align 8
+  %314 = load i32, i32* %33, align 4
+  %315 = load i32, i32* %37, align 4
+  %316 = sdiv i32 %314, %315
+  %317 = load i32, i32* %42, align 4
+  %318 = sdiv i32 %316, %317
+  %319 = load i32, i32* %33, align 4
+  %320 = load i32, i32* %37, align 4
+  %321 = sdiv i32 %319, %320
+  %322 = load i32, i32* %42, align 4
+  %323 = sdiv i32 %321, %322
+  %324 = load i32, i32* %36, align 4
+  %325 = load i32, i32* %35, align 4
+  %326 = load i32, i32* %46, align 4
+  %327 = load i32, i32* %37, align 4
+  call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %311, float* %312, float* %313, i32 %318, i32 %323, i32 %324, i32 %325, i32 %326, i32 %327)
+  br label %328
+
+328:                                              ; preds = %310, %278
+  %329 = load i32, i32* %56, align 4
+  %330 = load i32, i32* %56, align 4
+  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %89, i32 %329, i32 %330, i32 1)
+  %331 = load i32, i32* %53, align 4
+  %332 = load i32, i32* %53, align 4
+  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %90, i32 %331, i32 %332, i32 1)
+  %333 = bitcast %struct.dim3* %91 to i8*
+  %334 = bitcast %struct.dim3* %89 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %333, i8* align 4 %334, i64 12, i1 false)
+  %335 = bitcast %struct.dim3* %92 to i8*
+  %336 = bitcast %struct.dim3* %90 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %335, i8* align 4 %336, i64 12, i1 false)
+  %337 = load i32, i32* %35, align 4
+  %338 = load i32, i32* %35, align 4
+  %339 = mul nsw i32 %337, %338
+  %340 = load i32, i32* %36, align 4
+  %341 = mul nsw i32 %339, %340
+  %342 = load i32, i32* %46, align 4
+  %343 = mul nsw i32 %341, %342
+  %344 = sext i32 %343 to i64
+  %345 = mul i64 %344, 4
+  %346 = bitcast { i64, i32 }* %93 to i8*
+  %347 = bitcast %struct.dim3* %91 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %346, i8* align 4 %347, i64 12, i1 false)
+  %348 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %93, i32 0, i32 0
+  %349 = load i64, i64* %348, align 4
+  %350 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %93, i32 0, i32 1
+  %351 = load i32, i32* %350, align 4
+  %352 = bitcast { i64, i32 }* %94 to i8*
+  %353 = bitcast %struct.dim3* %92 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %352, i8* align 4 %353, i64 12, i1 false)
+  %354 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %94, i32 0, i32 0
+  %355 = load i64, i64* %354, align 4
+  %356 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %94, i32 0, i32 1
+  %357 = load i32, i32* %356, align 4
+  %358 = call i32 @__cudaPushCallConfiguration(i64 %349, i32 %351, i64 %355, i32 %357, i64 %345, i8* null)
+  %359 = icmp ne i32 %358, 0
+  br i1 %359, label %378, label %360
+
+360:                                              ; preds = %328
+  %361 = load float*, float** %47, align 8
+  %362 = load float*, float** %43, align 8
+  %363 = load float*, float** %48, align 8
+  %364 = load i32, i32* %33, align 4
+  %365 = load i32, i32* %37, align 4
+  %366 = sdiv i32 %364, %365
+  %367 = load i32, i32* %42, align 4
+  %368 = sdiv i32 %366, %367
+  %369 = load i32, i32* %33, align 4
+  %370 = load i32, i32* %37, align 4
+  %371 = sdiv i32 %369, %370
+  %372 = load i32, i32* %42, align 4
+  %373 = sdiv i32 %371, %372
+  %374 = load i32, i32* %36, align 4
+  %375 = load i32, i32* %35, align 4
+  %376 = load i32, i32* %46, align 4
+  %377 = load i32, i32* %37, align 4
+  call void @_Z21__device_stub__conv2diPfS_S_iiiiii(i32 1, float* %361, float* %362, float* %363, i32 %368, i32 %373, i32 %374, i32 %375, i32 %376, i32 %377)
+  br label %378
+
+378:                                              ; preds = %360, %328
+  %379 = load i32, i32* %54, align 4
+  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %95, i32 %379, i32 1, i32 1)
+  %380 = load i32, i32* %55, align 4
+  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %96, i32 %380, i32 1, i32 1)
+  %381 = bitcast { i64, i32 }* %97 to i8*
+  %382 = bitcast %struct.dim3* %95 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %381, i8* align 4 %382, i64 12, i1 false)
+  %383 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %97, i32 0, i32 0
+  %384 = load i64, i64* %383, align 4
+  %385 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %97, i32 0, i32 1
+  %386 = load i32, i32* %385, align 4
+  %387 = bitcast { i64, i32 }* %98 to i8*
+  %388 = bitcast %struct.dim3* %96 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %387, i8* align 4 %388, i64 12, i1 false)
+  %389 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %98, i32 0, i32 0
+  %390 = load i64, i64* %389, align 4
+  %391 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %98, i32 0, i32 1
+  %392 = load i32, i32* %391, align 4
+  %393 = call i32 @__cudaPushCallConfiguration(i64 %384, i32 %386, i64 %390, i32 %392, i64 0, i8* null)
+  %394 = icmp ne i32 %393, 0
+  br i1 %394, label %400, label %395
+
+395:                                              ; preds = %378
+  %396 = load float*, float** %49, align 8
+  %397 = load float*, float** %44, align 8
+  %398 = load float*, float** %47, align 8
+  %399 = load i32, i32* %50, align 4
+  call void @_Z21__device_stub__concatiPfS_S_i(i32 1, float* %396, float* %397, float* %398, i32 %399)
+  br label %400
+
+400:                                              ; preds = %395, %378
+  %401 = load i32, i32* %54, align 4
+  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %99, i32 %401, i32 1, i32 1)
+  %402 = load i32, i32* %55, align 4
+  call void @_ZN4dim3C2Ejjj(%struct.dim3* nonnull align 4 dereferenceable(12) %100, i32 %402, i32 1, i32 1)
+  %403 = bitcast { i64, i32 }* %101 to i8*
+  %404 = bitcast %struct.dim3* %99 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %403, i8* align 4 %404, i64 12, i1 false)
+  %405 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %101, i32 0, i32 0
+  %406 = load i64, i64* %405, align 4
+  %407 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %101, i32 0, i32 1
+  %408 = load i32, i32* %407, align 4
+  %409 = bitcast { i64, i32 }* %102 to i8*
+  %410 = bitcast %struct.dim3* %100 to i8*
+  call void @llvm.memcpy.p0i8.p0i8.i64(i8* align 4 %409, i8* align 4 %410, i64 12, i1 false)
+  %411 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %102, i32 0, i32 0
+  %412 = load i64, i64* %411, align 4
+  %413 = getelementptr inbounds { i64, i32 }, { i64, i32 }* %102, i32 0, i32 1
+  %414 = load i32, i32* %413, align 4
+  %415 = call i32 @__cudaPushCallConfiguration(i64 %406, i32 %408, i64 %412, i32 %414, i64 0, i8* null)
+  %416 = icmp ne i32 %415, 0
+  br i1 %416, label %422, label %417
+
+417:                                              ; preds = %400
+  %418 = load float*, float** %51, align 8
+  %419 = load float*, float** %49, align 8
+  %420 = load float*, float** %52, align 8
+  %421 = load i32, i32* %50, align 4
+  call void @_Z26__device_stub__dot_productiPfS_S_i(i32 1, float* %418, float* %419, float* %420, i32 %421)
+  br label %422
+
+422:                                              ; preds = %417, %400
+  ret void
+}
+
+; Function Attrs: mustprogress noinline optnone uwtable
 define dso_local void @_ZN11Benchmark1016execute_AssOfKFCEi(%class.Benchmark10* nonnull align 8 dereferenceable(840) %0, i32 %1) unnamed_addr #6 align 2 {
   %3 = alloca %class.Benchmark10*, align 8
   %4 = alloca i32, align 4
@@ -2236,102 +2749,152 @@ define dso_local void @_ZN11Benchmark1016execute_AssOfKFCEi(%class.Benchmark10* 
   %7 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %6, i32 0, i32 8
   %8 = load i8, i8* %7, align 4
   %9 = trunc i8 %8 to i1
-  br i1 %9, label %10, label %38
+  br i1 %9, label %10, label %84
 
 10:                                               ; preds = %2
   %11 = bitcast %class.Benchmark10* %5 to %struct.Benchmark*
   %12 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %11, i32 0, i32 11
   %13 = load i32, i32* %12, align 8
   %14 = icmp ne i32 %13, 0
-  br i1 %14, label %15, label %38
+  br i1 %14, label %15, label %84
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 7
+  %16 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 8
   %17 = load float*, float** %16, align 8
-  %18 = bitcast float* %17 to i8*
-  %19 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 26
-  %20 = load i32, i32* %19, align 8
-  %21 = sext i32 %20 to i64
-  %22 = mul i64 4, %21
-  %23 = bitcast %class.Benchmark10* %5 to %struct.Benchmark*
-  %24 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %23, i32 0, i32 15
-  %25 = load i32, i32* %24, align 8
-  %26 = call i32 @cudaMemPrefetchAsync(i8* %18, i64 %22, i32 %25, %struct.CUstream_st* null)
-  %27 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 11
-  %28 = load float*, float** %27, align 8
-  %29 = bitcast float* %28 to i8*
-  %30 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 26
-  %31 = load i32, i32* %30, align 8
-  %32 = sext i32 %31 to i64
-  %33 = mul i64 4, %32
-  %34 = bitcast %class.Benchmark10* %5 to %struct.Benchmark*
-  %35 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %34, i32 0, i32 15
-  %36 = load i32, i32* %35, align 8
-  %37 = call i32 @cudaMemPrefetchAsync(i8* %29, i64 %33, i32 %36, %struct.CUstream_st* null)
-  br label %38
-
-38:                                               ; preds = %15, %10, %2
-  %39 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 8
+  %18 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 7
+  %19 = load float*, float** %18, align 8
+  %20 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 15
+  %21 = load float*, float** %20, align 8
+  %22 = bitcast %class.Benchmark10* %5 to %struct.Benchmark*
+  %23 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %22, i32 0, i32 3
+  %24 = load i32, i32* %23, align 8
+  %25 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 2
+  %26 = load i32, i32* %25, align 8
+  %27 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 1
+  %28 = load i32, i32* %27, align 4
+  %29 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 4
+  %30 = load i32, i32* %29, align 8
+  %31 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 3
+  %32 = load i32, i32* %31, align 4
+  %33 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 12
+  %34 = load float*, float** %33, align 8
+  %35 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 11
+  %36 = load float*, float** %35, align 8
+  %37 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 17
+  %38 = load float*, float** %37, align 8
+  %39 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 22
   %40 = load float*, float** %39, align 8
-  %41 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 7
-  %42 = load float*, float** %41, align 8
-  %43 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 15
+  %41 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 6
+  %42 = load i32, i32* %41, align 8
+  %43 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 23
   %44 = load float*, float** %43, align 8
-  %45 = bitcast %class.Benchmark10* %5 to %struct.Benchmark*
-  %46 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %45, i32 0, i32 3
-  %47 = load i32, i32* %46, align 8
-  %48 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 2
-  %49 = load i32, i32* %48, align 8
-  %50 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 1
-  %51 = load i32, i32* %50, align 4
-  %52 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 4
-  %53 = load i32, i32* %52, align 8
-  %54 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 3
-  %55 = load i32, i32* %54, align 4
-  %56 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 12
-  %57 = load float*, float** %56, align 8
-  %58 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 11
-  %59 = load float*, float** %58, align 8
-  %60 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 17
-  %61 = load float*, float** %60, align 8
-  %62 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 22
-  %63 = load float*, float** %62, align 8
-  %64 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 6
+  %45 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 9
+  %46 = load float*, float** %45, align 8
+  %47 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 16
+  %48 = load float*, float** %47, align 8
+  %49 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 5
+  %50 = load i32, i32* %49, align 4
+  %51 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 13
+  %52 = load float*, float** %51, align 8
+  %53 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 18
+  %54 = load float*, float** %53, align 8
+  %55 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 19
+  %56 = load float*, float** %55, align 8
+  %57 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 29
+  %58 = load i32, i32* %57, align 4
+  %59 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 21
+  %60 = load float*, float** %59, align 8
+  %61 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 20
+  %62 = load float*, float** %61, align 8
+  %63 = bitcast %class.Benchmark10* %5 to %struct.Benchmark*
+  %64 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %63, i32 0, i32 5
   %65 = load i32, i32* %64, align 8
-  %66 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 23
-  %67 = load float*, float** %66, align 8
-  %68 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 9
-  %69 = load float*, float** %68, align 8
-  %70 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 16
-  %71 = load float*, float** %70, align 8
-  %72 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 5
-  %73 = load i32, i32* %72, align 4
-  %74 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 13
-  %75 = load float*, float** %74, align 8
-  %76 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 18
-  %77 = load float*, float** %76, align 8
-  %78 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 19
-  %79 = load float*, float** %78, align 8
-  %80 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 29
-  %81 = load i32, i32* %80, align 4
-  %82 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 21
-  %83 = load float*, float** %82, align 8
-  %84 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 20
-  %85 = load float*, float** %84, align 8
-  %86 = bitcast %class.Benchmark10* %5 to %struct.Benchmark*
-  %87 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %86, i32 0, i32 5
-  %88 = load i32, i32* %87, align 8
-  %89 = bitcast %class.Benchmark10* %5 to %struct.Benchmark*
-  %90 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %89, i32 0, i32 6
-  %91 = load i32, i32* %90, align 4
-  %92 = bitcast %class.Benchmark10* %5 to %struct.Benchmark*
-  %93 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %92, i32 0, i32 4
-  %94 = load i32, i32* %93, align 4
-  %95 = bitcast %class.Benchmark10* %5 to %struct.Benchmark*
-  %96 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %95, i32 0, i32 6
+  %66 = bitcast %class.Benchmark10* %5 to %struct.Benchmark*
+  %67 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %66, i32 0, i32 6
+  %68 = load i32, i32* %67, align 4
+  %69 = bitcast %class.Benchmark10* %5 to %struct.Benchmark*
+  %70 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %69, i32 0, i32 4
+  %71 = load i32, i32* %70, align 4
+  %72 = bitcast %class.Benchmark10* %5 to %struct.Benchmark*
+  %73 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %72, i32 0, i32 6
+  %74 = load i32, i32* %73, align 4
+  %75 = sdiv i32 %74, 2
+  %76 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 26
+  %77 = load i32, i32* %76, align 8
+  %78 = sext i32 %77 to i64
+  %79 = mul i64 4, %78
+  %80 = trunc i64 %79 to i32
+  %81 = bitcast %class.Benchmark10* %5 to %struct.Benchmark*
+  %82 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %81, i32 0, i32 15
+  %83 = load i32, i32* %82, align 8
+  call void @_Z16FUNCb10_prefetchPfS_S_iiiiiS_S_S_S_iS_S_S_iS_S_S_iS_S_iiiiii(float* %17, float* %19, float* %21, i32 %24, i32 %26, i32 %28, i32 %30, i32 %32, float* %34, float* %36, float* %38, float* %40, i32 %42, float* %44, float* %46, float* %48, i32 %50, float* %52, float* %54, float* %56, i32 %58, float* %60, float* %62, i32 %65, i32 %68, i32 %71, i32 %75, i32 %80, i32 %83)
+  br label %145
+
+84:                                               ; preds = %10, %2
+  %85 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 8
+  %86 = load float*, float** %85, align 8
+  %87 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 7
+  %88 = load float*, float** %87, align 8
+  %89 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 15
+  %90 = load float*, float** %89, align 8
+  %91 = bitcast %class.Benchmark10* %5 to %struct.Benchmark*
+  %92 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %91, i32 0, i32 3
+  %93 = load i32, i32* %92, align 8
+  %94 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 2
+  %95 = load i32, i32* %94, align 8
+  %96 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 1
   %97 = load i32, i32* %96, align 4
-  %98 = sdiv i32 %97, 2
-  call void @_Z7FUNCb10PfS_S_iiiiiS_S_S_S_iS_S_S_iS_S_S_iS_S_iiii(float* %40, float* %42, float* %44, i32 %47, i32 %49, i32 %51, i32 %53, i32 %55, float* %57, float* %59, float* %61, float* %63, i32 %65, float* %67, float* %69, float* %71, i32 %73, float* %75, float* %77, float* %79, i32 %81, float* %83, float* %85, i32 %88, i32 %91, i32 %94, i32 %98)
+  %98 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 4
+  %99 = load i32, i32* %98, align 8
+  %100 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 3
+  %101 = load i32, i32* %100, align 4
+  %102 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 12
+  %103 = load float*, float** %102, align 8
+  %104 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 11
+  %105 = load float*, float** %104, align 8
+  %106 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 17
+  %107 = load float*, float** %106, align 8
+  %108 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 22
+  %109 = load float*, float** %108, align 8
+  %110 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 6
+  %111 = load i32, i32* %110, align 8
+  %112 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 23
+  %113 = load float*, float** %112, align 8
+  %114 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 9
+  %115 = load float*, float** %114, align 8
+  %116 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 16
+  %117 = load float*, float** %116, align 8
+  %118 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 5
+  %119 = load i32, i32* %118, align 4
+  %120 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 13
+  %121 = load float*, float** %120, align 8
+  %122 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 18
+  %123 = load float*, float** %122, align 8
+  %124 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 19
+  %125 = load float*, float** %124, align 8
+  %126 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 29
+  %127 = load i32, i32* %126, align 4
+  %128 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 21
+  %129 = load float*, float** %128, align 8
+  %130 = getelementptr inbounds %class.Benchmark10, %class.Benchmark10* %5, i32 0, i32 20
+  %131 = load float*, float** %130, align 8
+  %132 = bitcast %class.Benchmark10* %5 to %struct.Benchmark*
+  %133 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %132, i32 0, i32 5
+  %134 = load i32, i32* %133, align 8
+  %135 = bitcast %class.Benchmark10* %5 to %struct.Benchmark*
+  %136 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %135, i32 0, i32 6
+  %137 = load i32, i32* %136, align 4
+  %138 = bitcast %class.Benchmark10* %5 to %struct.Benchmark*
+  %139 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %138, i32 0, i32 4
+  %140 = load i32, i32* %139, align 4
+  %141 = bitcast %class.Benchmark10* %5 to %struct.Benchmark*
+  %142 = getelementptr inbounds %struct.Benchmark, %struct.Benchmark* %141, i32 0, i32 6
+  %143 = load i32, i32* %142, align 4
+  %144 = sdiv i32 %143, 2
+  call void @_Z7FUNCb10PfS_S_iiiiiS_S_S_S_iS_S_S_iS_S_S_iS_S_iiii(float* %86, float* %88, float* %90, i32 %93, i32 %95, i32 %97, i32 %99, i32 %101, float* %103, float* %105, float* %107, float* %109, i32 %111, float* %113, float* %115, float* %117, i32 %119, float* %121, float* %123, float* %125, i32 %127, float* %129, float* %131, i32 %134, i32 %137, i32 %140, i32 %144)
+  br label %145
+
+145:                                              ; preds = %84, %15
   ret void
 }
 
