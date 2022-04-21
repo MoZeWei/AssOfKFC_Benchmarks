@@ -28,7 +28,7 @@
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "b1.cuh"
-
+#include<cstdlib>
 //////////////////////////////
 //////////////////////////////
 
@@ -93,6 +93,10 @@ void Benchmark1::alloc() {
 
     err = cudaStreamCreate(&s1);
     err = cudaStreamCreate(&s2);
+    //TEST          to del
+    err = cudaStreamCreate(&s3);
+    err = cudaStreamCreate(&s4);
+    err = cudaStreamCreate(&s5);
 }
 
 void Benchmark1::init() {
@@ -140,7 +144,7 @@ void FUNCb1(float * x, float * x1, float * y, float * y1, float * res, int N, in
 }
 
 void FUNCb1_prefetch(float * x, float * x1, float * y, float * y1, float * res, int N, int num_blocks, int block_size_1d,
-                    int prefetch_size1, int prefetch_size2, int device_id)
+                    size_t prefetch_size1, size_t prefetch_size2, int device_id)
 {
         cudaMemPrefetchAsync(x, prefetch_size1, device_id, 0);
         cudaMemPrefetchAsync(x1, prefetch_size1, device_id, 0);
@@ -171,30 +175,47 @@ void Benchmark1::execute_AssOfKFC(int iter) {
 }
 
 void Benchmark1::execute_async(int iter) {
-    if (!pascalGpu || stream_attach) {
-        cudaStreamAttachMemAsync(s1, x, sizeof(float) * N);
-        cudaStreamAttachMemAsync(s1, x1, sizeof(float) * N);
-        cudaStreamAttachMemAsync(s2, y, sizeof(float) * N);
-        cudaStreamAttachMemAsync(s2, y1, sizeof(float) * N);
-    }
+    // if (!pascalGpu || stream_attach) {
+    //     cudaStreamAttachMemAsync(s1, x, sizeof(float) * N);
+    //     cudaStreamAttachMemAsync(s1, x1, sizeof(float) * N);
+    //     cudaStreamAttachMemAsync(s2, y, sizeof(float) * N);
+    //     cudaStreamAttachMemAsync(s2, y1, sizeof(float) * N);
+    // }
+    cudaEvent_t e11,e12,e13,e14,e15;
     if (pascalGpu && do_prefetch) {
         cudaMemPrefetchAsync(x, sizeof(float) * N, device_id, s1);
-        cudaMemPrefetchAsync(x1, sizeof(float) * N, device_id, s1);
+        cudaMemPrefetchAsync(x1, sizeof(float) * N, device_id, s3);
+        cudaEventCreate(&e11);
+        cudaEventRecord(e11,s3);
+
         cudaMemPrefetchAsync(y, sizeof(float) * N, device_id, s2);
-        cudaMemPrefetchAsync(y1, sizeof(float) * N, device_id, s2);
-        cudaMemPrefetchAsync(res, sizeof(float), device_id, s1);
+        cudaMemPrefetchAsync(y1, sizeof(float) * N, device_id, s4);
+        cudaEventCreate(&e12);
+        cudaEventRecord(e12,s4);
+
+        cudaMemPrefetchAsync(res, sizeof(float), device_id, s5);
     }
 
+    cudaStreamWaitEvent(s1,e11);
     square<<<num_blocks, block_size_1d, 0, s1>>>(1, x1, x, N);
+    cudaEventCreate(&e14);
+    cudaEventRecord(e14,s1);
+
+    cudaStreamWaitEvent(s2,e12);
     square<<<num_blocks, block_size_1d, 0, s2>>>(1, y1, y, N);
+    cudaEventCreate(&e15);
+    cudaEventRecord(e15,s2);
 
     // Stream 1 waits stream 2;
-    cudaEvent_t e1;
-    cudaEventCreate(&e1);
-    cudaEventRecord(e1, s2);
-    cudaStreamWaitEvent(s1, e1, 0);
+    // cudaEvent_t e1;
+    // cudaEventCreate(&e1);
+    // cudaEventRecord(e1, s2);
+    // cudaStreamWaitEvent(s1, e1, 0);
 
-    reduce<<<num_blocks, block_size_1d, 0, s1>>>(1, res, x1, y1, N);
+
+    cudaStreamWaitEvent(s5,e14);
+    cudaStreamWaitEvent(s5,e15);
+    reduce<<<num_blocks, block_size_1d, 0, s5>>>(1, res, x1, y1, N);
     cudaStreamSynchronize(s1);
 }
 
@@ -291,4 +312,7 @@ Benchmark1::~Benchmark1()
     cudaFree(res);
     cudaStreamDestroy(s1);
     cudaStreamDestroy(s2);
+    cudaStreamDestroy(s3);
+    cudaStreamDestroy(s4);
+    cudaStreamDestroy(s5);
 }

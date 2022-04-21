@@ -38,13 +38,18 @@ def read_data(input_data_path):
             
 def write_data(data,dir_path):
     output_file = dir_path+"summary.csv"
-    header = ["benchmark","N","policy","bs_1d","bs_2d","nb","avg_time"]
+    header = ["benchmark","N","policy","bs_1d","bs_2d","nb","avg_time","speedup"]
     with open(output_file,"w") as csv_f:
         writer = csv.writer(csv_f)
         writer.writerow(header)
         for k,v in data.items():
+            sync_tag = list(k.split(","))
+            sync_tag[2] = "sync"
+            sync_tag = ",".join(sync_tag)
+            sync_time = data[sync_tag]
             cur_data = list(k.split(","))
             cur_data.append(v)
+            cur_data.append(sync_time/v)
             writer.writerow(cur_data)
         csv_f.close()
 

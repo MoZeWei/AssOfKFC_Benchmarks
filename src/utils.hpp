@@ -181,7 +181,7 @@ inline void print_graph(T *ptr, T* idx, int N, int max_N = 20, int max_E = 20) {
 template<typename T>
 void write_to_file(T * data, size_t size, std::string benchmark_name, int N, std::string data_name)
 {
-	std::string dir_path = "/home/mozw/Exp2/data/input_data/";
+	std::string dir_path = "/home/mozw/AssOfKFC_Benchmarks/data/input_data/";
 	std::string file_path = dir_path+benchmark_name+"/"+data_name+"_"+std::to_string(N);
 	std::fstream fs(file_path,std::ios::out);
 	if(fs.is_open())
@@ -202,7 +202,7 @@ void write_to_file(T * data, size_t size, std::string benchmark_name, int N, std
 template<typename T>
 void read_file(T * data, size_t size, std::string benchmark_name, int N, std::string data_name)
 {
-	std::string dir_path = "/home/mozw/Exp2/data/input_data/";
+	std::string dir_path = "/home/mozw/AssOfKFC_Benchmarks/data/input_data/";
 	std::string file_path = dir_path+benchmark_name+"/"+data_name+"_"+std::to_string(N);
 	std::fstream fs(file_path,std::ios::in);
 	if(fs.is_open())

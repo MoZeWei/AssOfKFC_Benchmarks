@@ -46,7 +46,7 @@ class Benchmark1 : public Benchmark {
     void prefetch(cudaStream_t &s1, cudaStream_t &s2);
     std::string print_result(bool short_form = false);
     float *x, *y, *x1, *y1, *res;
-    cudaStream_t s1, s2;
+    cudaStream_t s1, s2, s3, s4, s5;
     cudaGraph_t graph;
     cudaGraphExec_t graphExec;
     std::vector<cudaGraphNode_t> nodeDependencies;

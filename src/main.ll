@@ -1,5 +1,5 @@
-; ModuleID = '/home/mozw/Exp2/src/main.cu'
-source_filename = "/home/mozw/Exp2/src/main.cu"
+; ModuleID = '/home/mozw/AssOfKFC_Benchmarks/src/main.cu'
+source_filename = "/home/mozw/AssOfKFC_Benchmarks/src/main.cu"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
@@ -35,7 +35,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Rb_tree_key_compare.5" = type { %"struct.std::less.6" }
 %"struct.std::less.6" = type { i8 }
 %struct.Benchmark = type <{ i32 (...)**, i32, i32, i32, i32, i32, i32, i32, i8, i8, [2 x i8], i32, i32, i32, i32, i32, [4 x i8] }>
-%class.Benchmark1 = type { %struct.Benchmark.base, float*, float*, float*, float*, float*, %struct.CUstream_st*, %struct.CUstream_st*, %struct.CUgraph_st*, %struct.CUgraphExec_st*, %"class.std::vector", %struct.CUgraphNode_st*, %struct.CUgraphNode_st*, %struct.CUgraphNode_st*, %struct.cudaKernelNodeParams, %struct.cudaKernelNodeParams, %struct.cudaKernelNodeParams }
+%class.Benchmark1 = type { %struct.Benchmark.base, float*, float*, float*, float*, float*, %struct.CUstream_st*, %struct.CUstream_st*, %struct.CUstream_st*, %struct.CUstream_st*, %struct.CUstream_st*, %struct.CUgraph_st*, %struct.CUgraphExec_st*, %"class.std::vector", %struct.CUgraphNode_st*, %struct.CUgraphNode_st*, %struct.CUgraphNode_st*, %struct.cudaKernelNodeParams, %struct.cudaKernelNodeParams, %struct.cudaKernelNodeParams }
 %struct.Benchmark.base = type <{ i32 (...)**, i32, i32, i32, i32, i32, i32, i32, i8, i8, [2 x i8], i32, i32, i32, i32, i32 }>
 %struct.CUstream_st = type opaque
 %struct.CUgraph_st = type opaque
@@ -995,12 +995,12 @@ define dso_local i32 @main(i32 %0, i8** %1) #4 personality i8* bitcast (i32 (...
   br label %110
 
 28:                                               ; preds = %20
-  %29 = invoke noalias nonnull i8* @_Znwm(i64 352) #17
+  %29 = invoke noalias nonnull i8* @_Znwm(i64 376) #17
           to label %30 unwind label %24
 
 30:                                               ; preds = %28
   %31 = bitcast i8* %29 to %class.Benchmark1*
-  invoke void @_ZN10Benchmark1C2ER7Options(%class.Benchmark1* nonnull align 8 dereferenceable(352) %31, %struct.Options* nonnull align 8 dereferenceable(144) %6)
+  invoke void @_ZN10Benchmark1C2ER7Options(%class.Benchmark1* nonnull align 8 dereferenceable(376) %31, %struct.Options* nonnull align 8 dereferenceable(144) %6)
           to label %32 unwind label %34
 
 32:                                               ; preds = %30
@@ -2031,7 +2031,7 @@ declare dso_local i32 @__gxx_personality_v0(...)
 declare dso_local nonnull i8* @_Znwm(i64) #6
 
 ; Function Attrs: noinline optnone uwtable
-define linkonce_odr dso_local void @_ZN10Benchmark1C2ER7Options(%class.Benchmark1* nonnull align 8 dereferenceable(352) %0, %struct.Options* nonnull align 8 dereferenceable(144) %1) unnamed_addr #5 comdat align 2 personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
+define linkonce_odr dso_local void @_ZN10Benchmark1C2ER7Options(%class.Benchmark1* nonnull align 8 dereferenceable(376) %0, %struct.Options* nonnull align 8 dereferenceable(144) %1) unnamed_addr #5 comdat align 2 personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
   %3 = alloca %class.Benchmark1*, align 8
   %4 = alloca %struct.Options*, align 8
   %5 = alloca i8*, align 8
@@ -2044,19 +2044,19 @@ define linkonce_odr dso_local void @_ZN10Benchmark1C2ER7Options(%class.Benchmark
   call void @_ZN9BenchmarkC2ER7Options(%struct.Benchmark* nonnull align 8 dereferenceable(60) %8, %struct.Options* nonnull align 8 dereferenceable(144) %9)
   %10 = bitcast %class.Benchmark1* %7 to i32 (...)***
   store i32 (...)** bitcast (i8** getelementptr inbounds ({ [14 x i8*] }, { [14 x i8*] }* @_ZTV10Benchmark1, i32 0, inrange i32 0, i32 2) to i32 (...)**), i32 (...)*** %10, align 8
-  %11 = getelementptr inbounds %class.Benchmark1, %class.Benchmark1* %7, i32 0, i32 10
+  %11 = getelementptr inbounds %class.Benchmark1, %class.Benchmark1* %7, i32 0, i32 13
   call void @_ZNSt6vectorIP14CUgraphNode_stSaIS1_EEC2Ev(%"class.std::vector"* nonnull align 8 dereferenceable(24) %11) #3
-  %12 = getelementptr inbounds %class.Benchmark1, %class.Benchmark1* %7, i32 0, i32 14
+  %12 = getelementptr inbounds %class.Benchmark1, %class.Benchmark1* %7, i32 0, i32 17
   invoke void @_ZN20cudaKernelNodeParamsC2Ev(%struct.cudaKernelNodeParams* nonnull align 8 dereferenceable(56) %12)
           to label %13 unwind label %18
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds %class.Benchmark1, %class.Benchmark1* %7, i32 0, i32 15
+  %14 = getelementptr inbounds %class.Benchmark1, %class.Benchmark1* %7, i32 0, i32 18
   invoke void @_ZN20cudaKernelNodeParamsC2Ev(%struct.cudaKernelNodeParams* nonnull align 8 dereferenceable(56) %14)
           to label %15 unwind label %18
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds %class.Benchmark1, %class.Benchmark1* %7, i32 0, i32 16
+  %16 = getelementptr inbounds %class.Benchmark1, %class.Benchmark1* %7, i32 0, i32 19
   invoke void @_ZN20cudaKernelNodeParamsC2Ev(%struct.cudaKernelNodeParams* nonnull align 8 dereferenceable(56) %16)
           to label %17 unwind label %18
 

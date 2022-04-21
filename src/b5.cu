@@ -161,7 +161,7 @@ void FUNCb5(double * x0, double * y0, double * x1, double * y1, double * x2, dou
 
 void FUNCb5_prefetch(double * x0, double * y0, double * x1, double * y1, double * x2, double * y2, double * x3, double * y3, double * x4, double * y4,
             double * x5, double * y5,double * x6, double * y6,double * x7, double * y7,double * x8, double * y8,double * x9, double * y9,
-            int num_blocks, int block_size_1d, int N,int R,int V,int T,int K, int prefetch_size, int device_id)
+            int num_blocks, int block_size_1d, int N,int R,int V,int T,int K, size_t prefetch_size, int device_id)
 {
             cudaMemPrefetchAsync(x0,prefetch_size,device_id,0);
         cudaMemPrefetchAsync(y0,prefetch_size,device_id,0);
@@ -238,10 +238,10 @@ void Benchmark5::execute_async(int iter) {
             cudaStreamAttachMemAsync(s[j], x[j], sizeof(double) * N);
             cudaStreamAttachMemAsync(s[j], y[j], sizeof(double) * N);
         }
-        if (pascalGpu && do_prefetch) {
-            cudaMemPrefetchAsync(x[j], sizeof(double) * N, device_id, s[j]);
-            cudaMemPrefetchAsync(y[j], sizeof(double) * N, device_id, s[j]);
-        }
+        // if (pascalGpu && do_prefetch) {
+        //     cudaMemPrefetchAsync(x[j], sizeof(double) * N, device_id, s[j]);
+        //     cudaMemPrefetchAsync(y[j], sizeof(double) * N, device_id, s[j]);
+        // }
         // if (j > 0) cudaMemPrefetchAsync(y[j - 1], sizeof(double) * N, cudaCpuDeviceId, s[j - 1]);
         bs<<<num_blocks, block_size_1d, 0, s[j]>>>(1, y[j], x[j], N, R, V, T, K);
         // if (j < M - 1) cudaMemPrefetchAsync(x[j + 1], sizeof(double) * N, 0, s[j + 1]);
