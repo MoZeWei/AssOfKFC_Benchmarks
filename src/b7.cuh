@@ -54,7 +54,7 @@ class Benchmark7 : public Benchmark {
     void execute_AssOfKFC(int iter);
     std::string print_result(bool short_form = false);
     int degree = 3;
-    int iterations = 5;
+    int iterations = 1;
     int nnz;
 
     int *ptr, *idx, *val, *ptr2, *idx2, *val2, *rowCounter1, *rowCounter2, *x, *y, *v;

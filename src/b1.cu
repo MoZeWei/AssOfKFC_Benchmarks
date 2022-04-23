@@ -216,7 +216,7 @@ void Benchmark1::execute_async(int iter) {
     cudaStreamWaitEvent(s5,e14);
     cudaStreamWaitEvent(s5,e15);
     reduce<<<num_blocks, block_size_1d, 0, s5>>>(1, res, x1, y1, N);
-    cudaStreamSynchronize(s1);
+    cudaStreamSynchronize(s5);
 }
 
 void Benchmark1::execute_cudagraph(int iter) {

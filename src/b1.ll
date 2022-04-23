@@ -1527,7 +1527,7 @@ define dso_local void @_ZN10Benchmark113execute_asyncEi(%class.Benchmark1* nonnu
   br label %232
 
 232:                                              ; preds = %222, %185
-  %233 = getelementptr inbounds %class.Benchmark1, %class.Benchmark1* %22, i32 0, i32 6
+  %233 = getelementptr inbounds %class.Benchmark1, %class.Benchmark1* %22, i32 0, i32 10
   %234 = load %struct.CUstream_st*, %struct.CUstream_st** %233, align 8
   %235 = call i32 @cudaStreamSynchronize(%struct.CUstream_st* %234)
   ret void

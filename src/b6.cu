@@ -217,6 +217,24 @@ void Benchmark6::init() {
 }
 
 void Benchmark6::reset() {
+    //Init Part
+    for (int i = 0; i < num_classes; i++) {
+        for (int j = 0; j < num_features; j++) {
+            nb_feat_log_prob[i * num_features + j] = (float)(rand()) / (float)(RAND_MAX);
+            ridge_coeff[i * num_features + j] = (float)(rand()) / (float)(RAND_MAX);
+        }
+        nb_class_log_prior[i] = (float)(rand()) / (float)(RAND_MAX);
+        ridge_intercept[i] = (float)(rand()) / (float)(RAND_MAX);
+    }
+    int max_occurrence_of_ngram = 10;
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < num_features; j++) {
+            x[i * num_features + j] = rand() % max_occurrence_of_ngram;
+        }
+    }
+
+
+    //Reset Part
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < num_classes; j++) {
             r1[i * num_classes + j] = nb_class_log_prior[j];
@@ -225,15 +243,33 @@ void Benchmark6::reset() {
         // r1_mean[i] = 0;
         // r1_std[i] = 0;
     }
+    memset(z,0,sizeof(float) * N * num_features);
+    memset(r,0,sizeof(int) * N);
+    memset(nb_amax,0,sizeof(float) * N);
+    memset(nb_l,0,sizeof(float) * N);
 }
 
 void Benchmark6::execute_sync(int iter) {
     if (do_prefetch && pascalGpu) {
+        cudaMemPrefetchAsync(x, sizeof(int) * N * num_features, device_id, 0);
+        cudaDeviceSynchronize();
+        cudaMemPrefetchAsync(z, sizeof(float) * N * num_features, device_id, 0);
+        cudaDeviceSynchronize();
         cudaMemPrefetchAsync(r1, sizeof(float) * N * num_classes, device_id, 0);
         cudaDeviceSynchronize();
         cudaMemPrefetchAsync(r2, sizeof(float) * N * num_classes, device_id, 0);
         cudaDeviceSynchronize();
         cudaMemPrefetchAsync(r, sizeof(int) * N, device_id, 0);
+        cudaDeviceSynchronize();
+        cudaMemPrefetchAsync(nb_feat_log_prob, sizeof(float) * num_classes * num_features, device_id, 0);
+        cudaDeviceSynchronize();
+        cudaMemPrefetchAsync(ridge_coeff, sizeof(float) * num_classes * num_features, device_id, 0);
+        cudaDeviceSynchronize();
+        cudaMemPrefetchAsync(nb_amax,sizeof(float) * N, device_id, 0);
+        cudaDeviceSynchronize();
+        cudaMemPrefetchAsync(nb_l,sizeof(float) * N, device_id, 0);
+        cudaDeviceSynchronize();
+        cudaMemPrefetchAsync(ridge_intercept,sizeof(float) * num_classes, device_id, 0);
         cudaDeviceSynchronize();
     }
 
@@ -312,23 +348,23 @@ void FUNCb6(float * z, int * x, int N, int num_features, float * r1, float * nb_
 
 }
 
-/*
+
 //TODO: Need to correct
 void FUNCb6_prefetch(float * z, int * x, int N, int num_features, float * r1, float * nb_feat_log_prob, int num_classes, float * r2, float * ridge_coeff, 
             float * nb_amax, float * nb_l, float * ridge_intercept, int * r, int num_blocks, int block_size_1d,
-            int prefetch_size_x, int prefetch_size_z, 
-            int prefetch_size_r1, int prefetch_size_r2, int prefetch_size_r, int device_id)
+            size_t prefetch_size_x, size_t prefetch_size_z, size_t prefetch_size_nb_feat_log_prob, size_t prefetch_size_ridge_coeff, size_t prefetch_size_nb_amax, 
+            size_t prefetch_size_nb_l, size_t prefetch_size_ridge_intercept, size_t prefetch_size_r1, size_t prefetch_size_r2, size_t prefetch_size_r, int device_id)
 {
-    // cudaMemPrefetchAsync(x, prefetch_size_x, device_id, 0);
-    // cudaMemPrefetchAsync(z, prefetch_size_z, device_id, 0);
-    // cudaMemPrefetchAsync(r1, prefetch_size_r1, device_id, 0);
-    // cudaMemPrefetchAsync(r2, prefetch_size_r2, device_id, 0);
-    // cudaMemPrefetchAsync(r, prefetch_size_r, device_id, 0);
-    // cudaMemPrefetchAsync(nb_feat_log_prob, prefetch_size_nb_feat_log_prob, device_id, 0);
-    // cudaMemPrefetchAsync(ridge_coeff, prefetch_size_ridge_coeff, device_id, 0);
-    // cudaMemPrefetchAsync(nb_amax,prefetch_size_nb_amax, device_id, 0);
-    // cudaMemPrefetchAsync(nb_l,prefetch_size_nb_l, device_id, 0);
-    // cudaMemPrefetchAsync(ridge_intercept,prefetch_size_ridge_intercept, device_id, 0);
+    cudaMemPrefetchAsync(x, prefetch_size_x, device_id, 0);
+    cudaMemPrefetchAsync(z, prefetch_size_z, device_id, 0);
+    cudaMemPrefetchAsync(r1, prefetch_size_r1, device_id, 0);
+    cudaMemPrefetchAsync(r2, prefetch_size_r2, device_id, 0);
+    cudaMemPrefetchAsync(r, prefetch_size_r, device_id, 0);
+    cudaMemPrefetchAsync(nb_feat_log_prob, prefetch_size_nb_feat_log_prob, device_id, 0);
+    cudaMemPrefetchAsync(ridge_coeff, prefetch_size_ridge_coeff, device_id, 0);
+    cudaMemPrefetchAsync(nb_amax,prefetch_size_nb_amax, device_id, 0);
+    cudaMemPrefetchAsync(nb_l,prefetch_size_nb_l, device_id, 0);
+    cudaMemPrefetchAsync(ridge_intercept,prefetch_size_ridge_intercept, device_id, 0);
     
 
     rr_1<<<num_blocks, block_size_1d>>>(1, z, x, N, num_features);
@@ -352,7 +388,7 @@ void FUNCb6_prefetch(float * z, int * x, int N, int num_features, float * r1, fl
     argmax<<<num_blocks, block_size_1d>>>(1, r, r1, r2, N, num_classes);
 
 }
-*/
+
 void Benchmark6::execute_AssOfKFC(int iter)
 {
     // if (do_prefetch && pascalGpu) {
@@ -362,8 +398,9 @@ void Benchmark6::execute_AssOfKFC(int iter)
     //     cudaDeviceSynchronize();
     // }
     if(!do_prefetch || !pascalGpu) FUNCb6(z, x, N, num_features, r1, nb_feat_log_prob, num_classes, r2, ridge_coeff, nb_amax, nb_l, ridge_intercept, r, num_blocks, block_size_1d);
-    if(do_prefetch && pascalGpu)  //FUNCb6_prefetch(z, x, N, num_features, r1, nb_feat_log_prob, num_classes, r2, ridge_coeff, nb_amax, nb_l, ridge_intercept, r, num_blocks, block_size_1d, 
-                                  //                  sizeof(float) * N * num_classes, sizeof(int) * N, device_id);
+    if(do_prefetch && pascalGpu)  FUNCb6_prefetch(z, x, N, num_features, r1, nb_feat_log_prob, num_classes, r2, ridge_coeff, nb_amax, nb_l, ridge_intercept, r, num_blocks, block_size_1d,
+                                                    sizeof(int) * N * num_features, sizeof(float) * N * num_features, sizeof(float) * num_classes * num_features, sizeof(float) * num_classes * num_features, sizeof(float) * N,
+                                                    sizeof(float) * N, sizeof(float) * num_classes, sizeof(float) * N * num_classes, sizeof(float) * N * num_classes, sizeof(int) * N, device_id);
     err = cudaGetLastError();
     if (debug && err) std::cout << err << std::endl;
 }
@@ -386,16 +423,16 @@ void Benchmark6::execute_async(int iter) {
         // cudaMemPrefetchAsync(r2, sizeof(float) * N * num_classes, device_id, s1);
         // cudaMemPrefetchAsync(r, sizeof(int) * N, device_id, s1);
         
-        cudaMemPrefetchAsync(x, sizeof(int) * N * num_features, device_id, 0);
-        cudaMemPrefetchAsync(z, sizeof(float) * N * num_features, device_id, 0);
-        cudaMemPrefetchAsync(r1, sizeof(float) * N * num_classes, device_id, 0);
-        cudaMemPrefetchAsync(r2, sizeof(float) * N * num_classes, device_id, 0);
-        cudaMemPrefetchAsync(r, sizeof(int) * N, device_id, 0);
-        cudaMemPrefetchAsync(nb_feat_log_prob, sizeof(float) * num_classes * num_features, device_id, 0);
-        cudaMemPrefetchAsync(ridge_coeff, sizeof(float) * num_classes * num_features, device_id, 0);
-        cudaMemPrefetchAsync(nb_amax,sizeof(float) * N, device_id, 0);
-        cudaMemPrefetchAsync(nb_l,sizeof(float) * N, device_id, 0);
-        cudaMemPrefetchAsync(ridge_intercept,sizeof(float) * num_classes, device_id, 0);
+        cudaMemPrefetchAsync(x, sizeof(int) * N * num_features, device_id, s2);
+        cudaMemPrefetchAsync(z, sizeof(float) * N * num_features, device_id, s1);
+        cudaMemPrefetchAsync(r1, sizeof(float) * N * num_classes, device_id, s2);
+        cudaMemPrefetchAsync(r2, sizeof(float) * N * num_classes, device_id, s1);
+        cudaMemPrefetchAsync(r, sizeof(int) * N, device_id, s1);
+        cudaMemPrefetchAsync(nb_feat_log_prob, sizeof(float) * num_classes * num_features, device_id, s2);
+        cudaMemPrefetchAsync(ridge_coeff, sizeof(float) * num_classes * num_features, device_id, s1);
+        cudaMemPrefetchAsync(nb_amax,sizeof(float) * N, device_id, s2);
+        cudaMemPrefetchAsync(nb_l,sizeof(float) * N, device_id, s2);
+        cudaMemPrefetchAsync(ridge_intercept,sizeof(float) * num_classes, device_id, s1);
     }
 
     // rr_1<<<num_blocks, block_size_1d, 0, s1>>>(x, z, N, num_features);

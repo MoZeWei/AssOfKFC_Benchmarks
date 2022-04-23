@@ -314,6 +314,18 @@ void Benchmark7::execute_sync(int iter) {
             cudaDeviceSynchronize();
             cudaMemPrefetchAsync(hub_norm, sizeof(float), device_id, 0);
             cudaDeviceSynchronize();
+            cudaMemPrefetchAsync(idx, sizeof(int) * nnz, device_id, s2);
+            cudaDeviceSynchronize();
+            cudaMemPrefetchAsync(idx2, sizeof(int) * nnz, device_id, s1);
+            cudaDeviceSynchronize();
+            cudaMemPrefetchAsync(val, sizeof(int) * nnz, device_id, s2);
+            cudaDeviceSynchronize();
+            cudaMemPrefetchAsync(val2, sizeof(int) * nnz, device_id, s1);
+            cudaDeviceSynchronize();
+            cudaMemPrefetchAsync(ptr, sizeof(int) * (N+1), device_id, s2);
+            cudaDeviceSynchronize();
+            cudaMemPrefetchAsync(ptr2, sizeof(int) * (N+1), device_id, s1);
+            cudaDeviceSynchronize();
         }
 
         int nb = ceil(N / ((float)block_size_1d));
@@ -379,14 +391,22 @@ void FUNCb7(int * rowCounter1, float * auth2, int * ptr2, int * idx2, int * val2
 void FUNCb7_prefetch(int * rowCounter1, float * auth2, int * ptr2, int * idx2, int * val2, float * hub1, int N, int * rowCounter2, float * hub2, 
             int * ptr, int * idx, int * val, float * auth1, float * auth_norm, float * hub_norm,
             int nb, int num_blocks, int block_size_1d, size_t memsize,
-            int prefetch_size1, int prefetch_size2, int device_id)
+            size_t prefetch_size_auth1, size_t prefetch_size_auth2, size_t prefetch_size_hub1, size_t prefetch_size_hub2,
+            size_t prefetch_size_auth_norm, size_t prefetch_size_hub_norm, size_t prefetch_size_idx, size_t prefetch_size_idx2,
+            size_t prefetch_size_val, size_t prefetch_size_val2, size_t prefetch_size_ptr, size_t prefetch_size_ptr2, int device_id)
 {
-            cudaMemPrefetchAsync(auth1, prefetch_size1, device_id, 0);
-            cudaMemPrefetchAsync(auth2, prefetch_size1, device_id, 0);
-            cudaMemPrefetchAsync(hub1, prefetch_size1, device_id, 0);
-            cudaMemPrefetchAsync(hub2, prefetch_size1, device_id, 0);
-            cudaMemPrefetchAsync(auth_norm, prefetch_size2, device_id, 0);
-            cudaMemPrefetchAsync(hub_norm, prefetch_size2, device_id, 0);
+            cudaMemPrefetchAsync(auth1, prefetch_size_auth1, device_id, 0);
+            cudaMemPrefetchAsync(auth2, prefetch_size_auth2, device_id, 0);
+            cudaMemPrefetchAsync(hub1, prefetch_size_hub1, device_id, 0);
+            cudaMemPrefetchAsync(hub2, prefetch_size_hub2, device_id, 0);
+            cudaMemPrefetchAsync(auth_norm, prefetch_size_auth_norm, device_id, 0);
+            cudaMemPrefetchAsync(hub_norm, prefetch_size_hub_norm, device_id, 0);
+            cudaMemPrefetchAsync(idx, prefetch_size_idx, device_id, 0);
+            cudaMemPrefetchAsync(idx2, prefetch_size_idx2, device_id, 0);
+            cudaMemPrefetchAsync(val, prefetch_size_val, device_id, 0);
+            cudaMemPrefetchAsync(val2, prefetch_size_val2, device_id, 0);
+            cudaMemPrefetchAsync(ptr, prefetch_size_ptr, device_id, 0);
+            cudaMemPrefetchAsync(ptr2, prefetch_size_ptr2, device_id, 0);
 
         spmv3<<<nb, block_size_1d, memsize>>>(2, rowCounter1, auth2, ptr2, idx2, val2, hub1, N);
 
@@ -420,7 +440,9 @@ void Benchmark7::execute_AssOfKFC(int iter)
         int nb = ceil(N / ((float)block_size_1d));
 
         if (pascalGpu && do_prefetch) FUNCb7_prefetch(rowCounter1, auth2, ptr2, idx2, val2, hub1, N, rowCounter2, hub2, ptr, idx, val, auth1, auth_norm, hub_norm,
-                nb, num_blocks, block_size_1d, block_size_1d * sizeof(float), N*sizeof(float), sizeof(float),device_id);
+                nb, num_blocks, block_size_1d, block_size_1d * sizeof(float), 
+                 N * sizeof(float), N * sizeof(float), N * sizeof(float), N * sizeof(float), sizeof(float), sizeof(float),
+                 sizeof(int) * nnz, sizeof(int) * nnz, sizeof(int) * nnz, sizeof(int) * nnz, sizeof(int) * (N+1), sizeof(int) * (N+1), device_id);
         
         else FUNCb7(rowCounter1, auth2, ptr2, idx2, val2, hub1, N, rowCounter2, hub2, ptr, idx, val, auth1, auth_norm, hub_norm,
                 nb, num_blocks, block_size_1d, block_size_1d * sizeof(float));
@@ -460,6 +482,12 @@ void Benchmark7::execute_async(int iter) {
             cudaMemPrefetchAsync(hub2, N * sizeof(float), device_id, s2);
             cudaMemPrefetchAsync(auth_norm, sizeof(float), device_id, s1);
             cudaMemPrefetchAsync(hub_norm, sizeof(float), device_id, s2);
+            cudaMemPrefetchAsync(idx, sizeof(int) * nnz, device_id, s2);
+            cudaMemPrefetchAsync(idx2, sizeof(int) * nnz, device_id, s1);
+            cudaMemPrefetchAsync(val, sizeof(int) * nnz, device_id, s2);
+            cudaMemPrefetchAsync(val2, sizeof(int) * nnz, device_id, s1);
+            cudaMemPrefetchAsync(ptr, sizeof(int) * (N+1), device_id, s2);
+            cudaMemPrefetchAsync(ptr2, sizeof(int) * (N+1), device_id, s1);
         }
 
         cudaEvent_t e1, e2;

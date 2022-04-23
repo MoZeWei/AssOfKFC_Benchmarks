@@ -2337,7 +2337,7 @@ define linkonce_odr dso_local void @_ZN10Benchmark7C2ER7Options(%class.Benchmark
   %11 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %7, i32 0, i32 1
   store i32 3, i32* %11, align 4
   %12 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %7, i32 0, i32 2
-  store i32 5, i32* %12, align 8
+  store i32 1, i32* %12, align 8
   %13 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %7, i32 0, i32 31
   call void @_ZNSt6vectorIP14CUgraphNode_stSaIS1_EEC2Ev(%"class.std::vector"* nonnull align 8 dereferenceable(24) %13) #3
   %14 = getelementptr inbounds %class.Benchmark7, %class.Benchmark7* %7, i32 0, i32 40
